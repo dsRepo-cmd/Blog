@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "i18next-extract",
+    "@babel/plugin-syntax-jsx",
+    "@babel/plugin-transform-typescript"
+  ]
+}

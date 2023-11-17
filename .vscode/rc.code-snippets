@@ -1,0 +1,25 @@
+{
+	{
+		"React AppLink Component": {
+		  "prefix": "rcts",
+		  "body": [
+			"import React from 'react';",
+			"import { classNames } from 'shared/lib/classNames';",
+			"import cls from './${1:ComponentName}.module.scss';",
+			"",
+			"interface ${1:ComponentName}Props {",
+			"  className?: string;",
+			"}",
+			"",
+			"const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({ className }: ${1:ComponentName}Props) => {",
+			"  return (",
+			"    <div className={classNames(cls.${1:ComponentName}, {}, [])}></div>",
+			"  );",
+			"};",
+			"",
+			"export default ${1:ComponentName};"
+		  ],
+		  "description": "Create a React AppLink component"
+		}
+	  }
+}
