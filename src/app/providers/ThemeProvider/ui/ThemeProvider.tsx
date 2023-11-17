@@ -1,33 +1,34 @@
-import React, { FC, useMemo, useState, useEffect } from "react";
+import React from 'react'
+import { type FC, useMemo, useState, useEffect } from 'react'
 import {
   LOCAL_STORAGE_THEME_KEY,
   Theme,
-  ThemeContext,
-} from "app/providers/ThemeProvider/lib/ThemeContext";
+  ThemeContext
+} from 'app/providers/ThemeProvider/lib/ThemeContext'
 
 interface ThemeProviderProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const getInitialTheme = (): Theme => {
-  const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
-  return storedTheme || Theme.LIGHT;
-};
+  const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme
+  return storedTheme || Theme.LIGHT
+}
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme)
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
-  }, [theme]);
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
+  }, [theme])
 
-  const contextValue = useMemo(() => ({ theme, setTheme: setTheme }), [theme]);
+  const contextValue = useMemo(() => ({ theme, setTheme }), [theme])
 
   return (
-    <ThemeContext.Provider value={contextValue}>
-      {children}
-    </ThemeContext.Provider>
-  );
-};
+          <ThemeContext.Provider value={contextValue}>
+                  {children}
+          </ThemeContext.Provider>
+  )
+}
 
-export default ThemeProvider;
+export default ThemeProvider

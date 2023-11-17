@@ -1,10 +1,9 @@
-import { classNames } from "shared/lib/classNames";
-import cls from "./Navbar.module.scss";
-import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
+import { classNames } from 'shared/lib/classNames'
+import cls from './Navbar.module.scss'
+import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 
 interface NavbarProps {
-  className?: string;
+  className?: string
 }
 
 export const Navbar: React.FC = ({ className }: NavbarProps) => {
@@ -14,18 +13,18 @@ export const Navbar: React.FC = ({ className }: NavbarProps) => {
         <AppLink
           theme={AppLinkTheme.SECONDARY}
           className={classNames(cls.navLink)}
-          to={"/"}
+          to={'/'}
         >
           Main
         </AppLink>
         <AppLink
           theme={AppLinkTheme.SECONDARY}
           className={classNames(cls.navLink)}
-          to={"/about"}
+          to={'/about'}
         >
           About
         </AppLink>
       </div>
     </div>
-  );
-};
+  )
+}
