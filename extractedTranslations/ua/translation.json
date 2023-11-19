@@ -1,10 +1,13 @@
 {
   "About": "About",
   "About Page": "About Page",
+  "Enter": "Enter",
   "Language": "Language",
   "Main": "Main",
   "Main Page": "Main Page",
   "Page Not Found": "Page Not Found",
   "Unexpected Error": "Unexpected Error",
-  "Update Page": "Update Page"
+  "Update Page": "Update Page",
+  "decrement": "decrement",
+  "increment": "increment"
 }

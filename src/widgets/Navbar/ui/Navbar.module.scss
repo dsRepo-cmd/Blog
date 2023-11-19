@@ -1,18 +1,19 @@
 .navbar {
-  width: 100%;
-  height: var(--navbar-height);
-  background: var(--inverted-bg-color);
-  display: flex;
-  align-items: center;
-  padding: 20px;
+    width: 100%;
+    height: var(--navbar-height);
+    background: var(--inverted-bg-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
 }
 
 .links {
-  margin-left: auto;
-  display: flex;
-  gap: 12px;
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
 }
 
 .navLink {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
 }
