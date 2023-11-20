@@ -1,25 +1,27 @@
 :root {
-    --font-family: consolas, "Segoe UI", blinkmacsystemfont;
+  --font-family: consolas, "Segoe UI", blinkmacsystemfont;
 
-    // Fonts
-    --font-size-m: 16px;
-    --font-line-m: 24px;
-    --font-m: (var(--font-size-m) / var(--font-line-m) var(--font-family));
-    --font-size-l: 24px;
-    --font-line-l: 32px;
-    --font-l: (var(--font-size-l) / var(--font-line-l) var(--font-family));
-    --font-size-xl: 32px;
-    --font-line-xl: 40px;
-    --font-xl: (var(--font-size-l) / var(--font-line-l) var(--font-family));
+  // Fonts
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: (var(--font-size-m) / var(--font-line-m) var(--font-family));
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: (var(--font-size-l) / var(--font-line-l) var(--font-family));
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: (var(--font-size-l) / var(--font-line-l) var(--font-family));
 
-    // Sizes
-    --navbar-height: 50px;
-    --sidebar-width: 300px;
-    --sidebar-width-collapsed: 60px;
+  // Sizes
+  --navbar-height: 50px;
+  --sidebar-width: 300px;
+  --sidebar-width-collapsed: 60px;
 
-    // Indexes
-    --modal-z-index: 20;
+  // Indexes
+  --modal-z-index: 20;
 
-    // Colors
-    --overlay-color: rgb(0 0 0 / 50%);
+  // Colors
+  --overlay-color: rgb(0 0 0 / 50%);
+  --error-color-dark: rgb(173, 62, 62);
+  --error-color-light: rgb(216, 79, 79);
 }

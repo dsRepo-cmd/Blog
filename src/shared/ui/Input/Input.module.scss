@@ -1,0 +1,21 @@
+.InputWrapper {
+  margin: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.placeholder {
+  width: 100px;
+  color: var(--primary-color);
+}
+
+.input {
+  padding: 8px;
+  width: 100%;
+
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+
+  border-radius: 4px;
+}

@@ -1,8 +1,19 @@
 {
-  "Text Example": "Text Example",
-  "Language": "En",
-  "Main Page": "Main Page",
-  "Main": "Main",
+  "About": "About",
+  "About Page": "About Page",
+  "Auth form": "Auth form",
+  "Authorization form": "Authorization form",
   "Enter": "Enter",
-  "About": "About"
+  "Exit": "Exit",
+  "Language": "Us",
+  "Main": "Main",
+  "Main Page": "Main Page",
+  "Name": "Name",
+  "Page Not Found": "Page Not Found",
+  "Password": "Password",
+  "Unexpected Error": "Unexpected Error",
+  "Update Page": "Update Page",
+  "decrement": "decrement",
+  "increment": "increment",
+  "Wrong nickname or password": "Wrong nickname or passwords"
 }

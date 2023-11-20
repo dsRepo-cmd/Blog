@@ -1,8 +1,19 @@
 {
-  "Text Example": "Текстовий приклад",
-  "Language": "Ua",
-  "Main Page": "Головна Сторінка",
-  "Main": "Головна",
+  "About": "Про нас",
+  "About Page": "Про нас",
+  "Auth form": "Форма авторизації",
+  "Authorization form": "Форма авторизації",
   "Enter": "Увійти",
-  "About": "Про сайт"
+  "Exit": "Вихід",
+  "Language": "Ua",
+  "Main": "Головна",
+  "Main Page": "Головна",
+  "Name": "Ім'я",
+  "Page Not Found": "Сторінку не знайдено",
+  "Password": "Пароль",
+  "Unexpected Error": "Неочікувана помилка",
+  "Update Page": "Оновити сторінку",
+  "decrement": "зменшити",
+  "increment": "збільшити",
+  "Wrong nickname or password": "Невірний логін або пароль"
 }
