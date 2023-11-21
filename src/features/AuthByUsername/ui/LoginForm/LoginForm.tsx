@@ -82,7 +82,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(
           {error && <Text text={error} theme={TextTheme.ERROR} />}
           <Button
             onClick={onLoginClick}
-            theme={ButtonTheme.OUTLINE}
+            theme={ButtonTheme.OUTLINE_INVERTED}
             className={classNames(cls.loginBtn)}
             disabled={isLoading}
           >
