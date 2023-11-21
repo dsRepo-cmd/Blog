@@ -2,7 +2,7 @@ import { classNames } from "shared/lib/classNames";
 import cls from "./Navbar.module.scss";
 
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
-import { useState, useCallback } from "react";
+import { useState, useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: React.FC = ({ className }: NavbarProps) => {
+export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
   const [isAuthModal, setAuthModal] = useState(false);
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -54,8 +54,9 @@ export const Navbar: React.FC = ({ className }: NavbarProps) => {
       >
         {t("Enter")}
       </Button>
-
-      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      {isAuthModal && (
+        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      )}
     </div>
   );
-};
+});

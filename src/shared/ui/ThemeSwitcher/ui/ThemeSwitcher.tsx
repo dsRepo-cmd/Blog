@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./ThemeSwitcher.module.scss";
 import { Theme, useTheme } from "app/providers/ThemeProvider";
@@ -10,20 +10,20 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
-const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
-  className,
-}: ThemeSwitcherProps) => {
-  const { theme, toggleTheme } = useTheme();
+const ThemeSwitcher: React.FC<ThemeSwitcherProps> = memo(
+  ({ className }: ThemeSwitcherProps) => {
+    const { theme, toggleTheme } = useTheme();
 
-  return (
-    <Button
-      theme={ButtonTheme.CLEAR}
-      className={classNames(cls.ThemeSwitcher, {}, [className])}
-      onClick={toggleTheme}
-    >
-      {theme === Theme.LIGHT ? <Sun /> : <Moon />}
-    </Button>
-  );
-};
+    return (
+      <Button
+        theme={ButtonTheme.CLEAR}
+        className={classNames(cls.ThemeSwitcher, {}, [className])}
+        onClick={toggleTheme}
+      >
+        {theme === Theme.LIGHT ? <Sun /> : <Moon />}
+      </Button>
+    );
+  }
+);
 
 export default ThemeSwitcher;

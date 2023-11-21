@@ -2,9 +2,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { counterActions } from "../model/slice/counterSlice";
 import { getCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
-import Button from "shared/ui/Button/Button";
+import Button, { ButtonTheme } from "shared/ui/Button/Button";
+import { classNames } from "shared/lib/classNames";
+import cls from "./Counter.module.scss";
+import { memo } from "react";
 
-export const Counter = () => {
+interface CounterProps {
+  className?: string;
+}
+export const Counter: React.FC<CounterProps> = memo(({ className }) => {
   const dispatch = useDispatch();
   const counterValue = useSelector(getCounterValue);
   const { t } = useTranslation();
@@ -18,14 +24,22 @@ export const Counter = () => {
   };
 
   return (
-    <div>
+    <div className={classNames(cls.Counter, {}, [className])}>
       <h1 data-testid="value-title">{counterValue}</h1>
-      <Button onClick={increment} data-testid="increment-btn">
+      <Button
+        theme={ButtonTheme.OUTLINE_INVERTED}
+        onClick={increment}
+        data-testid="increment-btn"
+      >
         {t("increment")}
       </Button>
-      <Button data-testid="decrement-btn" onClick={decrement}>
+      <Button
+        theme={ButtonTheme.OUTLINE_INVERTED}
+        data-testid="decrement-btn"
+        onClick={decrement}
+      >
         {t("decrement")}
       </Button>
     </div>
   );
-};
+});
