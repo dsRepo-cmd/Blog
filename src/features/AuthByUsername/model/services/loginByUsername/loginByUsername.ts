@@ -15,26 +15,23 @@ export const loginByUsername = createAsyncThunk<
   User,
   loginByUsernameProps,
   ThunkConfig<string>
->(
-  "login/loginByUsername",
-  async (authData, { extra, dispatch, rejectWithValue }) => {
-    try {
-      const response = await extra.api.post("/login", authData);
+>("login/loginByUsername", async (authData, thunkApi) => {
+  const { extra, dispatch, rejectWithValue } = thunkApi;
 
-      if (!response.data) {
-        throw new Error();
-      }
+  try {
+    const response = await extra.api.post<User>("/login", authData);
 
-      localStorage.setItem(
-        USER_LOCAL_STORAGE_KEY,
-        JSON.stringify(response.data)
-      );
-      dispatch(userActions.SetAuthData(response.data));
-
-      return response.data;
-    } catch (error) {
-      console.log(error);
-      return rejectWithValue(i18n.t("Wrong nickname or password"));
+    if (!response.data) {
+      throw new Error();
     }
+
+    localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
+
+    dispatch(userActions.setAuthData(response.data));
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return rejectWithValue(i18n.t("Wrong nickname or password"));
   }
-);
+});

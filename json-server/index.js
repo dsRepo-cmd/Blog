@@ -9,6 +9,7 @@ const router = jsonServer.router(path.resolve(__dirname, "db.json"));
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
+// delay server imitation
 server.use(async (req, res, next) => {
   await new Promise((res) => {
     setTimeout(res, 800);
@@ -16,6 +17,7 @@ server.use(async (req, res, next) => {
   next();
 });
 
+// endpoint for loggin
 server.post("/login", (req, res) => {
   try {
     const { username, password } = req.body;
@@ -42,6 +44,7 @@ server.post("/login", (req, res) => {
   }
 });
 
+// check isLoggin
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
     return res.status(403).json({ message: "AUTH ERROR" });
@@ -52,6 +55,7 @@ server.use((req, res, next) => {
 
 server.use(router);
 
+//start server
 server.listen(8000, () => {
   console.log("server is running on 8000 port");
 });

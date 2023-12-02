@@ -11,14 +11,18 @@ import { StoreProvider } from "app/providers/StoreProvider";
 
 const rootElement = document.getElementById("root");
 
-ReactDOM.createRoot(rootElement).render(
-  <BrowserRouter>
-    <StoreProvider>
-      <ErrorBoundary>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </ErrorBoundary>
-    </StoreProvider>
-  </BrowserRouter>
-);
+if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(
+    <BrowserRouter>
+      <StoreProvider>
+        <ErrorBoundary>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </ErrorBoundary>
+      </StoreProvider>
+    </BrowserRouter>
+  );
+} else {
+  console.error("Root element not found");
+}
