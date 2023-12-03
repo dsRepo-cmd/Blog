@@ -1,6 +1,12 @@
 {
   "Edit": "Edit",
   "Lastname": "Lastname",
-  "Name": "Name",
-  "Profile": "Profile"
+  "Firstname": "Firstname",
+  "Profile": "Profile",
+  "Age": "Age",
+  "City": "City",
+  "Username": "Username",
+  "Avatar link": "Avatar link",
+  "Currency": "Currency",
+  "Country": "Country"
 }

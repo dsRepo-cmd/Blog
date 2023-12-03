@@ -16,5 +16,16 @@
   "decrement": "decrement",
   "increment": "increment",
   "Wrong nickname or password": "Wrong nickname or passwords",
-  "Profile": "Profile"
+  "Profile": "Profile",
+  "Edit": "Edit",
+  "Lastname": "Lastname",
+  "Firstname": "Firstname",
+  "Age": "Age",
+  "City": "City",
+  "Username": "Username",
+  "Avatar link": "Avatar link",
+  "Currency": "Currency",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Country": "Country"
 }

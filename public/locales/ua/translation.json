@@ -16,5 +16,14 @@
   "decrement": "зменшити",
   "increment": "збільшити",
   "Wrong nickname or password": "Невірний логін або пароль",
-  "Profile": "Профіль"
+  "Profile": "Профіль",
+  "Age": "Вік",
+  "City": "Місто",
+  "Username": "Ім'я користувача",
+  "Avatar link": "Аватар",
+  "Currency": "Валюта",
+  "Cancel": "Відмінити",
+  "Edit": "Редагувати",
+  "Save": "Зберегти",
+  "Country": "Країна"
 }

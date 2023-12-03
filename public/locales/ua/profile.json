@@ -1,6 +1,12 @@
 {
   "Edit": "Редагувати",
   "Lastname": "Фамілія",
-  "Name": "Ім'я",
-  "Profile": "Профіль"
+  "Firstname": "Ім'я",
+  "Profile": "Профіль",
+  "Age": "Вік",
+  "City": "Місто",
+  "Username": "Ім'я користувача",
+  "Avatar link": "Аватар",
+  "Currency": "Валюта",
+  "Country": "Країна"
 }

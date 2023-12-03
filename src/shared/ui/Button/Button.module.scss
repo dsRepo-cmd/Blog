@@ -31,6 +31,13 @@
   color: var(--inverted-primary-color);
   border-radius: 6px;
 }
+
+.outline_red {
+  padding: 8px 15px;
+  border: 1px solid var(--error-color-light);
+  color: var(--error-color-light);
+  border-radius: 6px;
+}
 .outlineInverted {
   padding: 8px 15px;
   border: 1px solid var(--primary-color);

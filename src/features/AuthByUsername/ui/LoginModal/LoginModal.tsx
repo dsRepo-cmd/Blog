@@ -4,8 +4,7 @@ import cls from "./LoginModal.module.scss";
 import Modal from "shared/ui/Modal/Modal";
 
 import Loader from "shared/ui/Loader/Loader";
-
-import { LoginFormAsync } from "../LoginForm/LoginForm.async";
+import LoginForm from "../LoginForm/LoginForm";
 
 interface LoginModalProps {
   className?: string;
@@ -23,7 +22,7 @@ const LoginModal: React.FC<LoginModalProps> = memo(
         lazy
       >
         <Suspense fallback={<Loader />}>
-          <LoginFormAsync onSuccess={onClose} />
+          <LoginForm onSuccess={onClose} />
         </Suspense>
       </Modal>
     );

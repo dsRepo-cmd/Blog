@@ -10,14 +10,15 @@ import { classNames } from "shared/lib/classNames";
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange"
+  "value" | "onChange" | "readOnly"
 >;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   autofocus?: boolean;
+  readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -28,6 +29,7 @@ export const Input = memo((props: InputProps) => {
     type = "text",
     placeholder,
     autofocus,
+    readonly,
     ...restProps
   } = props;
   const ref = useRef<HTMLInputElement>(null);
@@ -42,8 +44,12 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value);
   };
 
+  const mods = {
+    [cls.readonly]: readonly,
+  };
+
   return (
-    <div className={classNames(cls.InputWrapper, {}, [className])}>
+    <div className={classNames(cls.InputWrapper, mods, [className])}>
       {placeholder && <div className={cls.placeholder}>{placeholder}:</div>}
 
       <input
@@ -52,6 +58,7 @@ export const Input = memo((props: InputProps) => {
         value={value}
         onChange={onChangeHandler}
         className={cls.input}
+        readOnly={readonly}
         {...restProps}
       />
     </div>
