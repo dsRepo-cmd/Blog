@@ -9,8 +9,10 @@ import DynamicModuleLoader, {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {
   ProfileCard,
+  ValidateProfileError,
   fetchProfileData,
   getProfileReadonly,
+  getProfileValidateErrors,
   profileActions,
   profileReducer,
 } from "entities/Profile";
@@ -22,6 +24,7 @@ import { getProfileForm } from "entities/Profile/model/selectors/getProfileForm/
 import { Currency } from "entities/Currency/model/types/currency";
 import { Country } from "entities/Coutnry/model/types/country";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
+import Text, { TextTheme } from "shared/ui/Text/Text";
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -38,6 +41,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t("Server error"),
+    [ValidateProfileError.INCORRECT_AGE]: t("Incorrect age"),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t("Incorrect user data"),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t("Incorrect country"),
+    [ValidateProfileError.NO_DATA]: t("No data"),
+  };
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -103,6 +114,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.ProfilePage, {}, [className])}>
         <ProfilePageHeader />
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text
+              key={err}
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[err]}
+            />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}

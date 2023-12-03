@@ -2,5 +2,7 @@
   border-radius: 50%;
   height: 100px;
   width: 100px;
-  background-size: inherit;
+  object-fit: cover;
+  object-position: 50% 50%;
+  box-shadow: 0px 0px 5px var(--primary-color);
 }

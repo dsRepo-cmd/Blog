@@ -29,10 +29,10 @@
     "first": "John",
     "lastname": "Wayne",
     "age": 80,
-    "currency": "EUR",
-    "country": "USA",
-    "city": "Kyiv",
+    "currency": "USD",
+    "country": "Polland",
+    "city": "New York",
     "username": "admin",
-    "avatar": "https://upload.wikimedia.org/wikipedia/commons/7/7b/John_Wayne_-_still_portrait.jpg"
+    "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg"
   }
 }
