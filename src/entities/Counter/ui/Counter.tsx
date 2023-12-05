@@ -25,7 +25,9 @@ export const Counter: React.FC<CounterProps> = memo(({ className }) => {
 
   return (
     <div className={classNames(cls.Counter, {}, [className])}>
-      <h1 data-testid="value-title">{counterValue}</h1>
+      <h1 className={cls.value} data-testid="value-title">
+        {counterValue}
+      </h1>
       <Button
         theme={ButtonTheme.OUTLINE_INVERTED}
         onClick={increment}

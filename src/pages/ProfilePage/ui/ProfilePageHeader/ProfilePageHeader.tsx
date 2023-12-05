@@ -11,6 +11,8 @@ import {
   updateProfileData,
 } from "entities/Profile";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { getUserAuthData } from "entities/User";
+import { getProfileData } from "entities/Profile/model/selectors/getProfileData/getProfileData";
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -20,6 +22,9 @@ const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({
   className,
 }: ProfilePageHeaderProps) => {
   const { t } = useTranslation();
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+  const canEdit = authData?.id === profileData?.id;
 
   const readonly = useSelector(getProfileReadonly);
 
@@ -40,33 +45,39 @@ const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({
   return (
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
       <Text title={t("Profile")} />
-      {readonly ? (
-        <Button
-          className={cls.editBtn}
-          theme={ButtonTheme.OUTLINE_INVERTED}
-          onClick={onEdit}
-        >
-          {t("Edit")}
-        </Button>
-      ) : (
-        <>
-          <div className={cls.btns}>
-            <Button
-              className={cls.saveBtn}
-              theme={ButtonTheme.OUTLINE_INVERTED}
-              onClick={onSaveEdit}
-            >
-              {t("Save")}
-            </Button>
+      {canEdit ? (
+        <div className={cls.btnWrapper}>
+          {readonly ? (
             <Button
               className={cls.editBtn}
-              theme={ButtonTheme.OUTLINE_RED}
-              onClick={onCancelEdit}
+              theme={ButtonTheme.OUTLINE_INVERTED}
+              onClick={onEdit}
             >
-              {t("Cancel")}
+              {t("Edit")}
             </Button>
-          </div>
-        </>
+          ) : (
+            <>
+              <div className={cls.btns}>
+                <Button
+                  className={cls.saveBtn}
+                  theme={ButtonTheme.OUTLINE_INVERTED}
+                  onClick={onSaveEdit}
+                >
+                  {t("Save")}
+                </Button>
+                <Button
+                  className={cls.editBtn}
+                  theme={ButtonTheme.OUTLINE_RED}
+                  onClick={onCancelEdit}
+                >
+                  {t("Cancel")}
+                </Button>
+              </div>
+            </>
+          )}
+        </div>
+      ) : (
+        ""
       )}
     </div>
   );

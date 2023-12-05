@@ -10,9 +10,9 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchArticleById } from "entities/Article/model/services/fetchArticleById/fetchArticleById";
 import { useSelector } from "react-redux";
 import {
-  articleDetailsData,
-  articleDetailsError,
-  articleDetailsIsLoading,
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
 } from "entities/Article/model/selectors/articleDetails";
 import Text, { TextAlign, TextSize, TextTheme } from "shared/ui/Text/Text";
 import Skeleton from "shared/ui/Skeleton/Skeleton";
@@ -39,10 +39,10 @@ const redusers: ReducerList = {
 const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className, id }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const isLoading = useSelector(articleDetailsIsLoading);
+  const isLoading = useSelector(getArticleDetailsIsLoading);
 
-  const error = useSelector(articleDetailsError);
-  const article = useSelector(articleDetailsData);
+  const error = useSelector(getArticleDetailsError);
+  const article = useSelector(getArticleDetailsData);
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:

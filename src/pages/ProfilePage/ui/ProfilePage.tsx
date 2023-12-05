@@ -25,6 +25,7 @@ import { Currency } from "entities/Currency/model/types/currency";
 import { Country } from "entities/Coutnry/model/types/country";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 import Text, { TextTheme } from "shared/ui/Text/Text";
+import { useParams } from "react-router-dom";
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -50,8 +51,12 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     [ValidateProfileError.NO_DATA]: t("No data"),
   };
 
+  const { id } = useParams<{ id: string }>();
+
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
   }, [dispatch]);
 
   const onChangeFirstname = useCallback(

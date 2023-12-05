@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./ArticlesPage.module.scss";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 interface ArticlesPageProps {
   className?: string;
@@ -12,7 +13,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
 
   return (
     <div className={classNames(cls.ArticlesPage, {}, [className])}>
-      ArticlesPage
+      <Link to={"/article/1"}>Article1</Link>
     </div>
   );
 };

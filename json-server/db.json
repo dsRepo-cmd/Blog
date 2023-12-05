@@ -29,6 +29,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "wqewq",
+      "id": "KT-WygF"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "1231",
+      "id": "SDbXhIV"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test",
+      "id": "Kplo2TS"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Hello",
+      "id": "z50r9vV"
     }
   ],
   "users": [
@@ -36,27 +60,39 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg"
+      "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg"
     },
-
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg"
+      "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg"
     }
   ],
-  "profile": {
-    "first": "John",
-    "lastname": "Wayne",
-    "age": 80,
-    "currency": "USD",
-    "country": "USA",
-    "city": "New York",
-    "username": "admin",
-    "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg"
-  },
-
+  "profile": [
+    {
+      "id": "1",
+      "first": "Clint",
+      "lastname": "Eastwood",
+      "age": 40,
+      "currency": "USD",
+      "country": "USA",
+      "city": "New York",
+      "username": "admin",
+      "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg"
+    },
+    {
+      "id": "2",
+      "first": "John",
+      "lastname": "Wayne",
+      "age": 80,
+      "currency": "USD",
+      "country": "USA",
+      "city": "New York",
+      "username": "user",
+      "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg"
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -65,7 +101,9 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
       "views": 309,
       "createdAt": "02.12.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
