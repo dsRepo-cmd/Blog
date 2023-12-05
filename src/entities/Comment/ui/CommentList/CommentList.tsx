@@ -33,6 +33,7 @@ const CommentList: React.FC<CommentListProps> = ({
       {comments?.length ? (
         comments.map((comment) => (
           <CommentCard
+            key={comment.id}
             isLoading={isLoading}
             className={cls.comment}
             comment={comment}

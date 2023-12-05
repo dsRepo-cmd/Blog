@@ -7,8 +7,10 @@ import Button, { ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
 
 import ArrowLeft from "shared/assets/icons/angle-left.svg";
 import ArrowRight from "shared/assets/icons/angle-right.svg";
-import { SideBarItemList } from "widgets/SideBar/model/items";
+
 import SideBarItem from "./SideBarItem/SideBarItem";
+import { useSelector } from "react-redux";
+import { getSidebarItems } from "widgets/SideBar/model/selector/getSideBarItems";
 
 interface SideBarProps {
   className?: string;
@@ -17,15 +19,17 @@ interface SideBarProps {
 const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
+  const sideBarItemList = useSelector(getSidebarItems);
+
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
 
   const itemsList = useMemo(() => {
-    return SideBarItemList.map((item) => (
+    return sideBarItemList.map((item) => (
       <SideBarItem collapsed={collapsed} item={item} key={item.path} />
     ));
-  }, [collapsed]);
+  }, [collapsed, sideBarItemList]);
 
   return (
     <div
