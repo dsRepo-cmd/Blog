@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, memo } from "react";
 import { classNames } from "shared/lib/classNames";
 
 import cls from "./ProfilePage.module.scss";
@@ -141,4 +141,4 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   );
 };
 
-export default ProfilePage;
+export default memo(ProfilePage);

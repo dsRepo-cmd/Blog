@@ -1,6 +1,5 @@
 import { BuildOptions } from "./types/config";
 import webpack from "webpack";
-import path from "path";
 
 import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoaders";
@@ -20,6 +19,7 @@ export function buildWebpackConfig(
       filename: "[name].[contenthash].js",
       path: paths.build,
       clean: true,
+      publicPath: "/",
     },
 
     plugins: buildPlugins(options),

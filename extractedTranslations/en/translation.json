@@ -3,6 +3,7 @@
   "About": "About",
   "About Page": "About Page",
   "Age": "Age",
+  "Article not found": "Article not found",
   "Auth form": "Auth form",
   "Authorization form": "Authorization form",
   "Avatar link": "Avatar link",
@@ -33,6 +34,7 @@
   "Profile Page": "Profile Page",
   "Save": "Save",
   "Server error": "Server error",
+  "There was an error loading the article": "There was an error loading the article",
   "Try": "Try",
   "Try refreshing the page": "Try refreshing the page",
   "Try to": "Try to",
@@ -43,6 +45,5 @@
   "Your lastname": "Your lastname",
   "Your name": "Your name",
   "decrement": "decrement",
-  "increment": "increment",
-  "Редактировать": "Редактировать"
+  "increment": "increment"
 }
