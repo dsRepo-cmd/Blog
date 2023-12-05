@@ -18,7 +18,7 @@
 
 .content {
   padding: 20px;
-  border-radius: 12px;
+  border-radius: var(--border-radius-m);
   background-color: var(--bg-color);
   transition: 0.35s transform;
   transform: scale(0.5);

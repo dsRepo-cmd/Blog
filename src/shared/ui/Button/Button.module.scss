@@ -29,20 +29,20 @@
   padding: 8px 15px;
   border: 1px solid var(--inverted-primary-color);
   color: var(--inverted-primary-color);
-  border-radius: 6px;
+  border-radius: var(--border-radius-l);
 }
 
 .outline_red {
   padding: 8px 15px;
   border: 1px solid var(--error-color-light);
   color: var(--error-color-light);
-  border-radius: 6px;
+  border-radius: var(--border-radius-l);
 }
 .outlineInverted {
   padding: 8px 15px;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
-  border-radius: 6px;
+  border-radius: var(--border-radius-l);
 }
 
 .background {
