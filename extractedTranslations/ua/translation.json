@@ -7,6 +7,8 @@
   "Auth form": "Auth form",
   "Authorization form": "Authorization form",
   "Avatar link": "Avatar link",
+  "Back to lest": "Back to lest",
+  "Back to list": "Back to list",
   "Cancel": "Cancel",
   "Cansel": "Cansel",
   "City": "City",
@@ -35,6 +37,13 @@
   "Password": "Password",
   "Profile": "Profile",
   "Profile Page": "Profile Page",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Save": "Save",
   "Send": "Send",
   "Server error": "Server error",
@@ -48,5 +57,12 @@
   "Your lastname": "Your lastname",
   "Your name": "Your name",
   "decrement": "decrement",
-  "increment": "increment"
+  "increment": "increment",
+  "Читать далее": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  }
 }

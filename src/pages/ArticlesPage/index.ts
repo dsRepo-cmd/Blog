@@ -1,2 +1,3 @@
 import ArticlesPage from "./ui/ArticlesPage";
-export { ArticlesPage };
+import { ArticlesPageSchema } from "./model/types/articlesPageSchema";
+export { ArticlesPage, ArticlesPageSchema };
