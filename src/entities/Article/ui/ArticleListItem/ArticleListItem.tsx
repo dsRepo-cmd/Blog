@@ -41,7 +41,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
   const views = (
     <div className={cls.views}>
       <Text text={String(article.views)} />
-      <Icon width={24} height={24} Svg={EyeIcon} />
+      <Icon width={16} height={16} Svg={EyeIcon} />
     </div>
   );
 

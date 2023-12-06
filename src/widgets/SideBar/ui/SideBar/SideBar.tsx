@@ -32,7 +32,7 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
   }, [collapsed, sideBarItemList]);
 
   return (
-    <div
+    <menu
       className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [
         className,
       ])}
@@ -53,7 +53,7 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
         <LangSwitcher />
         <ThemeSwitcher />
       </div>
-    </div>
+    </menu>
   );
 };
 

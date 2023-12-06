@@ -22,8 +22,6 @@ server.post("/login", (req, res) => {
   try {
     const { username, password } = req.body;
 
-    console.log("Login data", username, password);
-
     const db = JSON.parse(
       fs.readFileSync(path.resolve(__dirname, "db.json"), "UTF-8")
     );

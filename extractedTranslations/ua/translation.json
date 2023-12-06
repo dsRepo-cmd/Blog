@@ -44,6 +44,7 @@
       }
     }
   },
+  "Read-more": "Read-more",
   "Save": "Save",
   "Send": "Send",
   "Server error": "Server error",
@@ -58,6 +59,7 @@
   "Your name": "Your name",
   "decrement": "decrement",
   "increment": "increment",
+  "read-more": "read-more",
   "Читать далее": {
     "": {
       "": {
