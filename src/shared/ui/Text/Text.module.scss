@@ -43,30 +43,32 @@
   text-align: center;
 }
 
+.size_s {
+  .title {
+    font: var(--font-m);
+  }
+
+  .text {
+    font: var(--font-s);
+  }
+}
+
 .size_m {
   .title {
     font: var(--font-l);
-    font-size: var(--font-size-l);
-    line-height: var(--font-line-l);
   }
 
   .text {
     font: var(--font-m);
-    font-size: var(--font-size-m);
-    line-height: var(--font-line-m);
   }
 }
 
 .size_l {
   .title {
     font: var(--font-xl);
-    font-size: var(--font-size-xl);
-    line-height: var(--font-line-l);
   }
 
   .text {
     font: var(--font-l);
-    font-size: var(--font-size-l);
-    line-height: var(--font-line-l);
   }
 }

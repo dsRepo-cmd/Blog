@@ -3,29 +3,22 @@ import { classNames } from "shared/lib/classNames";
 import cls from "./ArticleDetailsPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { ArticleDetails, ArticleView } from "entities/Article";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Text, { TextSize } from "shared/ui/Text/Text";
 import { CommentList } from "entities/Comment";
 import DynamicModuleLoader, {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments,
-} from "../../model/slices/articleDetailsCommentsSlice";
+import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
 import { useSelector } from "react-redux";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { AddCommentForm } from "features/addCommentForm";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
-import Button, { ButtonTheme } from "shared/ui/Button/Button";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+
 import Page from "widgets/Page/Page";
-import {
-  articleDetailsPageRecommendationsReducer,
-  getArticleRecommendations,
-} from "../../model/slices/articleDetailsPageRecommendationsSlice";
+import { getArticleRecommendations } from "../../model/slices/articleDetailsPageRecommendationsSlice";
 import { getArticleRecommendationsIsLoading } from "../../model/selectors/recomendations";
 import ArticleList from "entities/Article/ui/ArticleList/ArticleList";
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";

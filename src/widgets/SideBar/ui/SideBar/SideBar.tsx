@@ -11,6 +11,7 @@ import ArrowRight from "shared/assets/icons/angle-right.svg";
 import SideBarItem from "./SideBarItem/SideBarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "widgets/SideBar/model/selector/getSideBarItems";
+import { VStack } from "shared/ui/Stack";
 
 interface SideBarProps {
   className?: string;
@@ -32,7 +33,7 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
   }, [collapsed, sideBarItemList]);
 
   return (
-    <menu
+    <aside
       className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [
         className,
       ])}
@@ -47,13 +48,15 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
         {collapsed ? <ArrowRight /> : <ArrowLeft />}
       </Button>
 
-      <div className={cls.items}>{itemsList}</div>
+      <VStack role="navigation" align="start" gap="12" className={cls.items}>
+        {itemsList}
+      </VStack>
 
       <div className={cls.switchers}>
         <LangSwitcher />
         <ThemeSwitcher />
       </div>
-    </menu>
+    </aside>
   );
 };
 

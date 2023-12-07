@@ -13,6 +13,7 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { getUserAuthData } from "entities/User";
 import { getProfileData } from "entities/Profile/model/selectors/getProfileData/getProfileData";
+import { HStack } from "shared/ui/Stack";
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -43,21 +44,20 @@ const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+    <HStack
+      justify="between"
+      className={classNames(cls.ProfilePageHeader, {}, [className])}
+    >
       <Text title={t("Profile")} />
       {canEdit ? (
-        <div className={cls.btnWrapper}>
+        <>
           {readonly ? (
-            <Button
-              className={cls.editBtn}
-              theme={ButtonTheme.OUTLINE_INVERTED}
-              onClick={onEdit}
-            >
+            <Button theme={ButtonTheme.OUTLINE_INVERTED} onClick={onEdit}>
               {t("Edit")}
             </Button>
           ) : (
             <>
-              <div className={cls.btns}>
+              <HStack gap="12" className={cls.btns}>
                 <Button
                   className={cls.saveBtn}
                   theme={ButtonTheme.OUTLINE_INVERTED}
@@ -65,21 +65,17 @@ const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({
                 >
                   {t("Save")}
                 </Button>
-                <Button
-                  className={cls.editBtn}
-                  theme={ButtonTheme.OUTLINE_RED}
-                  onClick={onCancelEdit}
-                >
+                <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
                   {t("Cancel")}
                 </Button>
-              </div>
+              </HStack>
             </>
           )}
-        </div>
+        </>
       ) : (
         ""
       )}
-    </div>
+    </HStack>
   );
 };
 

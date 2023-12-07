@@ -3,6 +3,7 @@ import { classNames } from "shared/lib/classNames";
 import cls from "./Card.module.scss";
 
 export enum CardTheme {
+  DEFAULT = "default",
   NORMAL = "normal",
   OUTLINED = "outlined",
 }
@@ -16,7 +17,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 const Card: React.FC<CardProps> = ({
   className,
   children,
-  theme = CardTheme.NORMAL,
+  theme = CardTheme.DEFAULT,
   ...restProps
 }) => {
   return (

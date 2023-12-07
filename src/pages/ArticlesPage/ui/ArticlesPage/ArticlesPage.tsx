@@ -7,11 +7,10 @@ import DynamicModuleLoader, {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {
-  articlesPageActions,
   articlesPageReducer,
   getArticles,
 } from "../../model/slices/articlePageSlice";
-import { ArticleView, ArticleViewSelector } from "entities/Article";
+
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import {

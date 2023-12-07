@@ -1,7 +1,4 @@
 .ProfileCard {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   padding: 20px;
   border: 1px solid var(--inverted-bg-color);
   border-radius: var(--border-radius-m);
@@ -9,9 +6,6 @@
 
 .loading,
 .error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 200px;
 }
 
@@ -20,7 +14,3 @@
   width: 100%;
   justify-content: center;
 }
-
-// .editing {
-//   border: 1px solid var(--inverted-primary-color);
-// }

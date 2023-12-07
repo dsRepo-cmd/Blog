@@ -1,7 +1,6 @@
 import React, { memo } from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./Text.module.scss";
-import { useTranslation } from "react-i18next";
 
 export enum TextTheme {
   PRIMARY = "primary",
@@ -16,6 +15,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+  S = "size_s",
   M = "size_m",
   L = "size_l",
 }
@@ -29,6 +29,14 @@ interface TextProps {
   size?: TextSize;
 }
 
+type HeaderTagType = "h1" | "h2" | "h3";
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+  [TextSize.S]: "h3",
+  [TextSize.M]: "h2",
+  [TextSize.L]: "h1",
+};
+
 const Text: React.FC<TextProps> = memo(
   ({
     className,
@@ -38,7 +46,7 @@ const Text: React.FC<TextProps> = memo(
     align = TextAlign.LEFT,
     size = TextSize.M,
   }: TextProps) => {
-    const { t } = useTranslation();
+    const HeaderTag = mapSizeToHeaderTag[size];
 
     const mods = {
       [cls[theme]]: true,
@@ -48,7 +56,7 @@ const Text: React.FC<TextProps> = memo(
 
     return (
       <div className={classNames(cls.Text, mods, [className])}>
-        {title && <p className={cls.title}>{title}</p>}
+        {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
         {text && <p className={cls.text}>{text}</p>}
       </div>
     );

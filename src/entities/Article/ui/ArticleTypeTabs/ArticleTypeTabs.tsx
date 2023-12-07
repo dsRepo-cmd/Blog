@@ -21,10 +21,10 @@ const ArticleTypeTabs: React.FC<ArticleTypeTabsProps> = ({
   const typeTabs = useMemo<TabItem[]>(
     () => [
       { value: ArticleType.IT, content: t("IT") },
-      { value: ArticleType.ALL, content: t("ALL") },
-      { value: ArticleType.ECONOMICS, content: t("ECONOMICS") },
-      { value: ArticleType.SCIENCE, content: t("SCIENCE") },
-      { value: ArticleType.POLITICS, content: t("POLITICS") },
+      { value: ArticleType.ALL, content: t("All") },
+      { value: ArticleType.ECONOMICS, content: t("Economics") },
+      { value: ArticleType.SCIENCE, content: t("Science") },
+      { value: ArticleType.POLITICS, content: t("Politics") },
     ],
     [t]
   );

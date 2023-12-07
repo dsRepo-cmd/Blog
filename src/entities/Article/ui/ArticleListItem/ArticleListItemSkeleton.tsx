@@ -4,6 +4,7 @@ import { ArticleView } from "../../model/types/article";
 import { classNames } from "shared/lib/classNames";
 import Card from "shared/ui/Card/Card";
 import Skeleton from "shared/ui/Skeleton/Skeleton";
+import { VStack } from "shared/ui/Stack";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -23,11 +24,11 @@ export const ArticleListItemSkeleton = memo(
           ])}
         >
           <Card className={cls.card}>
-            <div className={cls.header}>
+            <VStack max className={cls.header}>
               <Skeleton border="50%" height={30} width={30} />
               <Skeleton width={150} height={16} className={cls.username} />
               <Skeleton width={150} height={16} className={cls.date} />
-            </div>
+            </VStack>
             <Skeleton width={250} height={24} className={cls.title} />
             <Skeleton height={200} className={cls.img} />
             <div className={cls.footer}>
@@ -43,9 +44,9 @@ export const ArticleListItemSkeleton = memo(
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
       >
         <Card className={cls.card}>
-          <div className={cls.imageWrapper}>
-            <Skeleton width={200} height={200} className={cls.img} />
-          </div>
+          <VStack max className={cls.imageWrapper}>
+            <Skeleton width={"100%"} height={200} className={cls.img} />
+          </VStack>
           <div className={cls.infoWrapper}>
             <Skeleton width={130} height={16} />
           </div>

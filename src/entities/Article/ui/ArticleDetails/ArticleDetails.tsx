@@ -27,6 +27,7 @@ import {
 import ArticleCodeBlockComponent from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import ArticleImageBlockComponent from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticleDetailsProps {
   className?: string;
@@ -105,26 +106,38 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className, id }) => {
   } else {
     content = (
       <>
-        <div className={cls.avatarWrapper}>
+        <HStack justify="center" max className={cls.avatarWrapper}>
           <Avatar size={200} src={article?.img} className={cls.avatar} />
-        </div>
+        </HStack>
 
-        <Text
-          className={cls.title}
-          title={article?.title}
-          text={article?.subtitle}
-          size={TextSize.L}
-        />
+        <VStack gap="4" max>
+          <Text
+            className={cls.title}
+            title={article?.title}
+            text={article?.subtitle}
+            size={TextSize.L}
+          />
 
-        <div className={cls.articleInfo}>
-          <Icon className={cls.icon} Svg={EyeIcon}></Icon>
-          <Text text={String(article?.views)} />
-        </div>
+          <HStack gap="8" className={cls.articleInfo}>
+            <Icon
+              width={20}
+              height={20}
+              className={cls.icon}
+              Svg={EyeIcon}
+            ></Icon>
+            <Text text={String(article?.views)} />
+          </HStack>
+        </VStack>
 
-        <div className={cls.articleInfo}>
-          <Icon className={cls.icon} Svg={CalendarIcon}></Icon>
+        <HStack gap="8" className={cls.articleInfo}>
+          <Icon
+            width={20}
+            height={20}
+            className={cls.icon}
+            Svg={CalendarIcon}
+          ></Icon>
           <Text text={article?.createdAt} />
-        </div>
+        </HStack>
         {article?.blocks.map(renderBlock)}
       </>
     );
@@ -132,9 +145,12 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className, id }) => {
 
   return (
     <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
-      <div className={classNames(cls.ArticleDetails, {}, [className])}>
+      <VStack
+        gap="16"
+        className={classNames(cls.ArticleDetails, {}, [className])}
+      >
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 };

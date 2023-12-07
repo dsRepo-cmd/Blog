@@ -47,6 +47,42 @@
       "userId": "1",
       "text": "Hi!",
       "id": "gTAaBv5"
+    },
+    {
+      "articleId": "17",
+      "userId": "1",
+      "text": "вавіа",
+      "id": "pVpLTMK"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "s1",
+      "id": "oJfFeB_"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "sd",
+      "id": "VRID81a"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "comment 1",
+      "id": "HNdrkpG"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "sd",
+      "id": "AfvNXWP"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "JavaScript is a language that allows you to execute programs in various environments. In our case, we are talking about browsers and the server platform Node.js. If you haven't written any JS code yet and are reading this text in a browser on your desktop computer, it means you are literally seconds away from your first JavaScript program.",
+      "id": "5vVTTtr"
     }
   ],
   "users": [

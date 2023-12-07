@@ -12,6 +12,7 @@ import { Country } from "entities/Coutnry/model/types/country";
 import CurrencySelect from "entities/Currency/ui/CurrencySelect/CurrencySelect";
 import CountrySelect from "entities/Coutnry/ui/CountrySelect";
 import Avatar from "shared/ui/Avatar/Avatar";
+import { VStack } from "shared/ui/Stack";
 
 interface ProfileCardProps {
   className?: string;
@@ -49,13 +50,15 @@ export const ProfileCard: FC<ProfileCardProps> = ({
 
   if (isLoading) {
     return (
-      <div
+      <VStack
+        max
+        align="center"
         className={classNames(cls.ProfileCard, { [cls.loading]: true }, [
           className,
         ])}
       >
         <Loader />
-      </div>
+      </VStack>
     );
   }
 
@@ -77,7 +80,11 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   };
 
   return (
-    <div className={classNames(cls.ProfileCard, mods, [className])}>
+    <VStack
+      gap="12"
+      align="stretch"
+      className={classNames(cls.ProfileCard, mods, [className])}
+    >
       {data?.avatar && (
         <div className={cls.avatarWrapper}>
           <Avatar src={data?.avatar} />
@@ -137,6 +144,6 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         onChange={onChangeCountry}
         readonly={readonly}
       />
-    </div>
+    </VStack>
   );
 };
