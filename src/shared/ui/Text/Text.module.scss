@@ -23,6 +23,15 @@
   }
 }
 
+.inverted {
+  .title {
+    color: var(--secondary-color);
+  }
+  .text {
+    color: var(--secondary-color);
+  }
+}
+
 .left {
   text-align: left;
 }

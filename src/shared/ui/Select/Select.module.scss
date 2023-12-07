@@ -1,11 +1,10 @@
 .Wrapper {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
 }
 
 .label {
-  min-width: 120px;
   color: var(--primary-color);
 }
 
@@ -13,8 +12,9 @@
   background: none;
   outline: none;
   color: var(--primary-color);
-  padding: 2px 10px 2px 2px;
+  padding: 4px;
   border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-m);
 }
 
 .option {

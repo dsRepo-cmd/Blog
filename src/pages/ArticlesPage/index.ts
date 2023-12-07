@@ -1,3 +1,4 @@
-import ArticlesPage from "./ui/ArticlesPage";
+import ArticlesPage from "./ui/ArticlesPage/ArticlesPage";
 import { ArticlesPageSchema } from "./model/types/articlesPageSchema";
-export { ArticlesPage, ArticlesPageSchema };
+import { ArticleType } from "entities/Article/model/types/article";
+export { ArticlesPage, ArticlesPageSchema, ArticleType };

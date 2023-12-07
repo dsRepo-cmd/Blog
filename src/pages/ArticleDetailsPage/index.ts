@@ -1,3 +1,11 @@
-import ArticleDetailsPage from "./ui/ArticleDetailsPage";
+import ArticleDetailsPage from "./ui/ArticleDetailsPage/ArticleDetailsPage";
 import { ArticleDetailsCommentsSchema } from "./model/types/ArticleDetailsCommentsSchema";
-export { ArticleDetailsPage, ArticleDetailsCommentsSchema };
+import { ArticleDetailsRecommendationsSchema } from "./model/types/ArticleDetailsRecommendationsSchema";
+import { ArticleDetailsPageSchema } from "./model/types/insex";
+
+export {
+  ArticleDetailsPage,
+  ArticleDetailsCommentsSchema,
+  ArticleDetailsRecommendationsSchema,
+  ArticleDetailsPageSchema,
+};

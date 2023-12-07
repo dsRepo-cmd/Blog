@@ -20,7 +20,7 @@ const LangSwitcher: React.FC<LangSwitcherProps> = memo(
         theme={ButtonTheme.CLEAR}
         onClick={toggleLang}
       >
-        {t("Language")}
+        {t("US")}
       </Button>
     );
   }

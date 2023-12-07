@@ -29,6 +29,24 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "24",
+      "userId": "2",
+      "text": "1221",
+      "id": "sHB8qVI"
+    },
+    {
+      "articleId": "4",
+      "userId": "2",
+      "text": "Great!",
+      "id": "My4LA82"
+    },
+    {
+      "articleId": "24",
+      "userId": "1",
+      "text": "Hi!",
+      "id": "gTAaBv5"
     }
   ],
   "users": [
@@ -75,10 +93,12 @@
       "title": "Introduction to JavaScript Runtime Environments",
       "subtitle": "What's new in JS?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
-      "views": 309,
-      "createdAt": "02.12.2023",
+      "views": 10,
+      "createdAt": "02.10.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -144,10 +164,12 @@
       "title": "Pyton Runtime Environments",
       "subtitle": "What's new in JS?",
       "img": "https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "views": 309,
-      "createdAt": "12.12.2023",
+      "views": 3009,
+      "createdAt": "1.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -213,10 +235,12 @@
       "title": "Pyton Runtime Environments",
       "subtitle": "What's new in JS?",
       "img": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp",
-      "views": 309,
-      "createdAt": "12.12.2023",
+      "views": 209,
+      "createdAt": "12.01.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -282,10 +306,12 @@
       "title": "Introduction to JavaScript Runtime Environments",
       "subtitle": "What's new in JS?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
-      "views": 309,
-      "createdAt": "02.12.2023",
+      "views": 3009,
+      "createdAt": "02.12.2021",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -351,10 +377,12 @@
       "title": "Pyton Runtime Environments",
       "subtitle": "What's new in JS?",
       "img": "https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "views": 309,
-      "createdAt": "12.12.2023",
+      "views": 40,
+      "createdAt": "12.05.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -423,7 +451,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -492,7 +522,9 @@
       "views": 309,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -561,7 +593,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -630,7 +664,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -699,7 +735,9 @@
       "views": 309,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -768,7 +806,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -837,7 +877,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -906,7 +948,9 @@
       "views": 309,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -975,7 +1019,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1044,7 +1090,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1110,10 +1158,13 @@
       "title": "Introduction to JavaScript Runtime Environments",
       "subtitle": "What's new in JS?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
-      "views": 309,
+      "views": 7709,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT",
+        "POLITICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1180,9 +1231,11 @@
       "subtitle": "What's new in JS?",
       "img": "https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "views": 309,
-      "createdAt": "12.12.2023",
+      "createdAt": "25.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1248,10 +1301,12 @@
       "title": "Pyton Runtime Environments",
       "subtitle": "What's new in JS?",
       "img": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp",
-      "views": 309,
-      "createdAt": "12.12.2023",
+      "views": 93309,
+      "createdAt": "01.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1317,10 +1372,12 @@
       "title": "Introduction to JavaScript Runtime Environments",
       "subtitle": "What's new in JS?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
-      "views": 309,
+      "views": 54509,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1386,10 +1443,15 @@
       "title": "Pyton Runtime Environments",
       "subtitle": "What's new in JS?",
       "img": "https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "views": 309,
+      "views": 3019,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "SCIENCE",
+        "ECONOMICS",
+        "POLITICS",
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1458,7 +1520,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "POLITICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1527,7 +1591,11 @@
       "views": 309,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "POLITICS",
+        "ECONOMICS",
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1596,7 +1664,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1665,7 +1735,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",

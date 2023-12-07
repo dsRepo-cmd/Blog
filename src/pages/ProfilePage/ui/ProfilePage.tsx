@@ -26,7 +26,7 @@ import { Country } from "entities/Coutnry/model/types/country";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 import Text, { TextTheme } from "shared/ui/Text/Text";
 import { useParams } from "react-router-dom";
-import Page from "shared/ui/Page/Page";
+import Page from "widgets/Page/Page";
 
 const reducers: ReducerList = {
   profile: profileReducer,

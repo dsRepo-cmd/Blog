@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import React, { memo, useCallback, HTMLAttributeAnchorTarget } from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./ArticleListItem.module.scss";
 import { useTranslation } from "react-i18next";
@@ -19,17 +19,20 @@ import Avatar from "shared/ui/Avatar/Avatar";
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import AppLink from "shared/ui/AppLink/AppLink";
 
 interface ArticleListItemProps {
   className?: string;
   article: Article;
   view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const ArticleListItem: React.FC<ArticleListItemProps> = ({
   className,
   article,
   view,
+  target,
 }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -70,12 +73,14 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
             />
           )}
           <div className={cls.footer}>
-            <Button
-              onClick={onOpenArticle}
-              theme={ButtonTheme.OUTLINE_INVERTED}
+            <AppLink
+              target={target}
+              to={RoutePath.article_details + article.id}
             >
-              {t("Read more...")}
-            </Button>
+              <Button theme={ButtonTheme.OUTLINE_INVERTED}>
+                {t("Read more...")}
+              </Button>
+            </AppLink>
             {views}
           </div>
         </Card>
@@ -83,7 +88,9 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
     );
   }
   return (
-    <div
+    <AppLink
+      target={target}
+      to={RoutePath.article_details + article.id}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
       <Card onClick={onOpenArticle} className={cls.card}>
@@ -97,7 +104,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
         </div>
         <Text text={article.title} className={cls.title} />
       </Card>
-    </div>
+    </AppLink>
   );
 };
 
