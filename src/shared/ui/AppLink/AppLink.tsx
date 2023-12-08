@@ -6,6 +6,8 @@ import { FC, ReactNode, memo } from "react";
 export enum AppLinkTheme {
   PRIMARY = "primary",
   SECONDARY = "secondary",
+  BTN_PRIMARY = "bntPrimary",
+  BTN_SECONDARY = "btnSecondary",
 }
 
 interface AppLinkProps extends LinkProps {

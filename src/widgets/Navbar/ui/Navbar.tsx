@@ -10,6 +10,8 @@ import { getUserAuthData, userActions } from "entities/User";
 import Text, { TextTheme } from "shared/ui/Text/Text";
 import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { isUserAdmin, isUserManager } from "app/providers/StoreProvider";
+import { HStack } from "shared/ui/Stack";
 
 interface NavbarProps {
   className?: string;
@@ -19,6 +21,11 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
   const [isAuthModal, setAuthModal] = useState(false);
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
+
+  const isAdminPanelAvailable = isAdmin || isManager;
 
   const authData = useSelector(getUserAuthData);
 
@@ -42,20 +49,32 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
           title={t("App production")}
           className={cls.appName}
         />
-        <AppLink
-          className={cls.createLink}
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.article_create}
-        >
-          {t("Create article")}
-        </AppLink>
-        <Button
-          onClick={onLogout}
-          theme={ButtonTheme.OUTLINE}
-          className={classNames(cls.links)}
-        >
-          {t("Exit")}
-        </Button>
+
+        <HStack gap="24">
+          <AppLink
+            className={cls.createLink}
+            theme={AppLinkTheme.BTN_PRIMARY}
+            to={RoutePath.article_create}
+          >
+            {t("Create article")}
+          </AppLink>
+          {isAdminPanelAvailable && (
+            <AppLink
+              theme={AppLinkTheme.BTN_PRIMARY}
+              to={RoutePath.admin_panel}
+            >
+              {t("Admin panel")}
+            </AppLink>
+          )}
+
+          <Button
+            onClick={onLogout}
+            theme={ButtonTheme.OUTLINE}
+            className={classNames(cls.links)}
+          >
+            {t("Exit")}
+          </Button>
+        </HStack>
       </header>
     );
   }

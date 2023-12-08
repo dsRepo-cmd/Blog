@@ -18,7 +18,7 @@ export const ArticleRecommendationsList: React.FC<
   const { t } = useTranslation();
   const { isLoading, data: articles, error } = useArticleRecomendationsList(3);
 
-  if (isLoading || error) {
+  if (isLoading || error || !articles) {
     return null;
   }
 

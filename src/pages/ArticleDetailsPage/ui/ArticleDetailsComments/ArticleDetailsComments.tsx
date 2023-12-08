@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from "react";
+import React, { Suspense, memo, useCallback, useEffect } from "react";
 import { classNames } from "shared/lib/classNames";
 
 import { useTranslation } from "react-i18next";
@@ -11,6 +11,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { getArticleCommentsIsLoading } from "pages/ArticleDetailsPage/model/selectors/comments";
 import { getArticleComments } from "pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
 import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import Loader from "shared/ui/Loader/Loader";
 
 interface ArticleDetailsCommentsProps {
   className?: string;
@@ -39,7 +40,9 @@ const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = ({
   return (
     <div className={classNames("", {}, [className])}>
       <Text title={t("Comments")} />
-      <AddCommentForm onSendComment={onSendComment} />
+      <Suspense fallback={<Loader />}>
+        <AddCommentForm onSendComment={onSendComment} />
+      </Suspense>
       <CommentList isLoading={commentsIsLoading} comments={comments} />
     </div>
   );

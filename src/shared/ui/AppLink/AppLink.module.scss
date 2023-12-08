@@ -18,3 +18,21 @@
 .secondary {
   color: var(--inverted-primary-color);
 }
+
+.bntPrimary {
+  color: var(--primary-color);
+  background-color: var(--inverted-primary-color);
+  padding: 8px;
+
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-l);
+}
+
+.btnSecondary {
+  color: var(--inverted-primary-color);
+  background-color: var(--primary-color);
+  padding: 8px;
+
+  border: 1px solid var(--inverted-primary-color);
+  border-radius: var(--border-radius-l);
+}
