@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
-import ArticleList from "entities/Article/ui/ArticleList/ArticleList";
+
 import { getArticles } from "../../model/slices/articlePageSlice";
 import {
   getArticlesPageError,
@@ -15,6 +15,7 @@ import {
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
 import { VStack } from "shared/ui/Stack";
+import { ArticleList } from "entities/Article";
 
 interface ArticleInfinitListProps {
   className?: string;

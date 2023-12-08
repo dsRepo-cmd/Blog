@@ -3,7 +3,7 @@ import { classNames } from "shared/lib/classNames";
 import cls from "./MainPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { Counter } from "entities/Counter";
-import Page from "widgets/Page/ui/Page";
+import { Page } from "widgets/Page";
 
 interface MainPageProps {
   className?: string;

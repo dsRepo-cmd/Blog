@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import React, { memo, useCallback, HTMLAttributeAnchorTarget } from "react";
+import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames";
 import cls from "./ArticleListItem.module.scss";
-import { useTranslation } from "react-i18next";
 import { Article, ArticleTextBlock } from "../../model/types/article";
 import Text from "shared/ui/Text/Text";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
@@ -10,7 +11,6 @@ import Card from "shared/ui/Card/Card";
 import Icon from "shared/ui/Icon/Icon";
 import Avatar from "shared/ui/Avatar/Avatar";
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import AppLink from "shared/ui/AppLink/AppLink";
 import { ArticleBlockType, ArticleView } from "../../model/consts/consts";

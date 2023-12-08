@@ -6,7 +6,7 @@ import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { classNames } from "shared/lib/classNames";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "entities/User";
-import { SidebarItemType } from "widgets/SideBar/model/types/sidebar";
+import { SidebarItemType } from "../../../model/types/sidebar";
 
 interface SideBarItemProps {
   item: SidebarItemType;

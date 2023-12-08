@@ -1,3 +1,1 @@
-import AdminPanelPage from "./ui/AdminPanelPage";
-
-export { AdminPanelPage };
+export { AdminPanelPageAsync as AdminPanelPage } from "./ui/AdminPanelPage.async";

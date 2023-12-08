@@ -6,15 +6,16 @@ import { useState, useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, userActions } from "entities/User";
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions,
+} from "entities/User";
 import Text, { TextTheme } from "shared/ui/Text/Text";
 import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { HStack } from "shared/ui/Stack";
-import {
-  isUserAdmin,
-  isUserManager,
-} from "entities/User/model/selectors/roleSelectors";
 
 interface NavbarProps {
   className?: string;

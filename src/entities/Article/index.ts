@@ -9,14 +9,18 @@ import {
   ArticleSortField,
   ArticleType,
 } from "./model/consts/consts";
+import ArticleList from "./ui/ArticleList/ArticleList";
+import ArticleSortSelector from "./ui/ArticleSortSelector/ArticleSortSelector";
 
 export {
   ArticleSortField,
   ArticleView,
   getArticleDetailsData,
   ArticleType,
+  ArticleSortSelector,
   ArticleDetails,
   ArticleViewSelector,
   ArticleTypeTabs,
+  ArticleList,
 };
 export type { Article, ArticleDetailsSchema };

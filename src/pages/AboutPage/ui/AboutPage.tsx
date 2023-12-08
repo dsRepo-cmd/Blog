@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./AboutPage.module.scss";
 import { useTranslation } from "react-i18next";
-import Page from "widgets/Page/ui/Page";
+import { Page } from "widgets/Page";
 
 interface AboutPageProps {
   className?: string;

@@ -6,13 +6,10 @@ import Text, { TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { FC } from "react";
 import { Profile } from "../../model/types/profile";
 import Loader from "shared/ui/Loader/Loader";
-
-import { Currency } from "entities/Currency/model/types/currency";
-import { Country } from "entities/Coutnry/model/types/country";
-import CurrencySelect from "entities/Currency/ui/CurrencySelect/CurrencySelect";
-import CountrySelect from "entities/Coutnry/ui/CountrySelect";
 import Avatar from "shared/ui/Avatar/Avatar";
 import { VStack } from "shared/ui/Stack";
+import { Currency, CurrencySelect } from "entities/Currency";
+import { Country, CountrySelect } from "entities/Coutnry";
 
 interface ProfileCardProps {
   className?: string;

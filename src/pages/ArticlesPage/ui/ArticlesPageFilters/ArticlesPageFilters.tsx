@@ -4,7 +4,9 @@ import cls from "./ArticlesPageFilters.module.scss";
 import { useTranslation } from "react-i18next";
 import {
   ArticleSortField,
+  ArticleSortSelector,
   ArticleType,
+  ArticleTypeTabs,
   ArticleView,
   ArticleViewSelector,
 } from "entities/Article";
@@ -20,12 +22,10 @@ import { articlesPageActions } from "../../model/slices/articlePageSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Input } from "shared/ui/Input/Input";
 import Card from "shared/ui/Card/Card";
-import ArticleSortSelector from "entities/Article/ui/ArticleSortSelector/ArticleSortSelector";
+
 import { SortOrder } from "shared/types";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
-
-import ArticleTypeTabs from "entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs";
 
 interface ArticlesPageFiltersProps {
   className?: string;

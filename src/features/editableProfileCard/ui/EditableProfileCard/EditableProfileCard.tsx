@@ -5,8 +5,7 @@ import React, { memo, useCallback, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import Text, { TextTheme } from "shared/ui/Text/Text";
-import { Currency } from "entities/Currency/model/types/currency";
-import { Country } from "entities/Coutnry/model/types/country";
+
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
@@ -21,6 +20,8 @@ import DynamicModuleLoader, {
 import EditableProfileCardHeader from "../EditableProfileCardHeader/EditableProfileCardHeader";
 import { VStack } from "shared/ui/Stack";
 import { ValidateProfileError } from "../../model/consts/consts";
+import { Currency } from "entities/Currency";
+import { Country } from "entities/Coutnry";
 
 interface EditableProfileCardProps {
   className?: string;
