@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { classNames } from "shared/lib/classNames";
-import cls from "./CountrySelect.module.scss";
 import { useTranslation } from "react-i18next";
 import { Country } from "../model/types/country";
 import Select from "shared/ui/Select/Select";

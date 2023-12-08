@@ -6,7 +6,7 @@ import Text, { TextSize } from "shared/ui/Text/Text";
 import ArticleList from "entities/Article/ui/ArticleList/ArticleList";
 import { VStack } from "shared/ui/Stack";
 import { ArticleView } from "entities/Article";
-import { useArticleRecomendationsList } from "features/articleRecommendationsList/api/aritcleRecommendationsApi";
+import { useArticleRecomendationsList } from "../../api/aritcleRecommendationsApi";
 
 interface ArticleRecommendationsListProps {
   className?: string;

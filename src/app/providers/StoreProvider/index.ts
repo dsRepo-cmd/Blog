@@ -5,20 +5,6 @@ import type {
   ReduxStoreWithManager,
   ThunkConfig,
 } from "./config/StateSchema";
-import { UserRole } from "entities/User/model/types/user";
-import {
-  isUserAdmin,
-  isUserManager,
-} from "entities/User/model/selectors/roleSelectors";
 
-export {
-  StoreProvider,
-  createReduxStore,
-  StateSchema,
-  ReduxStoreWithManager,
-  AppDispatch,
-  ThunkConfig,
-  UserRole,
-  isUserAdmin,
-  isUserManager,
-};
+export { StoreProvider, createReduxStore };
+export type { AppDispatch, StateSchema, ReduxStoreWithManager, ThunkConfig };

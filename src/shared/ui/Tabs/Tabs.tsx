@@ -2,7 +2,6 @@ import React, { memo, ReactNode, useCallback, useMemo } from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./Tabs.module.scss";
 import Card, { CardTheme } from "../Card/Card";
-import { ArticleType } from "entities/Article/model/types/article";
 
 export interface TabItem {
   value: string;

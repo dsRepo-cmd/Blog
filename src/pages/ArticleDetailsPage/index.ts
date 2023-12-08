@@ -3,9 +3,9 @@ import { ArticleDetailsCommentsSchema } from "./model/types/ArticleDetailsCommen
 import { ArticleDetailsRecommendationsSchema } from "./model/types/ArticleDetailsRecommendationsSchema";
 import { ArticleDetailsPageSchema } from "./model/types/insex";
 
-export {
-  ArticleDetailsPage,
+export type {
   ArticleDetailsCommentsSchema,
   ArticleDetailsRecommendationsSchema,
   ArticleDetailsPageSchema,
 };
+export { ArticleDetailsPage };

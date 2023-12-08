@@ -3,15 +3,16 @@ import { classNames } from "shared/lib/classNames";
 
 import { useTranslation } from "react-i18next";
 import Text from "shared/ui/Text/Text";
-import { AddCommentForm } from "features/addCommentForm";
+
 import { CommentList } from "entities/Comment";
 import { useSelector } from "react-redux";
-import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { getArticleCommentsIsLoading } from "pages/ArticleDetailsPage/model/selectors/comments";
-import { getArticleComments } from "pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
-import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
+import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
+import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import Loader from "shared/ui/Loader/Loader";
+import { AddCommentForm } from "features/addCommentForm";
 
 interface ArticleDetailsCommentsProps {
   className?: string;

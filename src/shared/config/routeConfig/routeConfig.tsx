@@ -5,10 +5,11 @@ import { NotFoundPage } from "pages/NotFoundPage";
 import { ProfilePage } from "pages/ProfilePage";
 import { ArticlesPage } from "pages/ArticlesPage";
 import { ArticleDetailsPage } from "pages/ArticleDetailsPage";
-import { ArticleEditPage } from "pages/ArticleEditPage/ui";
+import { ArticleEditPage } from "pages/ArticleEditPage";
 import { AdminPanelPage } from "pages/AdminPanelPage";
-import { UserRole } from "app/providers/StoreProvider";
+
 import { ForbiddenPage } from "pages/ForbiddenPage";
+import { UserRole } from "entities/User/model/consts/consts";
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;

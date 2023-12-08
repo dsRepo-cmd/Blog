@@ -5,17 +5,14 @@ import { useTranslation } from "react-i18next";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
 import { useSelector } from "react-redux";
-import {
-  loginActions,
-  loginReducer,
-} from "features/AuthByUsername/model/slice/loginSlise";
+import { loginActions, loginReducer } from "../../model/slice/loginSlise";
 
-import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername/loginByUsername";
+import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import Text, { TextTheme } from "shared/ui/Text/Text";
-import { getLoginUsername } from "features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername";
-import { getLoginPassword } from "features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword";
-import { getLoginErrors } from "features/AuthByUsername/model/selectors/getLoginErrors/getLoginErrors";
-import { getLoginIsLoading } from "features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading";
+import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
+import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
+import { getLoginErrors } from "../../model/selectors/getLoginErrors/getLoginErrors";
+import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import DynamicModuleLoader, {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";

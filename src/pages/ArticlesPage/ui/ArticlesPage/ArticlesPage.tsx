@@ -7,7 +7,7 @@ import DynamicModuleLoader, {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { articlesPageReducer } from "../../model/slices/articlePageSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import Page from "widgets/Page/Page";
+import Page from "widgets/Page/ui/Page";
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import ArticlesPageFilters from "../ArticlesPageFilters/ArticlesPageFilters";
 import ArticleInfinitList from "../ArticleInfinitList/ArticleInfinitList";

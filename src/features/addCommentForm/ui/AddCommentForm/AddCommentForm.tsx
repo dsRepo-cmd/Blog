@@ -8,12 +8,12 @@ import { useSelector } from "react-redux";
 import {
   getAddCommentFormError,
   getAddCommentFormText,
-} from "features/addCommentForm/model/selectors/addCommentFormSelectors";
+} from "../../model/selectors/addCommentFormSelectors";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
   addCommentFormActions,
   addCommentFormReducer,
-} from "features/addCommentForm/model/slices/addCommentFormSlice";
+} from "../../model/slices/addCommentFormSlice";
 import DynamicModuleLoader, {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
