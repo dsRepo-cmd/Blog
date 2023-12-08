@@ -1,27 +1,25 @@
-import React, { useCallback } from "react";
+import React, { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames";
-import cls from "./ProfilePageHeader.module.scss";
+import cls from "./EditableProfileCardHeader.module.scss";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { getProfileReadonly } from "features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly";
+import { getProfileData } from "features/editableProfileCard/model/selectors/getProfileData/getProfileData";
+import { getUserAuthData } from "entities/User";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { profileActions } from "features/editableProfileCard/model/slice/ProfileSlice";
+import { updateProfileData } from "features/editableProfileCard/model/services/updateProfileData/updateProfileData";
+import { HStack } from "shared/ui/Stack";
 import Text from "shared/ui/Text/Text";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
-import { useSelector } from "react-redux";
-import {
-  getProfileReadonly,
-  profileActions,
-  updateProfileData,
-} from "entities/Profile";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { getUserAuthData } from "entities/User";
-import { getProfileData } from "entities/Profile/model/selectors/getProfileData/getProfileData";
-import { HStack } from "shared/ui/Stack";
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
   className?: string;
 }
 
-const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({
+const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
   className,
-}: ProfilePageHeaderProps) => {
+}) => {
   const { t } = useTranslation();
   const authData = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileData);
@@ -45,6 +43,7 @@ const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({
 
   return (
     <HStack
+      max
       justify="between"
       className={classNames(cls.ProfilePageHeader, {}, [className])}
     >
@@ -79,4 +78,4 @@ const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({
   );
 };
 
-export default ProfilePageHeader;
+export default memo(EditableProfileCardHeader);

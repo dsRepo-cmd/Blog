@@ -81,6 +81,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
 
   return (
     <VStack
+      max
       gap="12"
       align="stretch"
       className={classNames(cls.ProfileCard, mods, [className])}
@@ -91,6 +92,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         </div>
       )}
       <Input
+        lable={t("Firstname")}
         value={data?.first || ""}
         placeholder={t("Firstname")}
         className={cls.input}
@@ -98,6 +100,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         readonly={readonly}
       />
       <Input
+        lable={t("Lastname")}
         value={data?.lastname || ""}
         placeholder={t("Lastname")}
         className={cls.input}
@@ -105,6 +108,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         readonly={readonly}
       />
       <Input
+        lable={t("Age")}
         value={data?.age || ""}
         placeholder={t("Age")}
         className={cls.input}
@@ -112,6 +116,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         readonly={readonly}
       />
       <Input
+        lable={t("City")}
         value={data?.city || ""}
         placeholder={t("City")}
         className={cls.input}
@@ -119,6 +124,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         readonly={readonly}
       />
       <Input
+        lable={t("Avatar link")}
         value={data?.avatar || ""}
         placeholder={t("Avatar link")}
         className={cls.input}
@@ -126,6 +132,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         readonly={readonly}
       />
       <Input
+        lable={t("Username")}
         value={data?.username || ""}
         placeholder={t("Username")}
         className={cls.input}

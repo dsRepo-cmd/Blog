@@ -1,6 +1,5 @@
 import React, { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames";
-import cls from "./ArticleDetailsPageHeader.module.scss";
 import { useTranslation } from "react-i18next";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
@@ -35,17 +34,13 @@ const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> = ({
     <HStack
       justify="between"
       gap="8"
-      className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}
+      className={classNames("", {}, [className])}
     >
       <Button theme={ButtonTheme.OUTLINE_INVERTED} onClick={onBackToList}>
         {t("Back to list")}
       </Button>
       {canEdit && (
-        <Button
-          className={cls.editBtn}
-          theme={ButtonTheme.OUTLINE_INVERTED}
-          onClick={onEditArticle}
-        >
+        <Button theme={ButtonTheme.OUTLINE_INVERTED} onClick={onEditArticle}>
           {t("Edit")}
         </Button>
       )}
