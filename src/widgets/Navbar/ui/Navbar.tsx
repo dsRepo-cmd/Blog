@@ -1,6 +1,5 @@
 import { classNames } from "shared/lib/classNames";
 import cls from "./Navbar.module.scss";
-
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import { useState, useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
@@ -16,6 +15,7 @@ import Text, { TextTheme } from "shared/ui/Text/Text";
 import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { HStack } from "shared/ui/Stack";
+import { NotificationsList } from "entities/Notifications";
 
 interface NavbarProps {
   className?: string;

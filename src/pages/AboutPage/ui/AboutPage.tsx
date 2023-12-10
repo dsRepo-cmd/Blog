@@ -13,7 +13,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ className }) => {
 
   return (
     <Page className={classNames(cls.AboutPage, {}, [className])}>
-      {t("About Page")}
+      AboutPage
     </Page>
   );
 };
