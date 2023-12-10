@@ -65,20 +65,26 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg"
     },
     {
       "id": "2",
       "username": "user",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "password": "123",
       "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg"
     },
     {
       "id": "3",
       "username": "manager",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "password": "123",
       "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg"
     }
@@ -89,7 +95,7 @@
       "first": "Clint",
       "lastname": "Eastwood",
       "age": 40,
-      "currency": "USD",
+      "currency": "EUR",
       "country": "USA",
       "city": "New York",
       "username": "admin",
@@ -116,7 +122,9 @@
       "views": 10,
       "createdAt": "02.10.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -185,7 +193,9 @@
       "views": 3009,
       "createdAt": "1.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -254,7 +264,9 @@
       "views": 209,
       "createdAt": "12.01.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -323,7 +335,9 @@
       "views": 3009,
       "createdAt": "02.12.2021",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -392,7 +406,9 @@
       "views": 40,
       "createdAt": "12.05.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -461,7 +477,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -530,7 +548,9 @@
       "views": 309,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -599,7 +619,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -668,7 +690,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -737,7 +761,9 @@
       "views": 309,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -806,7 +832,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -875,7 +903,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -944,7 +974,9 @@
       "views": 309,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1013,7 +1045,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1082,7 +1116,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1151,7 +1187,10 @@
       "views": 7709,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["IT", "POLITICS"],
+      "type": [
+        "IT",
+        "POLITICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1220,7 +1259,9 @@
       "views": 309,
       "createdAt": "25.12.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1289,7 +1330,9 @@
       "views": 93309,
       "createdAt": "01.12.2023",
       "userId": "1",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1358,7 +1401,9 @@
       "views": 54509,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1427,7 +1472,12 @@
       "views": 3019,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["SCIENCE", "ECONOMICS", "POLITICS", "SCIENCE"],
+      "type": [
+        "SCIENCE",
+        "ECONOMICS",
+        "POLITICS",
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1496,7 +1546,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["POLITICS"],
+      "type": [
+        "POLITICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1565,7 +1617,11 @@
       "views": 309,
       "createdAt": "02.12.2023",
       "userId": "1",
-      "type": ["POLITICS", "ECONOMICS", "SCIENCE"],
+      "type": [
+        "POLITICS",
+        "ECONOMICS",
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1634,7 +1690,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1703,7 +1761,9 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",

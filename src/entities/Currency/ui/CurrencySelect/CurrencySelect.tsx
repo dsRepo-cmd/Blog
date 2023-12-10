@@ -1,10 +1,8 @@
 import React, { useCallback } from "react";
 import { classNames } from "shared/lib/classNames";
-
 import { useTranslation } from "react-i18next";
-
-import Select from "shared/ui/Select/Select";
 import { Currency } from "../../model/types/currency";
+import ListBox from "shared/ui/ListBox/ListBox";
 
 interface CurrencySelectProps {
   className?: string;
@@ -35,12 +33,13 @@ const CurrencySelect: React.FC<CurrencySelectProps> = ({
   );
 
   return (
-    <Select
+    <ListBox
       className={classNames("", {}, [className])}
-      label={t("Currency")}
-      options={options}
-      value={value}
+      label={`${t("Currency")}:`}
       onChange={onChangeHandler}
+      items={options}
+      defaultValue={t("Select currency")}
+      value={value}
       readonly={readonly}
     />
   );
