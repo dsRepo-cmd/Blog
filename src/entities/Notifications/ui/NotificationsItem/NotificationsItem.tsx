@@ -25,7 +25,12 @@ const NotificationsItem: React.FC<NotificationsItemProps> = ({
 
   if (item.href) {
     return (
-      <a className={cls.link} target="_blank" href={item.href} rel="noreferrer">
+      <a
+        className={classNames(cls.NotificationItem, {}, [className])}
+        target="_blank"
+        href={item.href}
+        rel="noreferrer"
+      >
         {content}
       </a>
     );

@@ -11,6 +11,7 @@ import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { HStack } from "shared/ui/Stack";
 import { AvatarDropdown } from "features/avatarDropdown";
+import { NotificationButton } from "features/notificationButton";
 
 interface NavbarProps {
   className?: string;
@@ -47,6 +48,7 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
           >
             {t("Create article")}
           </AppLink>
+          <NotificationButton />
           <AvatarDropdown />
         </HStack>
       </header>

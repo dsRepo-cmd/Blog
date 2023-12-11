@@ -1,4 +1,4 @@
-import React, { memo, FC, CSSProperties } from "react";
+import React, { memo, FC } from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./Icon.module.scss";
 
@@ -7,14 +7,23 @@ interface IconProps {
   Svg: FC<React.SVGProps<SVGSVGElement>>;
   width?: string | number;
   height?: string | number;
+  inverted?: boolean;
 }
 
-const Icon: React.FC<IconProps> = ({ className, Svg, width, height }) => {
+const Icon: React.FC<IconProps> = ({
+  className,
+  Svg,
+  width = "30",
+  height = "30",
+  inverted,
+}) => {
   return (
     <Svg
       width={width}
       height={height}
-      className={classNames(cls.Icon, {}, [className])}
+      className={classNames(inverted ? cls.inverted : cls.Icon, {}, [
+        className,
+      ])}
     />
   );
 };

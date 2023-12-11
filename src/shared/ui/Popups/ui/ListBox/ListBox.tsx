@@ -1,19 +1,18 @@
 import React, { Fragment, ReactNode } from "react";
 import { Listbox as HListBox } from "@headlessui/react";
-
-import { HStack } from "../Stack";
-
+import { HStack } from "../../../Stack";
 import cls from "./ListBox.module.scss";
 import { classNames } from "shared/lib/classNames";
-import Button, { ButtonTheme } from "../Button/Button";
+import Button, { ButtonTheme } from "../../../Button/Button";
+import popupCls from "../../styles/popup.module.scss";
+import { mapDirectionClass } from "../../styles/consts";
+import { DropdownDirection } from "../../../../types/ui";
 
 export interface ListBoxItem {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 }
-
-type DropdownDirection = "top" | "bottom";
 
 interface ListBoxProps {
   items?: ListBoxItem[];
@@ -26,11 +25,6 @@ interface ListBoxProps {
   label?: string;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  bottom: cls.optionsBottom,
-  top: cls.optionsTop,
-};
-
 const ListBox: React.FC<ListBoxProps> = ({
   className,
   items,
@@ -38,7 +32,7 @@ const ListBox: React.FC<ListBoxProps> = ({
   defaultValue,
   onChange,
   readonly,
-  direction = "bottom",
+  direction = "bottom left",
   label,
 }) => {
   const optionsClasses = [mapDirectionClass[direction]];
@@ -57,7 +51,7 @@ const ListBox: React.FC<ListBoxProps> = ({
       <HListBox
         disabled={readonly}
         as="div"
-        className={classNames(cls.ListBox, {}, [className])}
+        className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
         value={value}
         onChange={onChange}
       >
@@ -79,8 +73,8 @@ const ListBox: React.FC<ListBoxProps> = ({
               {({ active, selected }) => (
                 <li
                   className={classNames(cls.item, {
-                    [cls.active]: active,
-                    [cls.disabled]: item.disabled,
+                    [popupCls.active]: active,
+                    [popupCls.disabled]: item.disabled,
                   })}
                 >
                   {selected && ""}
