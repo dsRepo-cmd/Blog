@@ -4,33 +4,22 @@ import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import { useState, useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "features/AuthByUsername";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getUserAuthData,
-  isUserAdmin,
-  isUserManager,
-  userActions,
-} from "entities/User";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "entities/User";
 import Text, { TextTheme } from "shared/ui/Text/Text";
 import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { HStack } from "shared/ui/Stack";
-import { NotificationsList } from "entities/Notifications";
+import { AvatarDropdown } from "features/avatarDropdown";
 
 interface NavbarProps {
   className?: string;
 }
 
 export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
-  const [isAuthModal, setAuthModal] = useState(false);
   const { t } = useTranslation();
-  const dispatch = useDispatch();
 
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
-
-  const isAdminPanelAvailable = isAdmin || isManager;
-
+  const [isAuthModal, setAuthModal] = useState(false);
   const authData = useSelector(getUserAuthData);
 
   const onCloseModal = useCallback(() => {
@@ -40,10 +29,6 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
   const onShowModal = useCallback(() => {
     setAuthModal(true);
   }, []);
-
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
 
   if (authData) {
     return (
@@ -62,22 +47,7 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
           >
             {t("Create article")}
           </AppLink>
-          {isAdminPanelAvailable && (
-            <AppLink
-              theme={AppLinkTheme.BTN_PRIMARY}
-              to={RoutePath.admin_panel}
-            >
-              {t("Admin panel")}
-            </AppLink>
-          )}
-
-          <Button
-            onClick={onLogout}
-            theme={ButtonTheme.OUTLINE}
-            className={classNames(cls.links)}
-          >
-            {t("Exit")}
-          </Button>
+          <AvatarDropdown />
         </HStack>
       </header>
     );
