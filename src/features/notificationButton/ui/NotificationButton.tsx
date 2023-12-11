@@ -37,7 +37,6 @@ const NotificationButton: React.FC<NotificationButtonProps> = ({
   return (
     <>
       <BrowserView>
-        Brouser
         <Popover
           className={classNames(cls.NotificationButton, {}, [className])}
           direction="bottom left"
@@ -48,7 +47,6 @@ const NotificationButton: React.FC<NotificationButtonProps> = ({
       </BrowserView>
 
       <MobileView>
-        Mobile
         {trigger}
         <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
           <NotificationsList />
