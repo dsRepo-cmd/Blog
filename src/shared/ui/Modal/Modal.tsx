@@ -10,6 +10,7 @@ import { Mods, classNames } from "shared/lib/classNames";
 import cls from "./Modal.module.scss";
 import Portal from "../Portal/Portal";
 import { useTheme } from "app/providers/ThemeProvider";
+import Overlay from "../Overlay/Overlay";
 
 interface ModalProps {
   className?: string;
@@ -19,7 +20,7 @@ interface ModalProps {
   lazy?: boolean;
 }
 
-const ANNIMATION_DELAY = 300;
+const ANIMATION_DELAY = 300;
 // ==========================================================================
 const Modal: React.FC<ModalProps> = ({
   className,
@@ -39,21 +40,17 @@ const Modal: React.FC<ModalProps> = ({
     }
   }, [isOpen]);
 
-  const mods: Mods = {
-    [cls.opened]: isOpen,
-    [cls.isClosing]: isClosing,
-  };
-
   const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
       timerRef.current = setTimeout(() => {
         onClose();
         setIsClosing(false);
-      }, ANNIMATION_DELAY);
+      }, ANIMATION_DELAY);
     }
   }, [onClose]);
 
+  // Новые ссылки!!!
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -74,8 +71,9 @@ const Modal: React.FC<ModalProps> = ({
     };
   }, [isOpen, onKeyDown]);
 
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const mods: Mods = {
+    [cls.opened]: isOpen,
+    [cls.isClosing]: isClosing,
   };
 
   if (lazy && !isMounted) {
@@ -84,12 +82,11 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className, theme])}>
-        <div onClick={closeHandler} className={cls.overlay}>
-          <div onClick={onContentClick} className={cls.content}>
-            {children}
-          </div>
-        </div>
+      <div
+        className={classNames(cls.Modal, mods, [className, theme, "app_modal"])}
+      >
+        <Overlay onClick={closeHandler} />
+        <div className={cls.content}>{children}</div>
       </div>
     </Portal>
   );

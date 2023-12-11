@@ -1,10 +1,16 @@
 .Modal {
   position: fixed;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   opacity: 0;
   pointer-events: none;
   z-index: -1;
   color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .overlay {
@@ -19,8 +25,8 @@
 .content {
   padding: 20px;
   border-radius: var(--border-radius-m);
-  background-color: var(--bg-color);
-  transition: 0.35s transform;
+  background: var(--bg-color);
+  transition: 0.3s transform;
   transform: scale(0.5);
   max-width: 60%;
 }

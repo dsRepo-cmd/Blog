@@ -59,6 +59,15 @@ const LoginForm: React.FC<LoginFormProps> = memo(
       }
     }, [onSuccess, dispatch, password, username]);
 
+    const handleKeyPress = useCallback(
+      (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter") {
+          onLoginClick();
+        }
+      },
+      [onLoginClick]
+    );
+
     return (
       <DynamicModuleLoader reducers={initialReducers}>
         <div className={classNames(cls.LoginForm, {}, [className])}>
@@ -69,6 +78,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(
             type="text"
             onChange={onChangeUsername}
             value={username}
+            onKeyDown={handleKeyPress}
           />
           <Input
             placeholder={t("Password")}
@@ -76,6 +86,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(
             type="text"
             onChange={onChangePassword}
             value={password}
+            onKeyDown={handleKeyPress}
           />
           {error && <Text text={error} theme={TextTheme.ERROR} />}
           <Button

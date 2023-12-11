@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./NotificationButton.module.scss";
 import { useTranslation } from "react-i18next";
@@ -8,6 +8,8 @@ import Icon from "shared/ui/Icon/Icon";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import { Popover } from "shared/ui/Popups";
 import { NotificationsList } from "entities/Notifications";
+import { BrowserView, MobileView } from "react-device-detect";
+import Drawer from "shared/ui/Drawer/Drawer";
 
 interface NotificationButtonProps {
   className?: string;
@@ -16,18 +18,43 @@ interface NotificationButtonProps {
 const NotificationButton: React.FC<NotificationButtonProps> = ({
   className,
 }) => {
-  const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onOpenDrawer = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
+  const onCloseDrawer = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const trigger = (
+    <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
+      <Icon Svg={NotificationIcon} inverted />
+    </Button>
+  );
 
   return (
-    <Popover
-      trigger={
-        <Button theme={ButtonTheme.CLEAR}>
-          <Icon inverted width={24} height={24} Svg={NotificationIcon} />
-        </Button>
-      }
-    >
-      <NotificationsList />
-    </Popover>
+    <>
+      <BrowserView>
+        Brouser
+        <Popover
+          className={classNames(cls.NotificationButton, {}, [className])}
+          direction="bottom left"
+          trigger={trigger}
+        >
+          <NotificationsList className={cls.notifications} />
+        </Popover>
+      </BrowserView>
+
+      <MobileView>
+        Mobile
+        {trigger}
+        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+          <NotificationsList />
+        </Drawer>
+      </MobileView>
+    </>
   );
 };
 
