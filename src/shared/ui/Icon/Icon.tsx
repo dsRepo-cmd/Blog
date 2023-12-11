@@ -1,31 +1,23 @@
-import React, { memo, FC } from "react";
-import { classNames } from "@/shared/lib/classNames";
-import cls from "./Icon.module.scss";
+import React, { FC, memo } from "react";
 
-interface IconProps {
+import cls from "./Icon.module.scss";
+import { classNames } from "@/shared/lib/classNames";
+
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
   Svg: FC<React.SVGProps<SVGSVGElement>>;
-  width?: string | number;
-  height?: string | number;
   inverted?: boolean;
 }
 
-const Icon: React.FC<IconProps> = ({
-  className,
-  Svg,
-  width = "30",
-  height = "30",
-  inverted,
-}) => {
+export const Icon: FC<IconProps> = memo((props) => {
+  const { className, Svg, inverted, ...otherProps } = props;
+
   return (
     <Svg
-      width={width}
-      height={height}
       className={classNames(inverted ? cls.inverted : cls.Icon, {}, [
         className,
       ])}
+      {...otherProps}
     />
   );
-};
-
-export default memo(Icon);
+});

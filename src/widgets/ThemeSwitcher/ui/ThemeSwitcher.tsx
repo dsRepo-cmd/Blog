@@ -7,7 +7,7 @@ import MoonIcon from "@/shared/assets/icons/moon-last-quarter.svg";
 import StarIcon from "@/shared/assets/icons/star.svg";
 
 import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
-import Icon from "@/shared/ui/Icon/Icon";
+import { Icon } from "@/shared/ui/Icon/Icon";
 
 interface ThemeSwitcherProps {
   className?: string;

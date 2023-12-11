@@ -8,7 +8,7 @@ import Text from "@/shared/ui/Text/Text";
 import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
 import EyeIcon from "@/shared/assets/icons/eye.svg";
 import Card from "@/shared/ui/Card/Card";
-import Icon from "@/shared/ui/Icon/Icon";
+import { Icon } from "@/shared/ui/Icon/Icon";
 import Avatar from "@/shared/ui/Avatar/Avatar";
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { RoutePath } from "@/shared/config/routeConfig/routeConfig";

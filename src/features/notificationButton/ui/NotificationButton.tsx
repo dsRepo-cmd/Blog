@@ -3,7 +3,7 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./NotificationButton.module.scss";
 import { useTranslation } from "react-i18next";
 import NotificationIcon from "@/shared/assets/icons/bell.svg";
-import Icon from "@/shared/ui/Icon/Icon";
+import { Icon } from "@/shared/ui/Icon/Icon";
 
 import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
 import { Popover } from "@/shared/ui/Popups";
@@ -32,7 +32,7 @@ const NotificationButton: React.FC<NotificationButtonProps> = ({
 
   const trigger = (
     <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
-      <Icon Svg={NotificationIcon} inverted />
+      <Icon Svg={NotificationIcon} width={24} height={24} inverted />
     </Button>
   );
 
