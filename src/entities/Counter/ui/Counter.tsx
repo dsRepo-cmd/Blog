@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { counterActions } from "../model/slice/counterSlice";
 import { getCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
-import Button, { ButtonTheme } from "shared/ui/Button/Button";
-import { classNames } from "shared/lib/classNames";
+import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import { classNames } from "@/shared/lib/classNames";
 import cls from "./Counter.module.scss";
 import { memo } from "react";
 

@@ -1,16 +1,16 @@
 import React, { memo, useCallback } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import cls from "./ArticlesPage.module.scss";
 import { useTranslation } from "react-i18next";
 import DynamicModuleLoader, {
   ReducerList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { articlesPageReducer } from "../../model/slices/articlePageSlice";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import ArticlesPageFilters from "../ArticlesPageFilters/ArticlesPageFilters";
 import ArticleInfinitList from "../ArticleInfinitList/ArticleInfinitList";
-import { Page } from "widgets/Page";
+import { Page } from "@/widgets/Page";
 
 interface ArticlesPageProps {
   className?: string;

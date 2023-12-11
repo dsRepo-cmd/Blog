@@ -1,17 +1,17 @@
 import React, { memo, useCallback } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getUserAuthData,
   isUserAdmin,
   isUserManager,
   userActions,
-} from "entities/User";
+} from "@/entities/User";
 
-import Avatar from "shared/ui/Avatar/Avatar";
-import { Dropdown } from "shared/ui/Popups";
+import Avatar from "@/shared/ui/Avatar/Avatar";
+import { Dropdown } from "@/shared/ui/Popups";
 
 interface AvatarDropdownProps {
   className?: string;

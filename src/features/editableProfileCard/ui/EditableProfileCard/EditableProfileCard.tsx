@@ -1,10 +1,10 @@
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
 import cls from "./EditableProfileCard.module.scss";
 import React, { memo, useCallback, useEffect } from "react";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
-import Text, { TextTheme } from "shared/ui/Text/Text";
+import Text, { TextTheme } from "@/shared/ui/Text/Text";
 
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
@@ -13,15 +13,15 @@ import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/get
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { profileActions, profileReducer } from "../../model/slice/ProfileSlice";
-import { ProfileCard } from "entities/Profile";
+import { ProfileCard } from "@/entities/Profile";
 import DynamicModuleLoader, {
   ReducerList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import EditableProfileCardHeader from "../EditableProfileCardHeader/EditableProfileCardHeader";
-import { VStack } from "shared/ui/Stack";
+import { VStack } from "@/shared/ui/Stack";
 import { ValidateProfileError } from "../../model/consts/consts";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Coutnry";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Coutnry";
 
 interface EditableProfileCardProps {
   className?: string;

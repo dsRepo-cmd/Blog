@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useMemo } from "react";
-import { Mods, classNames } from "shared/lib/classNames";
+import { Mods, classNames } from "@/shared/lib/classNames";
 import cls from "./Select.module.scss";
 import { useTranslation } from "react-i18next";
 

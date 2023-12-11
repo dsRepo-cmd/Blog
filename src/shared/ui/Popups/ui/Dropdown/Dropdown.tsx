@@ -1,5 +1,5 @@
 import React, { ReactNode, memo, Fragment } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import cls from "./Dropdown.module.scss";
 import { DropdownDirection } from "../../../../types/ui";
 import { Menu } from "@headlessui/react";

@@ -1,8 +1,8 @@
 import React, { memo, useEffect } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import cls from "./ArticleInfinitList.module.scss";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
@@ -14,8 +14,8 @@ import {
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
-import { VStack } from "shared/ui/Stack";
-import { ArticleList } from "entities/Article";
+import { VStack } from "@/shared/ui/Stack";
+import { ArticleList } from "@/entities/Article";
 
 interface ArticleInfinitListProps {
   className?: string;

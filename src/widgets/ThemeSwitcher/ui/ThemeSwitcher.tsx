@@ -1,13 +1,13 @@
 import React, { memo } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import cls from "./ThemeSwitcher.module.scss";
-import { Theme, useTheme } from "app/providers/ThemeProvider";
-import SunIcon from "shared/assets/icons/sunD.svg";
-import MoonIcon from "shared/assets/icons/moon-last-quarter.svg";
-import StarIcon from "shared/assets/icons/star.svg";
+import { Theme, useTheme } from "@/app/providers/ThemeProvider";
+import SunIcon from "@/shared/assets/icons/sunD.svg";
+import MoonIcon from "@/shared/assets/icons/moon-last-quarter.svg";
+import StarIcon from "@/shared/assets/icons/star.svg";
 
-import Button, { ButtonTheme } from "shared/ui/Button/Button";
-import Icon from "shared/ui/Icon/Icon";
+import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import Icon from "@/shared/ui/Icon/Icon";
 
 interface ThemeSwitcherProps {
   className?: string;

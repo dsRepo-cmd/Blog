@@ -1,10 +1,10 @@
 import { memo } from "react";
 import cls from "./ArticleListItem.module.scss";
 
-import { classNames } from "shared/lib/classNames";
-import Card from "shared/ui/Card/Card";
-import Skeleton from "shared/ui/Skeleton/Skeleton";
-import { VStack } from "shared/ui/Stack";
+import { classNames } from "@/shared/lib/classNames";
+import Card from "@/shared/ui/Card/Card";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
+import { VStack } from "@/shared/ui/Stack";
 import { ArticleView } from "../../model/consts/consts";
 
 interface ArticleListItemSkeletonProps {
