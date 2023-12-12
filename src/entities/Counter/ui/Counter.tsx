@@ -17,7 +17,7 @@ export const Counter: React.FC<CounterProps> = memo(({ className }) => {
   const counterValue = useCounterValue();
   const { t } = useTranslation();
 
-  const { decrement, increment, add } = useCounterActions();
+  const { decrement, increment, add, sub } = useCounterActions();
 
   const handleInc = () => {
     increment();
@@ -27,8 +27,12 @@ export const Counter: React.FC<CounterProps> = memo(({ className }) => {
     decrement();
   };
 
-  const handleAddFive = () => {
+  const handleAdd = () => {
     add(5);
+  };
+
+  const handleSub = () => {
+    sub(5);
   };
 
   return (
@@ -36,13 +40,15 @@ export const Counter: React.FC<CounterProps> = memo(({ className }) => {
       <h1 className={cls.value} data-testid="value-title">
         {counterValue}
       </h1>
+
       <Button
         theme={ButtonTheme.OUTLINE_INVERTED}
-        onClick={handleAddFive}
-        data-testid="increment-btn5"
+        data-testid="decrement-btn"
+        onClick={handleDec}
       >
-        {t("add5")}
+        {t("decrement")}
       </Button>
+
       <Button
         theme={ButtonTheme.OUTLINE_INVERTED}
         onClick={handleInc}
@@ -50,12 +56,21 @@ export const Counter: React.FC<CounterProps> = memo(({ className }) => {
       >
         {t("increment")}
       </Button>
+
       <Button
         theme={ButtonTheme.OUTLINE_INVERTED}
-        data-testid="decrement-btn"
-        onClick={handleDec}
+        onClick={handleAdd}
+        data-testid="increment-btn5"
       >
-        {t("decrement")}
+        {t("+5")}
+      </Button>
+
+      <Button
+        theme={ButtonTheme.OUTLINE_INVERTED}
+        onClick={handleSub}
+        data-testid="increment-btn5"
+      >
+        {t("-5")}
       </Button>
     </div>
   );

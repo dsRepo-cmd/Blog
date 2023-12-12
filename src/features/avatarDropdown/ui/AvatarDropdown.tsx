@@ -49,7 +49,7 @@ const AvatarDropdown: React.FC<AvatarDropdownProps> = ({ className }) => {
         { content: t("Profile"), href: getRouteProfile(authData.id) },
         { content: t("Exit"), onClick: onLogout },
       ]}
-      trigger={<Avatar size={30} src={authData.avatar} />}
+      trigger={<Avatar fallbackInverted size={30} src={authData.avatar} />}
     />
   );
 };
