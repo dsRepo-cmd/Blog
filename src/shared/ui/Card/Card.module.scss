@@ -1,4 +1,5 @@
 .Card {
+  padding: 6px;
   border-radius: var(--border-radius-l);
   background: var(--card-bg);
 }
@@ -15,4 +16,7 @@
   padding: 6px;
 
   border: 1px solid var(--primary-color);
+}
+.max {
+  width: 100%;
 }

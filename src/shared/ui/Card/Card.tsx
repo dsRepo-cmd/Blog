@@ -12,17 +12,22 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
   theme?: CardTheme;
+  max?: boolean;
 }
 
 const Card: React.FC<CardProps> = ({
   className,
   children,
   theme = CardTheme.DEFAULT,
+  max,
   ...restProps
 }) => {
   return (
     <div
-      className={classNames(cls.Card, {}, [className, cls[theme]])}
+      className={classNames(cls.Card, { [cls.max]: max }, [
+        className,
+        cls[theme],
+      ])}
       {...restProps}
     >
       {children}

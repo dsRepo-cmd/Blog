@@ -13,9 +13,7 @@ const MainPage: React.FC<MainPageProps> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
-    <Page className={classNames(cls.MainPage, {}, [className])}>
-      <RatingCard title="Hello" feedbackTitle="feedbackTitle" hasFeedback />
-    </Page>
+    <Page className={classNames(cls.MainPage, {}, [className])}>MainPage</Page>
   );
 };
 

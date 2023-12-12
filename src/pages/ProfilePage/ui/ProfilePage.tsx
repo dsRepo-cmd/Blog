@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import Text from "@/shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { Page } from "@/widgets/Page";
+import { RatingCard } from "@/entities/Rating";
+import { ProfileRating } from "@/features/profileRating";
 
 interface ProfilePageProps {
   className?: string;
@@ -21,6 +23,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
   return (
     <Page className={classNames("", {}, [className])}>
       <EditableProfileCard id={id} />
+      <ProfileRating profileId={id} />
     </Page>
   );
 };

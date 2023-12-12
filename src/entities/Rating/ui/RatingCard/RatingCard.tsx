@@ -19,6 +19,7 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?: (starsCount: number) => void;
   onAccept?: (starsCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 const RatingCard: React.FC<RatingCardProps> = ({
@@ -28,10 +29,11 @@ const RatingCard: React.FC<RatingCardProps> = ({
   hasFeedback,
   onCancel,
   onAccept,
+  rate = 0,
 }) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState("");
 
   const onSelectStars = useCallback(
@@ -70,8 +72,12 @@ const RatingCard: React.FC<RatingCardProps> = ({
   return (
     <Card className={classNames(cls.RatingCard, {}, [className])}>
       <VStack align="center" gap="8">
-        <Text title={title} />
-        <StarRating size={40} onSelect={onSelectStars} />
+        <Text title={starsCount ? t("Thanks for your feedback!") : title} />
+        <StarRating
+          selectedStars={starsCount}
+          size={40}
+          onSelect={onSelectStars}
+        />
       </VStack>
 
       <BrowserView>
@@ -82,7 +88,12 @@ const RatingCard: React.FC<RatingCardProps> = ({
               <Button onClick={cancelHandle} theme={ButtonTheme.OUTLINE_RED}>
                 {t("Close")}
               </Button>
-              <Button onClick={acceptHandle}>{t("Send")}</Button>
+              <Button
+                theme={ButtonTheme.OUTLINE_INVERTED}
+                onClick={acceptHandle}
+              >
+                {t("Send")}
+              </Button>
             </HStack>
           </VStack>
         </Modal>
@@ -92,8 +103,13 @@ const RatingCard: React.FC<RatingCardProps> = ({
         <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
           <VStack gap="32">
             {modalContent}
-            <Button fullWidth onClick={acceptHandle} size={ButtonSize.L}>
-              {t("Отправить")}
+            <Button
+              theme={ButtonTheme.OUTLINE_INVERTED}
+              fullWidth
+              onClick={acceptHandle}
+              size={ButtonSize.L}
+            >
+              {t("Send")}
             </Button>
           </VStack>
         </Drawer>

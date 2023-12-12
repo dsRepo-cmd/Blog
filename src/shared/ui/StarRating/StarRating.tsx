@@ -18,7 +18,7 @@ const StarRating: React.FC<StarRatingProps> = ({
   selectedStars = 0,
   onSelect,
 }) => {
-  const [currentStarsCount, setCurrentStarsCount] = useState(0);
+  const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
   const onHover = (starsCount: number) => () => {

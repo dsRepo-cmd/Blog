@@ -1824,5 +1824,57 @@
         }
       ]
     }
+  ],
+  "article-ratings": [
+    {
+      "userId": "2",
+      "articleId": "18",
+      "rate": 5,
+      "feedback": "Good",
+      "id": 1
+    },
+    {
+      "userId": "2",
+      "articleId": "17",
+      "rate": 2,
+      "feedback": "Bad",
+      "id": 2
+    },
+    {
+      "userId": "2",
+      "articleId": "1",
+      "rate": 4,
+      "feedback": "Good!",
+      "id": 3
+    },
+    {
+      "userId": "2",
+      "articleId": "1",
+      "rate": 1,
+      "feedback": "Bag",
+      "id": 4
+    },
+    {
+      "userId": "2",
+      "articleId": "6",
+      "rate": 3,
+      "id": 5
+    }
+  ],
+  "profile-ratings": [
+    {
+      "userId": "1",
+      "profileId": "2",
+      "rate": 2,
+      "feedback": "Bad",
+      "id": 1
+    },
+    {
+      "userId": "2",
+      "profileId": "2",
+      "rate": 3,
+      "feedback": "So..",
+      "id": 2
+    }
   ]
 }
