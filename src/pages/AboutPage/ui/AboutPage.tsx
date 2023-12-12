@@ -12,7 +12,10 @@ const AboutPage: React.FC<AboutPageProps> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
-    <Page className={classNames(cls.AboutPage, {}, [className])}>
+    <Page
+      data-testid={"AboutPage"}
+      className={classNames(cls.AboutPage, {}, [className])}
+    >
       AboutPage
     </Page>
   );

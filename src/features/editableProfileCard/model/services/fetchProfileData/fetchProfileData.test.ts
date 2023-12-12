@@ -1,14 +1,17 @@
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+
+import { Currency } from "@/entities/Currency";
 import { fetchProfileData } from "./fetchProfileData";
+import { Country } from "@/entities/Coutnry";
 
 const data = {
   username: "admin",
-  age: 80,
-  country: "USA",
-  lastname: "Wayne",
-  first: "John",
+  age: 40,
+  country: Country.USA,
+  lastname: "Eastwood",
+  first: "Clint",
   city: "New York",
-  currency: "USD",
+  currency: Currency.EUR,
 };
 
 describe("fetchProfileData.test", () => {

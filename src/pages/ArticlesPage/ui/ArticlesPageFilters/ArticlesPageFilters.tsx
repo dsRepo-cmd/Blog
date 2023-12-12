@@ -15,13 +15,12 @@ import { articlesPageActions } from "../../model/slices/articlePageSlice";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Input } from "@/shared/ui/Input/Input";
 import Card from "@/shared/ui/Card/Card";
-
-import { SortOrder } from "@/shared/types";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
 import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
 import { ArticleSortSelector } from "@/features/ArticleSortSelector";
 import { ArticleViewSelector } from "@/features/ArticleViewSelector";
+import { SortOrder } from "@/shared/types/sort";
 
 interface ArticlesPageFiltersProps {
   className?: string;

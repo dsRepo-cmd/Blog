@@ -14,7 +14,10 @@ const MainPage: React.FC<MainPageProps> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
-    <Page className={classNames(cls.MainPage, {}, [className])}>
+    <Page
+      data-testid="MainPage"
+      className={classNames(cls.MainPage, {}, [className])}
+    >
       <Counter />
     </Page>
   );

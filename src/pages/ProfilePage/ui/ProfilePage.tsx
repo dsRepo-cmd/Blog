@@ -19,7 +19,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
     return <Text text={t("Profile not found")} />;
   }
   return (
-    <Page className={classNames("", {}, [className])}>
+    <Page data-testid="ProfilePage" className={classNames("", {}, [className])}>
       <EditableProfileCard id={id} />
       <ProfileRating profileId={id} />
     </Page>

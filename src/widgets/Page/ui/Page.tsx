@@ -4,7 +4,6 @@ import React, {
   useRef,
   MutableRefObject,
   UIEvent,
-  useLayoutEffect,
   useEffect,
 } from "react";
 import { classNames } from "@/shared/lib/classNames";
@@ -16,14 +15,16 @@ import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle";
+import { TestProps } from "@/shared/types/tests";
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
 }
 
-const Page: React.FC<PageProps> = ({ className, children, onScrollEnd }) => {
+const Page: React.FC<PageProps> = (props) => {
+  const { className, children, onScrollEnd } = props;
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
@@ -56,6 +57,7 @@ const Page: React.FC<PageProps> = ({ className, children, onScrollEnd }) => {
       onScroll={onScroll}
       ref={wrapperRef}
       className={classNames(cls.Page, {}, [className])}
+      data-testid={props["data-testid"] ?? "Page"}
     >
       {children}
       {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
