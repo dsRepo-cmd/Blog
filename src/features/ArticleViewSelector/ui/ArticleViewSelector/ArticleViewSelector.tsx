@@ -5,7 +5,7 @@ import ListIcon from "@/shared/assets/icons/list-burger.svg";
 import DetailsIcon from "@/shared/assets/icons/details.svg";
 import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
 import { Icon } from "@/shared/ui/Icon/Icon";
-import { ArticleView } from "../../model/consts/consts";
+import { ArticleView } from "../../../../entities/Article/model/consts/consts";
 
 interface ArticleViewSelectorProps {
   className?: string;
