@@ -1,4 +1,3 @@
-import { RouteProps } from "react-router-dom";
 import { AboutPage } from "@/pages/AboutPage";
 import { MainPage } from "@/pages/MainPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
@@ -7,42 +6,10 @@ import { ArticlesPage } from "@/pages/ArticlesPage";
 import { ArticleDetailsPage } from "@/pages/ArticleDetailsPage";
 import { ArticleEditPage } from "@/pages/ArticleEditPage";
 import { AdminPanelPage } from "@/pages/AdminPanelPage";
-
 import { ForbiddenPage } from "@/pages/ForbiddenPage";
 import { UserRole } from "@/entities/User";
-
-export type AppRoutesProps = RouteProps & {
-  authOnly?: boolean;
-  roles?: UserRole[];
-};
-
-export enum AppRoutes {
-  MAIN = "main",
-  ABOUT = "about",
-  PROFILE = "profile",
-  ARTICLES = "articles",
-  ARTICLE_DETAILS = "article_details",
-  ARTICLE_CREATE = "article_create",
-  ARTICLE_EDIT = "article_edit",
-  AADMIN_PANEL = "admin_panel",
-  FORBIDDEN = "forbidden",
-
-  NOT_FOUND = "not_found",
-}
-
-export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: "/",
-  [AppRoutes.ABOUT]: "/about",
-  [AppRoutes.ARTICLES]: "/articles",
-  [AppRoutes.PROFILE]: "/profile/", //+ :id
-  [AppRoutes.ARTICLE_DETAILS]: "/article/", //+ :id
-  [AppRoutes.ARTICLE_CREATE]: "/article/new",
-  [AppRoutes.ARTICLE_EDIT]: "/article/:id/edit",
-  [AppRoutes.AADMIN_PANEL]: "/admin",
-  [AppRoutes.FORBIDDEN]: "/forbidden",
-
-  [AppRoutes.NOT_FOUND]: "*",
-};
+import { AppRoutes, RoutePath } from "@/shared/const/router";
+import { AppRoutesProps } from "@/shared/types/router";
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: { path: RoutePath.main, element: <MainPage /> },
@@ -54,9 +21,9 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
 
   [AppRoutes.ARTICLES]: {
-    authOnly: true,
     path: RoutePath.articles,
     element: <ArticlesPage />,
+    authOnly: true,
   },
 
   [AppRoutes.ARTICLE_DETAILS]: {
@@ -77,11 +44,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     authOnly: true,
   },
 
-  [AppRoutes.AADMIN_PANEL]: {
+  [AppRoutes.ADMIN_PANEL]: {
     path: RoutePath.admin_panel,
     element: <AdminPanelPage />,
-    authOnly: true,
     roles: [UserRole.MANAGER, UserRole.ADMIN],
+    authOnly: true,
   },
 
   [AppRoutes.FORBIDDEN]: {
