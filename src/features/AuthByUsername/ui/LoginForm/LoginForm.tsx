@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from "react";
+import React, { memo, useCallback } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";

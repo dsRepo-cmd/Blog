@@ -1859,6 +1859,13 @@
       "articleId": "6",
       "rate": 3,
       "id": 5
+    },
+    {
+      "userId": "1",
+      "articleId": "18",
+      "rate": 3,
+      "feedback": "",
+      "id": 6
     }
   ],
   "profile-ratings": [

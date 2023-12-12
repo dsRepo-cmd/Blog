@@ -55,7 +55,7 @@ const ListBox: React.FC<ListBoxProps> = ({
         value={value}
         onChange={onChange}
       >
-        <HListBox.Button className={cls.trigger}>
+        <HListBox.Button as="div" className={cls.trigger}>
           <Button theme={ButtonTheme.OUTLINE_INVERTED} disabled={readonly}>
             {value ?? defaultValue}
           </Button>

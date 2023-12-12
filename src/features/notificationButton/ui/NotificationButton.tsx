@@ -1,7 +1,6 @@
 import React, { memo, useCallback, useState } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./NotificationButton.module.scss";
-import { useTranslation } from "react-i18next";
 import NotificationIcon from "@/shared/assets/icons/bell.svg";
 import { Icon } from "@/shared/ui/Icon/Icon";
 

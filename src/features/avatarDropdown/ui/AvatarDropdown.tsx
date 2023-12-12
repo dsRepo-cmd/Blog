@@ -11,7 +11,7 @@ import {
 
 import Avatar from "@/shared/ui/Avatar/Avatar";
 import { Dropdown } from "@/shared/ui/Popups";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteAdmin, getRouteProfile } from "@/shared/const/router";
 
 interface AvatarDropdownProps {
   className?: string;
@@ -42,11 +42,11 @@ const AvatarDropdown: React.FC<AvatarDropdownProps> = ({ className }) => {
           ? [
               {
                 content: t("Administration"),
-                href: RoutePath.admin_panel,
+                href: getRouteAdmin(),
               },
             ]
           : []),
-        { content: t("Profile"), href: RoutePath.profile + authData.id },
+        { content: t("Profile"), href: getRouteProfile(authData.id) },
         { content: t("Exit"), onClick: onLogout },
       ]}
       trigger={<Avatar size={30} src={authData.avatar} />}
