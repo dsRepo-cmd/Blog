@@ -1,35 +1,28 @@
-import React, { ChangeEvent, useMemo } from "react";
-import { Mods, classNames } from "@/shared/lib/classNames";
-import cls from "./Select.module.scss";
-import { useTranslation } from "react-i18next";
+import { ChangeEvent, useMemo } from "react";
 
-export interface SelectOption {
-  value: string;
+import cls from "./Select.module.scss";
+import { Mods, classNames } from "@/shared/lib/classNames";
+
+export interface SelectOption<T extends string> {
+  value: T;
   content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
   label?: string;
-  options?: SelectOption[];
-  value?: string;
-  onChange?: (value: string) => void;
+  options?: SelectOption<T>[];
+  value?: T;
+  onChange?: (value: T) => void;
   readonly?: boolean;
 }
 
-const Select: React.FC<SelectProps> = ({
-  className,
-  label,
-  options,
-  onChange,
-  value,
-  readonly,
-}: SelectProps) => {
-  const { t } = useTranslation();
+export const Select = <T extends string>(props: SelectProps<T>) => {
+  const { className, label, options, onChange, value, readonly } = props;
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     if (onChange) {
-      onChange(e.target.value);
+      onChange(e.target.value as T);
     }
   };
 
@@ -43,13 +36,11 @@ const Select: React.FC<SelectProps> = ({
     [options]
   );
 
-  const mods: Mods = {
-    [cls.readonly]: readonly,
-  };
+  const mods: Mods = {};
 
   return (
     <div className={classNames(cls.Wrapper, mods, [className])}>
-      {label && <span className={cls.label}>{label}:</span>}
+      {label && <span className={cls.label}>{`${label}>`}</span>}
       <select
         disabled={readonly}
         className={cls.select}
@@ -61,5 +52,3 @@ const Select: React.FC<SelectProps> = ({
     </div>
   );
 };
-
-export default Select;

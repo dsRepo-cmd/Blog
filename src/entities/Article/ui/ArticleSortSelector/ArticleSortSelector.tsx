@@ -1,8 +1,8 @@
-import React, { memo, useMemo, useCallback } from "react";
+import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import cls from "./ArticleSortSelector.module.scss";
 import { classNames } from "@/shared/lib/classNames";
-import Select, { SelectOption } from "@/shared/ui/Select/Select";
+import { Select, SelectOption } from "@/shared/ui/Select/Select";
 import { SortOrder } from "@/shared/types";
 import { ArticleSortField } from "../../model/consts/consts";
 
@@ -23,7 +23,7 @@ const ArticleSortSelector: React.FC<ArticleSortSelectorProps> = ({
 }) => {
   const { t } = useTranslation();
 
-  const orderOptions = useMemo<SelectOption[]>(
+  const orderOptions = useMemo<SelectOption<SortOrder>[]>(
     () => [
       {
         value: "asc",
@@ -37,7 +37,7 @@ const ArticleSortSelector: React.FC<ArticleSortSelectorProps> = ({
     [t]
   );
 
-  const sortFieldOptions = useMemo<SelectOption[]>(
+  const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
     () => [
       {
         value: ArticleSortField.CREATED,
@@ -55,36 +55,22 @@ const ArticleSortSelector: React.FC<ArticleSortSelectorProps> = ({
     [t]
   );
 
-  const changeSortHandler = useCallback(
-    (newSort: string) => {
-      onChangeSort(newSort as ArticleSortField);
-    },
-    [onChangeSort]
-  );
-
-  const changeOrderHandler = useCallback(
-    (newOrder: string) => {
-      onChangeOrder(newOrder as SortOrder);
-    },
-    [onChangeOrder]
-  );
-
   return (
     <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-      <Select
-        onChange={changeSortHandler}
+      <Select<ArticleSortField>
+        onChange={onChangeSort}
         value={sort}
-        options={orderOptions}
+        options={sortFieldOptions}
         label={t("Sort by")}
       />
-      <Select
-        onChange={changeOrderHandler}
+      <Select<SortOrder>
+        onChange={onChangeOrder}
         value={order}
-        options={sortFieldOptions}
+        options={orderOptions}
         label={t("Sort by")}
       />
     </div>
   );
 };
 
-export default memo(ArticleSortSelector);
+export default ArticleSortSelector;
