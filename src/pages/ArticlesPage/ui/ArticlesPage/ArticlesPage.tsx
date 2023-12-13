@@ -11,6 +11,7 @@ import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPag
 import ArticlesPageFilters from "../ArticlesPageFilters/ArticlesPageFilters";
 import ArticleInfinitList from "../ArticleInfinitList/ArticleInfinitList";
 import { Page } from "@/widgets/Page";
+import { ArticlePageGreeting } from "@/features/articlePageGreeting";
 
 interface ArticlesPageProps {
   className?: string;
@@ -36,6 +37,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
       >
         <ArticlesPageFilters />
         <ArticleInfinitList />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );
