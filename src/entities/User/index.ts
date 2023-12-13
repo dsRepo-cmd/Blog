@@ -10,6 +10,7 @@ import { UserSchema, User } from "./model/types/user";
 import { UserRole } from "./model/consts/consts";
 import { useJsonSettings } from "./model/selectors/jsonSettings";
 import { saveJsonSettings } from "./model/services/saveJsonSettings";
+import { initAuthData } from "./model/services/initAuthData";
 
 export {
   userReducer,
@@ -22,6 +23,7 @@ export {
   isUserManager,
   useJsonSettings,
   saveJsonSettings,
+  initAuthData,
 };
 
 export type { UserSchema, User };
