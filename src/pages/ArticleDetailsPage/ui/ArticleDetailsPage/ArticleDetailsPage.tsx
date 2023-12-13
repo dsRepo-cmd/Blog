@@ -13,6 +13,7 @@ import ArticleDetailsPageHeader from "../ArticleDetailsPageHeader/ArticleDetails
 import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleRating } from "@/features/articleRating";
+import { getFeatureFlag } from "@/shared/lib/features/setGetFeatures";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -27,6 +28,8 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
+  const isArticleRatingEnabled = getFeatureFlag("isArticleRatingEnabled");
+
   if (!id) {
     return (
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -39,7 +42,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleRating articleId={id} />
+        {isArticleRatingEnabled && <ArticleRating articleId={id} />}
         <ArticleRecommendationsList />
         <ArticleDetailsComments id={id} />
       </Page>

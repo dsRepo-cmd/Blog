@@ -3,8 +3,8 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./MainPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { Page } from "@/widgets/Page";
-import { RatingCard } from "@/entities/Rating";
-import { Counter } from "@/entities/Counter";
+
+import Text from "@/shared/ui/Text/Text";
 
 interface MainPageProps {
   className?: string;
@@ -18,7 +18,7 @@ const MainPage: React.FC<MainPageProps> = ({ className }) => {
       data-testid="MainPage"
       className={classNames(cls.MainPage, {}, [className])}
     >
-      <Counter />
+      <Text title={t("MainPage")} />
     </Page>
   );
 };
