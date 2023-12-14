@@ -9,9 +9,12 @@ import {
   userActions,
 } from "@/entities/User";
 
-import { Dropdown } from "@/shared/ui/deprecated/Popups";
+import { Dropdown as DropdownDeprecated } from "@/shared/ui/deprecated/Popups";
 import { getRouteAdmin, getRouteProfile } from "@/shared/const/router";
-import Avatar from "@/shared/ui/deprecated/Avatar/Avatar";
+import AvatarDeprecated from "@/shared/ui/deprecated/Avatar/Avatar";
+import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { Dropdown } from "@/shared/ui/redesigned/Popups";
+import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
 
 interface AvatarDropdownProps {
   className?: string;
@@ -33,23 +36,50 @@ const AvatarDropdown: React.FC<AvatarDropdownProps> = ({ className }) => {
     return null;
   }
 
+  const items = [
+    ...(isAdminPanelAvailable
+      ? [
+          {
+            content: t("Administration"),
+            href: getRouteAdmin(),
+          },
+        ]
+      : []),
+    {
+      content: t("Profile"),
+      href: getRouteProfile(authData.id),
+    },
+    {
+      content: t("Exit"),
+      onClick: onLogout,
+    },
+  ];
+
   return (
-    <Dropdown
-      className={classNames("", {}, [className])}
-      direction="bottom left"
-      items={[
-        ...(isAdminPanelAvailable
-          ? [
-              {
-                content: t("Administration"),
-                href: getRouteAdmin(),
-              },
-            ]
-          : []),
-        { content: t("Profile"), href: getRouteProfile(authData.id) },
-        { content: t("Exit"), onClick: onLogout },
-      ]}
-      trigger={<Avatar fallbackInverted size={30} src={authData.avatar} />}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Dropdown
+          direction="bottom left"
+          className={classNames("", {}, [className])}
+          items={items}
+          trigger={<Avatar size={40} src={authData.avatar} />}
+        />
+      }
+      off={
+        <DropdownDeprecated
+          direction="bottom left"
+          className={classNames("", {}, [className])}
+          items={items}
+          trigger={
+            <AvatarDeprecated
+              fallbackInverted
+              size={30}
+              src={authData.avatar}
+            />
+          }
+        />
+      }
     />
   );
 };

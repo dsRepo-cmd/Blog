@@ -18,7 +18,7 @@ const NotificationsList: React.FC<NotificationsListProps> = ({ className }) => {
   if (isLoading) {
     return (
       <VStack
-        gap="8"
+        gap="16"
         max
         className={classNames(cls.NotificationList, {}, [className])}
       >
@@ -31,7 +31,7 @@ const NotificationsList: React.FC<NotificationsListProps> = ({ className }) => {
 
   return (
     <VStack
-      gap="8"
+      gap="16"
       max
       className={classNames(cls.NotificationList, {}, [className])}
     >
