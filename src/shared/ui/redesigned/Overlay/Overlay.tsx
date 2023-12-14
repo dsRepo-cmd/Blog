@@ -6,10 +6,7 @@ interface OverlayProps {
   className?: string;
   onClick?: () => void;
 }
-/**
- * Outdated, use new components from the redesigned folder
- * @deprecated
- */
+
 const Overlay: React.FC<OverlayProps> = ({ className, onClick }) => {
   return (
     <div

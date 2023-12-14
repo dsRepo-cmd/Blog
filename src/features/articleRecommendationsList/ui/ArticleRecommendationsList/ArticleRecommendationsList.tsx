@@ -4,7 +4,7 @@ import cls from "./ArticleRecommendationsList.module.scss";
 import React, { memo } from "react";
 import Text, { TextSize } from "@/shared/ui/deprecated/Text/Text";
 
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ArticleList, ArticleView } from "@/entities/Article";
 import { useArticleRecomendationsList } from "../../api/aritcleRecommendationsApi";
 

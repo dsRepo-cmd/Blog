@@ -18,7 +18,7 @@ import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import EditableProfileCardHeader from "../EditableProfileCardHeader/EditableProfileCardHeader";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ValidateProfileError } from "../../model/consts/consts";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Coutnry";

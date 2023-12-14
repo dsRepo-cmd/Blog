@@ -3,7 +3,7 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./NotificationsList.module.scss";
 import { useNotifications } from "../../api/notificationApi";
 import Skeleton from "@/shared/ui/deprecated/Skeleton/Skeleton";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import NotificationsItem from "../NotificationsItem/NotificationsItem";
 
 interface NotificationsListProps {

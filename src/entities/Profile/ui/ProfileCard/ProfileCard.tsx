@@ -7,7 +7,7 @@ import { FC } from "react";
 import { Profile } from "../../model/types/profile";
 import Loader from "@/shared/ui/deprecated/Loader/Loader";
 
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { Currency, CurrencySelect } from "@/entities/Currency";
 import { Country, CountrySelect } from "@/entities/Coutnry";
 import Avatar from "@/shared/ui/deprecated/Avatar/Avatar";

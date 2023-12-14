@@ -12,9 +12,6 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   errorFallback?: ReactElement;
 }
 
-/**
- * @deprecated
- */
 const AppImage: React.FC<AppImageProps> = ({
   className,
   src,

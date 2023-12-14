@@ -14,7 +14,7 @@ import Skeleton from "@/shared/ui/deprecated/Skeleton/Skeleton";
 import EyeIcon from "@/shared/assets/icons/eye.svg";
 import CalendarIcon from "@/shared/assets/icons/calendar.svg";
 
-import { HStack, VStack } from "@/shared/ui/deprecated/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import { useSelector } from "react-redux";

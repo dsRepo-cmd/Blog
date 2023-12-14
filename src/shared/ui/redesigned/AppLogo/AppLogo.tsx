@@ -1,19 +1,15 @@
 import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./AppLogo.module.scss";
-import AppSvg from "@/shared/assets/icons/app-logo.svg";
+import AppSvg from "@/shared/assets/icons/logo.svg";
 import { HStack } from "../Stack";
 
 interface AppLogoProps {
   className?: string;
+  size?: number;
 }
 
-/**
- * Outdated, use new components from the redesigned folder
- * @deprecated
- */
-
-const AppLogo: React.FC<AppLogoProps> = ({ className }) => {
+const AppLogo: React.FC<AppLogoProps> = ({ className, size = 50 }) => {
   return (
     <HStack
       max
@@ -22,7 +18,12 @@ const AppLogo: React.FC<AppLogoProps> = ({ className }) => {
     >
       <div className={cls.gradientBig} />
       <div className={cls.gradientSmall} />
-      <AppSvg className={cls.appLogo} />
+      <AppSvg
+        width={size}
+        height={size}
+        color="black"
+        className={cls.appLogo}
+      />
     </HStack>
   );
 };

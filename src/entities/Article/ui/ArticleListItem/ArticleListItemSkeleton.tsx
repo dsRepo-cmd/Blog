@@ -4,7 +4,7 @@ import cls from "./ArticleListItem.module.scss";
 import { classNames } from "@/shared/lib/classNames";
 import Card from "@/shared/ui/deprecated/Card/Card";
 import Skeleton from "@/shared/ui/deprecated/Skeleton/Skeleton";
-import { VStack } from "@/shared/ui/deprecated/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ArticleView } from "../../model/consts/consts";
 
 interface ArticleListItemSkeletonProps {
