@@ -1,45 +1,47 @@
-import React, { Fragment, ReactNode } from "react";
+import { Fragment, ReactNode, useMemo } from "react";
 import { Listbox as HListBox } from "@headlessui/react";
 
-import cls from "./ListBox.module.scss";
-import { classNames } from "@/shared/lib/classNames";
-
-import popupCls from "../../styles/popup.module.scss";
-import { mapDirectionClass } from "../../styles/consts";
-
 import { DropdownDirection } from "@/shared/types/ui";
-import { HStack } from "@/shared/ui/redesigned/Stack";
-import { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
+import { HStack } from "../../../../redesigned/Stack";
+
+import cls from "./ListBox.module.scss";
+import { mapDirectionClass } from "../../styles/consts";
+import popupCls from "../../styles/popup.module.scss";
+import { classNames } from "@/shared/lib/classNames";
 import Button from "../../../Button/Button";
 
-export interface ListBoxItem {
+export interface ListBoxItem<T extends string> {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 }
 
-interface ListBoxProps {
-  items?: ListBoxItem[];
+interface ListBoxProps<T extends string> {
+  items?: ListBoxItem<T>[];
   className?: string;
-  value?: string;
+  value?: T;
   defaultValue?: string;
-  onChange: (value: string) => void;
+  onChange: (value: T) => void;
   readonly?: boolean;
   direction?: DropdownDirection;
   label?: string;
 }
 
-const ListBox: React.FC<ListBoxProps> = ({
+function ListBox<T extends string>({
   className,
   items,
   value,
   defaultValue,
   onChange,
-  readonly = false,
+  readonly,
   direction = "bottom right",
   label,
-}) => {
-  const optionsClasses = [mapDirectionClass[direction]];
+}: ListBoxProps<T>) {
+  const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
+
+  const selectedItem = useMemo(() => {
+    return items?.find((item) => item.value === value);
+  }, [items, value]);
 
   return (
     <HStack gap="4">
@@ -52,7 +54,9 @@ const ListBox: React.FC<ListBoxProps> = ({
         onChange={onChange}
       >
         <HListBox.Button className={cls.trigger}>
-          <Button disabled={readonly}>{value ?? defaultValue}</Button>
+          <Button variant="filled" disabled={readonly}>
+            {selectedItem?.content ?? defaultValue}
+          </Button>
         </HListBox.Button>
         <HListBox.Options
           className={classNames(cls.options, {}, optionsClasses)}
@@ -69,9 +73,10 @@ const ListBox: React.FC<ListBoxProps> = ({
                   className={classNames(cls.item, {
                     [popupCls.active]: active,
                     [popupCls.disabled]: item.disabled,
+                    [popupCls.selected]: selected,
                   })}
                 >
-                  {selected && "!!!"}
+                  {selected}
                   {item.content}
                 </li>
               )}
@@ -81,6 +86,6 @@ const ListBox: React.FC<ListBoxProps> = ({
       </HListBox>
     </HStack>
   );
-};
+}
 
 export default ListBox;

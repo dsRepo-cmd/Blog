@@ -1,10 +1,12 @@
 import React, { memo, useMemo, useCallback } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./ArticleTypeTabs.module.scss";
+
 import { useTranslation } from "react-i18next";
 
 import { ArticleType } from "../../../../entities/Article/model/consts/consts";
-import Tabs, { TabItem } from "@/shared/ui/deprecated/Tabs/Tabs";
+import TabsDeprecated, { TabItem } from "@/shared/ui/deprecated/Tabs/Tabs";
+import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import Tabs from "@/shared/ui/redesigned/Tabs/Tabs";
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -38,11 +40,25 @@ const ArticleTypeTabs: React.FC<ArticleTypeTabsProps> = ({
   );
 
   return (
-    <Tabs
-      tabs={typeTabs}
-      value={value}
-      onTabClick={onTabClick}
-      className={classNames(cls.ArticleTypeTabs, {}, [className])}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Tabs
+          direction="column"
+          tabs={typeTabs}
+          value={value}
+          onTabClick={onTabClick}
+          className={classNames("", {}, [className])}
+        />
+      }
+      off={
+        <TabsDeprecated
+          tabs={typeTabs}
+          value={value}
+          onTabClick={onTabClick}
+          className={classNames("", {}, [className])}
+        />
+      }
     />
   );
 };

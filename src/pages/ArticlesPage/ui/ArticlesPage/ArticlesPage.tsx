@@ -12,6 +12,10 @@ import ArticlesPageFilters from "../ArticlesPageFilters/ArticlesPageFilters";
 import ArticleInfinitList from "../ArticleInfinitList/ArticleInfinitList";
 import { Page } from "@/widgets/Page";
 import { ArticlePageGreeting } from "@/features/articlePageGreeting";
+import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import StickyContentLayout from "@/shared/layouts/StickyContentLayout/StickyContentLayout";
+import ViewSelectorContainer from "../ViewSelectorContainer/ViewSelectorContainer";
+import { FiltersContainer } from "../FiltersContainer/FiltersContainer";
 
 interface ArticlesPageProps {
   className?: string;
@@ -29,16 +33,44 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
+  const content = (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <StickyContentLayout
+          left={<ViewSelectorContainer />}
+          right={<FiltersContainer />}
+          content={
+            <Page
+              data-testid="ArticlesPage"
+              onScrollEnd={onLoadNextPart}
+              className={classNames(cls.ArticlesPageRedesigned, {}, [
+                className,
+              ])}
+            >
+              <ArticleInfinitList className={cls.list} />
+              <ArticlePageGreeting />
+            </Page>
+          }
+        />
+      }
+      off={
+        <Page
+          data-testid="ArticlesPage"
+          onScrollEnd={onLoadNextPart}
+          className={classNames(cls.ArticlesPage, {}, [className])}
+        >
+          <ArticlesPageFilters />
+          <ArticleInfinitList className={cls.list} />
+          <ArticlePageGreeting />
+        </Page>
+      }
+    />
+  );
+
   return (
-    <DynamicModuleLoader reducers={reducers}>
-      <Page
-        onScrollEnd={onLoadNextPart}
-        className={classNames(cls.ArticlesPage, {}, [className])}
-      >
-        <ArticlesPageFilters />
-        <ArticleInfinitList />
-        <ArticlePageGreeting />
-      </Page>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+      {content}
     </DynamicModuleLoader>
   );
 };

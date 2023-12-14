@@ -1,5 +1,7 @@
 .ArticlesPage {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  min-height: 100%;
+
+  .list {
+    margin-top: 30px;
+  }
 }
