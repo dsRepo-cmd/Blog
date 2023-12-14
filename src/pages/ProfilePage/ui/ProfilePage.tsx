@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import { EditableProfileCard } from "@/features/editableProfileCard";
 import { useParams } from "react-router-dom";
-import Text from "@/shared/ui/Text/Text";
+import Text from "@/shared/ui/deprecated/Text/Text";
 import { useTranslation } from "react-i18next";
 import { Page } from "@/widgets/Page";
 import { ProfileRating } from "@/features/profileRating";

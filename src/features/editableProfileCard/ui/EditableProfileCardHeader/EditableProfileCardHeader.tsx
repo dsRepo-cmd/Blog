@@ -9,9 +9,9 @@ import { getUserAuthData } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { profileActions } from "../../model/slice/ProfileSlice";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
-import { HStack } from "@/shared/ui/Stack";
-import Text from "@/shared/ui/Text/Text";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import { HStack } from "@/shared/ui/deprecated/Stack";
+import Text from "@/shared/ui/deprecated/Text/Text";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 
 interface EditableProfileCardHeaderProps {
   className?: string;

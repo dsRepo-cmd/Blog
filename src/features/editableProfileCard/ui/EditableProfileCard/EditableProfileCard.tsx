@@ -4,7 +4,7 @@ import cls from "./EditableProfileCard.module.scss";
 import React, { memo, useCallback, useEffect } from "react";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
-import Text, { TextTheme } from "@/shared/ui/Text/Text";
+import Text, { TextTheme } from "@/shared/ui/deprecated/Text/Text";
 
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
@@ -18,7 +18,7 @@ import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import EditableProfileCardHeader from "../EditableProfileCardHeader/EditableProfileCardHeader";
-import { VStack } from "@/shared/ui/Stack";
+import { VStack } from "@/shared/ui/deprecated/Stack";
 import { ValidateProfileError } from "../../model/consts/consts";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Coutnry";

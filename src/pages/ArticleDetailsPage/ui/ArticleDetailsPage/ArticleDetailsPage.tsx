@@ -14,6 +14,8 @@ import { ArticleRecommendationsList } from "@/features/articleRecommendationsLis
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleRating } from "@/features/articleRating";
 import { getFeatureFlag } from "@/shared/lib/features/setGetFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import Card from "@/shared/ui/deprecated/Card/Card";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -28,8 +30,6 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
-  const isArticleRatingEnabled = getFeatureFlag("isArticleRatingEnabled");
-
   if (!id) {
     return (
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -42,7 +42,11 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+        <ToggleFeatures
+          off={<Card>{t("Article ratings coming soon!")}</Card>}
+          feature={"isArticleRatingEnabled"}
+          on={<ArticleRating articleId={id} />}
+        />
         <ArticleRecommendationsList />
         <ArticleDetailsComments id={id} />
       </Page>

@@ -6,7 +6,7 @@ import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkele
 import { ArticleView } from "../../model/consts/consts";
 import { Article } from "../../model/types/article";
 import { classNames } from "@/shared/lib/classNames";
-import Text, { TextSize } from "@/shared/ui/Text/Text";
+import Text, { TextSize } from "@/shared/ui/deprecated/Text/Text";
 
 interface ArticleListProps {
   className?: string;

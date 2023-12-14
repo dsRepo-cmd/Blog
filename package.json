@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000",
-    "start:vite": "vite",
+    "vite": "vite",
     "start:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production apiUrl=https://json-server-product-one.vercel.app",
     "build:dev": "webpack --env mode=development",
@@ -16,7 +16,8 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "generate:slice": "node ./scripts/createSlice/index.js",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "remove-feature": "ts-node ./scripts/remove-feature.ts"
   },
   "keywords": [],
   "author": "",

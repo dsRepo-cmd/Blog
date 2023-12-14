@@ -2,13 +2,13 @@ import React, { memo, useCallback } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
-import { Input } from "@/shared/ui/Input/Input";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
+import { Input } from "@/shared/ui/deprecated/Input/Input";
 import { useSelector } from "react-redux";
 import { loginActions, loginReducer } from "../../model/slice/loginSlise";
 
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
-import Text, { TextTheme } from "@/shared/ui/Text/Text";
+import Text, { TextTheme } from "@/shared/ui/deprecated/Text/Text";
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginErrors } from "../../model/selectors/getLoginErrors/getLoginErrors";

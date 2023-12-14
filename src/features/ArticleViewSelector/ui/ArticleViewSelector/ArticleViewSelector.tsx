@@ -3,8 +3,8 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./ArticleViewSelector.module.scss";
 import ListIcon from "@/shared/assets/icons/list-burger.svg";
 import DetailsIcon from "@/shared/assets/icons/details.svg";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
-import { Icon } from "@/shared/ui/Icon/Icon";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
+import { Icon } from "@/shared/ui/deprecated/Icon/Icon";
 import { ArticleView } from "../../../../entities/Article/model/consts/consts";
 
 interface ArticleViewSelectorProps {

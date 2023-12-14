@@ -2,8 +2,8 @@ import React, { memo, useCallback } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./AddCommentForm.module.scss";
 import { useTranslation } from "react-i18next";
-import { Input } from "@/shared/ui/Input/Input";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import { Input } from "@/shared/ui/deprecated/Input/Input";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 import { useSelector } from "react-redux";
 import {
   getAddCommentFormError,

@@ -8,18 +8,20 @@
   padding: 20px;
 }
 
-.links {
-  margin-left: auto;
-  display: flex;
-  gap: 12px;
+.NavbarRedesigned {
+  padding: 16px;
 }
 
-.navLink {
-  color: var(--secondary-color);
-}
-.appName {
-  justify-self: start;
-}
-.createLink {
+.links,
+.actions {
   margin-left: auto;
+}
+
+.mainLink {
+  margin-right: 15px;
+}
+
+.appName {
+  width: var(--sidebar-width);
+  margin-left: 15px;
 }

@@ -5,8 +5,8 @@ import SunIcon from "@/shared/assets/icons/sunD.svg";
 import MoonIcon from "@/shared/assets/icons/moon-last-quarter.svg";
 import StarIcon from "@/shared/assets/icons/star.svg";
 
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
-import { Icon } from "@/shared/ui/Icon/Icon";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
+import { Icon } from "@/shared/ui/deprecated/Icon/Icon";
 import { Theme } from "@/shared/const/theme";
 import useTheme from "@/shared/lib/hooks/useTheme/useTheme";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -35,11 +35,11 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = memo(
         onClick={onToggleHandler}
       >
         {theme === Theme.LIGHT ? (
-          <Icon Svg={StarIcon} />
+          <Icon width={32} height={32} Svg={StarIcon} />
         ) : theme === Theme.DARK ? (
-          <Icon Svg={SunIcon} />
+          <Icon width={32} height={32} Svg={SunIcon} />
         ) : (
-          <Icon Svg={MoonIcon} />
+          <Icon width={32} height={32} Svg={MoonIcon} />
         )}
       </Button>
     );

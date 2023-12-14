@@ -2,7 +2,7 @@ import React, { Suspense, memo, useCallback, useEffect } from "react";
 import { classNames } from "@/shared/lib/classNames";
 
 import { useTranslation } from "react-i18next";
-import Text from "@/shared/ui/Text/Text";
+import Text from "@/shared/ui/deprecated/Text/Text";
 
 import { CommentList } from "@/entities/Comment";
 import { useSelector } from "react-redux";
@@ -11,7 +11,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
 import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import Loader from "@/shared/ui/Loader/Loader";
+import Loader from "@/shared/ui/deprecated/Loader/Loader";
 import { AddCommentForm } from "@/features/addCommentForm";
 
 interface ArticleDetailsCommentsProps {

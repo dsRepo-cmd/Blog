@@ -4,7 +4,7 @@ import cls from "./MainPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { Page } from "@/widgets/Page";
 
-import Text from "@/shared/ui/Text/Text";
+import Text from "@/shared/ui/deprecated/Text/Text";
 
 interface MainPageProps {
   className?: string;

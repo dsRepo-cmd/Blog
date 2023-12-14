@@ -1,5 +1,7 @@
 :root {
-  --font-family: consolas, "Segoe UI", blinkmacsystemfont;
+  --font-family-main: consolas, "Times New Roman", serif;
+  --font-family-text-redesigned: "Nunito Sans", sans-serif;
+  --font-family-header-redesigned: "Roboto", sans-serif;
 
   // Fonts
   // s
@@ -16,6 +18,11 @@
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  // xl
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
   // Sizes
   --navbar-height: 50px;
@@ -35,4 +42,22 @@
   --border-radius-m: 4px;
   --border-radius-l: 8px;
   --border-radius-xl: 12px;
+
+  // redesigned
+
+  // s
+  --font-s-redesigned: var(--font-size-s) / var(--font-line-s)
+    var(--font-family-text-redesigned);
+
+  // m
+  --font-m-redesigned: var(--font-size-m) / var(--font-line-m)
+    var(--font-family-text-redesigned);
+
+  // l
+  --font-l-redesigned: var(--font-size-l) / var(--font-line-l)
+    var(--font-family-header-redesigned);
+
+  // xl
+  --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl)
+    var(--font-family-header-redesigned);
 }

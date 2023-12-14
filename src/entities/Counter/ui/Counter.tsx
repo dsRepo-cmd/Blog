@@ -5,7 +5,7 @@ import {
   getCounterValue,
   useCounterValue,
 } from "../model/selectors/getCounterValue/getCounterValue";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./Counter.module.scss";
 import { memo } from "react";

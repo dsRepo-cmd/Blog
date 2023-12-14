@@ -3,7 +3,7 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./ArticleTextBlockComponent.module.scss";
 import { useTranslation } from "react-i18next";
 import { ArticleTextBlock } from "../../model/types/article";
-import Text from "@/shared/ui/Text/Text";
+import Text from "@/shared/ui/deprecated/Text/Text";
 
 interface ArticleTextBlockComponentProps {
   className?: string;

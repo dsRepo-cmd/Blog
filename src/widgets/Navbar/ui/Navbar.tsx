@@ -1,18 +1,19 @@
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./Navbar.module.scss";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 import { useState, useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "@/features/AuthByUsername";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
-import Text, { TextTheme } from "@/shared/ui/Text/Text";
-import AppLink, { AppLinkTheme } from "@/shared/ui/AppLink/AppLink";
+import Text, { TextTheme } from "@/shared/ui/deprecated/Text/Text";
+import AppLink, { AppLinkTheme } from "@/shared/ui/deprecated/AppLink/AppLink";
 
-import { HStack } from "@/shared/ui/Stack";
+import { HStack } from "@/shared/ui/deprecated/Stack";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import { getRouteArticleCreate } from "@/shared/const/router";
+import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
 
 interface NavbarProps {
   className?: string;
@@ -34,25 +35,38 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.navbar, {}, [className])}>
-        <Text
-          theme={TextTheme.PRIMARY}
-          title={t("App production")}
-          className={cls.appName}
-        />
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.navbar, {}, [className])}>
+            <Text
+              theme={TextTheme.PRIMARY}
+              title={t("App production")}
+              className={cls.appName}
+            />
 
-        <HStack gap="24">
-          <AppLink
-            className={cls.createLink}
-            theme={AppLinkTheme.BTN_PRIMARY}
-            to={getRouteArticleCreate()}
-          >
-            {t("Create article")}
-          </AppLink>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+            <HStack gap="24">
+              <AppLink
+                className={cls.createLink}
+                theme={AppLinkTheme.BTN_PRIMARY}
+                to={getRouteArticleCreate()}
+              >
+                {t("Create article")}
+              </AppLink>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     );
   }
 

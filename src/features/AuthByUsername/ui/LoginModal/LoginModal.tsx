@@ -1,9 +1,9 @@
 import React, { Suspense, memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./LoginModal.module.scss";
-import Modal from "@/shared/ui/Modal/Modal";
+import Modal from "@/shared/ui/deprecated/Modal/Modal";
 
-import Loader from "@/shared/ui/Loader/Loader";
+import Loader from "@/shared/ui/deprecated/Loader/Loader";
 import { LoginFormAsync } from "../LoginForm/LoginForm.async";
 
 interface LoginModalProps {
