@@ -1,11 +1,13 @@
 import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./CommentList.module.scss";
-import Text from "@/shared/ui/deprecated/Text/Text";
+import TextDeprecated from "@/shared/ui/deprecated/Text/Text";
 import CommentCard from "../CommentCard/CommentCard";
 import { useTranslation } from "react-i18next";
 import { Comment } from "../../model/types/comment";
 import { VStack } from "@/shared/ui/redesigned/Stack";
+import { ToggleFeatures } from "@/shared/lib/features";
+import Text from "@/shared/ui/redesigned/Text/Text";
 
 interface CommentListProps {
   className?: string;
@@ -35,21 +37,21 @@ const CommentList: React.FC<CommentListProps> = ({
   }
 
   return (
-    <VStack
-      gap="16"
-      max
-      className={classNames(cls.CommentList, {}, [className])}
-    >
+    <VStack gap="16" max className={classNames("", {}, [className])}>
       {comments?.length ? (
         comments.map((comment) => (
           <CommentCard
-            key={comment.id}
             isLoading={isLoading}
             comment={comment}
+            key={comment.id}
           />
         ))
       ) : (
-        <Text text={t("No comments")} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text text={t("No commentsт")} />}
+          off={<TextDeprecated text={t("No comments")} />}
+        />
       )}
     </VStack>
   );

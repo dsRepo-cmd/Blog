@@ -1,12 +1,14 @@
 import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
-import cls from "./ArticleRecommendationsList.module.scss";
+
 import React, { memo } from "react";
-import Text, { TextSize } from "@/shared/ui/deprecated/Text/Text";
+import TextDeprecated, { TextSize } from "@/shared/ui/deprecated/Text/Text";
 
 import { VStack } from "@/shared/ui/redesigned/Stack";
-import { ArticleList, ArticleView } from "@/entities/Article";
+import { ArticleList } from "@/entities/Article";
 import { useArticleRecomendationsList } from "../../api/aritcleRecommendationsApi";
+import { ToggleFeatures } from "@/shared/lib/features";
+import Text from "@/shared/ui/redesigned/Text/Text";
 
 interface ArticleRecommendationsListProps {
   className?: string;
@@ -24,15 +26,16 @@ export const ArticleRecommendationsList: React.FC<
 
   return (
     <VStack
+      data-testid="ArticleRecommendationsList"
       gap="8"
-      className={classNames(cls.ArticleRecommendationsList, {}, [className])}
+      className={classNames("", {}, [className])}
     >
-      <Text size={TextSize.M} title={t("Recommendations")} />
-      <ArticleList
-        view={ArticleView.DETAILS}
-        target="_blank"
-        articles={articles}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<Text size="l" title={t("We recommend")} />}
+        off={<TextDeprecated size={TextSize.L} title={t("We recommend")} />}
       />
+      <ArticleList articles={articles} target="_blank" />
     </VStack>
   );
 };

@@ -2,7 +2,7 @@ import React, { Suspense, memo, useCallback, useEffect } from "react";
 import { classNames } from "@/shared/lib/classNames";
 
 import { useTranslation } from "react-i18next";
-import Text from "@/shared/ui/deprecated/Text/Text";
+import TextDeprecated, { TextSize } from "@/shared/ui/deprecated/Text/Text";
 
 import { CommentList } from "@/entities/Comment";
 import { useSelector } from "react-redux";
@@ -13,6 +13,9 @@ import { getArticleComments } from "../../model/slices/articleDetailsCommentsSli
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import Loader from "@/shared/ui/deprecated/Loader/Loader";
 import { AddCommentForm } from "@/features/addCommentForm";
+import Text from "@/shared/ui/redesigned/Text/Text";
+import { ToggleFeatures } from "@/shared/lib/features";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 
 interface ArticleDetailsCommentsProps {
   className?: string;
@@ -39,13 +42,17 @@ const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = ({
   }, [dispatch]);
 
   return (
-    <div className={classNames("", {}, [className])}>
-      <Text title={t("Comments")} />
+    <VStack gap="16" max className={classNames("", {}, [className])}>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<Text size="l" title={t("Comments")} />}
+        off={<TextDeprecated size={TextSize.L} title={t("Comments")} />}
+      />
       <Suspense fallback={<Loader />}>
         <AddCommentForm onSendComment={onSendComment} />
       </Suspense>
       <CommentList isLoading={commentsIsLoading} comments={comments} />
-    </div>
+    </VStack>
   );
 };
 
