@@ -21,7 +21,6 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
   return (
     <Page data-testid="ProfilePage" className={classNames("", {}, [className])}>
       <EditableProfileCard id={id} />
-      <ProfileRating profileId={id} />
     </Page>
   );
 };

@@ -11,7 +11,11 @@ import { profileActions } from "../../model/slice/ProfileSlice";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import Text from "@/shared/ui/deprecated/Text/Text";
-import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
+import ButtonDeprecated, {
+  ButtonTheme,
+} from "@/shared/ui/deprecated/Button/Button";
+import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import Button from "@/shared/ui/redesigned/Button/Button";
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -42,39 +46,85 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
   }, [dispatch]);
 
   return (
-    <HStack
-      max
-      justify="between"
-      className={classNames(cls.ProfilePageHeader, {}, [className])}
-    >
-      <Text title={t("Profile")} />
-      {canEdit ? (
-        <>
-          {readonly ? (
-            <Button theme={ButtonTheme.OUTLINE_INVERTED} onClick={onEdit}>
-              {t("Edit")}
-            </Button>
-          ) : (
+    <ToggleFeatures
+      feature={"isAppRedesigned"}
+      on={
+        <HStack
+          max
+          justify="between"
+          className={classNames(cls.ProfilePageHeader, {}, [className])}
+        >
+          <Text title={t("Profile")} />
+          {canEdit ? (
             <>
-              <HStack gap="12" className={cls.btns}>
-                <Button
-                  className={cls.saveBtn}
-                  theme={ButtonTheme.OUTLINE_INVERTED}
-                  onClick={onSaveEdit}
-                >
-                  {t("Save")}
+              {readonly ? (
+                <Button variant={"outline"} onClick={onEdit}>
+                  {t("Edit")}
                 </Button>
-                <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
-                  {t("Cancel")}
-                </Button>
-              </HStack>
+              ) : (
+                <>
+                  <HStack gap="12" className={cls.btns}>
+                    <Button
+                      className={cls.saveBtn}
+                      variant={"outline"}
+                      onClick={onSaveEdit}
+                    >
+                      {t("Save")}
+                    </Button>
+                    <Button variant={"outline"} onClick={onCancelEdit}>
+                      {t("Cancel")}
+                    </Button>
+                  </HStack>
+                </>
+              )}
             </>
+          ) : (
+            ""
           )}
-        </>
-      ) : (
-        ""
-      )}
-    </HStack>
+        </HStack>
+      }
+      off={
+        <HStack
+          max
+          justify="between"
+          className={classNames(cls.ProfilePageHeader, {}, [className])}
+        >
+          <Text title={t("Profile")} />
+          {canEdit ? (
+            <>
+              {readonly ? (
+                <ButtonDeprecated
+                  theme={ButtonTheme.OUTLINE_INVERTED}
+                  onClick={onEdit}
+                >
+                  {t("Edit")}
+                </ButtonDeprecated>
+              ) : (
+                <>
+                  <HStack gap="12" className={cls.btns}>
+                    <ButtonDeprecated
+                      className={cls.saveBtn}
+                      theme={ButtonTheme.OUTLINE_INVERTED}
+                      onClick={onSaveEdit}
+                    >
+                      {t("Save")}
+                    </ButtonDeprecated>
+                    <ButtonDeprecated
+                      theme={ButtonTheme.OUTLINE_RED}
+                      onClick={onCancelEdit}
+                    >
+                      {t("Cancel")}
+                    </ButtonDeprecated>
+                  </HStack>
+                </>
+              )}
+            </>
+          ) : (
+            ""
+          )}
+        </HStack>
+      }
+    />
   );
 };
 
