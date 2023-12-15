@@ -14,7 +14,7 @@ import { ArticleRecommendationsList } from "@/features/articleRecommendationsLis
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleRating } from "@/features/articleRating";
 import { getFeatureFlag } from "@/shared/lib/features/setGetFeatures";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import Card from "@/shared/ui/deprecated/Card/Card";
 
 interface ArticleDetailsPageProps {

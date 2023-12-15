@@ -70,12 +70,10 @@
       ],
       "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
       "features": {
-        "isArticleRatingEnabled": false,
-        "isCounterEnabled": true,
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -90,11 +88,10 @@
       "password": "123",
       "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
       "features": {
-        "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_orange_theme",
+        "theme": "app_dark_theme",
         "isArticlesPageWasOpened": true
       }
     },

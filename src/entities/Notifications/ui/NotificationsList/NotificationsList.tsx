@@ -2,9 +2,13 @@ import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./NotificationsList.module.scss";
 import { useNotifications } from "../../api/notificationApi";
-import Skeleton from "@/shared/ui/deprecated/Skeleton/Skeleton";
+
 import { VStack } from "@/shared/ui/redesigned/Stack";
-import NotificationsItem from "../NotificationsItem/NotificationsItem";
+
+import SkeletonRedesigned from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import SkeletonDeprecated from "@/shared/ui/deprecated/Skeleton/Skeleton";
+import { toggleFeatures } from "@/shared/lib/features/lib/toggleFeatures";
+import NotificationItem from "../NotificationItem/NotificationItem";
 
 interface NotificationsListProps {
   className?: string;
@@ -13,6 +17,12 @@ interface NotificationsListProps {
 const NotificationsList: React.FC<NotificationsListProps> = ({ className }) => {
   const { data, isLoading } = useNotifications(null, {
     pollingInterval: 10000,
+  });
+
+  const Skeleton = toggleFeatures({
+    name: "isAppRedesigned",
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
   });
 
   if (isLoading) {
@@ -36,7 +46,7 @@ const NotificationsList: React.FC<NotificationsListProps> = ({ className }) => {
       className={classNames(cls.NotificationList, {}, [className])}
     >
       {data?.map((item) => (
-        <NotificationsItem key={item.id} item={item} />
+        <NotificationItem key={item.id} item={item} />
       ))}
     </VStack>
   );

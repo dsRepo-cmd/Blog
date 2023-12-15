@@ -10,7 +10,7 @@ import SkeletonRedesigned from "@/shared/ui/redesigned/Skeleton/Skeleton";
 
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ArticleView } from "../../model/consts/consts";
-import { toggleFeatures } from "@/shared/lib/features/toggleFeatures";
+import { toggleFeatures } from "@/shared/lib/features/lib/toggleFeatures";
 
 interface ArticleListItemSkeletonProps {
   className?: string;

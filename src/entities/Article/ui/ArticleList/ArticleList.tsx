@@ -7,7 +7,7 @@ import { ArticleView } from "../../model/consts/consts";
 import { Article } from "../../model/types/article";
 import { classNames } from "@/shared/lib/classNames";
 import Text, { TextSize } from "@/shared/ui/deprecated/Text/Text";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 
 interface ArticleListProps {

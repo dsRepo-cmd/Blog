@@ -10,9 +10,13 @@ import {
 } from "@/entities/User";
 
 import { Dropdown as DropdownDeprecated } from "@/shared/ui/deprecated/Popups";
-import { getRouteAdmin, getRouteProfile } from "@/shared/const/router";
+import {
+  getRouteAdmin,
+  getRouteProfile,
+  getRouteSettings,
+} from "@/shared/const/router";
 import AvatarDeprecated from "@/shared/ui/deprecated/Avatar/Avatar";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { Dropdown } from "@/shared/ui/redesigned/Popups";
 import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
 
@@ -48,6 +52,10 @@ const AvatarDropdown: React.FC<AvatarDropdownProps> = ({ className }) => {
     {
       content: t("Profile"),
       href: getRouteProfile(authData.id),
+    },
+    {
+      content: t("Settings"),
+      href: getRouteSettings(),
     },
     {
       content: t("Exit"),

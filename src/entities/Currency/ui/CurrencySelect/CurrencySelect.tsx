@@ -3,7 +3,7 @@ import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
 import { Currency } from "../../model/types/currency";
 import { ListBox as ListBoxDeprecated } from "@/shared/ui/deprecated/Popups";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
 
 interface CurrencySelectProps {

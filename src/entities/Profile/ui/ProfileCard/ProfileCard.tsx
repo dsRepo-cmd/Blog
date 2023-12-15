@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Profile } from "../../model/types/profile";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Coutnry";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import ProfileCardRedesigned, {
   ProfileCardRedesignedError,
   ProfileCardRedesignedSkeleton,

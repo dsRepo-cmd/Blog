@@ -1,19 +1,19 @@
 import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./NotificationsItem.module.scss";
+import cls from "./NotificationItem.module.scss";
 import { Notification } from "../../model/types/notification";
 import CardDeprecated, { CardTheme } from "@/shared/ui/deprecated/Card/Card";
 import TextDeprecated from "@/shared/ui/deprecated/Text/Text";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import Card from "@/shared/ui/redesigned/Card/Card";
 import Text from "@/shared/ui/redesigned/Text/Text";
 
-interface NotificationsItemProps {
+interface NotificationItemProps {
   className?: string;
   item: Notification;
 }
 
-const NotificationsItem: React.FC<NotificationsItemProps> = ({
+const NotificationItem: React.FC<NotificationItemProps> = ({
   className,
   item,
 }) => {
@@ -47,4 +47,4 @@ const NotificationsItem: React.FC<NotificationsItemProps> = ({
   return content;
 };
 
-export default memo(NotificationsItem);
+export default memo(NotificationItem);

@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { Country } from "../model/types/country";
 import { ListBox as ListBoxDeprecated } from "@/shared/ui/deprecated/Popups";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
 
 interface CountrySelectProps {

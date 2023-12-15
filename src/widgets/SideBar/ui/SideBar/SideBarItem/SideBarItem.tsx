@@ -9,7 +9,7 @@ import { SidebarItemType } from "../../../model/types/sidebar";
 import AppLinkDeprecated, {
   AppLinkTheme,
 } from "@/shared/ui/deprecated/AppLink/AppLink";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 

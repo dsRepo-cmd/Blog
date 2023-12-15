@@ -8,8 +8,8 @@ import ButtonDeprecated, {
 } from "@/shared/ui/deprecated/Button/Button";
 import { Icon as IconDeprecated } from "@/shared/ui/deprecated/Icon/Icon";
 import { ArticleView } from "../../../../entities/Article/model/consts/consts";
-import { toggleFeatures } from "@/shared/lib/features/toggleFeatures";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { toggleFeatures } from "@/shared/lib/features/lib/toggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import Card from "@/shared/ui/redesigned/Card/Card";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";

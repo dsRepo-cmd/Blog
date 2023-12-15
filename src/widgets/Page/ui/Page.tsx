@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle";
 import { TestProps } from "@/shared/types/tests";
-import { toggleFeatures } from "@/shared/lib/features/toggleFeatures";
+import { toggleFeatures } from "@/shared/lib/features/lib/toggleFeatures";
 
 interface PageProps extends TestProps {
   className?: string;

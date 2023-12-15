@@ -12,7 +12,7 @@ import ArticlesPageFilters from "../ArticlesPageFilters/ArticlesPageFilters";
 import ArticleInfinitList from "../ArticleInfinitList/ArticleInfinitList";
 import { Page } from "@/widgets/Page";
 import { ArticlePageGreeting } from "@/features/articlePageGreeting";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import StickyContentLayout from "@/shared/layouts/StickyContentLayout/StickyContentLayout";
 import ViewSelectorContainer from "../ViewSelectorContainer/ViewSelectorContainer";
 import { FiltersContainer } from "../FiltersContainer/FiltersContainer";

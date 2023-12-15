@@ -18,7 +18,7 @@ import {
   getRouteMain,
   getRouteProfile,
 } from "@/shared/const/router";
-import { toggleFeatures } from "@/shared/lib/features/toggleFeatures";
+import { toggleFeatures } from "@/shared/lib/features/lib/toggleFeatures";
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [

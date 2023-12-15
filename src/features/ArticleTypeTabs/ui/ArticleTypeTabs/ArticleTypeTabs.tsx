@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import { ArticleType } from "../../../../entities/Article/model/consts/consts";
 import TabsDeprecated, { TabItem } from "@/shared/ui/deprecated/Tabs/Tabs";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import Tabs from "@/shared/ui/redesigned/Tabs/Tabs";
 
 interface ArticleTypeTabsProps {

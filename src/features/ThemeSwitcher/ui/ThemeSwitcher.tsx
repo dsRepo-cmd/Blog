@@ -11,7 +11,7 @@ import { Theme } from "@/shared/const/theme";
 import useTheme from "@/shared/lib/hooks/useTheme/useTheme";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { saveJsonSettings } from "@/entities/User";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 
 interface ThemeSwitcherProps {

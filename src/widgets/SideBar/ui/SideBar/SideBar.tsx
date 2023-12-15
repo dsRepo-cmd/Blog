@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selector/getSideBarItems";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import LangSwitcher from "../../../../features/LangSwitcher/LangSwitcher";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import AppLogo from "@/shared/ui/redesigned/AppLogo/AppLogo";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";

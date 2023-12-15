@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import ButtonDeprecated, {
   ButtonTheme,
 } from "@/shared/ui/deprecated/Button/Button";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import Button from "@/shared/ui/redesigned/Button/Button";
 
 interface LangSwitcherProps {

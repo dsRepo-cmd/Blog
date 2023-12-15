@@ -5,7 +5,7 @@ import { classNames } from "@/shared/lib/classNames";
 import { Select, SelectOption } from "@/shared/ui/deprecated/Select/Select";
 import { SortOrder } from "@/shared/types/sort";
 import { ArticleSortField } from "../../../../entities/Article/model/consts/consts";
-import { ToggleFeatures } from "@/shared/lib/features/ToggleFeatures/ToggleFeatures";
+import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
