@@ -22,7 +22,11 @@ const LangSwitcher: React.FC<LangSwitcherProps> = memo(
     return (
       <ToggleFeatures
         feature="isAppRedesigned"
-        on={<Button variant="clear">{t(short ? "Lang" : "Language")}</Button>}
+        on={
+          <Button onClick={toggleLang} variant="clear">
+            {t(short ? "Lang" : "Language")}
+          </Button>
+        }
         off={
           <ButtonDeprecated
             className={classNames("", {}, [className])}

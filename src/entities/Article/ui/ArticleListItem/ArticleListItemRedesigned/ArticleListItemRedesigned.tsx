@@ -32,7 +32,7 @@ const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({
 
   const userInfo = (
     <>
-      <Avatar size={32} src={article.user.avatar} />
+      <Avatar size={32} src={article.user.avatar} className={cls.avatar} />
       <Text bold text={article.user.username} />
     </>
   );
@@ -77,7 +77,7 @@ const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({
           )}
           <HStack max justify="between">
             <AppLink target={target} to={getRouteArticleDetails(article.id)}>
-              <Button variant="outline">{t("Читать далее...")}</Button>
+              <Button variant="outline">{t("Read more...")}</Button>
             </AppLink>
             {views}
           </HStack>
@@ -93,7 +93,7 @@ const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({
       to={getRouteArticleDetails(article.id)}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
-      <Card className={cls.card} border="round">
+      <Card className={cls.card} border="round" padding={"0"}>
         <AppImage
           fallback={<Skeleton width={200} height={200} />}
           alt={article.title}

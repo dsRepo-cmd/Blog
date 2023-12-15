@@ -6,8 +6,7 @@
   left: 0;
   opacity: 0;
   pointer-events: none;
-  z-index: -1;
-  color: var(--primary-color);
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,16 +14,26 @@
 
 .content {
   padding: 20px;
-  border-radius: var(--border-radius-m);
-  background: var(--bg-color);
+  border-radius: 12px;
   transition: 0.3s transform;
   transform: scale(0.5);
   max-width: 60%;
   z-index: var(--modal-z-index);
 }
 
+.modalNew {
+  .content {
+    background: var(--light-bg-redesigned);
+  }
+}
+.modalOld {
+  .content {
+    background: var(--bg-color);
+  }
+}
+
 .opened {
-  pointer-events: all;
+  pointer-events: auto;
   opacity: 1;
   z-index: var(--modal-z-index);
 

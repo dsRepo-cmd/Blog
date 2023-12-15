@@ -95,5 +95,10 @@
   "increment": "збільшити",
   "name": "ім'я",
   "read-more": "читати далі",
-  "views": "перегляди"
+  "views": "перегляди",
+  "{{count}} views_zero": "{{count}} переглядів",
+  "{{count}} views_one": "{{count}} перегляд",
+  "{{count}} views_two": "{{count}} перегляда",
+  "{{count}} views_few": "{{count}} перегляд",
+  "{{count}} views_other": "{{count}} переглядів"
 }

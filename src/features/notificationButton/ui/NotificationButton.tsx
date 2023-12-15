@@ -11,7 +11,7 @@ import { Popover as PopoverDeprecated } from "@/shared/ui/deprecated/Popups";
 import { NotificationsList } from "@/entities/Notifications";
 import { BrowserView, MobileView } from "react-device-detect";
 import NotificationIcon from "@/shared/assets/icons/notification.svg";
-import { Drawer } from "@/shared/ui/deprecated/Drawer/Drawer";
+import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import { Popover } from "@/shared/ui/redesigned/Popups";

@@ -45,7 +45,7 @@ export const Icon: FC<IconProps> = memo((props) => {
     return (
       <button
         type="button"
-        className={cls.button}
+        className={classNames(cls.button, {}, [className])}
         onClick={props.onClick}
         style={{ height, width }}
       >

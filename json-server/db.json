@@ -73,7 +73,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -1899,6 +1899,13 @@
       "rate": 3,
       "feedback": "",
       "id": 6
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 3,
+      "feedback": "",
+      "id": 7
     }
   ],
   "profile-ratings": [

@@ -94,5 +94,8 @@
   "increment": "increment",
   "name": "name",
   "read-more": "read-more",
-  "views": "views"
+  "views": "views",
+  "{{count}} views_zero": "{{count}} views",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }
