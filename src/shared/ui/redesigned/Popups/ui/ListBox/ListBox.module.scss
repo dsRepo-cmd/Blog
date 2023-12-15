@@ -7,17 +7,17 @@
 }
 
 .options {
+  background: var(--dark-bg-redesigned);
   position: absolute;
-  background: var(--listbox-bg);
   z-index: 10000;
-  border-radius: var(--border-radius-l);
-  box-shadow: 1px 1px 5px var(--listbox-bg);
-  width: 150px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--dark-bg-redesigned);
 }
 
 .item {
-  padding: 4px 6px;
-  margin: 2px;
-  border-radius: var(--border-radius-l);
-  color: var(--secondary-color);
+  padding: 10px 20px;
+}
+
+.selected {
+  background: var(--light-bg-redesigned);
 }

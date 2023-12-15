@@ -1,6 +1,7 @@
 import React, {
   FC,
   InputHTMLAttributes,
+  ReactNode,
   memo,
   useEffect,
   useRef,
@@ -21,6 +22,8 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
   autofocus?: boolean;
   readonly?: boolean;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 const Input: FC<InputProps> = ({
@@ -31,13 +34,12 @@ const Input: FC<InputProps> = ({
   placeholder,
   autofocus,
   readonly,
-  ...otherProps
+  addonLeft,
+  addonRight,
+  ...restProps
 }) => {
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [caretPosition, setCaretPosition] = useState(0);
-
-  const isCaretVisible = isFocused && !readonly;
 
   useEffect(() => {
     if (autofocus) {
@@ -48,7 +50,6 @@ const Input: FC<InputProps> = ({
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
-    setCaretPosition(e.target.value.length);
   };
 
   const onBlur = () => {
@@ -59,37 +60,29 @@ const Input: FC<InputProps> = ({
     setIsFocused(true);
   };
 
-  const onSelect = (e: any) => {
-    setCaretPosition(e?.target?.selectionStart || 0);
-  };
-
   const mods: Mods = {
     [cls.readonly]: readonly,
+    [cls.focused]: isFocused,
+    [cls.withAddonLeft]: Boolean(addonLeft),
+    [cls.withAddonRight]: Boolean(addonRight),
   };
 
   return (
     <div className={classNames(cls.InputWrapper, mods, [className])}>
-      {placeholder && <div className={cls.placeholder}>{placeholder}</div>}
-      <div className={cls.caretWrapper}>
-        <input
-          ref={ref}
-          type={type}
-          value={value}
-          onChange={onChangeHandler}
-          className={cls.input}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onSelect={onSelect}
-          readOnly={readonly}
-          {...otherProps}
-        />
-        {isCaretVisible && (
-          <span
-            className={cls.caret}
-            style={{ left: `${caretPosition * 9}px` }}
-          />
-        )}
-      </div>
+      <div className={cls.addonLeft}>{addonLeft}</div>
+      <input
+        ref={ref}
+        type={type}
+        value={value}
+        onChange={onChangeHandler}
+        className={cls.input}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        readOnly={readonly}
+        placeholder={placeholder}
+        {...restProps}
+      />
+      <div className={cls.addonRight}>{addonRight}</div>
     </div>
   );
 };

@@ -9,6 +9,8 @@ import { SortOrder } from "@/shared/types/sort";
 import { classNames } from "@/shared/lib/classNames";
 import Card from "@/shared/ui/redesigned/Card/Card";
 import Input from "@/shared/ui/redesigned/Input/Input";
+import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import SearchIcon from "@/shared/assets/icons/search.svg";
 
 interface ArticlesFiltersProps {
   className?: string;
@@ -44,7 +46,8 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
         <Input
           onChange={onChangeSearch}
           value={search}
-          placeholder={t("Find")}
+          placeholder={t("Поиск")}
+          addonLeft={<Icon Svg={SearchIcon} />}
         />
         <ArticleTypeTabs
           value={type}

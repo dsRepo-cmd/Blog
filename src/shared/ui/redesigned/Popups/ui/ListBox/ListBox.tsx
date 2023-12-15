@@ -3,12 +3,13 @@ import { Listbox as HListBox } from "@headlessui/react";
 
 import { DropdownDirection } from "@/shared/types/ui";
 import { HStack } from "../../../../redesigned/Stack";
-
+import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
 import cls from "./ListBox.module.scss";
 import { mapDirectionClass } from "../../styles/consts";
 import popupCls from "../../styles/popup.module.scss";
 import { classNames } from "@/shared/lib/classNames";
 import Button from "../../../Button/Button";
+import { Icon } from "../../../Icon/Icon";
 
 export interface ListBoxItem<T extends string> {
   value: string;
@@ -53,8 +54,12 @@ function ListBox<T extends string>({
         value={value}
         onChange={onChange}
       >
-        <HListBox.Button className={cls.trigger}>
-          <Button variant="filled" disabled={readonly}>
+        <HListBox.Button as="div" className={cls.trigger}>
+          <Button
+            variant="filled"
+            disabled={readonly}
+            addonRight={<Icon Svg={ArrowIcon} />}
+          >
             {selectedItem?.content ?? defaultValue}
           </Button>
         </HListBox.Button>
