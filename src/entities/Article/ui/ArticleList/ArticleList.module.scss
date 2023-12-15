@@ -1,14 +1,21 @@
-.ArticleList {
-}
-
 .list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  .card {
+    margin-bottom: 30px;
+  }
 }
 
 .details {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 30px;
+
+  .card {
+    display: inline-flex;
+    height: 300px;
+  }
+
+  .row {
+    display: flex;
+    gap: 30px;
+  }
 }

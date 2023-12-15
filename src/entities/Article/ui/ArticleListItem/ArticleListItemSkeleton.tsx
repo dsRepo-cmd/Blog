@@ -1,35 +1,50 @@
-import { memo } from "react";
+import { FC, memo } from "react";
 import cls from "./ArticleListItem.module.scss";
 
 import { classNames } from "@/shared/lib/classNames";
-import Card from "@/shared/ui/deprecated/Card/Card";
-import Skeleton from "@/shared/ui/deprecated/Skeleton/Skeleton";
+import CardDeprecated from "@/shared/ui/deprecated/Card/Card";
+import CardRedesigned from "@/shared/ui/redesigned/Card/Card";
+
+import SkeletonDeprecated from "@/shared/ui/deprecated/Skeleton/Skeleton";
+import SkeletonRedesigned from "@/shared/ui/redesigned/Skeleton/Skeleton";
+
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ArticleView } from "../../model/consts/consts";
+import { toggleFeatures } from "@/shared/lib/features/toggleFeatures";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
   view: ArticleView;
 }
 
-export const ArticleListItemSkeleton = memo(
-  (props: ArticleListItemSkeletonProps) => {
-    const { className, view } = props;
+export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
+  ({ className, view }) => {
+    const mainClass = toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => cls.ArticleListItemRedesigned,
+      off: () => cls.ArticleListItem,
+    });
+
+    const Skeleton = toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => SkeletonRedesigned,
+      off: () => SkeletonDeprecated,
+    });
+    const Card = toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => CardRedesigned,
+      off: () => CardDeprecated,
+    });
 
     if (view === ArticleView.LIST) {
       return (
-        <div
-          className={classNames(cls.ArticleListItem, {}, [
-            className,
-            cls[view],
-          ])}
-        >
+        <div className={classNames(mainClass, {}, [className, cls[view]])}>
           <Card className={cls.card}>
-            <VStack max className={cls.header}>
+            <div className={cls.header}>
               <Skeleton border="50%" height={30} width={30} />
               <Skeleton width={150} height={16} className={cls.username} />
               <Skeleton width={150} height={16} className={cls.date} />
-            </VStack>
+            </div>
             <Skeleton width={250} height={24} className={cls.title} />
             <Skeleton height={200} className={cls.img} />
             <div className={cls.footer}>
@@ -41,13 +56,11 @@ export const ArticleListItemSkeleton = memo(
     }
 
     return (
-      <div
-        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-      >
+      <div className={classNames(mainClass, {}, [className, cls[view]])}>
         <Card className={cls.card}>
-          <VStack max className={cls.imageWrapper}>
-            <Skeleton width={"100%"} height={200} className={cls.img} />
-          </VStack>
+          <div className={cls.imageWrapper}>
+            <Skeleton width={200} height={200} className={cls.img} />
+          </div>
           <div className={cls.infoWrapper}>
             <Skeleton width={130} height={16} />
           </div>

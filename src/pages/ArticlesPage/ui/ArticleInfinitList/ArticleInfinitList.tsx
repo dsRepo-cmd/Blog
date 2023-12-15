@@ -1,12 +1,6 @@
-import React, { memo, useEffect } from "react";
-import { classNames } from "@/shared/lib/classNames";
-import cls from "./ArticleInfinitList.module.scss";
+import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
-
-import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 
 import { getArticles } from "../../model/slices/articlePageSlice";
 import {
@@ -14,8 +8,8 @@ import {
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
-import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ArticleList } from "@/entities/Article";
+import Text from "@/shared/ui/redesigned/Text/Text";
 
 interface ArticleInfinitListProps {
   className?: string;
@@ -24,31 +18,22 @@ interface ArticleInfinitListProps {
 const ArticleInfinitList: React.FC<ArticleInfinitListProps> = ({
   className,
 }) => {
-  const { t } = useTranslation();
-
-  const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
-  const [searchParams] = useSearchParams();
+  const error = useSelector(getArticlesPageError);
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    dispatch(initArticlesPage(searchParams));
-  }, [dispatch]);
-
+  if (error) {
+    return <Text text={t("Error loading articles")} />;
+  }
   return (
-    <VStack
-      gap="16"
-      className={classNames(cls.ArticleInfinitList, {}, [className])}
-    >
-      <ArticleList
-        className={cls.list}
-        view={view}
-        isLoading={isLoading}
-        articles={articles}
-      />
-    </VStack>
+    <ArticleList
+      isLoading={isLoading}
+      view={view}
+      articles={articles}
+      className={className}
+    />
   );
 };
 

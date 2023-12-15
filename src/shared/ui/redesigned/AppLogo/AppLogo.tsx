@@ -16,14 +16,14 @@ const AppLogo: React.FC<AppLogoProps> = ({ className, size = 50 }) => {
       justify="center"
       className={classNames(cls.appLogoWrapper, {}, [className])}
     >
-      <div className={cls.gradientBig} />
-      <div className={cls.gradientSmall} />
       <AppSvg
         width={size}
         height={size}
         color="black"
         className={cls.appLogo}
       />
+      <div className={cls.gradientBig} />
+      <div className={cls.gradientSmall} />
     </HStack>
   );
 };
