@@ -11,18 +11,33 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { PageLoader } from "@/widgets/PageLoader";
 import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { MainLayout } from "@/shared/layouts/MainLayout";
+import { AppLoaderLayout } from "@/shared/layouts/AppLoaderLayout";
+import { ScrollToTopButton } from "@/features/scrollToTopButton";
+import { ScrollToolbar } from "@/widgets/ScrollToolbar";
+import { useAppToolbar } from "./lib/useAppToolbar";
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
+  const toolbar = useAppToolbar();
 
   useEffect(() => {
     dispatch(initAuthData());
   }, [dispatch]);
 
   if (!inited) {
-    return <PageLoader />;
+    return (
+      <ToggleFeatures
+        feature={"isAppRedesigned"}
+        on={
+          <div id="app" className={classNames("app_redesigned", {}, [theme])}>
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    );
   }
 
   return (
@@ -46,7 +61,7 @@ const App = () => {
               header={<Navbar />}
               content={<AppRouter />}
               sidebar={<SideBar />}
-              toolbar={<div></div>}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>

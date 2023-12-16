@@ -6,7 +6,7 @@ import { ListBox } from "@/shared/ui/redesigned/Popups";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { getUserAuthData } from "@/entities/User";
 import { HStack } from "@/shared/ui/redesigned/Stack";
-import { getFeatureFlag } from "@/shared/lib/features/setGetFeatures";
+import { getFeatureFlag } from "@/shared/lib/features/lib/setGetFeatures";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import { updateFeatureFlag } from "@/shared/lib/features";
