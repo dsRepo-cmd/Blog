@@ -57,7 +57,7 @@ const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = ({
           className={classNames(cls.ArticleViewSelectorRedesigned, {}, [
             className,
           ])}
-          border="round"
+          border={"partial"}
         >
           <HStack gap="8">
             {viewTypes.map((viewType) => (

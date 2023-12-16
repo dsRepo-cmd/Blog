@@ -106,4 +106,10 @@
   &.list {
     width: 100%;
   }
+  &.details {
+    .card {
+      height: 350px;
+      width: 240px;
+    }
+  }
 }

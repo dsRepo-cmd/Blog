@@ -1,6 +1,8 @@
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./Navbar.module.scss";
-import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
+import ButtonDeprecated, {
+  ButtonTheme,
+} from "@/shared/ui/deprecated/Button/Button";
 import { useState, useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "@/features/AuthByUsername";
@@ -14,6 +16,8 @@ import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import { getRouteArticleCreate } from "@/shared/const/router";
 import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
+import { toggleFeatures } from "@/shared/lib/features";
+import Button from "@/shared/ui/redesigned/Button/Button";
 
 interface NavbarProps {
   className?: string;
@@ -33,12 +37,18 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
     setAuthModal(true);
   }, []);
 
+  const mainClass = toggleFeatures({
+    name: "isAppRedesigned",
+    on: () => cls.NavbarRedesigned,
+    off: () => cls.Navbar,
+  });
+
   if (authData) {
     return (
       <ToggleFeatures
         feature="isAppRedesigned"
         on={
-          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+          <header className={classNames(mainClass, {}, [className])}>
             <HStack gap="16" className={cls.actions}>
               <NotificationButton />
               <AvatarDropdown />
@@ -46,21 +56,20 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
           </header>
         }
         off={
-          <header className={classNames(cls.navbar, {}, [className])}>
+          <header className={classNames(mainClass, {}, [className])}>
             <Text
-              theme={TextTheme.PRIMARY}
-              title={t("App production")}
               className={cls.appName}
+              title={t("Prod")}
+              theme={TextTheme.INVERTED}
             />
-
-            <HStack gap="24">
-              <AppLink
-                className={cls.createLink}
-                theme={AppLinkTheme.BTN_PRIMARY}
-                to={getRouteArticleCreate()}
-              >
-                {t("Create article")}
-              </AppLink>
+            <AppLink
+              to={getRouteArticleCreate()}
+              theme={AppLinkTheme.SECONDARY}
+              className={cls.createBtn}
+            >
+              {t("Create an article")}
+            </AppLink>
+            <HStack gap="16" className={cls.actions}>
               <NotificationButton />
               <AvatarDropdown />
             </HStack>
@@ -71,14 +80,25 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
   }
 
   return (
-    <header className={classNames(cls.navbar, {}, [className])}>
-      <Button
-        onClick={onShowModal}
-        theme={ButtonTheme.OUTLINE}
-        className={classNames(cls.links)}
-      >
-        {t("Enter")}
-      </Button>
+    <header className={classNames(mainClass, {}, [className])}>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Button variant="clear" className={cls.links} onClick={onShowModal}>
+            {t("Enter")}
+          </Button>
+        }
+        off={
+          <ButtonDeprecated
+            theme={ButtonTheme.CLEAR_INVERTED}
+            className={cls.links}
+            onClick={onShowModal}
+          >
+            {t("Enter")}
+          </ButtonDeprecated>
+        }
+      />
+
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       )}
