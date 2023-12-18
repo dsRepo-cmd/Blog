@@ -63,6 +63,7 @@ const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = ({
             {viewTypes.map((viewType) => (
               <Icon
                 clickable
+                key={viewType.view}
                 onClick={onClick(viewType.view)}
                 Svg={viewType.icon}
                 className={classNames("", {

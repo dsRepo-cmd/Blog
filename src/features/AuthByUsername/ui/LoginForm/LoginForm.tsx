@@ -95,14 +95,14 @@ const LoginForm: React.FC<LoginFormProps> = memo(
                 autofocus
                 type="text"
                 className={cls.input}
-                placeholder={t("Enter username")}
+                placeholder={t("Username")}
                 onChange={onChangeUsername}
                 value={username}
               />
               <Input
                 type="text"
                 className={cls.input}
-                placeholder={t("Enter password")}
+                placeholder={t("Password")}
                 onChange={onChangePassword}
                 value={password}
               />
