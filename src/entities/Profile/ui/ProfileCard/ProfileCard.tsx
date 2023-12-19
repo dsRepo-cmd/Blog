@@ -2,15 +2,10 @@ import { FC } from "react";
 import { Profile } from "../../model/types/profile";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Coutnry";
-import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import ProfileCardRedesigned, {
   ProfileCardRedesignedError,
   ProfileCardRedesignedSkeleton,
 } from "../ProfileCardRedesigned/ProfileCardRedesigned";
-import ProfileCardDeprecated, {
-  ProfileCardDeprecatedError,
-  ProfileCardDeprecatedLoader,
-} from "../ProfileCardDeprecated/ProfileCardDeprecated";
 
 export interface ProfileCardProps {
   className?: string;
@@ -33,30 +28,12 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
   const { isLoading, error } = props;
 
   if (isLoading) {
-    return (
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={<ProfileCardRedesignedSkeleton />}
-        off={<ProfileCardDeprecatedLoader />}
-      />
-    );
+    return <ProfileCardRedesignedSkeleton />;
   }
 
   if (error) {
-    return (
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={<ProfileCardRedesignedError />}
-        off={<ProfileCardDeprecatedError />}
-      />
-    );
+    return <ProfileCardRedesignedError />;
   }
 
-  return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={<ProfileCardRedesigned {...props} />}
-      off={<ProfileCardDeprecated {...props} />}
-    />
-  );
+  return <ProfileCardRedesigned {...props} />;
 };

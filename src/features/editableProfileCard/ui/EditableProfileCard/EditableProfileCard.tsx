@@ -4,8 +4,6 @@ import cls from "./EditableProfileCard.module.scss";
 import React, { memo, useCallback, useEffect } from "react";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
-import Text, { TextTheme } from "@/shared/ui/deprecated/Text/Text";
-
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
@@ -22,6 +20,7 @@ import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ValidateProfileError } from "../../model/consts/consts";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Coutnry";
+import Text from "@/shared/ui/redesigned/Text/Text";
 
 interface EditableProfileCardProps {
   className?: string;
@@ -125,7 +124,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
           validateErrors.map((err) => (
             <Text
               key={err}
-              theme={TextTheme.ERROR}
+              variant={"error"}
               text={validateErrorTranslates[err]}
             />
           ))}

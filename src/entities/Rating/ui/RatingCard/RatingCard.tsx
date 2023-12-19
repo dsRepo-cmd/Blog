@@ -1,21 +1,10 @@
 import React, { memo, useCallback, useState } from "react";
-
 import { useTranslation } from "react-i18next";
-
-import CardDeprecated from "@/shared/ui/deprecated/Card/Card";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import TextDepreacetd from "@/shared/ui/deprecated/Text/Text";
-
-import { Input as InputDeprecated } from "@/shared/ui/deprecated/Input/Input";
 import { BrowserView, MobileView } from "react-device-detect";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
-import ButtonDeprecated, {
-  ButtonSize,
-  ButtonTheme,
-} from "@/shared/ui/deprecated/Button/Button";
 import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 import StarRating from "@/shared/ui/redesigned/StarRating/StarRating";
-import { ToggleFeatures } from "@/shared/lib/features";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import Button from "@/shared/ui/redesigned/Button/Button";
@@ -68,45 +57,21 @@ const RatingCard: React.FC<RatingCardProps> = ({
   }, [onCancel, starsCount]);
 
   const modalContent = (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <>
-          <Text title={feedbackTitle} />
-          <Input
-            data-testid="RatingCard.Input"
-            value={feedback}
-            onChange={setFeedback}
-            placeholder={t("Your feedback")}
-          />
-        </>
-      }
-      off={
-        <>
-          <TextDepreacetd title={feedbackTitle} />
-          <InputDeprecated
-            data-testid="RatingCard.Input"
-            value={feedback}
-            onChange={setFeedback}
-            placeholder={t("Your feedback")}
-          />
-        </>
-      }
-    />
+    <>
+      <Text title={feedbackTitle} />
+      <Input
+        data-testid="RatingCard.Input"
+        value={feedback}
+        onChange={setFeedback}
+        placeholder={t("Your feedback")}
+      />
+    </>
   );
 
   const content = (
     <>
       <VStack align="center" gap="8" max>
-        <ToggleFeatures
-          feature="isAppRedesigned"
-          on={<Text title={starsCount ? t("Thank you for rating!") : title} />}
-          off={
-            <TextDepreacetd
-              title={starsCount ? t("Thank you for rating!") : title}
-            />
-          }
-        />
+        <Text title={starsCount ? t("Thank you for rating!") : title} />
         <StarRating
           selectedStars={starsCount}
           size={40}
@@ -117,36 +82,14 @@ const RatingCard: React.FC<RatingCardProps> = ({
         <Modal isOpen={isModalOpen} lazy>
           <VStack max gap="32">
             {modalContent}
-            <ToggleFeatures
-              feature="isAppRedesigned"
-              on={
-                <HStack max gap="16" justify="end">
-                  <Button data-testid="RatingCard.Close" onClick={cancelHandle}>
-                    {t("Close")}
-                  </Button>
-                  <Button data-testid="RatingCard.Send" onClick={acceptHandle}>
-                    {t("Send")}
-                  </Button>
-                </HStack>
-              }
-              off={
-                <HStack max gap="16" justify="end">
-                  <ButtonDeprecated
-                    data-testid="RatingCard.Close"
-                    onClick={cancelHandle}
-                    theme={ButtonTheme.OUTLINE_RED}
-                  >
-                    {t("Close")}
-                  </ButtonDeprecated>
-                  <ButtonDeprecated
-                    data-testid="RatingCard.Send"
-                    onClick={acceptHandle}
-                  >
-                    {t("Send")}
-                  </ButtonDeprecated>
-                </HStack>
-              }
-            />
+            <HStack max gap="16" justify="end">
+              <Button data-testid="RatingCard.Close" onClick={cancelHandle}>
+                {t("Close")}
+              </Button>
+              <Button data-testid="RatingCard.Send" onClick={acceptHandle}>
+                {t("Send")}
+              </Button>
+            </HStack>
           </VStack>
         </Modal>
       </BrowserView>
@@ -154,23 +97,9 @@ const RatingCard: React.FC<RatingCardProps> = ({
         <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
           <VStack gap="32">
             {modalContent}
-            <ToggleFeatures
-              feature="isAppRedesigned"
-              on={
-                <Button fullWidth onClick={acceptHandle} size="l">
-                  {t("Send")}
-                </Button>
-              }
-              off={
-                <ButtonDeprecated
-                  fullWidth
-                  onClick={acceptHandle}
-                  size={ButtonSize.L}
-                >
-                  {t("Send")}
-                </ButtonDeprecated>
-              }
-            />
+            <Button fullWidth onClick={acceptHandle} size="l">
+              {t("Send")}
+            </Button>
           </VStack>
         </Drawer>
       </MobileView>
@@ -178,19 +107,9 @@ const RatingCard: React.FC<RatingCardProps> = ({
   );
 
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <Card max border={'partial'} padding="24">
-          {content}
-        </Card>
-      }
-      off={
-        <CardDeprecated className={className} max data-testid="RatingCard">
-          {content}
-        </CardDeprecated>
-      }
-    />
+    <Card max border={"partial"} padding="24">
+      {content}
+    </Card>
   );
 };
 

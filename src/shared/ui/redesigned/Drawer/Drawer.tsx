@@ -1,16 +1,13 @@
 import { memo, ReactNode, useCallback, useEffect } from "react";
-
 import {
   AnimationProvider,
   useAnimationLibs,
 } from "@/shared/lib/components/AnimationProvider";
-
 import cls from "./Drawer.module.scss";
 import { classNames } from "@/shared/lib/classNames";
 import Portal from "../Portal/Portal";
 import Overlay from "../Overlay/Overlay";
 import useTheme from "@/shared/lib/hooks/useTheme/useTheme";
-import { toggleFeatures } from "@/shared/lib/features";
 
 interface DrawerProps {
   className?: string;
@@ -88,11 +85,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
           className,
           theme,
           "app_drawer",
-          toggleFeatures({
-            name: "isAppRedesigned",
-            on: () => cls.drawerNew,
-            off: () => cls.drawerOld,
-          }),
+          cls.drawerNew,
         ])}
       >
         <Overlay onClick={close} />

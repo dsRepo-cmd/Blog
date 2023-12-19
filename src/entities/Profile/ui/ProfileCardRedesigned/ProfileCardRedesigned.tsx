@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import { ProfileCardProps } from "../ProfileCard/ProfileCard";
 
 import cls from "./ProfileCardRedesigned.module.scss";
+import { BrowserView, MobileView } from "react-device-detect";
 
 export const ProfileCardRedesignedError = () => {
   const { t } = useTranslation();
@@ -71,14 +72,78 @@ const ProfileCardRedesigned: FC<ProfileCardProps> = ({
 
   return (
     <Card padding="24" max className={className}>
-      <VStack gap="32">
-        {data?.avatar && (
-          <HStack justify="center" max>
-            <Avatar size={128} src={data?.avatar} />
+      <BrowserView>
+        <VStack gap="32">
+          {data?.avatar && (
+            <HStack justify="center" max>
+              <Avatar size={128} src={data?.avatar} />
+            </HStack>
+          )}
+          <HStack gap="24" max>
+            <VStack gap="16" max>
+              <Input
+                value={data?.first}
+                label={t("First name")}
+                onChange={onChangeFirstname}
+                readonly={readonly}
+                data-testid="ProfileCard.firstname"
+              />
+              <Input
+                value={data?.lastname}
+                label={t("Last name")}
+                onChange={onChangeLastname}
+                readonly={readonly}
+                data-testid="ProfileCard.lastname"
+              />
+              <Input
+                value={data?.age}
+                label={t("Age")}
+                onChange={onChangeAge}
+                readonly={readonly}
+              />
+              <Input
+                value={data?.city}
+                label={t("Country")}
+                onChange={onChangeCity}
+                readonly={readonly}
+              />
+            </VStack>
+            <VStack gap="16" max>
+              <Input
+                value={data?.username}
+                label={t("User name")}
+                onChange={onChangeUsername}
+                readonly={readonly}
+              />
+              <Input
+                value={data?.avatar}
+                label={t("Avatar link")}
+                onChange={onChangeAvatar}
+                readonly={readonly}
+              />
+              <CurrencySelect
+                value={data?.currency}
+                onChange={onChangeCurrency}
+                readonly={readonly}
+              />
+              <CountrySelect
+                value={data?.country}
+                onChange={onChangeCountry}
+                readonly={readonly}
+              />
+            </VStack>
           </HStack>
-        )}
-        <HStack gap="24" max>
-          <VStack gap="16" max>
+        </VStack>
+      </BrowserView>
+
+      <MobileView>
+        <VStack gap="32">
+          {data?.avatar && (
+            <HStack justify="center" max>
+              <Avatar size={128} src={data?.avatar} />
+            </HStack>
+          )}
+          <VStack gap="24" max>
             <Input
               value={data?.first}
               label={t("First name")}
@@ -105,8 +170,7 @@ const ProfileCardRedesigned: FC<ProfileCardProps> = ({
               onChange={onChangeCity}
               readonly={readonly}
             />
-          </VStack>
-          <VStack gap="16" max>
+
             <Input
               value={data?.username}
               label={t("User name")}
@@ -130,8 +194,8 @@ const ProfileCardRedesigned: FC<ProfileCardProps> = ({
               readonly={readonly}
             />
           </VStack>
-        </HStack>
-      </VStack>
+        </VStack>
+      </MobileView>
     </Card>
   );
 };

@@ -1,9 +1,6 @@
 import React, { useCallback } from "react";
-
 import { useTranslation } from "react-i18next";
 import { Country } from "../model/types/country";
-import { ListBox as ListBoxDeprecated } from "@/shared/ui/deprecated/Popups";
-import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
 
 interface CountrySelectProps {
@@ -45,13 +42,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
     direction: "top right" as const,
   };
 
-  return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={<ListBox {...props} />}
-      off={<ListBoxDeprecated {...props} />}
-    />
-  );
+  return <ListBox {...props} />;
 };
 
 export default CountrySelect;

@@ -5,15 +5,7 @@ import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import TextDeprecated, {
-  TextAlign,
-  TextSize,
-} from "@/shared/ui/deprecated/Text/Text";
-import SkeletonDeprecated from "@/shared/ui/deprecated/Skeleton/Skeleton";
-import EyeIcon from "@/shared/assets/icons/eye.svg";
-import CalendarIcon from "@/shared/assets/icons/calendar.svg";
-
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/redesigned/Stack";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import { useSelector } from "react-redux";
@@ -22,14 +14,10 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from "../../model/selectors/articleDetails";
-
 import cls from "./ArticleDetails.module.scss";
-import { Icon } from "@/shared/ui/deprecated/Icon/Icon";
-import Avatar from "@/shared/ui/deprecated/Avatar/Avatar";
 import { renderArticleBlock } from "./renderBlock";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import AppImage from "@/shared/ui/redesigned/AppImage/AppImage";
-import { ToggleFeatures, toggleFeatures } from "@/shared/lib/features";
 import SkeletonRedesigned from "@/shared/ui/redesigned/Skeleton/Skeleton";
 
 interface ArticleDetailsProps {
@@ -38,34 +26,6 @@ interface ArticleDetailsProps {
 }
 const redusers: ReducerList = {
   articleDetails: articleDetailsReducer,
-};
-
-const Deprecated = () => {
-  const article = useSelector(getArticleDetailsData);
-  return (
-    <>
-      <HStack justify="center" max className={cls.avatarWrapper}>
-        <Avatar size={200} src={article?.img} className={cls.avatar} />
-      </HStack>
-      <VStack gap="4" max data-testid="ArticleDetails.Info">
-        <TextDeprecated
-          className={cls.title}
-          title={article?.title}
-          text={article?.subtitle}
-          size={TextSize.L}
-        />
-        <HStack gap="8" className={cls.articleInfo}>
-          <Icon className={cls.icon} Svg={EyeIcon} />
-          <TextDeprecated text={String(article?.views)} />
-        </HStack>
-        <HStack gap="8" className={cls.articleInfo}>
-          <Icon className={cls.icon} Svg={CalendarIcon} />
-          <TextDeprecated text={article?.createdAt} />
-        </HStack>
-      </VStack>
-      {article?.blocks.map(renderArticleBlock)}
-    </>
-  );
 };
 
 const Redesigned = () => {
@@ -88,11 +48,7 @@ const Redesigned = () => {
 };
 
 export const ArticleDetailsSkeleton = () => {
-  const Skeleton = toggleFeatures({
-    name: "isAppRedesigned",
-    on: () => SkeletonRedesigned,
-    off: () => SkeletonDeprecated,
-  });
+  const Skeleton = SkeletonRedesigned;
   return (
     <VStack gap="16" max>
       <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
@@ -124,19 +80,13 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className, id }) => {
     content = <ArticleDetailsSkeleton />;
   } else if (error) {
     content = (
-      <TextDeprecated
-        align={TextAlign.CENTER}
+      <Text
+        align={"center"}
         title={t("There was an error loading the article")}
       />
     );
   } else {
-    content = (
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={<Redesigned />}
-        off={<Deprecated />}
-      />
-    );
+    content = <Redesigned />;
   }
 
   return (

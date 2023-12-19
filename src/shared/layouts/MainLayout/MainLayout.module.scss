@@ -3,37 +3,77 @@
   display: grid;
   grid-template-areas: "sidebar content rightbar";
   grid-template-columns: min-content 1fr 100px;
+
+  .sidebar {
+    grid-area: sidebar;
+    padding: 32px;
+    max-width: 284px;
+  }
+
+  .content {
+    grid-area: content;
+
+    justify-self: center;
+    padding: 32px;
+    width: 100%;
+  }
+
+  .rightbar {
+    grid-area: rightbar;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .rightbar,
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  .toolbar {
+    height: 100%;
+    width: 100%;
+  }
 }
+.MainLayoutMobile {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
 
-.sidebar {
-  grid-area: sidebar;
-  padding: 32px;
-  max-width: 284px;
+  .sidebar {
+    padding: 12px;
+  }
+
+  .content {
+    justify-self: center;
+    width: 100%;
+  }
+
+  .rightbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .rightbar,
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  .toolbar {
+    height: 100%;
+    width: 100%;
+  }
+  .header {
+    width: 100%;
+  }
 }
-
-.content {
-  grid-area: content;
-
-  justify-self: center;
-  padding: 32px;
-  width: 100%;
-}
-
-.rightbar {
-  grid-area: rightbar;
+.navbar {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.rightbar,
-.sidebar {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-}
-
-.toolbar {
-  height: 100%;
-  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }

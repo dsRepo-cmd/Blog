@@ -5,7 +5,6 @@ import Portal from "../Portal/Portal";
 import Overlay from "../Overlay/Overlay";
 import { useModal } from "@/shared/lib/hooks/useModal/useModal";
 import useTheme from "@/shared/lib/hooks/useTheme/useTheme";
-import { toggleFeatures } from "@/shared/lib/features";
 
 interface ModalProps {
   className?: string;
@@ -48,11 +47,7 @@ const Modal: React.FC<ModalProps> = ({
           className,
           theme,
           "app_modal",
-          toggleFeatures({
-            name: "isAppRedesigned",
-            on: () => cls.modalNew,
-            off: () => cls.modalOld,
-          }),
+          cls.modalNew,
         ])}
       >
         <Overlay onClick={close} />

@@ -1,9 +1,6 @@
 import { memo, useState } from "react";
-
 import cls from "./StarRating.module.scss";
-import { Icon as IconDeprecated } from "../../deprecated/Icon/Icon";
 import StarIcon from "@/shared/assets/icons/star-r.svg";
-import { toggleFeatures, ToggleFeatures } from "@/shared/lib/features";
 import { classNames } from "@/shared/lib/classNames";
 import { Icon } from "../Icon/Icon";
 
@@ -42,17 +39,7 @@ export const StarRating = (props: StarRatingProps) => {
   };
 
   return (
-    <div
-      className={classNames(
-        toggleFeatures({
-          name: "isAppRedesigned",
-          off: () => cls.StarRating,
-          on: () => cls.StarRatingRedesigned,
-        }),
-        {},
-        [className]
-      )}
-    >
+    <div className={classNames(cls.StarRatingRedesigned, {}, [className])}>
       {stars.map((starNumber) => {
         const commonProps = {
           className: classNames(cls.starIcon, { [cls.selected]: isSelected }, [
@@ -68,13 +55,7 @@ export const StarRating = (props: StarRatingProps) => {
           "data-testid": `StarRating.${starNumber}`,
           "data-selected": currentStarsCount >= starNumber,
         };
-        return (
-          <ToggleFeatures
-            feature="isAppRedesigned"
-            on={<Icon clickable={!isSelected} {...commonProps} />}
-            off={<IconDeprecated {...commonProps} />}
-          />
-        );
+        return <Icon clickable={!isSelected} {...commonProps} />;
       })}
     </div>
   );

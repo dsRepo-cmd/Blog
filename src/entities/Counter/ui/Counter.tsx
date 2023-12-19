@@ -1,14 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { counterActions, useCounterActions } from "../model/slice/counterSlice";
-import {
-  getCounterValue,
-  useCounterValue,
-} from "../model/selectors/getCounterValue/getCounterValue";
-import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
+import { useCounterActions } from "../model/slice/counterSlice";
+import { useCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./Counter.module.scss";
 import { memo } from "react";
+import Button from "@/shared/ui/redesigned/Button/Button";
 
 interface CounterProps {
   className?: string;
@@ -42,7 +38,7 @@ export const Counter: React.FC<CounterProps> = memo(({ className }) => {
       </h1>
 
       <Button
-        theme={ButtonTheme.OUTLINE_INVERTED}
+        variant={"outline"}
         data-testid="decrement-btn"
         onClick={handleDec}
       >
@@ -50,7 +46,7 @@ export const Counter: React.FC<CounterProps> = memo(({ className }) => {
       </Button>
 
       <Button
-        theme={ButtonTheme.OUTLINE_INVERTED}
+        variant={"outline"}
         onClick={handleInc}
         data-testid="increment-btn"
       >
@@ -58,7 +54,7 @@ export const Counter: React.FC<CounterProps> = memo(({ className }) => {
       </Button>
 
       <Button
-        theme={ButtonTheme.OUTLINE_INVERTED}
+        variant={"outline"}
         onClick={handleAdd}
         data-testid="increment-btn5"
       >
@@ -66,7 +62,7 @@ export const Counter: React.FC<CounterProps> = memo(({ className }) => {
       </Button>
 
       <Button
-        theme={ButtonTheme.OUTLINE_INVERTED}
+        variant={"outline"}
         onClick={handleSub}
         data-testid="increment-btn5"
       >

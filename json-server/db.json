@@ -88,6 +88,24 @@
       "userId": "1",
       "text": "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text",
       "id": "t7hexcB"
+    },
+    {
+      "articleId": "21",
+      "userId": "1",
+      "text": "sdasda",
+      "id": "2pOr62g"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "Ggggg",
+      "id": "8clt_8q"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "Fgv",
+      "id": "KRQEXRs"
     }
   ],
   "users": [
@@ -103,7 +121,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -121,7 +139,7 @@
         "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isArticlesPageWasOpened": true
       }
     },
@@ -159,7 +177,7 @@
       "lastname": "Eastwood",
       "age": 40,
       "currency": "EUR",
-      "country": "USA",
+      "country": "Ukraine",
       "city": "New York",
       "username": "admin",
       "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg"
@@ -1936,6 +1954,26 @@
       "rate": 3,
       "feedback": "",
       "id": 7
+    },
+    {
+      "userId": "1",
+      "articleId": "20",
+      "rate": 3,
+      "feedback": "",
+      "id": 8
+    },
+    {
+      "userId": "1",
+      "articleId": "21",
+      "rate": 2,
+      "id": 9
+    },
+    {
+      "userId": "2",
+      "articleId": "2",
+      "rate": 2,
+      "feedback": "bad",
+      "id": 10
     }
   ],
   "profile-ratings": [
