@@ -28,8 +28,6 @@ const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({
 }) => {
   const { t } = useTranslation();
 
-  const types = <Text text={article.type.join(", ")} className={cls.types} />;
-
   const userInfo = (
     <>
       <Avatar size={32} src={article.user.avatar} className={cls.avatar} />

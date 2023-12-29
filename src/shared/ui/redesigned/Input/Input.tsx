@@ -12,6 +12,8 @@ import cls from "./Input.module.scss";
 import { Mods, classNames } from "@/shared/lib/classNames";
 import { HStack } from "../Stack";
 import Text from "../Text/Text";
+import DeleteIcon from "../../../assets/icons/delete.svg";
+import { Icon } from "../Icon/Icon";
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -25,6 +27,7 @@ interface InputProps extends HTMLInputProps {
   value?: string | number;
   label?: string;
   onChange?: (value: string) => void;
+  onDelete?: () => void;
   autofocus?: boolean;
   readonly?: boolean;
   addonLeft?: ReactNode;
@@ -44,6 +47,7 @@ const Input: FC<InputProps> = ({
   addonRight,
   label,
   size = "m",
+  onDelete,
   ...restProps
 }) => {
   const ref = useRef<HTMLInputElement>(null);
@@ -99,6 +103,16 @@ const Input: FC<InputProps> = ({
       <HStack max gap="8">
         <Text className={cls.label} text={label} />
         {input}
+        {onDelete && (
+          <Icon
+            className={cls.removeIcon}
+            onClick={onDelete}
+            clickable
+            Svg={DeleteIcon}
+            width={20}
+            height={20}
+          />
+        )}
       </HStack>
     );
   }

@@ -19,7 +19,7 @@ const Code: React.FC<CodeProps> = ({ className, text }) => {
       <Icon
         clickable
         onClick={onCopy}
-        className={cls.copyBtn}
+        className={classNames(cls.copyBtn, {}, [className])}
         Svg={CopyIconNew}
       />
       <code>{text}</code>

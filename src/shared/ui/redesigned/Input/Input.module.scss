@@ -3,7 +3,7 @@
   align-items: center;
   border-radius: 48px;
   padding: 8px 16px;
-  border: 2px solid var(--icon-redesigned);
+  border: 1px solid var(--icon);
   width: 100%;
 }
 
@@ -33,11 +33,12 @@
 }
 
 .focused {
-  border: 2px solid var(--accent-redesigned);
+  background-color: var(--dark-bg);
+  border: 1px solid var(--accent);
 
   .addonLeft svg,
   .addonRight svg {
-    color: var(--accent-redesigned);
+    color: var(--accent);
   }
 }
 
@@ -45,11 +46,11 @@
   border: none;
   outline: none;
   width: 100%;
-  color: var(--text-redesigned);
+  color: var(--text);
   background: none;
 
   &::placeholder {
-    color: var(--hint-redesigned);
+    color: var(--hint);
   }
 }
 
@@ -58,4 +59,12 @@
 }
 .label {
   min-width: 80px;
+}
+
+.removeIcon {
+  fill: var(--cancel);
+  opacity: 0.5;
+}
+.removeIcon:hover {
+  opacity: 1;
 }

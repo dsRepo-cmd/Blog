@@ -1,5 +1,4 @@
 import { FC, memo, ReactElement } from "react";
-
 import cls from "./StickyContentLayout.module.scss";
 import { classNames } from "@/shared/lib/classNames";
 import { BrowserView, MobileOnlyView } from "react-device-detect";

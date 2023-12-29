@@ -12,10 +12,10 @@
 }
 
 .app_redesigned {
-  background: var(--bg-redesigned);
+  background: var(--bg);
   min-height: 100vh;
-  font: var(--font-m-redesigned);
-  color: var(--text-redesigned);
+  font: var(--font-m);
+  color: var(--text);
 }
 
 .content-page {
@@ -28,13 +28,13 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--light-bg-redesigned);
+  background: var(--light-bg);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--icon-redesigned);
+  background-color: var(--icon);
   border-radius: 20px;
-  border: 1px solid var(--accent-redesigned);
+  border: 1px solid var(--accent);
 }
 
 .app *::-webkit-scrollbar {
@@ -49,5 +49,5 @@
 .app *::-webkit-scrollbar-thumb {
   background-color: var(--inverted-primary-color);
   border-radius: 20px;
-  border: 2px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
 }

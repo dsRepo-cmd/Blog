@@ -6,7 +6,7 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
-import { ArticleDetailsSchema } from "@/entities/Article";
+import { ArticleDetailsSchema, ArticleEditSchema } from "@/entities/Article";
 import { CounterSchema } from "@/entities/Counter";
 
 import { UserSchema } from "@/entities/User";
@@ -28,6 +28,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
+  articleEdit?: ArticleEditSchema;
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   addCommentForm?: AddCommentFormSchema;
