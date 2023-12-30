@@ -54,48 +54,6 @@
       "userId": "1"
     },
     {
-      "articleId": "18",
-      "userId": "2",
-      "text": "coment 1",
-      "id": "Nmb5ME5"
-    },
-    {
-      "articleId": "17",
-      "userId": "1",
-      "text": "dsad",
-      "id": "bRr4FPw"
-    },
-    {
-      "articleId": "17",
-      "userId": "1",
-      "text": "dasdas",
-      "id": "Kre90AO"
-    },
-    {
-      "articleId": "17",
-      "userId": "1",
-      "text": "text  text text text text  text text text text  text text text text  text text text text  text text text text  text text text text  text text text text  text text text text  text text text ",
-      "id": "Q5sK09T"
-    },
-    {
-      "articleId": "17",
-      "userId": "1",
-      "text": "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text",
-      "id": "kBEBaxq"
-    },
-    {
-      "articleId": "17",
-      "userId": "1",
-      "text": "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text",
-      "id": "t7hexcB"
-    },
-    {
-      "articleId": "21",
-      "userId": "1",
-      "text": "sdasda",
-      "id": "2pOr62g"
-    },
-    {
       "articleId": "2",
       "userId": "1",
       "text": "Ggggg",
@@ -118,6 +76,12 @@
       "userId": "2",
       "text": "comment",
       "id": "Pw4zPRG"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "JavaScript is a language?",
+      "id": "pFe3djj"
     }
   ],
   "users": [
@@ -148,7 +112,7 @@
       "password": "123",
       "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
       "features": {
-        "isAppRedesigned": false
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app_light_theme",
@@ -209,8 +173,8 @@
   "articles": [
     {
       "id": "1",
-      "title": " Introduction to JavaScript: Empowering Web Development",
-      "subtitle": "What's new in JS?",
+      "title": " Introduction to JavaScript",
+      "subtitle": "Empowering Web Development",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
       "views": 10,
       "createdAt": "02.10.2023",
@@ -301,7 +265,7 @@
           "isAppRedesigned": true
         },
         "jsonSettings": {
-          "theme": "app_light_theme",
+          "theme": "app_dark_theme",
           "isFirstVisit": true,
           "settingsPageHasBeenOpen": false,
           "isArticlesPageWasOpened": true
@@ -316,7 +280,7 @@
       "views": 3009,
       "createdAt": "1.12.2023",
       "userId": "2",
-      "type": "ALL",
+      "type": "ECONOMICS",
       "blocks": [
         {
           "id": "1703720162508",
@@ -403,72 +367,148 @@
     },
     {
       "id": "3",
-      "title": "Pyton Runtime Environments",
-      "subtitle": "What's new in JS?",
+      "title": " Unleashing Rust",
+      "subtitle": "A Modern Language for Safe and Efficient Systems Programming",
       "img": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp",
       "views": 209,
       "createdAt": "12.01.2023",
       "userId": "1",
-      "type": "ALL",
+      "type": "IT",
       "blocks": [
         {
-          "id": "18",
+          "id": "1703866814381",
           "type": "TEXT",
-          "title": "What is a Runtime Environment?",
           "paragraphs": [
-            "A runtime environment is where your program will be executed. It determines what global objects your program can access and it can also impact how it runs. This article covers the two JavaScript runtime environments",
-            "The most common place where JavaScript code is executed is in a browser. For example, using any text editor, you could create a file on your own computer called my_website.html and put the following HTML code inside:"
-          ]
+            "Rust, a systems programming language developed by Mozilla, has gained popularity for its focus on safety, performance, and concurrency. As a language designed for low-level systems programming, Rust offers memory safety without sacrificing performance, making it an ideal choice for building robust and efficient applications. Let's delve into the key features of Rust and explore some code snippets to showcase its capabilities."
+          ],
+          "title": "",
+          "paragraphIndex": 0
         },
         {
-          "id": "19",
+          "id": "1703866833041",
+          "type": "TEXT",
+          "paragraphs": [
+            "Rust is known for its ownership system, which ensures memory safety without the need for a garbage collector. It also features a powerful borrow checker that enforces strict rules on references, preventing common programming errors like null pointer dereferencing."
+          ],
+          "title": "Getting Started with Rust:",
+          "paragraphIndex": 0
+        },
+        {
+          "id": "1703866853061",
+          "type": "TEXT",
+          "paragraphs": [
+            "Begin your Rust exploration with the classic \"Hello, World!\" program:"
+          ],
+          "title": "Hello World in Rust:",
+          "paragraphIndex": 0
+        },
+        {
+          "id": "1703866875857",
           "type": "CODE",
-          "code": "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;"
+          "code": "fn main() {\n    println!(\"Hello, World!\");\n}"
         },
         {
-          "id": "20",
+          "id": "1703867787345",
           "type": "TEXT",
-          "title": "Title of this block",
           "paragraphs": [
-            "The program traditionally called 'Hello, world!' is very simple. It outputs a phrase like 'Hello, world!' or something similar using the features of a certain language.",
-            "There are other ways to run JS code in the browser. For regular use of JavaScript programs, they are loaded into the browser to enable the functionality of web pages. Typically, code is formatted as separate files with the extension .js, which are then connected to web pages. However, you can also include program code directly in the page's code. All this is done using the <script> tag. When the browser detects such code, it executes it. Details about the script tag can be found on the w3school.com website. In particular, let's consider an example demonstrating the operation of a web page using JavaScript, as shown on this resource. This example can be run using the tools provided by this resource (look for the Try it Yourself button), but we will do it a little differently. Namely, we will create a new file in some text editor (for example - in VS Code or Notepad++) called hello.html, and add the following code to it:"
-          ]
+            "Rust's ownership system prevents data races and memory-related bugs by enforcing strict rules about how data is accessed and modified. Here's a simple example:"
+          ],
+          "title": "Ownership and Borrowing:",
+          "paragraphIndex": 0
         },
         {
-          "id": "21",
-          "type": "IMAGE",
-          "src": "https://www.amincharoliya.com/_next/image?url=%2Fimages%2Farticles%2Fjs-class.png&w=3840&q=75",
-          "title": "Figure 2 - website screenshot"
-        },
-        {
-          "id": "22",
+          "id": "1703867826682",
           "type": "CODE",
-          "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+          "code": "fn main() {\n    let mut data = String::from(\"Rust is \");\n\n    // Mutable reference to modify the string\n    add_text(&mut data);\n\n    println!(\"{}\", data);\n}\n\nfn add_text(s: &mut String) {\n    s.push_str(\"awesome!\");\n}"
         },
         {
-          "id": "23",
+          "id": "1703867830666",
           "type": "TEXT",
-          "title": "Title of this block",
           "paragraphs": [
-            "JavaScript is a language that allows you to execute programs in various environments. In our case, we are talking about browsers and the server platform Node.js. If you haven't written any JS code yet and are reading this text in a browser on your desktop computer, it means you are literally seconds away from your first JavaScript program.",
-            "There are other ways to run JS code in the browser. For regular use of JavaScript programs, they are loaded into the browser to enable the functionality of web pages. Typically, code is formatted as separate files with the extension .js, which are then connected to web pages. However, you can also include program code directly in the page's code. All this is done using the <script> tag. When the browser detects such code, it executes it. Details about the script tag can be found on the w3school.com website. In particular, let's consider an example demonstrating the operation of a web page using JavaScript, as shown on this resource. This example can be run using the tools provided by this resource (look for the Try it Yourself button), but we will do it a little differently. Namely, we will create a new file in some text editor (for example - in VS Code or Notepad++) called hello.html, and add the following code to it:"
-          ]
+            "The add_text function takes a mutable reference to a String, allowing safe modification."
+          ],
+          "title": "",
+          "paragraphIndex": 0
         },
         {
-          "id": "24",
+          "id": "1703867848586",
+          "type": "TEXT",
+          "paragraphs": [
+            "Rust excels in writing concurrent and parallel code without sacrificing safety. The following example demonstrates creating a basic concurrent program using threads:\n\n"
+          ],
+          "title": "Concurrency in Rust:",
+          "paragraphIndex": 0
+        },
+        {
+          "id": "1703867864526",
+          "type": "CODE",
+          "code": "use std::thread;\n\nfn main() {\n    let handle = thread::spawn(|| {\n        // Code running in a separate thread\n        println!(\"Hello from another thread!\");\n    });\n\n    // Wait for the spawned thread to finish\n    handle.join().unwrap();\n\n    println!(\"Back in the main thread.\");\n}"
+        },
+        {
+          "id": "1703867878565",
+          "type": "TEXT",
+          "paragraphs": [
+            "Rust's ownership system ensures that data accessed by threads follows safe concurrency practices."
+          ],
+          "title": "",
+          "paragraphIndex": 0
+        },
+        {
+          "id": "1703867891957",
+          "type": "TEXT",
+          "paragraphs": [
+            "Rust emphasizes explicit and ergonomic error handling. The Result type is commonly used for functions that may return an error:"
+          ],
+          "title": "Error Handling in Rust:",
+          "paragraphIndex": 0
+        },
+        {
+          "id": "1703867899353",
+          "type": "CODE",
+          "code": "use std::fs::File;\n\nfn main() {\n    let result = File::open(\"example.txt\");\n\n    match result {\n        Ok(file) => println!(\"File opened successfully: {:?}\", file),\n        Err(error) => eprintln!(\"Error opening file: {}\", error),\n    }\n}"
+        },
+        {
+          "id": "1703867920878",
+          "type": "TEXT",
+          "paragraphs": [
+            ""
+          ],
+          "title": "Rust encourages developers to handle errors explicitly, promoting robust code."
+        },
+        {
+          "id": "1703867932970",
+          "type": "TEXT",
+          "paragraphs": [
+            "Rust's combination of performance, safety, and concurrency support positions it as a language of choice for systems programming. As you delve deeper into Rust, explore its growing ecosystem and consider using it for projects where a balance between low-level control and modern programming conveniences is essential. Happy coding with Rust!"
+          ],
+          "title": "Conclusion:",
+          "paragraphIndex": 0
+        },
+        {
+          "id": "1703868143820",
           "type": "IMAGE",
-          "src": "https://www.codeproject.com/KB/scripting/859479/js-article-00.PNG",
-          "title": "Figure 2 - website screenshot"
-        },
-        {
-          "id": "25",
-          "type": "TEXT",
-          "title": "Title of this block",
-          "paragraphs": [
-            "JavaScript is a language that allows you to execute programs in various environments. In our case, we are talking about browsers and the server platform Node.js. If you haven't written any JS code yet and are reading this text in a browser on your desktop computer, it means you are literally seconds away from your first JavaScript program."
-          ]
+          "src": "https://solace.com/wp-content/uploads/2020/10/running-native-code-1.png",
+          "title": "How to Use Rust "
         }
-      ]
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "123",
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
+        "features": {
+          "isAppRedesigned": true
+        },
+        "jsonSettings": {
+          "theme": "app_light_theme",
+          "isFirstVisit": true,
+          "settingsPageHasBeenOpen": false,
+          "isArticlesPageWasOpened": true
+        }
+      }
     },
     {
       "id": "4",
@@ -611,7 +651,23 @@
             "JavaScript is a language that allows you to execute programs in various environments. In our case, we are talking about browsers and the server platform Node.js. If you haven't written any JS code yet and are reading this text in a browser on your desktop computer, it means you are literally seconds away from your first JavaScript program."
           ]
         }
-      ]
+      ],
+      "user": {
+        "id": "2",
+        "username": "user",
+        "roles": [
+          "USER"
+        ],
+        "password": "123",
+        "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
+        "features": {
+          "isAppRedesigned": true
+        },
+        "jsonSettings": {
+          "theme": "app_light_theme",
+          "isArticlesPageWasOpened": true
+        }
+      }
     },
     {
       "id": "6",
@@ -621,9 +677,7 @@
       "views": 309,
       "createdAt": "12.12.2023",
       "userId": "1",
-      "type": [
-        "POLITICS"
-      ],
+      "type": "SCIENCE",
       "blocks": [
         {
           "id": "42",
@@ -711,23 +765,48 @@
           "isArticlesPageWasOpened": true
         }
       }
+    },
+    {
+      "id": "1703965039584",
+      "title": "Pyton Runtime",
+      "subtitle": "What's new in Pyton ?",
+      "img": "https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "views": 0,
+      "createdAt": "30.12.2023",
+      "userId": "1",
+      "type": "ALL",
+      "blocks": [
+        {
+          "id": "1703965100155",
+          "type": "TEXT",
+          "paragraphs": [
+            "Python's syntax is designed to be clear and readable, making it an excellent choice for beginners and experienced developers alike. It supports both procedural and object-oriented programming paradigms, allowing flexibility in coding styles."
+          ],
+          "title": "Getting Started with Python:",
+          "paragraphIndex": 0
+        }
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "123",
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
+        "features": {
+          "isAppRedesigned": true
+        },
+        "jsonSettings": {
+          "theme": "app_light_theme",
+          "isFirstVisit": true,
+          "settingsPageHasBeenOpen": false,
+          "isArticlesPageWasOpened": true
+        }
+      }
     }
   ],
   "article-ratings": [
-    {
-      "userId": "2",
-      "articleId": "18",
-      "rate": 5,
-      "feedback": "Good",
-      "id": 1
-    },
-    {
-      "userId": "2",
-      "articleId": "17",
-      "rate": 2,
-      "feedback": "Bad",
-      "id": 2
-    },
     {
       "userId": "2",
       "articleId": "1",
@@ -750,30 +829,10 @@
     },
     {
       "userId": "1",
-      "articleId": "18",
-      "rate": 3,
-      "feedback": "",
-      "id": 6
-    },
-    {
-      "userId": "1",
       "articleId": "2",
       "rate": 3,
       "feedback": "",
       "id": 7
-    },
-    {
-      "userId": "1",
-      "articleId": "20",
-      "rate": 3,
-      "feedback": "",
-      "id": 8
-    },
-    {
-      "userId": "1",
-      "articleId": "21",
-      "rate": 2,
-      "id": 9
     },
     {
       "userId": "2",
@@ -788,6 +847,13 @@
       "rate": 3,
       "feedback": "ok",
       "id": 11
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 3,
+      "feedback": "Ok",
+      "id": 12
     }
   ],
   "profile-ratings": [

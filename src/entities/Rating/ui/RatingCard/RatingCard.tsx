@@ -78,6 +78,7 @@ const RatingCard: React.FC<RatingCardProps> = ({
           onSelect={onSelectStars}
         />
       </VStack>
+
       <BrowserView>
         <Modal isOpen={isModalOpen} lazy>
           <VStack max gap="32">
@@ -93,6 +94,7 @@ const RatingCard: React.FC<RatingCardProps> = ({
           </VStack>
         </Modal>
       </BrowserView>
+
       <MobileView>
         <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
           <VStack gap="32">
@@ -107,7 +109,7 @@ const RatingCard: React.FC<RatingCardProps> = ({
   );
 
   return (
-    <Card max border={"partial"} padding="24">
+    <Card max border={"partial"} padding="8">
       {content}
     </Card>
   );

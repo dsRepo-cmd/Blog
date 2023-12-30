@@ -2,8 +2,8 @@
   width: 100%;
 }
 
-@media screen and (min-width: 320px) and (max-device-width: 480px) {
+@media screen and (min-width: 320px) and (max-device-width: 600px) {
   .ArticleCodeBlockComponent {
-    max-width: 350px;
+    max-width: 100%;
   }
 }

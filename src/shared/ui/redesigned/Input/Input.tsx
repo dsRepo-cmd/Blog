@@ -10,7 +10,7 @@ import React, {
 
 import cls from "./Input.module.scss";
 import { Mods, classNames } from "@/shared/lib/classNames";
-import { HStack } from "../Stack";
+import { HStack, VStack } from "../Stack";
 import Text from "../Text/Text";
 import DeleteIcon from "../../../assets/icons/delete.svg";
 import { Icon } from "../Icon/Icon";
@@ -33,6 +33,7 @@ interface InputProps extends HTMLInputProps {
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
   size?: InputSize;
+  error?: string;
 }
 
 const Input: FC<InputProps> = ({
@@ -48,6 +49,7 @@ const Input: FC<InputProps> = ({
   label,
   size = "m",
   onDelete,
+  error,
   ...restProps
 }) => {
   const ref = useRef<HTMLInputElement>(null);
@@ -80,22 +82,27 @@ const Input: FC<InputProps> = ({
   };
 
   const input = (
-    <div className={classNames(cls.InputWrapper, mods, [className, cls[size]])}>
-      <div className={cls.addonLeft}>{addonLeft}</div>
-      <input
-        ref={ref}
-        type={type}
-        value={value}
-        onChange={onChangeHandler}
-        className={cls.input}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        readOnly={readonly}
-        placeholder={placeholder}
-        {...restProps}
-      />
-      <div className={cls.addonRight}>{addonRight}</div>
-    </div>
+    <VStack max>
+      <div
+        className={classNames(cls.InputWrapper, mods, [className, cls[size]])}
+      >
+        <div className={cls.addonLeft}>{addonLeft}</div>
+        <input
+          ref={ref}
+          type={type}
+          value={value}
+          onChange={onChangeHandler}
+          className={cls.input}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          readOnly={readonly}
+          placeholder={placeholder}
+          {...restProps}
+        />
+        <div className={cls.addonRight}>{addonRight}</div>
+      </div>
+      {error && <Text className={cls.error} variant={"error"} text={error} />}
+    </VStack>
   );
 
   if (label) {

@@ -17,3 +17,6 @@ export const getArticleEditData = (state: StateSchema) =>
 
 export const getArticleEditReadonly = (state: StateSchema) =>
   state.articleEdit?.readonly;
+
+export const getArticleEditId = (state: StateSchema) =>
+  state.articleEdit?.formdata?.id || "";

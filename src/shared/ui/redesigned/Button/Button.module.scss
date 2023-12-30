@@ -40,12 +40,12 @@
   background: var(--light-bg);
   border: none;
   outline: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius-l);
 }
 
 .outline {
   background: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius-l);
 
   &:hover {
     border: 1px solid var(--accent);

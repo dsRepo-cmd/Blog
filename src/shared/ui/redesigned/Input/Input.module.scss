@@ -1,7 +1,7 @@
 .InputWrapper {
   display: flex;
   align-items: center;
-  border-radius: 48px;
+  border-radius: var(--border-radius-xl);
   padding: 8px 16px;
   border: 1px solid var(--icon);
   width: 100%;
@@ -64,7 +64,12 @@
 .removeIcon {
   fill: var(--cancel);
   opacity: 0.5;
+  transition: all 0.5s;
 }
 .removeIcon:hover {
   opacity: 1;
+}
+
+.error {
+  margin-left: 12px;
 }

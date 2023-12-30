@@ -19,7 +19,7 @@
 }
 
 .normal {
-  border-radius: 12px;
+  border-radius: var(--border-radius-xl);
 }
 
 .round {
@@ -40,6 +40,10 @@
 
 .gap_8 {
   padding: 8px;
+}
+
+.gap_12 {
+  padding: 12px;
 }
 
 .gap_16 {

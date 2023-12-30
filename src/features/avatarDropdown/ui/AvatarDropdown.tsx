@@ -10,11 +10,14 @@ import {
 } from "@/entities/User";
 import {
   getRouteAdmin,
+  getRouteArticleCreate,
   getRouteProfile,
   getRouteSettings,
 } from "@/shared/const/router";
 import { Dropdown } from "@/shared/ui/redesigned/Popups";
 import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
+
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 interface AvatarDropdownProps {
   className?: string;
@@ -22,7 +25,7 @@ interface AvatarDropdownProps {
 
 const AvatarDropdown: React.FC<AvatarDropdownProps> = ({ className }) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
   const isAdmin = useSelector(isUserAdmin);
   const isManager = useSelector(isUserManager);
@@ -52,6 +55,10 @@ const AvatarDropdown: React.FC<AvatarDropdownProps> = ({ className }) => {
     {
       content: t("Settings"),
       href: getRouteSettings(),
+    },
+    {
+      content: t("New Article"),
+      href: getRouteArticleCreate(),
     },
     {
       content: t("Exit"),

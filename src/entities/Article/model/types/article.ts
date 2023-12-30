@@ -50,5 +50,6 @@ export interface ArticleEdit {
   views?: number;
   createdAt?: string;
   type?: ArticleType;
+  userId?: string;
   blocks?: ArticleBlock[];
 }

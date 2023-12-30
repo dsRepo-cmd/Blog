@@ -51,8 +51,6 @@ const TextArea: FC<TextAreaProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [textareaHeight, setTextareaHeight] = useState<number | null>();
 
-  console.log(textareaHeight);
-
   useEffect(() => {
     if (autofocus) {
       setIsFocused(true);

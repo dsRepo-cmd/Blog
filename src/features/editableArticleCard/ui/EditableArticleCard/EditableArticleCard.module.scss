@@ -1,39 +1,5 @@
 .EditableArticleCard {
 }
-.ButtonsWrapper {
-  position: sticky;
-  top: 32px;
-  height: fit-content;
-  background-color: var(--dark-bg);
-  padding: 12px;
-  z-index: 10;
-}
-
-.iconRemoveBlock {
-  fill: var(--cancel);
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  opacity: 0.5;
-  transition: all 0.3s;
-}
-.paragraphIcon {
-  fill: var(--icon);
-}
-.iconRemoveBlock:hover {
-  opacity: 1;
-}
-
-.img {
-  object-fit: cover;
-  max-width: 500px;
-}
-
-@media screen and (min-width: 320px) and (max-device-width: 480px) {
-  .img {
-    max-width: 350px;
-  }
-}
 
 .ArticleEditTextBlockComponent {
   position: relative;
@@ -48,7 +14,6 @@
   padding: 12px;
   border-radius: var(--border-radius-xl);
   border: 1px solid var(--icon);
-  padding-right: 50px;
 }
 .ArticleEditCodeBlockComponent {
   position: relative;
@@ -56,5 +21,76 @@
   padding: 12px;
   border-radius: var(--border-radius-xl);
   border: 1px solid var(--icon);
-  padding-right: 50px;
+}
+
+.ButtonsWrapper {
+  padding: 12px;
+}
+
+.iconRemoveBlock {
+  fill: var(--cancel);
+
+  right: 10px;
+  bottom: 10px;
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+.iconRemoveBlock:hover {
+  opacity: 1;
+}
+
+.paragraphIcon {
+  fill: var(--icon);
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+.paragraphIcon:hover {
+  opacity: 1;
+}
+
+.img {
+  object-fit: cover;
+  max-width: 500px;
+}
+
+.panelIcon {
+  align-self: center;
+  justify-self: center;
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.panel {
+  position: fixed;
+
+  align-self: self-end;
+  z-index: 10000;
+  background-color: var(--dark-bg);
+  border-radius: var(--border-radius-xl);
+}
+.panelIcon:hover {
+  align-self: center;
+  justify-self: center;
+  opacity: 1;
+}
+
+@media screen and (min-width: 320px) and (max-device-width: 480px) {
+  .img {
+    max-width: 100%;
+  }
+  .panel {
+    right: 80px;
+
+    bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .panel {
+    right: 200px;
+
+    top: 10px;
+  }
 }

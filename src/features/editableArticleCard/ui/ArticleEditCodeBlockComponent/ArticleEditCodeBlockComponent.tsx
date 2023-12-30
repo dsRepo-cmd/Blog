@@ -47,9 +47,15 @@ const ArticleEditCodeBlockComponent: React.FC<
 
   return (
     <VStack
+      gap="12"
       max
       className={classNames(cls.ArticleEditCodeBlockComponent, {}, [className])}
     >
+      <TextArea
+        placeholder={t("Type your code")}
+        onChange={onChangeCode}
+        value={block.code}
+      />
       <Icon
         className={cls.iconRemoveBlock}
         Svg={DeleteIcon}
@@ -57,12 +63,6 @@ const ArticleEditCodeBlockComponent: React.FC<
         height={20}
         clickable
         onClick={onRemoveBlock}
-      />
-      <TextArea
-        onChange={onChangeCode}
-        cols={50}
-        rows={10}
-        value={block.code}
       />
     </VStack>
   );

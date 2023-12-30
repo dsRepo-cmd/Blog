@@ -14,7 +14,7 @@ const DetailsContainer: FC<DetailsContainterProps> = (props) => {
     return null;
   }
   return (
-    <Card max border={"partial"} className={className} padding="24">
+    <Card max border={"partial"} className={className} padding="12">
       <ArticleDetails id={id} />
     </Card>
   );

@@ -4,7 +4,7 @@ import cls from "../EditableArticleCard/EditableArticleCard.module.scss";
 import { useTranslation } from "react-i18next";
 import { ArticleTextBlock } from "@/entities/Article";
 import TextArea from "@/shared/ui/redesigned/TextArea/TextArea";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { articleEditActions } from "../../model/slice/ArticleEditSlice";
 import Input from "@/shared/ui/redesigned/Input/Input";
@@ -99,15 +99,8 @@ const ArticleEditTextBlockComponent: React.FC<
       gap={"12"}
       className={classNames(cls.ArticleEditTextBlockComponent, {}, [className])}
     >
-      <Icon
-        className={cls.iconRemoveBlock}
-        Svg={DeleteIcon}
-        width={20}
-        height={20}
-        clickable
-        onClick={onRemoveBlock}
-      />
       <Input
+        placeholder={t("Title")}
         onDelete={() => onDeleteTitle}
         onChange={onChangeTitle}
         value={block?.title}
@@ -116,6 +109,7 @@ const ArticleEditTextBlockComponent: React.FC<
       {block?.paragraphs.map((paragraph, index) => (
         <VStack max gap="12" key={index}>
           <TextArea
+            placeholder={t("Text of the paragraph")}
             onChange={(paragraph) => onChangeParagraph(paragraph, index)}
             cols={150}
             rows={5}
@@ -124,14 +118,24 @@ const ArticleEditTextBlockComponent: React.FC<
           />
         </VStack>
       ))}
-      <Icon
-        className={cls.paragraphIcon}
-        Svg={AddParagraphIcon}
-        onClick={() => onAddParagraph("")}
-        width={20}
-        height={20}
-        clickable
-      />
+      <HStack gap="12">
+        <Icon
+          className={cls.iconRemoveBlock}
+          Svg={DeleteIcon}
+          width={20}
+          height={20}
+          clickable
+          onClick={onRemoveBlock}
+        />
+        <Icon
+          className={cls.paragraphIcon}
+          Svg={AddParagraphIcon}
+          onClick={() => onAddParagraph("")}
+          width={20}
+          height={20}
+          clickable
+        />
+      </HStack>
     </VStack>
   );
 };

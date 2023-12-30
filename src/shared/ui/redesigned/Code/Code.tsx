@@ -22,7 +22,7 @@ const Code: React.FC<CodeProps> = ({ className, text }) => {
         className={classNames(cls.copyBtn, {}, [className])}
         Svg={CopyIconNew}
       />
-      <code>{text}</code>
+      <code className={classNames(cls.code, {}, [className])}>{text}</code>
     </pre>
   );
 };

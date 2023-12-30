@@ -70,6 +70,13 @@ const ArticleEditImageBlockComponent: React.FC<
         className,
       ])}
     >
+      <img className={cls.img} src={block.src} alt={block.type} />
+      <Input onChange={onChangeSrc} value={block?.src} />
+      <Input
+        placeholder={t("Title of image")}
+        onChange={onChangeTitle}
+        value={block?.title}
+      />
       <Icon
         className={cls.iconRemoveBlock}
         Svg={DeleteIcon}
@@ -78,10 +85,6 @@ const ArticleEditImageBlockComponent: React.FC<
         clickable
         onClick={onRemoveBlock}
       />
-
-      <img className={cls.img} src={block.src} alt={block.type} />
-      <Input onChange={onChangeSrc} value={block?.src} />
-      <Input onChange={onChangeTitle} value={block?.title} />
     </VStack>
   );
 };
