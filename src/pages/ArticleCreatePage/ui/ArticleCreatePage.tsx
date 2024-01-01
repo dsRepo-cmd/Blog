@@ -14,7 +14,7 @@ interface ArticleCreatePageProps {
 }
 
 const ArticleCreatePage: React.FC<ArticleCreatePageProps> = ({ className }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const dispatch = useAppDispatch();
 
   const newId = Date.now().toString();
@@ -25,7 +25,7 @@ const ArticleCreatePage: React.FC<ArticleCreatePageProps> = ({ className }) => {
 
   return (
     <Page className={classNames(cls.ArticleCreatePage, {}, [className])}>
-      <EditableArticleCard id={newId} />
+      <EditableArticleCard id={newId} create />
     </Page>
   );
 };

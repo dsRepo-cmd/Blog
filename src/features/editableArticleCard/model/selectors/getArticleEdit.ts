@@ -9,9 +9,6 @@ export const getArticleEditError = (state: StateSchema) =>
 export const getArticleEditIsLoading = (state: StateSchema) =>
   state.articleEdit?.isLoading;
 
-export const getArticleEditValidateErrors = (state: StateSchema) =>
-  state.articleEdit?.validateErrors;
-
 export const getArticleEditData = (state: StateSchema) =>
   state.articleEdit?.data;
 
@@ -20,3 +17,6 @@ export const getArticleEditReadonly = (state: StateSchema) =>
 
 export const getArticleEditId = (state: StateSchema) =>
   state.articleEdit?.formdata?.id || "";
+
+export const getArticleEditValidateErrors = (state: StateSchema) =>
+  state.articleEdit?.validateErrors || [];

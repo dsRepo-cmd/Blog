@@ -27,7 +27,7 @@ const ArticleSortSelector: React.FC<ArticleSortSelectorProps> = ({
   order,
   sort,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
 
   const orderOptions = useMemo<SelectOption<SortOrder>[]>(
     () => [

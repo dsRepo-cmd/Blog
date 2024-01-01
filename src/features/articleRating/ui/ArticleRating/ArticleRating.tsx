@@ -18,7 +18,7 @@ const ArticleRating: React.FC<ArticleRatingProps> = ({
   className,
   articleId,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const userData = useSelector(getUserAuthData);
   const { data, isLoading } = useGetArticleRating({
     articleId,

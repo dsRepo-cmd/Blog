@@ -10,11 +10,10 @@ import { FC, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { ProfileCardProps } from "../ProfileCard/ProfileCard";
 
-import cls from "./ProfileCardRedesigned.module.scss";
 import { BrowserView, MobileView } from "react-device-detect";
 
 export const ProfileCardRedesignedError = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("profile");
 
   return (
     <HStack justify="center" max>

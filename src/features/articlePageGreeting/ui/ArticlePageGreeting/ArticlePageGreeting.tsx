@@ -8,7 +8,7 @@ import { isMobile } from "react-device-detect";
 import Text from "@/shared/ui/redesigned/Text/Text";
 
 const ArticlePageGreeting: React.FC = ({}) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const [isOpen, setIsOpen] = useState(false);
   const { isArticlesPageWasOpened } = useJsonSettings();
   const dispatch = useAppDispatch();

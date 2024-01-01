@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import React, { memo, useCallback, useEffect } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./ArticlesPage.module.scss";
 import DynamicModuleLoader, {
@@ -13,6 +13,7 @@ import { ArticlePageGreeting } from "@/features/articlePageGreeting";
 import StickyContentLayout from "@/shared/layouts/StickyContentLayout/StickyContentLayout";
 import ViewSelectorContainer from "../ViewSelectorContainer/ViewSelectorContainer";
 import { FiltersContainer } from "../FiltersContainer/FiltersContainer";
+import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 
 interface ArticlesPageProps {
   className?: string;
@@ -24,6 +25,10 @@ const reducers: ReducerList = {
 
 const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchArticlesList({}));
+  }, [dispatch]);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());

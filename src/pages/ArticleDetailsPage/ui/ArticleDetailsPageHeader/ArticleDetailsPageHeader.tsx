@@ -18,7 +18,7 @@ interface ArticleDetailsPageHeaderProps {
 const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> = ({
   className,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const navigate = useNavigate();
   const canEdit = useSelector(getCanEditArticle);
   const article = useSelector(getArticleDetailsData);

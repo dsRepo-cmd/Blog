@@ -15,7 +15,7 @@ const ArticleTypeTabs: React.FC<ArticleTypeTabsProps> = ({
   value,
   onChangeType,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
 
   const typeTabs = useMemo<TabItem[]>(
     () => [

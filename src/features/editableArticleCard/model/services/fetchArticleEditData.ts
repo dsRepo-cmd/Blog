@@ -19,6 +19,7 @@ export const fetchArticleEditData = createAsyncThunk<
         },
       }
     );
+
     if (!response.data) {
       throw new Error();
     }
@@ -26,6 +27,6 @@ export const fetchArticleEditData = createAsyncThunk<
     return response.data;
   } catch (e) {
     console.log(e);
-    return rejectWithValue("error");
+    return rejectWithValue("Error");
   }
 });

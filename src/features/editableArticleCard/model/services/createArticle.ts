@@ -1,14 +1,20 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { ArticleEdit, ArticleType } from "@/entities/Article";
-import { ValidateArticleEditError } from "../consts/consts";
+import {
+  ValidateArticleEditError,
+  ValidateArticleEditErrorType,
+  ValidateArticleEditErrors,
+} from "../consts/consts";
 import { getCurrentDate } from "@/shared/lib/features";
 import { getUserId } from "@/entities/User";
+import { getArticleEditForm } from "../selectors/getArticleEdit";
+import { validateArticleEditData } from "./validateArticleEditData";
 
 export const createArticle = createAsyncThunk<
   ArticleEdit,
   string,
-  ThunkConfig<ValidateArticleEditError[]>
+  ThunkConfig<ValidateArticleEditErrors[]>
 >("article/updateArticleEditData", async (articleId, thunkApi) => {
   const { extra, rejectWithValue, getState } = thunkApi;
 
@@ -25,11 +31,15 @@ export const createArticle = createAsyncThunk<
     blocks: [],
   };
 
-  // const errors = validateArticleEditData(formData);
+  const formData = getArticleEditForm(getState());
 
-  // if (errors.length) {
-  //   return rejectWithValue(errors);
-  // }
+  const errors = validateArticleEditData(formData);
+
+  if (errors.length) {
+    console.log("errors", errors, "formData", formData);
+    return rejectWithValue(errors);
+  }
+
   try {
     const response = await extra.api.post<ArticleEdit>(
       "/articles/",
@@ -39,6 +49,11 @@ export const createArticle = createAsyncThunk<
     return response.data;
   } catch (e) {
     console.log(e);
-    return rejectWithValue([ValidateArticleEditError.SERVER_ERROR]);
+    return rejectWithValue([
+      {
+        type: ValidateArticleEditErrorType.SERVER,
+        error: ValidateArticleEditError.SERVER_ERROR,
+      },
+    ]);
   }
 });

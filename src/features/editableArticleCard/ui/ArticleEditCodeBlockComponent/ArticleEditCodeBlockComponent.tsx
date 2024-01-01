@@ -19,7 +19,7 @@ interface ArticleEditCodeBlockComponentProps {
 const ArticleEditCodeBlockComponent: React.FC<
   ArticleEditCodeBlockComponentProps
 > = ({ className, block }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const dispatch = useAppDispatch();
 
   const onChangeCode = useCallback(

@@ -9,7 +9,7 @@ import {
   ArticleBlockType,
 } from "./model/consts/consts";
 import ArticleList from "./ui/ArticleList/ArticleList";
-import { ArticleEditSchema } from "./model/types/articleEditSchema";
+import { ArticleEditSchema } from "../../features/editableArticleCard/model/type/articleEditSchema";
 import {
   ArticleBlock,
   ArticleCodeBlock,

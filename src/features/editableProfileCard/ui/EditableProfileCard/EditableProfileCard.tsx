@@ -35,7 +35,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
   className,
   id,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("profile");
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);

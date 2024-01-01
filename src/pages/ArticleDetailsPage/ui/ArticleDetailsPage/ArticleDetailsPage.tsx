@@ -26,7 +26,7 @@ const reducers: ReducerList = {
 const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   className,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const { id } = useParams<{ id: string }>();
 
   if (!id) {

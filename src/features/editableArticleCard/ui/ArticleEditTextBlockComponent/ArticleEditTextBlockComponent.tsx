@@ -21,7 +21,7 @@ interface ArticleEditTextBlockComponentProps {
 const ArticleEditTextBlockComponent: React.FC<
   ArticleEditTextBlockComponentProps
 > = ({ className, block }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const dispatch = useAppDispatch();
 
   const onChangeTitle = useCallback(

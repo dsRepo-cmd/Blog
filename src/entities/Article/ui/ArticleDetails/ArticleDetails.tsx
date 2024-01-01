@@ -61,7 +61,7 @@ export const ArticleDetailsSkeleton = () => {
 };
 
 const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className, id }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
 
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);

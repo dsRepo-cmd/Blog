@@ -11,7 +11,7 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("profile");
   const { id } = useParams<{ id: string }>();
 
   if (!id) {

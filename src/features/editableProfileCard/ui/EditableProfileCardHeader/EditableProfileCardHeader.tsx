@@ -20,7 +20,7 @@ interface EditableProfileCardHeaderProps {
 const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
   className,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("profile");
   const authData = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileData);
   const canEdit = authData?.id === profileData?.id;

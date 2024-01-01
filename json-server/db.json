@@ -82,6 +82,12 @@
       "userId": "1",
       "text": "JavaScript is a language?",
       "id": "pFe3djj"
+    },
+    {
+      "articleId": "1703979199940",
+      "userId": "2",
+      "text": "?",
+      "id": "LexgBqI"
     }
   ],
   "users": [
@@ -115,7 +121,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isArticlesPageWasOpened": true
       }
     },
@@ -401,94 +407,6 @@
           ],
           "title": "Hello World in Rust:",
           "paragraphIndex": 0
-        },
-        {
-          "id": "1703866875857",
-          "type": "CODE",
-          "code": "fn main() {\n    println!(\"Hello, World!\");\n}"
-        },
-        {
-          "id": "1703867787345",
-          "type": "TEXT",
-          "paragraphs": [
-            "Rust's ownership system prevents data races and memory-related bugs by enforcing strict rules about how data is accessed and modified. Here's a simple example:"
-          ],
-          "title": "Ownership and Borrowing:",
-          "paragraphIndex": 0
-        },
-        {
-          "id": "1703867826682",
-          "type": "CODE",
-          "code": "fn main() {\n    let mut data = String::from(\"Rust is \");\n\n    // Mutable reference to modify the string\n    add_text(&mut data);\n\n    println!(\"{}\", data);\n}\n\nfn add_text(s: &mut String) {\n    s.push_str(\"awesome!\");\n}"
-        },
-        {
-          "id": "1703867830666",
-          "type": "TEXT",
-          "paragraphs": [
-            "The add_text function takes a mutable reference to a String, allowing safe modification."
-          ],
-          "title": "",
-          "paragraphIndex": 0
-        },
-        {
-          "id": "1703867848586",
-          "type": "TEXT",
-          "paragraphs": [
-            "Rust excels in writing concurrent and parallel code without sacrificing safety. The following example demonstrates creating a basic concurrent program using threads:\n\n"
-          ],
-          "title": "Concurrency in Rust:",
-          "paragraphIndex": 0
-        },
-        {
-          "id": "1703867864526",
-          "type": "CODE",
-          "code": "use std::thread;\n\nfn main() {\n    let handle = thread::spawn(|| {\n        // Code running in a separate thread\n        println!(\"Hello from another thread!\");\n    });\n\n    // Wait for the spawned thread to finish\n    handle.join().unwrap();\n\n    println!(\"Back in the main thread.\");\n}"
-        },
-        {
-          "id": "1703867878565",
-          "type": "TEXT",
-          "paragraphs": [
-            "Rust's ownership system ensures that data accessed by threads follows safe concurrency practices."
-          ],
-          "title": "",
-          "paragraphIndex": 0
-        },
-        {
-          "id": "1703867891957",
-          "type": "TEXT",
-          "paragraphs": [
-            "Rust emphasizes explicit and ergonomic error handling. The Result type is commonly used for functions that may return an error:"
-          ],
-          "title": "Error Handling in Rust:",
-          "paragraphIndex": 0
-        },
-        {
-          "id": "1703867899353",
-          "type": "CODE",
-          "code": "use std::fs::File;\n\nfn main() {\n    let result = File::open(\"example.txt\");\n\n    match result {\n        Ok(file) => println!(\"File opened successfully: {:?}\", file),\n        Err(error) => eprintln!(\"Error opening file: {}\", error),\n    }\n}"
-        },
-        {
-          "id": "1703867920878",
-          "type": "TEXT",
-          "paragraphs": [
-            ""
-          ],
-          "title": "Rust encourages developers to handle errors explicitly, promoting robust code."
-        },
-        {
-          "id": "1703867932970",
-          "type": "TEXT",
-          "paragraphs": [
-            "Rust's combination of performance, safety, and concurrency support positions it as a language of choice for systems programming. As you delve deeper into Rust, explore its growing ecosystem and consider using it for projects where a balance between low-level control and modern programming conveniences is essential. Happy coding with Rust!"
-          ],
-          "title": "Conclusion:",
-          "paragraphIndex": 0
-        },
-        {
-          "id": "1703868143820",
-          "type": "IMAGE",
-          "src": "https://solace.com/wp-content/uploads/2020/10/running-native-code-1.png",
-          "title": "How to Use Rust "
         }
       ],
       "user": {
@@ -804,6 +722,134 @@
           "isArticlesPageWasOpened": true
         }
       }
+    },
+    {
+      "id": "1703978997754",
+      "title": "Pyton Runtime Environments New",
+      "subtitle": "What's new in Pyton ?",
+      "img": "https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "views": 0,
+      "createdAt": "31.12.2023",
+      "userId": "1",
+      "type": "ALL",
+      "blocks": [
+        {
+          "id": "1703979124613",
+          "type": "TEXT",
+          "paragraphs": [
+            "Python's syntax is designed to be clear and readable, making it an excellent choice for beginners and experienced developers alike. It supports both procedural and object-oriented programming paradigms, allowing flexibility in coding styles."
+          ],
+          "title": "Getting Started with Python:",
+          "paragraphIndex": 0
+        },
+        {
+          "id": "1703979142829",
+          "type": "TEXT",
+          "paragraphs": [
+            "Embark on your Python journey with the quintessential \"Hello, World!\" program:"
+          ],
+          "title": "Hello World in Python:",
+          "paragraphIndex": 0
+        },
+        {
+          "id": "1703979155145",
+          "type": "CODE",
+          "code": "print(\"Hello, World!\")"
+        }
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "123",
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
+        "features": {
+          "isAppRedesigned": true
+        },
+        "jsonSettings": {
+          "theme": "app_light_theme",
+          "isFirstVisit": true,
+          "settingsPageHasBeenOpen": false,
+          "isArticlesPageWasOpened": true
+        }
+      }
+    },
+    {
+      "id": "1703979199940",
+      "title": " Unleashing Rust",
+      "subtitle": "A Modern Language for Safe and Efficient Systems Programming",
+      "img": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp",
+      "views": 0,
+      "createdAt": "31.12.2023",
+      "userId": "2",
+      "type": "ALL",
+      "blocks": [
+        {
+          "id": "1703979222520",
+          "type": "TEXT",
+          "paragraphs": [
+            "Rust is known for its ownership system, which ensures memory safety without the need for a garbage collector. It also features a powerful borrow checker that enforces strict rules on references, preventing common programming errors like null pointer dereferencing."
+          ],
+          "title": "Getting Started with Rust:",
+          "paragraphIndex": 0
+        }
+      ],
+      "user": {
+        "id": "2",
+        "username": "user",
+        "roles": [
+          "USER"
+        ],
+        "password": "123",
+        "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
+        "features": {
+          "isAppRedesigned": true
+        },
+        "jsonSettings": {
+          "theme": "app_light_theme",
+          "isArticlesPageWasOpened": true
+        }
+      }
+    },
+    {
+      "id": "1704132750481",
+      "title": "article",
+      "subtitle": "12",
+      "img": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp",
+      "views": 0,
+      "createdAt": "01.01.2024",
+      "userId": "1",
+      "type": "ALL",
+      "blocks": [
+        {
+          "id": "1704132771233",
+          "type": "TEXT",
+          "paragraphs": [
+            ""
+          ],
+          "title": ""
+        }
+      ],
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "password": "123",
+        "roles": [
+          "ADMIN"
+        ],
+        "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
+        "features": {
+          "isAppRedesigned": true
+        },
+        "jsonSettings": {
+          "theme": "app_light_theme",
+          "isFirstVisit": true,
+          "settingsPageHasBeenOpen": false,
+          "isArticlesPageWasOpened": true
+        }
+      }
     }
   ],
   "article-ratings": [
@@ -813,47 +859,6 @@
       "rate": 4,
       "feedback": "Good!",
       "id": 3
-    },
-    {
-      "userId": "2",
-      "articleId": "1",
-      "rate": 1,
-      "feedback": "Bag",
-      "id": 4
-    },
-    {
-      "userId": "2",
-      "articleId": "6",
-      "rate": 3,
-      "id": 5
-    },
-    {
-      "userId": "1",
-      "articleId": "2",
-      "rate": 3,
-      "feedback": "",
-      "id": 7
-    },
-    {
-      "userId": "2",
-      "articleId": "2",
-      "rate": 2,
-      "feedback": "bad",
-      "id": 10
-    },
-    {
-      "userId": "1",
-      "articleId": "1",
-      "rate": 3,
-      "feedback": "ok",
-      "id": 11
-    },
-    {
-      "userId": "1",
-      "articleId": "6",
-      "rate": 3,
-      "feedback": "Ok",
-      "id": 12
     }
   ],
   "profile-ratings": [

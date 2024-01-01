@@ -19,7 +19,7 @@ interface ArticleEditImageBlockComponentProps {
 const ArticleEditImageBlockComponent: React.FC<
   ArticleEditImageBlockComponentProps
 > = ({ className, block }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const dispatch = useAppDispatch();
 
   const onChangeSrc = useCallback(

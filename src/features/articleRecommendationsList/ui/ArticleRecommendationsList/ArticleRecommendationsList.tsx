@@ -13,7 +13,7 @@ interface ArticleRecommendationsListProps {
 export const ArticleRecommendationsList: React.FC<
   ArticleRecommendationsListProps
 > = ({ className }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const { isLoading, data: articles, error } = useArticleRecomendationsList(3);
 
   if (isLoading || error || !articles) {

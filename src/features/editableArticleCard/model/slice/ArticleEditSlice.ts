@@ -19,15 +19,12 @@ export const articleEditSlice = createSlice({
   name: "articleEdit",
   initialState,
   reducers: {
-    setReadonly: (state, action: PayloadAction<boolean>) => {
-      state.readonly = action.payload;
-    },
-
     cancelEdit: (state) => {
       state.readonly = true;
       state.formdata = state.data;
       state.validateErrors = undefined;
     },
+
     updateArticleEdit: (state, action: PayloadAction<ArticleEdit>) => {
       state.formdata = {
         ...state.formdata,
@@ -35,7 +32,6 @@ export const articleEditSlice = createSlice({
       };
     },
 
-    // Reducer to add a new block
     addBlock: (state, action: PayloadAction<ArticleBlock>) => {
       if (state.formdata)
         state.formdata.blocks = [
@@ -44,7 +40,6 @@ export const articleEditSlice = createSlice({
         ];
     },
 
-    // Reducer to remove a block
     removeBlock: (state, action: PayloadAction<string>) => {
       const blockIdToRemove = action.payload;
       if (state.formdata)
