@@ -10,12 +10,10 @@ import Text from "@/shared/ui/redesigned/Text/Text";
 import { useSelector } from "react-redux";
 import { getProfileValidateErrors } from "@/features/editableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { ValidateProfileError } from "../../model/consts/consts";
-import { filterProfileErrors } from "../../model/services/filterErrors/filterErrors";
 import { BrowserView, MobileView } from "react-device-detect";
 import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import { Profile } from "@/entities/Profile";
-import { FilteredError } from "../../model/types/editableProfileCardSchema";
 
 export interface ProfileCardProps {
   className?: string;
@@ -70,12 +68,6 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     [ValidateProfileError.NO_DATA]: t("No data"),
   };
 
-  let FilteredError: FilteredError = {};
-
-  if (validateErrors) {
-    FilteredError = filterProfileErrors(validateErrors);
-  }
-  console.log(validateErrors);
   ////
 
   if (isLoading) {
@@ -136,8 +128,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 readonly={readonly}
                 data-testid="ProfileCard.firstname"
                 error={
-                  FilteredError.firstError &&
-                  validateErrorTranslates[FilteredError.firstError]
+                  validateErrors?.firstname &&
+                  validateErrorTranslates[validateErrors?.firstname]
                 }
               />
               <Input
@@ -147,8 +139,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 readonly={readonly}
                 data-testid="ProfileCard.lastname"
                 error={
-                  FilteredError.lastnameError &&
-                  validateErrorTranslates[FilteredError.lastnameError]
+                  validateErrors?.lastname &&
+                  validateErrorTranslates[validateErrors?.lastname]
                 }
               />
               <Input
@@ -157,8 +149,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 onChange={onChangeAge}
                 readonly={readonly}
                 error={
-                  FilteredError.ageError &&
-                  validateErrorTranslates[FilteredError.ageError]
+                  validateErrors?.age &&
+                  validateErrorTranslates[validateErrors?.age]
                 }
               />
               <Input
@@ -167,8 +159,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 onChange={onChangeCity}
                 readonly={readonly}
                 error={
-                  FilteredError.emailError &&
-                  validateErrorTranslates[FilteredError.emailError]
+                  validateErrors?.email &&
+                  validateErrorTranslates[validateErrors?.email]
                 }
               />
             </VStack>
@@ -179,8 +171,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 onChange={onChangeUsername}
                 readonly={readonly}
                 error={
-                  FilteredError.usernameError &&
-                  validateErrorTranslates[FilteredError.usernameError]
+                  validateErrors?.username &&
+                  validateErrorTranslates[validateErrors?.username]
                 }
               />
               <Input
@@ -189,8 +181,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 onChange={onChangeAvatar}
                 readonly={readonly}
                 error={
-                  FilteredError.avatarError &&
-                  validateErrorTranslates[FilteredError.avatarError]
+                  validateErrors?.avatar &&
+                  validateErrorTranslates[validateErrors?.avatar]
                 }
               />
               <CurrencySelect
@@ -223,8 +215,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
               readonly={readonly}
               data-testid="ProfileCard.firstname"
               error={
-                FilteredError.firstError &&
-                validateErrorTranslates[FilteredError.firstError]
+                validateErrors?.firstname &&
+                validateErrorTranslates[validateErrors?.firstname]
               }
             />
             <Input
@@ -234,8 +226,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
               readonly={readonly}
               data-testid="ProfileCard.lastname"
               error={
-                FilteredError.lastnameError &&
-                validateErrorTranslates[FilteredError.lastnameError]
+                validateErrors?.lastname &&
+                validateErrorTranslates[validateErrors?.lastname]
               }
             />
             <Input
@@ -244,8 +236,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
               onChange={onChangeAge}
               readonly={readonly}
               error={
-                FilteredError.ageError &&
-                validateErrorTranslates[FilteredError.ageError]
+                validateErrors?.age &&
+                validateErrorTranslates[validateErrors?.age]
               }
             />
             <Input
@@ -254,8 +246,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
               onChange={onChangeCity}
               readonly={readonly}
               error={
-                FilteredError.emailError &&
-                validateErrorTranslates[FilteredError.emailError]
+                validateErrors?.email &&
+                validateErrorTranslates[validateErrors?.email]
               }
             />
 
@@ -265,8 +257,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
               onChange={onChangeUsername}
               readonly={readonly}
               error={
-                FilteredError.usernameError &&
-                validateErrorTranslates[FilteredError.usernameError]
+                validateErrors?.username &&
+                validateErrorTranslates[validateErrors?.username]
               }
             />
             <Input
@@ -275,8 +267,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
               onChange={onChangeAvatar}
               readonly={readonly}
               error={
-                FilteredError.ageError &&
-                validateErrorTranslates[FilteredError.ageError]
+                validateErrors?.avatar &&
+                validateErrorTranslates[validateErrors?.avatar]
               }
             />
             <CurrencySelect

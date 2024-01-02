@@ -1,20 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { ArticleEdit, ArticleType } from "@/entities/Article";
-import {
-  ValidateArticleEditError,
-  ValidateArticleEditErrorType,
-  ValidateArticleEditErrors,
-} from "../consts/consts";
+
 import { getCurrentDate } from "@/shared/lib/features";
 import { getUserId } from "@/entities/User";
 import { getArticleEditForm } from "../selectors/getArticleEdit";
 import { validateArticleEditData } from "./validateArticleEditData";
+import { ValidateArticleEditErrors } from "../type/articleEditSchema";
+import { ValidateArticleEditError } from "../consts/consts";
 
 export const createArticle = createAsyncThunk<
   ArticleEdit,
   string,
-  ThunkConfig<ValidateArticleEditErrors[]>
+  ThunkConfig<ValidateArticleEditErrors>
 >("article/updateArticleEditData", async (articleId, thunkApi) => {
   const { extra, rejectWithValue, getState } = thunkApi;
 
@@ -35,7 +33,7 @@ export const createArticle = createAsyncThunk<
 
   const errors = validateArticleEditData(formData);
 
-  if (errors.length) {
+  if (Object.keys(errors).length > 0) {
     return rejectWithValue(errors);
   }
 
@@ -48,11 +46,6 @@ export const createArticle = createAsyncThunk<
     return response.data;
   } catch (e) {
     console.log(e);
-    return rejectWithValue([
-      {
-        type: ValidateArticleEditErrorType.SERVER,
-        error: ValidateArticleEditError.SERVER_ERROR,
-      },
-    ]);
+    return rejectWithValue({ data: ValidateArticleEditError.SERVER_ERROR });
   }
 });

@@ -7,25 +7,4 @@ export enum ValidateArticleEditError {
   SERVER_ERROR = "SERVER_ERROR",
 }
 
-export enum ValidateArticleEditErrorType {
-  DATA = "data",
-  TITLE = "title",
-  SUBTITLE = "subtitle",
-  IMAGE_URL = "imageUrl",
-  SERVER = "server",
-  BLOCKS = "blocks",
-}
-
-export interface ValidateArticleEditErrors {
-  type: ValidateArticleEditErrorType;
-  error?: ValidateArticleEditError;
-}
-
 export const REG_EXP_IMAGE_URL: RegExp = new RegExp(/^https:\/\//);
-
-export interface FilteredErrors {
-  titleError?: string;
-  subtitleError?: string;
-  imageUrlError?: string;
-  blocksError?: string;
-}

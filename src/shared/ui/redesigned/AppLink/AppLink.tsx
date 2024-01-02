@@ -1,6 +1,6 @@
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./AppLink.module.scss";
-import { Link, LinkProps } from "react-router-dom";
+import { LinkProps } from "react-router-dom";
 import { FC, ReactNode, memo } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -13,7 +13,7 @@ interface AppLinkProps extends LinkProps {
   activeClassName?: string;
 }
 
-const AppLink: FC<AppLinkProps> = memo((props) => {
+const AppLink: FC<AppLinkProps> = (props) => {
   const {
     children,
     className,
@@ -37,6 +37,6 @@ const AppLink: FC<AppLinkProps> = memo((props) => {
       {children}
     </NavLink>
   );
-});
+};
 
-export default AppLink;
+export default memo(AppLink);

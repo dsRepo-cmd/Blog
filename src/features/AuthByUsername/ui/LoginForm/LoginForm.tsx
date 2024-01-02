@@ -4,7 +4,7 @@ import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { loginActions, loginReducer } from "../../model/slice/loginSlise";
-import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
+import { getLoginEmail } from "../../model/selectors/getLoginEmail/getLoginEmail";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginErrors } from "../../model/selectors/getLoginErrors/getLoginErrors";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
@@ -16,11 +16,8 @@ import { VStack } from "@/shared/ui/redesigned/Stack";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import Button from "@/shared/ui/redesigned/Button/Button";
-import { getEmailUsername } from "../../model/selectors/geEmailUsername/geEmailUsername";
 import { loginByEmail } from "../../model/services/loginByEmail/loginByEmail";
 import { ValidateAuthError } from "../../model/const/const";
-import { FilteredAuthError } from "../../model/types/loginSchema";
-import { filterAuthErrors } from "../../model/services/filterAuthErrors/filterAuthErrors";
 
 export interface LoginFormProps {
   className?: string;
@@ -34,36 +31,27 @@ const initialReducers: ReducerList = {
 const LoginForm: React.FC<LoginFormProps> = memo(
   ({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
-
     const dispatch = useAppDispatch();
-
-    const username = useSelector(getLoginUsername);
-    const email = useSelector(getEmailUsername);
+    const email = useSelector(getLoginEmail);
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
+
     // Validate errors
     const validateErrors = useSelector(getLoginErrors);
 
     const validateErrorTranslates: { [key: string]: string } = {
-      [ValidateAuthError.SERVER_ERROR]: t("Server error"),
-      [ValidateAuthError.INCORRECT_EMAIL]: t("Incorrect email"),
+      [ValidateAuthError.SERVER_ERROR]: t("Incorrect email or password"),
+      [ValidateAuthError.INCORRECT_EMAIL]: t(
+        "Enter the correct value of the e-mail address"
+      ),
       [ValidateAuthError.INCORRECT_PASSWORD]: t(
         "The password must be at least 8 characters long, including at least one number and an uppercase letter"
       ),
       [ValidateAuthError.NO_DATA]: t("No data"),
     };
 
-    let FilteredError: FilteredAuthError = {
-      emailError: "",
-      passwordError: "",
-      dataError: "",
-    };
-
-    if (validateErrors) {
-      FilteredError = filterAuthErrors(validateErrors);
-    }
-    console.log(validateErrors);
     ////
+
     const onChangeEmail = useCallback(
       (value: string) => {
         dispatch(loginActions.setEmail(value));
@@ -84,7 +72,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(
       if (result.meta.requestStatus === "fulfilled") {
         onSuccess();
       }
-    }, [onSuccess, dispatch, password, username]);
+    }, [onSuccess, dispatch, password, email]);
 
     const handleKeyPress = useCallback(
       (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -110,8 +98,8 @@ const LoginForm: React.FC<LoginFormProps> = memo(
             onKeyDown={handleKeyPress}
             value={email}
             error={
-              FilteredError.emailError &&
-              validateErrorTranslates[FilteredError.emailError]
+              validateErrors?.email &&
+              validateErrorTranslates[validateErrors?.email]
             }
           />
           <Input
@@ -124,8 +112,8 @@ const LoginForm: React.FC<LoginFormProps> = memo(
             value={password}
             password
             error={
-              FilteredError.passwordError &&
-              validateErrorTranslates[FilteredError.passwordError]
+              validateErrors?.password &&
+              validateErrorTranslates[validateErrors?.password]
             }
           />
           <Button
@@ -136,10 +124,10 @@ const LoginForm: React.FC<LoginFormProps> = memo(
             {t("Enter")}
           </Button>
 
-          {FilteredError.dataError && (
+          {validateErrors?.data && (
             <Text
               variant={"error"}
-              text={validateErrorTranslates[FilteredError.dataError]}
+              text={validateErrorTranslates[validateErrors.data]}
             />
           )}
         </VStack>

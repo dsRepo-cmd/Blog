@@ -45,24 +45,29 @@ const AvatarDropdown: React.FC<AvatarDropdownProps> = ({ className }) => {
           {
             content: t("Administration"),
             href: getRouteAdmin(),
+            id: "1",
           },
         ]
       : []),
     {
       content: t("Profile"),
       href: getRouteProfile(authData.id),
+      id: "2",
     },
     {
       content: t("Settings"),
       href: getRouteSettings(),
+      id: "3",
     },
     {
       content: t("New Article"),
       href: getRouteArticleCreate(),
+      id: "4",
     },
     {
       content: t("Exit"),
       onClick: onLogout,
+      id: "5",
     },
   ];
 

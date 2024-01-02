@@ -12,20 +12,6 @@ export enum ValidateProfileError {
   SERVER_ERROR = "SERVER_ERROR",
 }
 
-export enum ValidateProfileErrorType {
-  FIRSTNAME = "first",
-  LASTNAME = "lastname",
-  CITY = "city",
-  AGE = "age",
-  USERNAME = "username",
-  AVATAR = "avatar",
-  CURRENCY = "currency",
-  COUNTRY = "country",
-  DATA = "data",
-  SERVER = "server",
-  EMAIL = "email",
-}
-
 export const REG_EXP_EMAIL: RegExp = new RegExp(
   /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/
 );

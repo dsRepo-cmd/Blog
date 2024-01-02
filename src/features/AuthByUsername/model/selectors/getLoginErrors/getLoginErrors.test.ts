@@ -1,22 +1,18 @@
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { getLoginErrors } from "./getLoginErrors";
-import { ValidateAuthError, ValidateAuthErrorType } from "../../const/const";
+import { ValidateAuthError } from "../../const/const";
 
 describe("getLoginError.test", () => {
   test("should return error", () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: {
-        validateErrors: [
-          {
-            type: ValidateAuthErrorType.DATA,
-            error: ValidateAuthError.NO_DATA,
-          },
-        ],
+        validateErrors: {
+          data: ValidateAuthError.NO_DATA,
+        },
       },
     };
     expect(getLoginErrors(state as StateSchema)).toEqual([
       {
-        type: "data",
         error: "NO_DATA",
       },
     ]);

@@ -1,19 +1,12 @@
 import { Profile } from "@/entities/Profile";
-import {
-  REG_EXP_EMAIL,
-  ValidateProfileError,
-  ValidateProfileErrorType,
-} from "../../consts/consts";
+import { REG_EXP_EMAIL, ValidateProfileError } from "../../consts/consts";
 import { ValidateProfileErrors } from "../../types/editableProfileCardSchema";
 
 export const validateProfileData = (profile?: Profile) => {
-  const errors: ValidateProfileErrors[] = [];
+  const errors: ValidateProfileErrors = {};
 
   if (!profile) {
-    errors.push({
-      type: ValidateProfileErrorType.DATA,
-      error: ValidateProfileError.NO_DATA,
-    });
+    errors.data = ValidateProfileError.NO_DATA;
   }
 
   if (profile) {
@@ -26,38 +19,23 @@ export const validateProfileData = (profile?: Profile) => {
     } = profile;
 
     if (first?.length < 1) {
-      errors.push({
-        type: ValidateProfileErrorType.FIRSTNAME,
-        error: ValidateProfileError.INCORRECT_FIRSTNAME,
-      });
+      errors.firstname = ValidateProfileError.INCORRECT_FIRSTNAME;
     }
 
     if (lastname?.length < 1) {
-      errors.push({
-        type: ValidateProfileErrorType.LASTNAME,
-        error: ValidateProfileError.INCORRECT_LASTNAME,
-      });
+      errors.lastname = ValidateProfileError.INCORRECT_LASTNAME;
     }
 
     if (age < 0 && age > 150) {
-      errors.push({
-        type: ValidateProfileErrorType.LASTNAME,
-        error: ValidateProfileError.INCORRECT_LASTNAME,
-      });
+      errors.age = ValidateProfileError.INCORRECT_AGE;
     }
 
     if (username?.length < 1) {
-      errors.push({
-        type: ValidateProfileErrorType.LASTNAME,
-        error: ValidateProfileError.INCORRECT_LASTNAME,
-      });
+      errors.username = ValidateProfileError.INCORRECT_USERNAME;
     }
 
     if (!REG_EXP_EMAIL.test(email)) {
-      errors.push({
-        type: ValidateProfileErrorType.EMAIL,
-        error: ValidateProfileError.INCORRECT_EMAIL,
-      });
+      errors.email = ValidateProfileError.INCORRECT_EMAIL;
     }
   }
 

@@ -5,11 +5,6 @@ export enum ValidateAuthError {
   SERVER_ERROR = "SERVER_ERROR",
 }
 
-export enum ValidateAuthErrorType {
-  PASSWORD = "password",
-  DATA = "data",
-  EMAIL = "email",
-}
 export interface loginByUsernameProps {
   email: string;
   password: string;

@@ -1,18 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { ArticleEdit } from "@/entities/Article";
-import {
-  ValidateArticleEditError,
-  ValidateArticleEditErrorType,
-  ValidateArticleEditErrors,
-} from "../consts/consts";
+import { ValidateArticleEditError } from "../consts/consts";
 import { getArticleEditForm } from "../selectors/getArticleEdit";
 import { validateArticleEditData } from "./validateArticleEditData";
+import { ValidateArticleEditErrors } from "../type/articleEditSchema";
 
 export const updateArticleEditData = createAsyncThunk<
   ArticleEdit,
   void,
-  ThunkConfig<ValidateArticleEditErrors[]>
+  ThunkConfig<ValidateArticleEditErrors>
 >("article/updateArticleEditData", async (_, thunkApi) => {
   const { extra, rejectWithValue, getState } = thunkApi;
 
@@ -20,8 +17,7 @@ export const updateArticleEditData = createAsyncThunk<
 
   const errors = validateArticleEditData(formData);
 
-  if (errors.length) {
-    console.log("errors", errors, "formData", formData);
+  if (Object.keys(errors).length > 0) {
     return rejectWithValue(errors);
   }
 
@@ -35,11 +31,6 @@ export const updateArticleEditData = createAsyncThunk<
   } catch (e) {
     console.log(e);
 
-    return rejectWithValue([
-      {
-        type: ValidateArticleEditErrorType.SERVER,
-        error: ValidateArticleEditError.SERVER_ERROR,
-      },
-    ]);
+    return rejectWithValue({ data: ValidateArticleEditError.SERVER_ERROR });
   }
 });

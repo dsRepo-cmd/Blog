@@ -1,10 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { User, userActions } from "@/entities/User";
-import i18n from "@/shared/config/i18n/i18n";
 import { validateAuthData } from "../validateAuthData/validateAuthData";
 import { ValidateAuthErrors } from "../../types/loginSchema";
-import { ValidateAuthError, ValidateAuthErrorType } from "../../const/const";
+import { ValidateAuthError } from "../../const/const";
 
 interface loginByUsernameProps {
   email: string;
@@ -14,13 +13,13 @@ interface loginByUsernameProps {
 export const loginByEmail = createAsyncThunk<
   User,
   loginByUsernameProps,
-  ThunkConfig<ValidateAuthErrors[]>
+  ThunkConfig<ValidateAuthErrors>
 >("login/loginByUsername", async (authData, thunkApi) => {
   const { extra, dispatch, rejectWithValue } = thunkApi;
 
   const errors = validateAuthData(authData);
 
-  if (errors.length) {
+  if (Object.keys(errors).length > 0) {
     return rejectWithValue(errors);
   }
 
@@ -38,11 +37,6 @@ export const loginByEmail = createAsyncThunk<
     return response.data;
   } catch (error) {
     console.log(error);
-    return rejectWithValue([
-      {
-        type: ValidateAuthErrorType.DATA,
-        error: ValidateAuthError.SERVER_ERROR,
-      },
-    ]);
+    return rejectWithValue({ data: ValidateAuthError.SERVER_ERROR });
   }
 });

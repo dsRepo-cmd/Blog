@@ -18,10 +18,7 @@ import {
   getArticleEditIsLoading,
   getArticleEditValidateErrors,
 } from "../../model/selectors/getArticleEdit";
-import {
-  FilteredErrors,
-  ValidateArticleEditError,
-} from "../../model/consts/consts";
+import { ValidateArticleEditError } from "../../model/consts/consts";
 import { fetchArticleEditData } from "../../model/services/fetchArticleEditData";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
@@ -30,7 +27,6 @@ import { renderArticleBlock } from "./renderBlock";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import EditableArticlePanel from "../EditableArticlePanel/EditableArticlePanel";
-import { filterErrors } from "../../model/services/filterErrors";
 
 interface EditableArticleCardProps {
   className?: string;
@@ -67,12 +63,9 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
     [ValidateArticleEditError.NO_DATA]: t("No data"),
   };
 
-  let filteredErrors: FilteredErrors = {};
-
-  if (validateErrors) {
-    filteredErrors = filterErrors(validateErrors);
-  }
   ////
+
+  const type = formData?.type ? formData?.type : ArticleType.ALL;
 
   if (!create) {
     useEffect(() => {
@@ -158,8 +151,8 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
           label={t("Header")}
           onChange={onChangeTitle}
           error={
-            filteredErrors.titleError &&
-            validateErrorTranslates[filteredErrors.titleError]
+            validateErrors?.title &&
+            validateErrorTranslates[validateErrors?.title]
           }
         />
 
@@ -168,8 +161,8 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
           label={t("Subhead")}
           onChange={onChangeSubtitle}
           error={
-            filteredErrors.subtitleError &&
-            validateErrorTranslates[filteredErrors.subtitleError]
+            validateErrors?.subtitle &&
+            validateErrorTranslates[validateErrors?.subtitle]
           }
         />
 
@@ -178,21 +171,28 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
           label={t("Image URL")}
           onChange={onChangeImg}
           error={
-            filteredErrors.imageUrlError &&
-            validateErrorTranslates[filteredErrors.imageUrlError]
+            validateErrors?.imageUrl &&
+            validateErrorTranslates[validateErrors?.imageUrl]
           }
         />
         <ListBox
           label={t("Type")}
           onChange={onChangeType}
           items={types}
-          value={formData?.type}
+          value={type}
         />
 
-        {filteredErrors.blocksError && (
+        {validateErrors?.blocks && (
           <Text
             variant={"error"}
-            text={validateErrorTranslates[filteredErrors.blocksError]}
+            text={validateErrorTranslates[validateErrors?.blocks]}
+          />
+        )}
+
+        {validateErrors?.data && (
+          <Text
+            variant={"error"}
+            text={validateErrorTranslates[validateErrors?.data]}
           />
         )}
 

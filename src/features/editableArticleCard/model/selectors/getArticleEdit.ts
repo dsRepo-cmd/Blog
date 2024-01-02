@@ -19,4 +19,4 @@ export const getArticleEditId = (state: StateSchema) =>
   state.articleEdit?.formdata?.id || "";
 
 export const getArticleEditValidateErrors = (state: StateSchema) =>
-  state.articleEdit?.validateErrors || [];
+  state.articleEdit?.validateErrors;
