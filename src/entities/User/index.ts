@@ -1,4 +1,7 @@
-import { getUserAuthData } from "./model/selectors/getUserAuthData/getUserAuthData";
+import {
+  getUserAuthData,
+  getUserId,
+} from "./model/selectors/getUserAuthData/getUserAuthData";
 import { getUserInited } from "./model/selectors/getUserInited/getUserInited";
 import {
   getUserRoles,
@@ -24,6 +27,7 @@ export {
   useJsonSettings,
   saveJsonSettings,
   initAuthData,
+  getUserId,
 };
 
 export type { UserSchema, User };

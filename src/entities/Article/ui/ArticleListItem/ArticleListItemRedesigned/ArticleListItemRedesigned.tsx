@@ -26,9 +26,7 @@ const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({
   view,
   target,
 }) => {
-  const { t } = useTranslation();
-
-  const types = <Text text={article.type.join(", ")} className={cls.types} />;
+  const { t } = useTranslation("article");
 
   const userInfo = (
     <>

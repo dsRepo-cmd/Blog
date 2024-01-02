@@ -1,12 +1,19 @@
 {
-  "Edit": "Редагувати",
-  "Lastname": "Фамілія",
-  "Firstname": "Ім'я",
-  "Profile": "Профіль",
   "Age": "Вік",
-  "City": "Місто",
-  "Username": "Ім'я користувача",
-  "Avatar link": "Аватар",
-  "Currency": "Валюта",
-  "Country": "Країна"
+  "Avatar link": "Посилання на аватар",
+  "Cancel": "Скасувати",
+  "Edit": "Редагувати",
+  "First name": "Ім'я",
+  "Incorrect age": "Некоректний вік",
+  "Incorrect country": "Некоректна країна",
+  "Incorrect user data": "Некоректні дані користувача",
+  "Last name": "Прізвище",
+  "No data": "Немає даних",
+  "Profile": "Профіль",
+  "Profile not found": "Профіль не знайдено",
+  "Save": "Зберегти",
+  "Server error": "Помилка сервера",
+  "There was an error loading your profile": "Виникла помилка при завантаженні вашого профілю",
+  "Try refreshing the page": "Спробуйте оновити сторінку",
+  "User name": "Ім'я користувача"
 }

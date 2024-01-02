@@ -7,5 +7,18 @@ export interface ProfileSchema {
   isLoading: boolean;
   error?: string;
   readonly: boolean;
-  validateErrors?: ValidateProfileError[];
+  validateErrors?: ValidateProfileErrors;
+}
+
+export interface ValidateProfileErrors {
+  firstname?: ValidateProfileError;
+  lastname?: ValidateProfileError;
+  city?: ValidateProfileError;
+  age?: ValidateProfileError;
+  username?: ValidateProfileError;
+  avatar?: ValidateProfileError;
+  currency?: ValidateProfileError;
+  country?: ValidateProfileError;
+  data?: ValidateProfileError;
+  email?: ValidateProfileError;
 }

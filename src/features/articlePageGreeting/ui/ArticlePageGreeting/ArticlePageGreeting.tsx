@@ -4,11 +4,11 @@ import { saveJsonSettings, useJsonSettings } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
-import Text from "@/shared/ui/deprecated/Text/Text";
 import { isMobile } from "react-device-detect";
+import Text from "@/shared/ui/redesigned/Text/Text";
 
 const ArticlePageGreeting: React.FC = ({}) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const [isOpen, setIsOpen] = useState(false);
   const { isArticlesPageWasOpened } = useJsonSettings();
   const dispatch = useAppDispatch();

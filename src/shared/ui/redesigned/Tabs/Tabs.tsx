@@ -49,7 +49,7 @@ const Tabs: FC<TabsProps> = ({
             })}
             key={tab.value}
             onClick={clickHandle(tab)}
-            border="round"
+            border={"normal"}
           >
             {tab.content}
           </Card>

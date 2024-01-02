@@ -2,16 +2,9 @@ import React, { memo, useCallback } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";
-import ButtonDeprecated, {
-  ButtonTheme,
-} from "@/shared/ui/deprecated/Button/Button";
-import { Input as InputDeprecated } from "@/shared/ui/deprecated/Input/Input";
 import { useSelector } from "react-redux";
 import { loginActions, loginReducer } from "../../model/slice/loginSlise";
-
-import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
-import TextDeprecated, { TextTheme } from "@/shared/ui/deprecated/Text/Text";
-import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
+import { getLoginEmail } from "../../model/selectors/getLoginEmail/getLoginEmail";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginErrors } from "../../model/selectors/getLoginErrors/getLoginErrors";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
@@ -19,11 +12,12 @@ import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { ToggleFeatures } from "@/shared/lib/features";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import Button from "@/shared/ui/redesigned/Button/Button";
+import { loginByEmail } from "../../model/services/loginByEmail/loginByEmail";
+import { ValidateAuthError } from "../../model/const/const";
 
 export interface LoginFormProps {
   className?: string;
@@ -37,20 +31,34 @@ const initialReducers: ReducerList = {
 const LoginForm: React.FC<LoginFormProps> = memo(
   ({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
-
     const dispatch = useAppDispatch();
-
-    const username = useSelector(getLoginUsername);
+    const email = useSelector(getLoginEmail);
     const password = useSelector(getLoginPassword);
-    const error = useSelector(getLoginErrors);
     const isLoading = useSelector(getLoginIsLoading);
 
-    const onChangeUsername = useCallback(
+    // Validate errors
+    const validateErrors = useSelector(getLoginErrors);
+
+    const validateErrorTranslates: { [key: string]: string } = {
+      [ValidateAuthError.SERVER_ERROR]: t("Wrong email or password"),
+      [ValidateAuthError.INCORRECT_EMAIL]: t(
+        "Enter the correct value of the e-mail address"
+      ),
+      [ValidateAuthError.INCORRECT_PASSWORD]: t(
+        "The password must be at least 8 characters long, including at least one number and an uppercase letter"
+      ),
+      [ValidateAuthError.NO_DATA]: t("No data"),
+    };
+
+    ////
+
+    const onChangeEmail = useCallback(
       (value: string) => {
-        dispatch(loginActions.setUsername(value));
+        dispatch(loginActions.setEmail(value));
       },
       [dispatch]
     );
+
     const onChangePassword = useCallback(
       (value: string) => {
         dispatch(loginActions.setPassword(value));
@@ -59,12 +67,12 @@ const LoginForm: React.FC<LoginFormProps> = memo(
     );
 
     const onLoginClick = useCallback(async () => {
-      const result = await dispatch(loginByUsername({ username, password }));
+      const result = await dispatch(loginByEmail({ email, password }));
 
       if (result.meta.requestStatus === "fulfilled") {
         onSuccess();
       }
-    }, [onSuccess, dispatch, password, username]);
+    }, [onSuccess, dispatch, password, email]);
 
     const handleKeyPress = useCallback(
       (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -77,79 +85,52 @@ const LoginForm: React.FC<LoginFormProps> = memo(
 
     return (
       <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
-        <ToggleFeatures
-          feature="isAppRedesigned"
-          on={
-            <VStack
-              gap="16"
-              className={classNames(cls.LoginForm, {}, [className])}
-            >
-              <Text title={t("Authorization form")} />
-              {error && (
-                <Text
-                  text={t("You entered an incorrect username or password")}
-                  variant="error"
-                />
-              )}
-              <Input
-                autofocus
-                type="text"
-                className={cls.input}
-                placeholder={t("Username")}
-                onChange={onChangeUsername}
-                value={username}
-              />
-              <Input
-                type="text"
-                className={cls.input}
-                placeholder={t("Password")}
-                onChange={onChangePassword}
-                value={password}
-              />
-              <Button
-                className={cls.loginBtn}
-                onClick={onLoginClick}
-                disabled={isLoading}
-              >
-                {t("Enter")}
-              </Button>
-            </VStack>
-          }
-          off={
-            <div className={classNames(cls.LoginForm, {}, [className])}>
-              <TextDeprecated title={t("Authorization form")} />
-              {error && (
-                <TextDeprecated
-                  text={t("You entered an incorrect username or password")}
-                  theme={TextTheme.ERROR}
-                />
-              )}
-              <InputDeprecated
-                autofocus
-                type="text"
-                className={cls.input}
-                placeholder={t("Enter username")}
-                onChange={onChangeUsername}
-                value={username}
-              />
-              <InputDeprecated
-                type="text"
-                className={cls.input}
-                placeholder={t("Enter password")}
-                onChange={onChangePassword}
-                value={password}
-              />
-              <ButtonDeprecated
-                theme={ButtonTheme.OUTLINE}
-                className={cls.loginBtn}
-                onClick={onLoginClick}
-                disabled={isLoading}
-              >
-                {t("Enter")}
-              </ButtonDeprecated>
-            </div>
-          }
-        />
+        <VStack gap="16" className={classNames(cls.LoginForm, {}, [className])}>
+          <Text title={t("Authorization form")} />
+
+          <Input
+            name={"email"}
+            autofocus
+            type="text"
+            className={cls.input}
+            placeholder={t("Email")}
+            onChange={onChangeEmail}
+            onKeyDown={handleKeyPress}
+            value={email}
+            error={
+              validateErrors?.email &&
+              validateErrorTranslates[validateErrors?.email]
+            }
+          />
+          <Input
+            type="text"
+            name={"password"}
+            className={cls.input}
+            placeholder={t("Password")}
+            onChange={onChangePassword}
+            onKeyDown={handleKeyPress}
+            value={password}
+            password
+            error={
+              validateErrors?.password &&
+              validateErrorTranslates[validateErrors?.password]
+            }
+          />
+          <Button
+            className={cls.loginBtn}
+            onClick={onLoginClick}
+            disabled={isLoading}
+          >
+            {t("Enter")}
+          </Button>
+
+          {validateErrors?.data && (
+            <Text
+              variant={"error"}
+              text={validateErrorTranslates[validateErrors.data]}
+            />
+          )}
+        </VStack>
       </DynamicModuleLoader>
     );
   }

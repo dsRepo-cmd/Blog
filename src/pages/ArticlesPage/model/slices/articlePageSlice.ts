@@ -13,7 +13,6 @@ import {
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from "@/shared/const/localStorage";
-
 import { SortOrder } from "@/shared/types/sort";
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -64,6 +63,7 @@ const articlesPageSlice = createSlice({
       const view = localStorage.getItem(
         ARTICLES_VIEW_LOCALSTORAGE_KEY
       ) as ArticleView;
+
       state.view = view;
       state.limit = view === ArticleView.LIST ? 4 : 9;
     },

@@ -2,17 +2,16 @@ import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import { EditableProfileCard } from "@/features/editableProfileCard";
 import { useParams } from "react-router-dom";
-import Text from "@/shared/ui/deprecated/Text/Text";
 import { useTranslation } from "react-i18next";
 import { Page } from "@/widgets/Page";
-import { ProfileRating } from "@/features/profileRating";
+import Text from "@/shared/ui/redesigned/Text/Text";
 
 interface ProfilePageProps {
   className?: string;
 }
 
 const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("profile");
   const { id } = useParams<{ id: string }>();
 
   if (!id) {

@@ -1,0 +1,59 @@
+.TextAreaWrapper {
+  position: relative;
+  padding: 6px;
+  width: 100%;
+}
+
+.addonLeft,
+.addonRight {
+  display: flex;
+}
+
+.withAddonLeft {
+  padding-left: 8px;
+}
+
+.withAddonRight {
+  padding-right: 8px;
+}
+
+.focused {
+  background-color: var(--dark-bg);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  .addonLeft svg,
+  .addonRight svg {
+    color: var(--accent);
+  }
+}
+
+.textarea {
+  resize: none;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 20px;
+  font-size: 16px;
+  color: var(--text);
+
+  &::placeholder {
+    color: var(--hint);
+  }
+}
+
+.readonly {
+  opacity: 0.7;
+}
+.label {
+  min-width: 80px;
+}
+
+.removeIcon {
+  fill: var(--cancel);
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+.removeIcon:hover {
+  opacity: 1;
+}

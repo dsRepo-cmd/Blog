@@ -9,18 +9,23 @@
 .CodeRedesigned {
   padding: 20px;
   position: relative;
-  background: var(--light-bg-redesigned);
+  background: var(--light-bg);
   overflow: auto;
-  border: 1px solid var(--accent-redesigned);
+  border: 1px solid var(--accent);
   border-radius: 16px;
 }
 
 .copyBtn {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 4px;
+  top: 4px;
 }
 
 .copyIcon path {
   stroke: var(--primary-color);
+}
+
+.code {
+  width: 100%;
+  overflow: hidden;
 }

@@ -1,13 +1,9 @@
 import { FC, memo } from "react";
 import cls from "./ArticleListItem.module.scss";
 import { classNames } from "@/shared/lib/classNames";
-import CardDeprecated from "@/shared/ui/deprecated/Card/Card";
 import CardRedesigned from "@/shared/ui/redesigned/Card/Card";
-import SkeletonDeprecated from "@/shared/ui/deprecated/Skeleton/Skeleton";
 import SkeletonRedesigned from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import { ArticleView } from "../../model/consts/consts";
-import { toggleFeatures } from "@/shared/lib/features/lib/toggleFeatures";
-import { ToggleFeatures } from "@/shared/lib/features";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -16,17 +12,9 @@ interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
   ({ className, view }) => {
-    const mainClass = toggleFeatures({
-      name: "isAppRedesigned",
-      on: () => cls.ArticleListItemRedesigned,
-      off: () => cls.ArticleListItem,
-    });
+    const mainClass = cls.ArticleListItemRedesigned;
 
-    const Skeleton = toggleFeatures({
-      name: "isAppRedesigned",
-      on: () => SkeletonRedesigned,
-      off: () => SkeletonDeprecated,
-    });
+    const Skeleton = SkeletonRedesigned;
 
     if (view === ArticleView.LIST) {
       const cardContent = (
@@ -45,41 +33,16 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
       );
       return (
         <div className={classNames(mainClass, {}, [className, cls[view]])}>
-          <ToggleFeatures
-            feature="isAppRedesigned"
-            on={
-              <CardRedesigned border="round" className={cls.card}>
-                {cardContent}
-              </CardRedesigned>
-            }
-            off={
-              <CardDeprecated className={cls.card}>
-                {cardContent}
-              </CardDeprecated>
-            }
-          />
+          <CardRedesigned border="round" className={cls.card}>
+            {cardContent}
+          </CardRedesigned>
         </div>
       );
     }
 
     const cardContent = (
       <>
-        <ToggleFeatures
-          feature="isAppRedesigned"
-          on={
-            <Skeleton
-              width="100%"
-              height={150}
-              border="32px"
-              className={cls.img}
-            />
-          }
-          off={
-            <div className={cls.imageWrapper}>
-              <Skeleton width={200} height={200} className={cls.img} />
-            </div>
-          }
-        />
+        <Skeleton width="100%" height={150} border="32px" className={cls.img} />
         <div className={cls.infoWrapper}>
           <Skeleton width={130} height={16} />
         </div>
@@ -89,17 +52,9 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
 
     return (
       <div className={classNames(mainClass, {}, [className, cls[view]])}>
-        <ToggleFeatures
-          feature="isAppRedesigned"
-          on={
-            <CardRedesigned border="round" className={cls.card}>
-              {cardContent}
-            </CardRedesigned>
-          }
-          off={
-            <CardDeprecated className={cls.card}>{cardContent}</CardDeprecated>
-          }
-        />
+        <CardRedesigned border="round" className={cls.card}>
+          {cardContent}
+        </CardRedesigned>
       </div>
     );
   }

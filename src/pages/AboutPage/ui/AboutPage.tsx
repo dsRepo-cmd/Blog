@@ -3,6 +3,7 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./AboutPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { Page } from "@/widgets/Page";
+import Text from "@/shared/ui/redesigned/Text/Text";
 
 interface AboutPageProps {
   className?: string;
@@ -16,7 +17,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ className }) => {
       data-testid={"AboutPage"}
       className={classNames(cls.AboutPage, {}, [className])}
     >
-      AboutPage
+      <Text title={t("AboutPage")} />
     </Page>
   );
 };

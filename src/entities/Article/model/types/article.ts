@@ -14,13 +14,14 @@ export interface ArticleCodeBlock extends ArticleBlockBase {
 export interface ArticleImageBlock extends ArticleBlockBase {
   type: ArticleBlockType.IMAGE;
   src: string;
-  title: string;
+  title?: string;
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
   type: ArticleBlockType.TEXT;
   paragraphs: string[];
   title?: string;
+  paragraphIndex?: number;
 }
 
 export type ArticleBlock =
@@ -36,6 +37,19 @@ export interface Article {
   img: string;
   views: number;
   createdAt: string;
-  type: ArticleType[];
+  type: ArticleType;
   blocks: ArticleBlock[];
+}
+
+export interface ArticleEdit {
+  id?: string;
+  title?: string;
+  user?: User;
+  subtitle?: string;
+  img?: string;
+  views?: number;
+  createdAt?: string;
+  type?: ArticleType;
+  userId?: string;
+  blocks?: ArticleBlock[];
 }

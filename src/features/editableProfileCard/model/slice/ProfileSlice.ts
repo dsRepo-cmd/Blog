@@ -48,7 +48,7 @@ export const profileSlice = createSlice({
       )
       .addCase(fetchProfileData.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.validateErrors = action.payload;
       })
       .addCase(updateProfileData.pending, (state) => {
         state.validateErrors = undefined;

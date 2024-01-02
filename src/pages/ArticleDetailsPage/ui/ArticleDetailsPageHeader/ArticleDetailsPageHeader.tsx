@@ -1,7 +1,6 @@
 import React, { memo, useCallback } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
-import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -10,6 +9,7 @@ import { getCanEditArticle } from "../../model/selectors/article";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import { getArticleDetailsData } from "@/entities/Article";
 import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/router";
+import Button from "@/shared/ui/redesigned/Button/Button";
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -18,7 +18,7 @@ interface ArticleDetailsPageHeaderProps {
 const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> = ({
   className,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const navigate = useNavigate();
   const canEdit = useSelector(getCanEditArticle);
   const article = useSelector(getArticleDetailsData);
@@ -39,11 +39,11 @@ const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> = ({
       gap="8"
       className={classNames("", {}, [className])}
     >
-      <Button theme={ButtonTheme.OUTLINE_INVERTED} onClick={onBackToList}>
+      <Button variant={"outline"} onClick={onBackToList}>
         {t("Back to list")}
       </Button>
       {canEdit && (
-        <Button theme={ButtonTheme.OUTLINE_INVERTED} onClick={onEditArticle}>
+        <Button variant={"outline"} onClick={onEditArticle}>
           {t("Edit")}
         </Button>
       )}

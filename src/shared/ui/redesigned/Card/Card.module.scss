@@ -7,19 +7,19 @@
 }
 
 .normal {
-  background: var(--dark-bg-redesigned);
+  background: var(--dark-bg);
 }
 
 .light {
-  background: var(--light-bg-redesigned);
+  background: var(--light-bg);
 }
 
 .outlined {
-  border: 1px solid var(--accent-redesigned);
+  border: 1px solid var(--accent);
 }
 
 .normal {
-  border-radius: 12px;
+  border-radius: var(--border-radius-xl);
 }
 
 .round {
@@ -40,6 +40,10 @@
 
 .gap_8 {
   padding: 8px;
+}
+
+.gap_12 {
+  padding: 12px;
 }
 
 .gap_16 {

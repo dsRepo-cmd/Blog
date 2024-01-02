@@ -1,5 +1,4 @@
 import React, { memo, useCallback } from "react";
-
 import { useTranslation } from "react-i18next";
 import { RatingCard } from "@/entities/Rating";
 import {
@@ -8,7 +7,7 @@ import {
 } from "../../api/ArticleRatingApi";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
-import Skeleton from "@/shared/ui/deprecated/Skeleton/Skeleton";
+import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 
 export interface ArticleRatingProps {
   className?: string;
@@ -19,7 +18,7 @@ const ArticleRating: React.FC<ArticleRatingProps> = ({
   className,
   articleId,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const userData = useSelector(getUserAuthData);
   const { data, isLoading } = useGetArticleRating({
     articleId,

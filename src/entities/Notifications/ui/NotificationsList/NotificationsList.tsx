@@ -2,12 +2,8 @@ import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./NotificationsList.module.scss";
 import { useNotifications } from "../../api/notificationApi";
-
 import { VStack } from "@/shared/ui/redesigned/Stack";
-
 import SkeletonRedesigned from "@/shared/ui/redesigned/Skeleton/Skeleton";
-import SkeletonDeprecated from "@/shared/ui/deprecated/Skeleton/Skeleton";
-import { toggleFeatures } from "@/shared/lib/features/lib/toggleFeatures";
 import NotificationItem from "../NotificationItem/NotificationItem";
 
 interface NotificationsListProps {
@@ -19,11 +15,7 @@ const NotificationsList: React.FC<NotificationsListProps> = ({ className }) => {
     pollingInterval: 10000,
   });
 
-  const Skeleton = toggleFeatures({
-    name: "isAppRedesigned",
-    on: () => SkeletonRedesigned,
-    off: () => SkeletonDeprecated,
-  });
+  const Skeleton = SkeletonRedesigned;
 
   if (isLoading) {
     return (

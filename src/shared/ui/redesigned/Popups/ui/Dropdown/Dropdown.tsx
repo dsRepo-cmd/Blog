@@ -14,6 +14,7 @@ export interface DropdownItem {
   content?: ReactNode;
   onClick?: () => void;
   href?: string;
+  id: string;
 }
 
 interface DropdownProps {
@@ -38,7 +39,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     >
       <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
-        {items.map((item, index) => {
+        {items.map((item) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
@@ -58,7 +59,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                 as={AppLink}
                 to={item.href}
                 disabled={item.disabled}
-                key={`dropdown-key-${index}`}
+                key={item.id}
               >
                 {content}
               </Menu.Item>
@@ -66,11 +67,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           }
 
           return (
-            <Menu.Item
-              key={`dropdown-key-${index}`}
-              as={Fragment}
-              disabled={item.disabled}
-            >
+            <Menu.Item key={item.id} as={Fragment} disabled={item.disabled}>
               {content}
             </Menu.Item>
           );

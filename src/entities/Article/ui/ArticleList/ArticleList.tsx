@@ -6,9 +6,8 @@ import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkele
 import { ArticleView } from "../../model/consts/consts";
 import { Article } from "../../model/types/article";
 import { classNames } from "@/shared/lib/classNames";
-import Text, { TextSize } from "@/shared/ui/deprecated/Text/Text";
-import { ToggleFeatures } from "@/shared/lib/features/ui/ToggleFeatures/ToggleFeatures";
 import { HStack } from "@/shared/ui/redesigned/Stack";
+import Text from "@/shared/ui/redesigned/Text/Text";
 
 interface ArticleListProps {
   className?: string;
@@ -32,56 +31,34 @@ const ArticleList: React.FC<ArticleListProps> = ({
   view = ArticleView.DETAILS,
   target,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
 
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        <Text size={TextSize.L} title={t("Articles not found")} />
+        <Text size={"l"} title={t("Articles not found")} />
       </div>
     );
   }
 
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <HStack
-          wrap="wrap"
-          gap="16"
-          className={classNames(cls.ArticleListRedesigned, {}, [])}
-          data-testid="ArticleList"
-        >
-          {articles.map((item) => (
-            <ArticleListItem
-              article={item}
-              view={view}
-              target={target}
-              key={item.id}
-              className={cls.card}
-            />
-          ))}
-          {isLoading && getSkeletons(view)}
-        </HStack>
-      }
-      off={
-        <div
-          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-          data-testid="ArticleList"
-        >
-          {articles.map((item) => (
-            <ArticleListItem
-              article={item}
-              view={view}
-              target={target}
-              key={item.id}
-              className={cls.card}
-            />
-          ))}
-          {isLoading && getSkeletons(view)}
-        </div>
-      }
-    />
+    <HStack
+      wrap="wrap"
+      gap="16"
+      className={classNames(cls.ArticleListRedesigned, {}, [])}
+      data-testid="ArticleList"
+    >
+      {articles.map((item) => (
+        <ArticleListItem
+          article={item}
+          view={view}
+          target={target}
+          key={item.id}
+          className={cls.card}
+        />
+      ))}
+      {isLoading && getSkeletons(view)}
+    </HStack>
   );
 };
 

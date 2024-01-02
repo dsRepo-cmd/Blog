@@ -1,7 +1,7 @@
 import { FC, memo, ReactElement } from "react";
-
 import cls from "./StickyContentLayout.module.scss";
 import { classNames } from "@/shared/lib/classNames";
+import { BrowserView, MobileOnlyView } from "react-device-detect";
 
 interface StickyContentLayoutProps {
   className?: string;
@@ -17,11 +17,24 @@ const StickyContentLayout: FC<StickyContentLayoutProps> = ({
   right,
 }) => {
   return (
-    <div className={classNames(cls.MainLayout, {}, [className])}>
-      {left && <div className={cls.left}>{left}</div>}
-      <div className={cls.content}>{content}</div>
-      {right && <div className={cls.right}>{right}</div>}
-    </div>
+    <>
+      <BrowserView>
+        <div className={classNames(cls.StickyContentLayout, {}, [className])}>
+          {left && <div className={cls.left}>{left}</div>}
+          <div className={cls.content}>{content}</div>
+          {right && <div className={cls.right}>{right}</div>}
+        </div>
+      </BrowserView>
+      <MobileOnlyView>
+        <div
+          className={classNames(cls.StickyContentLayoutMobile, {}, [className])}
+        >
+          {/* {left && <div className={cls.left}>{left}</div>} */}
+          <div className={cls.content}>{content}</div>
+          {right && <div className={cls.right}>{right}</div>}
+        </div>
+      </MobileOnlyView>
+    </>
   );
 };
 
