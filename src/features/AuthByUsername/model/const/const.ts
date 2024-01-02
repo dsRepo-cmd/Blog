@@ -2,7 +2,7 @@ export enum ValidateAuthError {
   INCORRECT_EMAIL = "INCORRECT_EMAIL",
   INCORRECT_PASSWORD = "INCORRECT_PASSWORD",
   NO_DATA = "NO_DATA",
-  SERVER_ERROR = "SERVER_ERROR",
+  SERVER_ERROR = "Wrong email or password",
 }
 
 export interface loginByUsernameProps {

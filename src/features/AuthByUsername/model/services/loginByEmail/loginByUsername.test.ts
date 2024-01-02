@@ -10,7 +10,7 @@ describe("loginByEmail.test", () => {
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
     const result = await thunk.callThunk({
       email: "admin@mail.com",
-      password: "123",
+      password: "dsd5Rrrrr",
     });
 
     expect(thunk.dispatch).toHaveBeenCalledWith(
@@ -27,12 +27,12 @@ describe("loginByEmail.test", () => {
     thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk({
       email: "admin@mail.com",
-      password: "123",
+      password: "123Rt1234",
     });
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("rejected");
-    expect(result.payload).toBe("Wrong nickname or password");
+    expect(result.payload).toStrictEqual({ data: "Wrong email or password" });
   });
 });

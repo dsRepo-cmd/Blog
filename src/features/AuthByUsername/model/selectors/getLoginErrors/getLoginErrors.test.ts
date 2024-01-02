@@ -11,11 +11,9 @@ describe("getLoginError.test", () => {
         },
       },
     };
-    expect(getLoginErrors(state as StateSchema)).toEqual([
-      {
-        error: "NO_DATA",
-      },
-    ]);
+    expect(getLoginErrors(state as StateSchema)).toStrictEqual({
+      data: "NO_DATA",
+    });
   });
 
   test("should work with empty state", () => {

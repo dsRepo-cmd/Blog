@@ -40,7 +40,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(
     const validateErrors = useSelector(getLoginErrors);
 
     const validateErrorTranslates: { [key: string]: string } = {
-      [ValidateAuthError.SERVER_ERROR]: t("Incorrect email or password"),
+      [ValidateAuthError.SERVER_ERROR]: t("Wrong email or password"),
       [ValidateAuthError.INCORRECT_EMAIL]: t(
         "Enter the correct value of the e-mail address"
       ),
