@@ -20,90 +20,29 @@
       "description": "Event 3",
       "userId": "1",
       "href": "http://localhost:3000/admin"
-    },
-    {
-      "id": "4",
-      "title": "Notification 4",
-      "description": "Event 4",
-      "userId": "2"
-    },
-    {
-      "id": "5",
-      "title": "Notification 1",
-      "description": "Event 4",
-      "userId": "2"
-    }
-  ],
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "title": "json-server",
-      "userId": "2"
     }
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "text": "Ggggg",
-      "id": "8clt_8q"
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "text": "Fgv",
-      "id": "KRQEXRs"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "comment",
-      "id": "eisTX8_"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "comment",
-      "id": "Pw4zPRG"
-    },
-    {
-      "articleId": "3",
-      "userId": "1",
-      "text": "JavaScript is a language?",
-      "id": "pFe3djj"
-    },
-    {
-      "articleId": "1703979199940",
-      "userId": "2",
-      "text": "?",
-      "id": "LexgBqI"
+      "articleId": "1704158450819",
+      "userId": "4",
+      "text": "ok",
+      "id": 1
     }
   ],
   "users": [
     {
       "id": "1",
       "username": "admin",
-      "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "email": "admin@mail.com",
+      "password": "dsd5Rrrrr",
+      "roles": ["ADMIN"],
       "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
       "features": {
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_orange_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -112,10 +51,9 @@
     {
       "id": "2",
       "username": "user",
-      "roles": [
-        "USER"
-      ],
-      "password": "123",
+      "email": "user@mail.com",
+      "roles": ["USER"],
+      "password": "dsd5Rrrrr",
       "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
       "features": {
         "isAppRedesigned": true
@@ -128,10 +66,9 @@
     {
       "id": "3",
       "username": "manager",
-      "roles": [
-        "MANAGER"
-      ],
-      "password": "123",
+      "email": "manager@mail.com",
+      "roles": ["MANAGER"],
+      "password": "dsd5Rrrrr",
       "avatar": "",
       "features": {
         "isArticleRatingEnabled": false,
@@ -141,14 +78,16 @@
     {
       "id": "4",
       "username": "test",
-      "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "email": "test@mail.com",
+      "roles": ["ADMIN"],
+      "password": "dsd5Rrrrr",
       "avatar": "",
       "features": {
-        "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      },
+      "jsonSettings": {
+        "isArticlesPageWasOpened": true
       }
     }
   ],
@@ -158,8 +97,8 @@
       "first": "Clint",
       "lastname": "Eastwood",
       "age": 40,
-      "currency": "EUR",
-      "country": "Ukraine",
+      "currency": "USD",
+      "country": "USA",
       "city": "New York",
       "username": "admin",
       "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg"
@@ -174,6 +113,29 @@
       "city": "New York",
       "username": "user",
       "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg"
+    },
+    {
+      "id": "3",
+      "first": "",
+      "lastname": "",
+      "age": 0,
+      "currency": "",
+      "country": "",
+      "city": "New York",
+      "username": "test",
+      "avatar": "https://"
+    },
+    {
+      "id": "4",
+      "first": "Sergio",
+      "lastname": "Leone",
+      "age": 60,
+      "currency": "EUR",
+      "country": "Polland",
+      "city": "New York",
+      "username": "test",
+      "avatar": "https://static.tvtropes.org/pmwiki/pub/images/lee_van_cleef_9.jpg",
+      "email": "test@mail.com"
     }
   ],
   "articles": [
@@ -263,15 +225,13 @@
         "id": "1",
         "username": "admin",
         "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
         "features": {
           "isAppRedesigned": true
         },
         "jsonSettings": {
-          "theme": "app_dark_theme",
+          "theme": "app_orange_theme",
           "isFirstVisit": true,
           "settingsPageHasBeenOpen": false,
           "isArticlesPageWasOpened": true
@@ -357,9 +317,7 @@
       "user": {
         "id": "2",
         "username": "user",
-        "roles": [
-          "USER"
-        ],
+        "roles": ["USER"],
         "password": "123",
         "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
         "features": {
@@ -413,9 +371,7 @@
         "id": "1",
         "username": "admin",
         "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
         "features": {
           "isAppRedesigned": true
@@ -505,12 +461,7 @@
       "views": 3019,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": [
-        "SCIENCE",
-        "ECONOMICS",
-        "POLITICS",
-        "SCIENCE"
-      ],
+      "type": ["SCIENCE", "ECONOMICS", "POLITICS", "SCIENCE"],
       "blocks": [
         {
           "id": "34",
@@ -573,9 +524,7 @@
       "user": {
         "id": "2",
         "username": "user",
-        "roles": [
-          "USER"
-        ],
+        "roles": ["USER"],
         "password": "123",
         "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
         "features": {
@@ -583,103 +532,6 @@
         },
         "jsonSettings": {
           "theme": "app_light_theme",
-          "isArticlesPageWasOpened": true
-        }
-      }
-    },
-    {
-      "id": "6",
-      "title": "Pyton Runtime Environments",
-      "subtitle": "What's new in JS?",
-      "img": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp",
-      "views": 309,
-      "createdAt": "12.12.2023",
-      "userId": "1",
-      "type": "SCIENCE",
-      "blocks": [
-        {
-          "id": "42",
-          "type": "TEXT",
-          "title": "What is a Runtime Environment?",
-          "paragraphs": [
-            "A runtime environment is where your program will be executed. It determines what global objects your program can access and it can also impact how it runs. This article covers the two JavaScript runtime environments",
-            "The most common place where JavaScript code is executed is in a browser. For example, using any text editor, you could create a file on your own computer called my_website.html and put the following HTML code inside:"
-          ]
-        },
-        {
-          "id": "43",
-          "type": "CODE",
-          "code": "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;"
-        },
-        {
-          "id": "44",
-          "type": "TEXT",
-          "title": "Title of this block",
-          "paragraphs": [
-            "The program traditionally called 'Hello, world!' is very simple. It outputs a phrase like 'Hello, world!' or something similar using the features of a certain language.",
-            "There are other ways to run JS code in the browser. For regular use of JavaScript programs, they are loaded into the browser to enable the functionality of web pages. Typically, code is formatted as separate files with the extension .js, which are then connected to web pages. However, you can also include program code directly in the page's code. All this is done using the <script> tag. When the browser detects such code, it executes it. Details about the script tag can be found on the w3school.com website. In particular, let's consider an example demonstrating the operation of a web page using JavaScript, as shown on this resource. This example can be run using the tools provided by this resource (look for the Try it Yourself button), but we will do it a little differently. Namely, we will create a new file in some text editor (for example - in VS Code or Notepad++) called hello.html, and add the following code to it:"
-          ]
-        },
-        {
-          "id": "45",
-          "type": "IMAGE",
-          "src": "https://www.amincharoliya.com/_next/image?url=%2Fimages%2Farticles%2Fjs-class.png&w=3840&q=75",
-          "title": "Figure 1 - website screenshot"
-        },
-        {
-          "id": "46",
-          "type": "CODE",
-          "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
-        },
-        {
-          "id": "47",
-          "type": "TEXT",
-          "title": "Title of this block",
-          "paragraphs": [
-            "JavaScript is a language that allows you to execute programs in various environments. In our case, we are talking about browsers and the server platform Node.js. If you haven't written any JS code yet and are reading this text in a browser on your desktop computer, it means you are literally seconds away from your first JavaScript program.",
-            "There are other ways to run JS code in the browser. For regular use of JavaScript programs, they are loaded into the browser to enable the functionality of web pages. Typically, code is formatted as separate files with the extension .js, which are then connected to web pages. However, you can also include program code directly in the page's code. All this is done using the <script> tag. When the browser detects such code, it executes it. Details about the script tag can be found on the w3school.com website. In particular, let's consider an example demonstrating the operation of a web page using JavaScript, as shown on this resource. This example can be run using the tools provided by this resource (look for the Try it Yourself button), but we will do it a little differently. Namely, we will create a new file in some text editor (for example - in VS Code or Notepad++) called hello.html, and add the following code to it:"
-          ]
-        },
-        {
-          "id": "48",
-          "type": "IMAGE",
-          "src": "https://www.codeproject.com/KB/scripting/859479/js-article-00.PNG",
-          "title": "Figure 2 - website screenshot"
-        },
-        {
-          "id": "49",
-          "type": "TEXT",
-          "title": "Title of this block",
-          "paragraphs": [
-            "JavaScript is a language that allows you to execute programs in various environments. In our case, we are talking about browsers and the server platform Node.js. If you haven't written any JS code yet and are reading this text in a browser on your desktop computer, it means you are literally seconds away from your first JavaScript program."
-          ]
-        },
-        {
-          "id": "Wed Dec 27 2023 19:05:32 GMT+0200 (Eastern European Standard Time)",
-          "type": "TEXT",
-          "paragraphs": [
-            "JavaScript is a language that allows you to execute programs in various environments. In our case, we are talking about browsers and the server platform Node.js. If you haven't written any JS code yet and are reading this text in a browser on your desktop computer, it means you are literally seconds away from your first JavaScript program.",
-            "JavaScript is a language that allows you to execute programs in various environments. In our case, we are talking about browsers and the server platform Node.js. If you haven't written any JS code yet and are reading this text in a browser on your desktop computer, it means you are literally seconds away from your first JavaScript program."
-          ],
-          "title": "New Block Title",
-          "paragraphIndex": 1
-        }
-      ],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
-        "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
-        "features": {
-          "isAppRedesigned": true
-        },
-        "jsonSettings": {
-          "theme": "app_light_theme",
-          "isFirstVisit": true,
-          "settingsPageHasBeenOpen": false,
           "isArticlesPageWasOpened": true
         }
       }
@@ -708,9 +560,7 @@
         "id": "1",
         "username": "admin",
         "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
         "features": {
           "isAppRedesigned": true
@@ -761,9 +611,7 @@
         "id": "1",
         "username": "admin",
         "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
         "features": {
           "isAppRedesigned": true
@@ -790,25 +638,24 @@
           "id": "1703979222520",
           "type": "TEXT",
           "paragraphs": [
+            "Rust is known for its ownership system, which ensures memory safety without the need for a garbage collector. It also features a powerful borrow checker that enforces strict rules on references, preventing common programming errors like null pointer dereferencing.",
             "Rust is known for its ownership system, which ensures memory safety without the need for a garbage collector. It also features a powerful borrow checker that enforces strict rules on references, preventing common programming errors like null pointer dereferencing."
           ],
           "title": "Getting Started with Rust:",
-          "paragraphIndex": 0
+          "paragraphIndex": 1
         }
       ],
       "user": {
         "id": "2",
         "username": "user",
-        "roles": [
-          "USER"
-        ],
+        "roles": ["USER"],
         "password": "123",
         "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
         "features": {
           "isAppRedesigned": true
         },
         "jsonSettings": {
-          "theme": "app_light_theme",
+          "theme": "app_dark_theme",
           "isArticlesPageWasOpened": true
         }
       }
@@ -826,62 +673,60 @@
         {
           "id": "1704132771233",
           "type": "TEXT",
-          "paragraphs": [
-            ""
-          ],
-          "title": ""
+          "paragraphs": ["Eastwood"],
+          "title": "",
+          "paragraphIndex": 0
+        },
+        {
+          "id": "1704149459824",
+          "type": "IMAGE",
+          "src": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp"
         }
       ],
       "user": {
         "id": "1",
         "username": "admin",
+        "email": "admin@mail.com",
         "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
         "features": {
           "isAppRedesigned": true
         },
         "jsonSettings": {
-          "theme": "app_light_theme",
+          "theme": "app_orange_theme",
           "isFirstVisit": true,
           "settingsPageHasBeenOpen": false,
           "isArticlesPageWasOpened": true
         }
       }
+    },
+    {
+      "id": "1704158450819",
+      "title": "Pyton Runtime Environments New",
+      "subtitle": "What's new in Pyton ?",
+      "img": "https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "views": 0,
+      "createdAt": "02.01.2024",
+      "userId": "4",
+      "type": "ALL",
+      "blocks": [
+        {
+          "id": "1704158479512",
+          "type": "CODE",
+          "code": "print(\"Hello, World!\")"
+        }
+      ]
     }
   ],
   "article-ratings": [
     {
-      "userId": "2",
-      "articleId": "1",
-      "rate": 4,
-      "feedback": "Good!",
-      "id": 3
+      "userId": "4",
+      "articleId": "1704158450819",
+      "rate": 3,
+      "feedback": "",
+      "id": 1
     }
   ],
-  "profile-ratings": [
-    {
-      "userId": "1",
-      "profileId": "2",
-      "rate": 2,
-      "feedback": "Bad",
-      "id": 1
-    },
-    {
-      "userId": "2",
-      "profileId": "2",
-      "rate": 3,
-      "feedback": "So..",
-      "id": 2
-    },
-    {
-      "userId": "1",
-      "profileId": "1",
-      "rate": 4,
-      "feedback": "Good!",
-      "id": 3
-    }
-  ]
+  "profile-ratings": []
 }

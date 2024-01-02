@@ -1,25 +1,64 @@
 import { Profile } from "@/entities/Profile";
-import { ValidateProfileError } from "../../consts/consts";
+import {
+  REG_EXP_EMAIL,
+  ValidateProfileError,
+  ValidateProfileErrorType,
+} from "../../consts/consts";
+import { ValidateProfileErrors } from "../../types/editableProfileCardSchema";
 
 export const validateProfileData = (profile?: Profile) => {
+  const errors: ValidateProfileErrors[] = [];
+
   if (!profile) {
-    return [ValidateProfileError.NO_DATA];
+    errors.push({
+      type: ValidateProfileErrorType.DATA,
+      error: ValidateProfileError.NO_DATA,
+    });
   }
 
-  const { first, lastname, age, country } = profile;
+  if (profile) {
+    const {
+      first = "",
+      lastname = "",
+      age = 0,
+      username = "",
+      email = "",
+    } = profile;
 
-  const errors: ValidateProfileError[] = [];
+    if (first?.length < 1) {
+      errors.push({
+        type: ValidateProfileErrorType.FIRSTNAME,
+        error: ValidateProfileError.INCORRECT_FIRSTNAME,
+      });
+    }
 
-  if (!first || !lastname) {
-    errors.push(ValidateProfileError.INCORRECT_USER_DATA);
-  }
+    if (lastname?.length < 1) {
+      errors.push({
+        type: ValidateProfileErrorType.LASTNAME,
+        error: ValidateProfileError.INCORRECT_LASTNAME,
+      });
+    }
 
-  if (!age || !Number.isInteger(age)) {
-    errors.push(ValidateProfileError.INCORRECT_AGE);
-  }
+    if (age < 0 && age > 150) {
+      errors.push({
+        type: ValidateProfileErrorType.LASTNAME,
+        error: ValidateProfileError.INCORRECT_LASTNAME,
+      });
+    }
 
-  if (!country) {
-    errors.push(ValidateProfileError.INCORRECT_COUNTRY);
+    if (username?.length < 1) {
+      errors.push({
+        type: ValidateProfileErrorType.LASTNAME,
+        error: ValidateProfileError.INCORRECT_LASTNAME,
+      });
+    }
+
+    if (!REG_EXP_EMAIL.test(email)) {
+      errors.push({
+        type: ValidateProfileErrorType.EMAIL,
+        error: ValidateProfileError.INCORRECT_EMAIL,
+      });
+    }
   }
 
   return errors;

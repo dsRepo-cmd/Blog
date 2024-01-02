@@ -4,7 +4,8 @@ import { JsonSettings } from "./jsonSettings";
 
 export interface User {
   id: string;
-  username: string;
+  email: string;
+  username?: string;
   avatar?: string;
   roles?: UserRole[];
   features?: FeatureFlags;

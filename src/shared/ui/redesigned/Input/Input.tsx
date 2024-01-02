@@ -14,6 +14,8 @@ import { HStack, VStack } from "../Stack";
 import Text from "../Text/Text";
 import DeleteIcon from "../../../assets/icons/delete.svg";
 import { Icon } from "../Icon/Icon";
+import EyeShowIcon from "../../../assets/icons/eye.svg";
+import EyeHideIcon from "../../../assets/icons/eye-hide.svg";
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -22,6 +24,7 @@ type HTMLInputProps = Omit<
 
 type InputSize = "s" | "m" | "l";
 
+type InputName = "password" | "email" | "text" | "number";
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string | number;
@@ -34,6 +37,8 @@ interface InputProps extends HTMLInputProps {
   addonRight?: ReactNode;
   size?: InputSize;
   error?: string;
+  name?: InputName;
+  password?: boolean;
 }
 
 const Input: FC<InputProps> = ({
@@ -50,10 +55,18 @@ const Input: FC<InputProps> = ({
   size = "m",
   onDelete,
   error,
+  name,
+  password = false,
   ...restProps
 }) => {
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
+  const [isHide, setHide] = useState(password);
+
+  const onChangeView = () => {
+    setHide(!isHide);
+  };
+  const EyeIcon = isHide ? EyeShowIcon : EyeHideIcon;
 
   useEffect(() => {
     if (autofocus) {
@@ -79,6 +92,8 @@ const Input: FC<InputProps> = ({
     [cls.focused]: isFocused,
     [cls.withAddonLeft]: Boolean(addonLeft),
     [cls.withAddonRight]: Boolean(addonRight),
+    [cls.password]: Boolean(password),
+    [cls.error]: Boolean(error),
   };
 
   const input = (
@@ -89,7 +104,7 @@ const Input: FC<InputProps> = ({
         <div className={cls.addonLeft}>{addonLeft}</div>
         <input
           ref={ref}
-          type={type}
+          type={isHide ? "password" : type}
           value={value}
           onChange={onChangeHandler}
           className={cls.input}
@@ -97,11 +112,33 @@ const Input: FC<InputProps> = ({
           onBlur={onBlur}
           readOnly={readonly}
           placeholder={placeholder}
+          name={name}
           {...restProps}
         />
+        {password && (
+          <Icon
+            className={classNames(
+              cls.addonRight,
+              { [cls.errorIcon]: Boolean(error) },
+              [className]
+            )}
+            onClick={onChangeView}
+            Svg={EyeIcon}
+            width={20}
+            height={20}
+            clickable
+          />
+        )}
         <div className={cls.addonRight}>{addonRight}</div>
       </div>
-      {error && <Text className={cls.error} variant={"error"} text={error} />}
+      {error && (
+        <Text
+          size={"s"}
+          className={cls.errorInfo}
+          variant={"error"}
+          text={error}
+        />
+      )}
     </VStack>
   );
 

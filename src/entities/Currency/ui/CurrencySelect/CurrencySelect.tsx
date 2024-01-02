@@ -34,7 +34,7 @@ const CurrencySelect: React.FC<CurrencySelectProps> = ({
   const props = {
     className,
     value,
-    defaultValue: t("Specify currency"),
+    defaultValue: t("Currency"),
     label: t("Currency"),
     items: options,
     onChange: onChangeHandler,

@@ -1,10 +1,22 @@
 .InputWrapper {
+  position: relative;
   display: flex;
   align-items: center;
   border-radius: var(--border-radius-xl);
   padding: 8px 16px;
   border: 1px solid var(--icon);
   width: 100%;
+  transition: all 0.3s;
+}
+.error {
+  border: 1px solid var(--cancel);
+}
+
+.errorIcon {
+  color: var(--cancel);
+}
+.errorIcon:hover {
+  color: var(--cancel);
 }
 
 .s {
@@ -70,6 +82,9 @@
   opacity: 1;
 }
 
-.error {
+.errorInfo {
   margin-left: 12px;
+}
+
+.addonRight {
 }

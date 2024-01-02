@@ -36,7 +36,6 @@ export const createArticle = createAsyncThunk<
   const errors = validateArticleEditData(formData);
 
   if (errors.length) {
-    console.log("errors", errors, "formData", formData);
     return rejectWithValue(errors);
   }
 

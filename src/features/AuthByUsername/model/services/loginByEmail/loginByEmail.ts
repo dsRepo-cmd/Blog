@@ -2,15 +2,16 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { User, userActions } from "@/entities/User";
 import i18n from "@/shared/config/i18n/i18n";
-import { ValidateAuthErrors } from "../../types/loginSchema";
-import {
-  ValidateAuthError,
-  ValidateAuthErrorType,
-  loginByUsernameProps,
-} from "../../const/const";
 import { validateAuthData } from "../validateAuthData/validateAuthData";
+import { ValidateAuthErrors } from "../../types/loginSchema";
+import { ValidateAuthError, ValidateAuthErrorType } from "../../const/const";
 
-export const loginByUsername = createAsyncThunk<
+interface loginByUsernameProps {
+  email: string;
+  password: string;
+}
+
+export const loginByEmail = createAsyncThunk<
   User,
   loginByUsernameProps,
   ThunkConfig<ValidateAuthErrors[]>
@@ -18,6 +19,10 @@ export const loginByUsername = createAsyncThunk<
   const { extra, dispatch, rejectWithValue } = thunkApi;
 
   const errors = validateAuthData(authData);
+
+  if (errors.length) {
+    return rejectWithValue(errors);
+  }
 
   try {
     const response = await extra.api.post<User>("/login", authData);

@@ -4,7 +4,6 @@ import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { loginActions, loginReducer } from "../../model/slice/loginSlise";
-import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginErrors } from "../../model/selectors/getLoginErrors/getLoginErrors";
@@ -17,6 +16,11 @@ import { VStack } from "@/shared/ui/redesigned/Stack";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import Button from "@/shared/ui/redesigned/Button/Button";
+import { getEmailUsername } from "../../model/selectors/geEmailUsername/geEmailUsername";
+import { loginByEmail } from "../../model/services/loginByEmail/loginByEmail";
+import { ValidateAuthError } from "../../model/const/const";
+import { FilteredAuthError } from "../../model/types/loginSchema";
+import { filterAuthErrors } from "../../model/services/filterAuthErrors/filterAuthErrors";
 
 export interface LoginFormProps {
   className?: string;
@@ -34,16 +38,39 @@ const LoginForm: React.FC<LoginFormProps> = memo(
     const dispatch = useAppDispatch();
 
     const username = useSelector(getLoginUsername);
+    const email = useSelector(getEmailUsername);
     const password = useSelector(getLoginPassword);
-    const error = useSelector(getLoginErrors);
     const isLoading = useSelector(getLoginIsLoading);
+    // Validate errors
+    const validateErrors = useSelector(getLoginErrors);
 
-    const onChangeUsername = useCallback(
+    const validateErrorTranslates: { [key: string]: string } = {
+      [ValidateAuthError.SERVER_ERROR]: t("Server error"),
+      [ValidateAuthError.INCORRECT_EMAIL]: t("Incorrect email"),
+      [ValidateAuthError.INCORRECT_PASSWORD]: t(
+        "The password must be at least 8 characters long, including at least one number and an uppercase letter"
+      ),
+      [ValidateAuthError.NO_DATA]: t("No data"),
+    };
+
+    let FilteredError: FilteredAuthError = {
+      emailError: "",
+      passwordError: "",
+      dataError: "",
+    };
+
+    if (validateErrors) {
+      FilteredError = filterAuthErrors(validateErrors);
+    }
+    console.log(validateErrors);
+    ////
+    const onChangeEmail = useCallback(
       (value: string) => {
-        dispatch(loginActions.setUsername(value));
+        dispatch(loginActions.setEmail(value));
       },
       [dispatch]
     );
+
     const onChangePassword = useCallback(
       (value: string) => {
         dispatch(loginActions.setPassword(value));
@@ -52,7 +79,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(
     );
 
     const onLoginClick = useCallback(async () => {
-      const result = await dispatch(loginByUsername({ username, password }));
+      const result = await dispatch(loginByEmail({ email, password }));
 
       if (result.meta.requestStatus === "fulfilled") {
         onSuccess();
@@ -72,26 +99,34 @@ const LoginForm: React.FC<LoginFormProps> = memo(
       <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
         <VStack gap="16" className={classNames(cls.LoginForm, {}, [className])}>
           <Text title={t("Authorization form")} />
-          {error && (
-            <Text
-              text={t("You entered an incorrect username or password")}
-              variant="error"
-            />
-          )}
+
           <Input
+            name={"email"}
             autofocus
             type="text"
             className={cls.input}
-            placeholder={t("Username")}
-            onChange={onChangeUsername}
-            value={username}
+            placeholder={t("Email")}
+            onChange={onChangeEmail}
+            onKeyDown={handleKeyPress}
+            value={email}
+            error={
+              FilteredError.emailError &&
+              validateErrorTranslates[FilteredError.emailError]
+            }
           />
           <Input
             type="text"
+            name={"password"}
             className={cls.input}
             placeholder={t("Password")}
             onChange={onChangePassword}
+            onKeyDown={handleKeyPress}
             value={password}
+            password
+            error={
+              FilteredError.passwordError &&
+              validateErrorTranslates[FilteredError.passwordError]
+            }
           />
           <Button
             className={cls.loginBtn}
@@ -100,6 +135,13 @@ const LoginForm: React.FC<LoginFormProps> = memo(
           >
             {t("Enter")}
           </Button>
+
+          {FilteredError.dataError && (
+            <Text
+              variant={"error"}
+              text={validateErrorTranslates[FilteredError.dataError]}
+            />
+          )}
         </VStack>
       </DynamicModuleLoader>
     );

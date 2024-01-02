@@ -16,7 +16,6 @@ import {
   getArticleEditError,
   getArticleEditForm,
   getArticleEditIsLoading,
-  getArticleEditReadonly,
   getArticleEditValidateErrors,
 } from "../../model/selectors/getArticleEdit";
 import {
