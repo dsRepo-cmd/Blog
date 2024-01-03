@@ -115,7 +115,8 @@
       "country": "USA",
       "city": "New York",
       "username": "admin",
-      "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg"
+      "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
+      "email": "admin@mail.com"
     },
     {
       "id": "2",
@@ -233,12 +234,18 @@
           "type": "IMAGE",
           "src": "https://carldesouza.com/wp-content/uploads/2020/09/img_5f5af36e4d93c.png",
           "title": "How to Beautify a JavaScript File in Visual Studio Code"
+        },
+        {
+          "id": "1704312500713",
+          "type": "CODE",
+          "code": "console.log(\"Hello, World!\");"
         }
       ],
       "user": {
         "id": "1",
         "username": "admin",
-        "password": "123",
+        "email": "admin@mail.com",
+        "password": "dsd5Rrrrr",
         "roles": [
           "ADMIN"
         ],
@@ -654,131 +661,6 @@
           "isArticlesPageWasOpened": true
         }
       }
-    },
-    {
-      "id": "1703979199940",
-      "title": " Unleashing Rust",
-      "subtitle": "A Modern Language for Safe and Efficient Systems Programming",
-      "img": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp",
-      "views": 0,
-      "createdAt": "31.12.2023",
-      "userId": "2",
-      "type": "ALL",
-      "blocks": [
-        {
-          "id": "1703979222520",
-          "type": "TEXT",
-          "paragraphs": [
-            "Rust is known for its ownership system, which ensures memory safety without the need for a garbage collector. It also features a powerful borrow checker that enforces strict rules on references, preventing common programming errors like null pointer dereferencing.",
-            "Rust is known for its ownership system, which ensures memory safety without the need for a garbage collector. It also features a powerful borrow checker that enforces strict rules on references, preventing common programming errors like null pointer dereferencing."
-          ],
-          "title": "Getting Started with Rust:",
-          "paragraphIndex": 1
-        }
-      ],
-      "user": {
-        "id": "2",
-        "username": "user",
-        "roles": [
-          "USER"
-        ],
-        "password": "123",
-        "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
-        "features": {
-          "isAppRedesigned": true
-        },
-        "jsonSettings": {
-          "theme": "app_dark_theme",
-          "isArticlesPageWasOpened": true
-        }
-      }
-    },
-    {
-      "id": "1704132750481",
-      "title": "article",
-      "subtitle": "12",
-      "img": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp",
-      "views": 0,
-      "createdAt": "01.01.2024",
-      "userId": "1",
-      "type": "ALL",
-      "blocks": [
-        {
-          "id": "1704132771233",
-          "type": "TEXT",
-          "paragraphs": [
-            "Eastwood"
-          ],
-          "title": "",
-          "paragraphIndex": 0
-        },
-        {
-          "id": "1704149459824",
-          "type": "IMAGE",
-          "src": "https://logowik.com/content/uploads/images/rust4784.logowik.com.webp"
-        },
-        {
-          "id": "1704225254621",
-          "type": "TEXT",
-          "paragraphs": [
-            ""
-          ],
-          "title": ""
-        }
-      ],
-      "user": {
-        "id": "1",
-        "username": "admin",
-        "email": "admin@mail.com",
-        "password": "dsd5Rrrrr",
-        "roles": [
-          "ADMIN"
-        ],
-        "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
-        "features": {
-          "isAppRedesigned": true
-        },
-        "jsonSettings": {
-          "theme": "app_orange_theme",
-          "isFirstVisit": true,
-          "settingsPageHasBeenOpen": false,
-          "isArticlesPageWasOpened": true
-        }
-      }
-    },
-    {
-      "id": "1704158450819",
-      "title": "Pyton Runtime Environments New",
-      "subtitle": "What's new in Pyton ?",
-      "img": "https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "views": 0,
-      "createdAt": "02.01.2024",
-      "userId": "4",
-      "type": "ALL",
-      "blocks": [
-        {
-          "id": "1704158479512",
-          "type": "CODE",
-          "code": "print(\"Hello, World!\")"
-        }
-      ],
-      "user": {
-        "id": "4",
-        "username": "test",
-        "email": "test@mail.com",
-        "roles": [
-          "ADMIN"
-        ],
-        "password": "dsd5Rrrrr",
-        "avatar": "",
-        "features": {
-          "isArticleRatingEnabled": false,
-          "isCounterEnabled": false
-        },
-        "jsonSettings": {
-          "isArticlesPageWasOpened": true
-        }
-      }
     }
   ],
   "article-ratings": [
@@ -788,13 +670,6 @@
       "rate": 3,
       "feedback": "",
       "id": 1
-    },
-    {
-      "userId": "4",
-      "articleId": "1704225298710",
-      "rate": 3,
-      "feedback": "132",
-      "id": 2
     }
   ],
   "profile-ratings": []

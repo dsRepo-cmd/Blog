@@ -18,7 +18,7 @@ import cls from "./ArticleDetails.module.scss";
 import { renderArticleBlock } from "./renderBlock";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import AppImage from "@/shared/ui/redesigned/AppImage/AppImage";
-import SkeletonRedesigned from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 
 interface ArticleDetailsProps {
   className?: string;
@@ -36,9 +36,7 @@ const Redesigned = () => {
       <Text title={article?.title} size="l" bold />
       <Text title={article?.subtitle} />
       <AppImage
-        fallback={
-          <SkeletonRedesigned width="100%" height={420} border="16px" />
-        }
+        fallback={<Skeleton width="100%" height={420} border="16px" />}
         src={article?.img}
         className={cls.img}
       />
@@ -48,13 +46,11 @@ const Redesigned = () => {
 };
 
 export const ArticleDetailsSkeleton = () => {
-  const Skeleton = SkeletonRedesigned;
   return (
     <VStack gap="16" max>
-      <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
-      <Skeleton className={cls.title} width={300} height={32} />
-      <Skeleton className={cls.skeleton} width={600} height={24} />
-      <Skeleton className={cls.skeleton} width="100%" height={200} />
+      <Skeleton className={cls.title} width={"70%"} height={40} />
+      <Skeleton className={cls.subtitle} width={"50%"} height={24} />
+      <Skeleton className={cls.skeleton} width="100%" height={350} />
       <Skeleton className={cls.skeleton} width="100%" height={200} />
     </VStack>
   );

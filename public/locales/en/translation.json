@@ -97,5 +97,18 @@
   "views": "views",
   "{{count}} views_zero": "{{count}} views",
   "{{count}} views_one": "{{count}} view",
-  "{{count}} views_other": "{{count}} views"
+  "{{count}} views_other": "{{count}} views",
+  "'Enter the correct value of the e-mail address'": "'Enter the correct value of the e-mail address'",
+  "Email": "Email",
+  "Enter the correct value of the e-mail address": "Enter the correct value of the e-mail address",
+  "Incorrect email": "Incorrect email",
+  "Incorrect email or password": "Incorrect email or password",
+  "Incorrect password": "Incorrect password",
+  "New Article": "New Article",
+  "Settings": "Settings",
+  "The password must be at least 8 characters long, including at least one number and an uppercase letter": "The password must be at least 8 characters long, including at least one number and an uppercase letter",
+  "There was an error loading your profile": "There was an error loading your profile",
+  "Wrong email or password": "Wrong email or password",
+  "You entered an incorrect username or password": "You entered an incorrect username or password",
+  "Шncorrect email or password": "Шncorrect email or password"
 }

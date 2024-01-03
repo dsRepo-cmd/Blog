@@ -1,5 +1,5 @@
 import { Menu } from "@headlessui/react";
-import { Fragment, ReactNode, memo } from "react";
+import { Fragment, ReactNode, memo, forwardRef} from "react";
 
 import { DropdownDirection } from "@/shared/types/ui";
 
@@ -7,7 +7,7 @@ import cls from "./Dropdown.module.scss";
 import { mapDirectionClass } from "../../styles/consts";
 import popupCls from "../../styles/popup.module.scss";
 import { classNames } from "@/shared/lib/classNames";
-import AppLink from "../../../AppLink/AppLink";
+import AppLink, { AppLinkProps } from "../../../AppLink/AppLink";
 
 export interface DropdownItem {
   disabled?: boolean;
@@ -23,6 +23,10 @@ interface DropdownProps {
   direction?: DropdownDirection;
   trigger: ReactNode;
 }
+
+const AppLinkWithRef = forwardRef<HTMLAnchorElement, AppLinkProps>(
+  (props, ref) => <AppLink {...props} forwardedRef={ref} />
+);
 
 const Dropdown: React.FC<DropdownProps> = ({
   className,
@@ -56,7 +60,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           if (item.href) {
             return (
               <Menu.Item
-                as={AppLink}
+                as={AppLinkWithRef}
                 to={item.href}
                 disabled={item.disabled}
                 key={item.id}

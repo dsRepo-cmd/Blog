@@ -72,28 +72,67 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
   if (isLoading) {
     return (
-      <Card padding="24" max>
-        <VStack gap="32">
-          <HStack max justify="center">
-            <Skeleton border="100%" width={128} height={128} />
-          </HStack>
-          <HStack gap="32" max>
-            <VStack gap="16" max>
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-            </VStack>
+      <VStack max>
+        <BrowserView style={{ width: "100%" }}>
+          <Card padding="24" max>
+            <VStack gap="32">
+              <HStack max justify="center">
+                <Skeleton border="100%" width={128} height={128} />
+              </HStack>
 
-            <VStack gap="16" max>
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
+              <HStack gap="32" max>
+                <VStack gap="16" max>
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                </VStack>
+
+                <VStack gap="16" max>
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                </VStack>
+              </HStack>
             </VStack>
-          </HStack>
-        </VStack>
-      </Card>
+          </Card>
+        </BrowserView>
+
+        <MobileView style={{ width: "100%" }}>
+          <Card padding="24" max>
+            <VStack gap="32" max>
+              <HStack max justify="center">
+                <Skeleton border="100%" width={128} height={128} />
+              </HStack>
+
+              <HStack gap="32" max>
+                <VStack gap="16" max>
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                </VStack>
+
+                <VStack gap="16" max>
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                </VStack>
+              </HStack>
+            </VStack>
+          </Card>
+        </MobileView>
+      </VStack>
     );
   }
 
