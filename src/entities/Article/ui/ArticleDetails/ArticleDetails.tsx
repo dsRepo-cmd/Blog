@@ -19,10 +19,10 @@ import { renderArticleBlock } from "./renderBlock";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import AppImage from "@/shared/ui/redesigned/AppImage/AppImage";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import { useParams } from "react-router-dom";
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string;
 }
 const redusers: ReducerList = {
   articleDetails: articleDetailsReducer,
@@ -56,19 +56,14 @@ export const ArticleDetailsSkeleton = () => {
   );
 };
 
-const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className, id }) => {
+const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className }) => {
   const { t } = useTranslation("article");
+  const { id } = useParams<{ id: string }>();
 
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
 
   const error = useSelector(getArticleDetailsError);
-
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
 
   let content;
 
@@ -84,6 +79,13 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className, id }) => {
   } else {
     content = <Redesigned />;
   }
+
+  if (id)
+    useEffect(() => {
+      if (__PROJECT__ !== "storybook") {
+        dispatch(fetchArticleById(id));
+      }
+    }, [dispatch, id]);
 
   return (
     <DynamicModuleLoader reducers={redusers} removeAfterUnmount>

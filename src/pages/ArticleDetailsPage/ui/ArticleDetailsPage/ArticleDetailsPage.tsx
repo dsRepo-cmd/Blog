@@ -43,9 +43,9 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
           <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <VStack gap="16" max>
               <DetailsContainer />
-              <ArticleRating articleId={id} />
-              <ArticleRecommendationsList />
-              <ArticleDetailsComments id={id} />
+              {/* <ArticleRating articleId={id} /> */}
+              {/* <ArticleRecommendationsList /> */}
+              {/* <ArticleDetailsComments id={id} /> */}
             </VStack>
           </Page>
         }

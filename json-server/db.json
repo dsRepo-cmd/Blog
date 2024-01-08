@@ -42,9 +42,7 @@
       "username": "admin",
       "email": "admin@mail.com",
       "password": "dsd5Rrrrr",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
       "features": {
         "isAppRedesigned": true
@@ -60,9 +58,7 @@
       "id": "2",
       "username": "user",
       "email": "user@mail.com",
-      "roles": [
-        "USER"
-      ],
+      "roles": ["USER"],
       "password": "dsd5Rrrrr",
       "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
       "features": {
@@ -77,9 +73,7 @@
       "id": "3",
       "username": "manager",
       "email": "manager@mail.com",
-      "roles": [
-        "MANAGER"
-      ],
+      "roles": ["MANAGER"],
       "password": "dsd5Rrrrr",
       "avatar": "",
       "features": {
@@ -91,9 +85,7 @@
       "id": "4",
       "username": "test",
       "email": "test@mail.com",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "password": "dsd5Rrrrr",
       "avatar": "",
       "features": {
@@ -246,9 +238,7 @@
         "username": "admin",
         "email": "admin@mail.com",
         "password": "dsd5Rrrrr",
-        "roles": [
-          "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
         "features": {
           "isAppRedesigned": true
@@ -340,9 +330,7 @@
       "user": {
         "id": "2",
         "username": "user",
-        "roles": [
-          "USER"
-        ],
+        "roles": ["USER"],
         "password": "123",
         "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
         "features": {
@@ -396,9 +384,7 @@
         "id": "1",
         "username": "admin",
         "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
         "features": {
           "isAppRedesigned": true
@@ -488,12 +474,7 @@
       "views": 3019,
       "createdAt": "12.12.2023",
       "userId": "2",
-      "type": [
-        "SCIENCE",
-        "ECONOMICS",
-        "POLITICS",
-        "SCIENCE"
-      ],
+      "type": ["SCIENCE", "ECONOMICS", "POLITICS", "SCIENCE"],
       "blocks": [
         {
           "id": "34",
@@ -556,9 +537,7 @@
       "user": {
         "id": "2",
         "username": "user",
-        "roles": [
-          "USER"
-        ],
+        "roles": ["USER"],
         "password": "123",
         "avatar": "https://www.themoviedb.org/t/p/original/xzwtlufGF7SyW9qU5djqQICygo5.jpg",
         "features": {
@@ -594,9 +573,7 @@
         "id": "1",
         "username": "admin",
         "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
         "features": {
           "isAppRedesigned": true
@@ -647,9 +624,7 @@
         "id": "1",
         "username": "admin",
         "password": "123",
-        "roles": [
-          "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://www.kino-teatr.ru/acter/album/51803/33584.jpg",
         "features": {
           "isAppRedesigned": true

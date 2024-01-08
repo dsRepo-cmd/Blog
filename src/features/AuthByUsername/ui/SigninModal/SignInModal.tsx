@@ -1,32 +1,32 @@
 import React, { Suspense, memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./LoginModal.module.scss";
+import cls from "./SignInModal.module.scss";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
 
 import Loader from "@/shared/ui/redesigned/Loader/Loader";
-import { LoginFormAsync } from "../LoginForm/LoginForm.async";
+import { SignInFormAsync } from "../SignInForm/SignInForm.async";
 
-interface LoginModalProps {
+interface SignInModalProps {
   className?: string;
   isOpen: boolean;
   onClose: () => void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = memo(
-  ({ className, isOpen, onClose }: LoginModalProps) => {
+const SignInModal: React.FC<SignInModalProps> = memo(
+  ({ className, isOpen, onClose }: SignInModalProps) => {
     return (
       <Modal
-        className={classNames(cls.LoginModal, {}, [className])}
+        className={classNames(cls.SignInModal, {}, [className])}
         isOpen={isOpen}
         onClose={onClose}
         lazy
       >
         <Suspense fallback={<Loader />}>
-          <LoginFormAsync onSuccess={onClose} />
+          <SignInFormAsync onSuccess={onClose} />
         </Suspense>
       </Modal>
     );
   }
 );
 
-export default LoginModal;
+export default SignInModal;

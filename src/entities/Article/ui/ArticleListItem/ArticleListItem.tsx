@@ -4,7 +4,7 @@ import { ArticleBlockType, ArticleView } from "../../model/consts/consts";
 import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
+
 import Text from "@/shared/ui/redesigned/Text/Text";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import EyeIcon from "@/shared/assets/icons/eye-r.svg";
@@ -15,6 +15,8 @@ import { getRouteArticleDetails } from "@/shared/const/router";
 import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
 import Button from "@/shared/ui/redesigned/Button/Button";
 import Card from "@/shared/ui/redesigned/Card/Card";
+import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
+import { getParticalformatDate } from "@/shared/lib/features/lib/getCurrentDate";
 
 export interface ArticleListItemProps {
   className?: string;
@@ -60,7 +62,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
         <VStack max gap="16">
           <HStack justify={"between"} gap="8" max>
             {userInfo}
-            <Text text={article.createdAt} />
+            <Text text={getParticalformatDate(article.createdAt)} />
           </HStack>
           <Text title={article.title} bold />
           <Text title={article.subtitle} size="s" />
@@ -105,7 +107,10 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
           <Text title={article.title} className={cls.title} />
           <VStack gap="4" className={cls.footer} max>
             <HStack justify="between" max>
-              <Text text={article.createdAt} className={cls.date} />
+              <Text
+                text={getParticalformatDate(article.createdAt)}
+                className={cls.date}
+              />
               {views}
             </HStack>
             <HStack gap="4">{userInfo}</HStack>

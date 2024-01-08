@@ -1,12 +1,12 @@
 import { userActions } from "@/entities/User";
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import { loginByEmail } from "./loginByEmail";
+import { signInByEmail } from "./signInByEmail";
 
-describe("loginByEmail.test", () => {
+describe("signInByEmail.test", () => {
   test("success login", async () => {
-    const userValue = { email: "123", id: "1" };
+    const userValue = { email: "123", id: "1", avatar: "", username: "admin" };
 
-    const thunk = new TestAsyncThunk(loginByEmail);
+    const thunk = new TestAsyncThunk(signInByEmail);
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
     const result = await thunk.callThunk({
       email: "admin@mail.com",
@@ -23,7 +23,7 @@ describe("loginByEmail.test", () => {
   });
 
   test("error login", async () => {
-    const thunk = new TestAsyncThunk(loginByEmail);
+    const thunk = new TestAsyncThunk(signInByEmail);
     thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk({
       email: "admin@mail.com",

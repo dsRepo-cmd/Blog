@@ -15,25 +15,27 @@ import CodeIcon from "@/shared/assets/icons/square-code.svg";
 import DeleteIcon from "@/shared/assets/icons/delete.svg";
 import { deleteArticle } from "../../model/services/deleteArticle";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getRouteArticles } from "@/shared/const/router";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
 import Button from "@/shared/ui/redesigned/Button/Button";
 import Text from "@/shared/ui/redesigned/Text/Text";
+import { useSelector } from "react-redux";
+import { getArticleEditData } from "../../model/selectors/getArticleEdit";
 
 interface EditableArticlePanelProps {
   className?: string;
-  id: string;
 }
 
 const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   className,
-  id,
 }) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const data = useSelector(getArticleEditData);
 
   const onAddTextBlock = useCallback(() => {
     dispatch(
@@ -78,9 +80,13 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   }, [dispatch]);
 
   const onAcceptDelete = useCallback(() => {
-    console.log(id);
     if (id) {
       dispatch(deleteArticle(id));
+      setIsModalOpen(false);
+      navigate(getRouteArticles());
+    }
+    if (data?.id) {
+      dispatch(deleteArticle(data?.id));
       setIsModalOpen(false);
       navigate(getRouteArticles());
     }

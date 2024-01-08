@@ -8,6 +8,7 @@ import {
 import { Draft, PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { fetchArticleEditData } from "../services/fetchArticleEditData";
 import { updateArticleEditData } from "../services/updateArticleEditData";
+import { createArticle } from "../services/createArticle";
 
 const initialState: ArticleEditSchema = {
   isLoading: false,
@@ -165,6 +166,21 @@ export const articleEditSlice = createSlice({
       .addCase(updateArticleEditData.rejected, (state, action) => {
         state.isLoading = false;
         state.validateErrors = action.payload;
+      })
+      .addCase(createArticle.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(
+        createArticle.fulfilled,
+        (state, action: PayloadAction<ArticleEdit>) => {
+          state.isLoading = false;
+          state.data = action.payload;
+          state.formdata = action.payload;
+        }
+      )
+      .addCase(createArticle.rejected, (state, action) => {
+        state.isLoading = false;
       });
   },
 });

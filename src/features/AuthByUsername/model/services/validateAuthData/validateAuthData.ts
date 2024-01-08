@@ -3,8 +3,13 @@ import {
   REG_EXP_EMAIL,
   REG_EXP_PASSWORD,
   ValidateAuthError,
-  loginByUsernameProps,
 } from "../../const/const";
+
+export interface loginByUsernameProps {
+  email: string;
+  password: string;
+  code?: string;
+}
 
 export const validateAuthData = (authData?: loginByUsernameProps) => {
   const errors: ValidateAuthErrors = {};

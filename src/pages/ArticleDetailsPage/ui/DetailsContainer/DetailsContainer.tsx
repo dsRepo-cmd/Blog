@@ -8,14 +8,10 @@ interface DetailsContainterProps {
 }
 const DetailsContainer: FC<DetailsContainterProps> = (props) => {
   const { className } = props;
-  const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return null;
-  }
   return (
     <Card max border={"partial"} className={className} padding="12">
-      <ArticleDetails id={id} />
+      <ArticleDetails />
     </Card>
   );
 };

@@ -46,7 +46,7 @@ export const fetchArticlesList = createAsyncThunk<
         q: search,
       },
     });
-
+    console.log(response);
     if (!response.data) {
       throw new Error();
     }

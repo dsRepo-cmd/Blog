@@ -4,6 +4,7 @@
   padding: 6px 16px;
   display: flex;
   align-items: center;
+  text-wrap: nowrap;
 
   &:hover {
     color: var(--accent);

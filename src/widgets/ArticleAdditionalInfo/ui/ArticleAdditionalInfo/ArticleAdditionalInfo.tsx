@@ -55,8 +55,8 @@ const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
       <HStack gap="8">
         <Avatar src={author.avatar} size={32} />
         <Text text={author.username} bold />
-        <Text text={createdAt} />
       </HStack>
+      <Text size="s" text={createdAt} />
       <Button onClick={onEdit}>{t("Edit")}</Button>
       <Text text={t("{{count}} views", { count: views })} />
     </VStack>

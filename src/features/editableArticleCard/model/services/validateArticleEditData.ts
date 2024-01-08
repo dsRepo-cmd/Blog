@@ -20,9 +20,9 @@ export const validateArticleEditData = (articleEdit?: ArticleEdit) => {
       errors.subtitle = ValidateArticleEditError.INCORRECT_SUBTITLE;
     }
 
-    if (!REG_EXP_IMAGE_URL.test(img)) {
-      errors.imageUrl = ValidateArticleEditError.INCORRECT_IMAGE_URL;
-    }
+    // if (!REG_EXP_IMAGE_URL.test(img)) {
+    //   errors.imageUrl = ValidateArticleEditError.INCORRECT_IMAGE_URL;
+    // }
 
     if (blocks.length === 0) {
       errors.blocks = ValidateArticleEditError.INCORRECT_BLOCKS_DATA;

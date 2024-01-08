@@ -28,7 +28,7 @@ const ArticleList: React.FC<ArticleListProps> = ({
   className,
   articles,
   isLoading,
-  view = ArticleView.DETAILS,
+  view = ArticleView.LIST,
   target,
 }) => {
   const { t } = useTranslation("article");

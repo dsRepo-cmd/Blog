@@ -9,6 +9,7 @@ import Card from "@/shared/ui/redesigned/Card/Card";
 import { ArticleAdditionalInfo } from "@/widgets/ArticleAdditionalInfo";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { getStandartformatDate } from "@/shared/lib/features/lib/getCurrentDate";
 
 export const AdditionalInfoContainer = () => {
   const article = useSelector(getArticleDetailsData);
@@ -45,7 +46,7 @@ export const AdditionalInfoContainer = () => {
       <ArticleAdditionalInfo
         onEdit={onEditArticle}
         author={article.user}
-        createdAt={article.createdAt}
+        createdAt={getStandartformatDate(article.createdAt)}
         views={article.views}
       />
     </Card>

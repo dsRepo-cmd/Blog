@@ -23,7 +23,7 @@ export const updateArticleEditData = createAsyncThunk<
 
   try {
     const response = await extra.api.put<ArticleEdit>(
-      "/articles/" + formData?.id,
+      "/article/" + formData?.id,
       formData
     );
 
