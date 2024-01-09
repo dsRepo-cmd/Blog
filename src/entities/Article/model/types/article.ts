@@ -38,6 +38,7 @@ export interface Article {
   views: number;
   createdAt: string;
   type: ArticleType;
+  isPublished: boolean;
   blocks: ArticleBlock[];
 }
 
@@ -51,5 +52,6 @@ export interface ArticleEdit {
   createdAt?: string;
   type?: ArticleType;
   userId?: string;
+  isPublished?: boolean;
   blocks?: ArticleBlock[];
 }

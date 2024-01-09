@@ -16,7 +16,6 @@ export const fetchArticleById = createAsyncThunk<
       },
     });
 
-    console.log(response);
     if (!response.data) {
       throw new Error("error article details data");
     }

@@ -50,11 +50,11 @@ const UiDesignSwitcher: FC<UiDesignSwitcherProps> = ({ className }) => {
 
   return (
     <HStack gap={"24"}>
-      <Text text={t("Interface option")} />
       {isLoading ? (
         <Skeleton width={100} height={40} />
       ) : (
         <ListBox
+          label={t("Interface option")}
           onChange={onChange}
           items={items}
           value={isAppRedesigned ? "new" : "old"}

@@ -4,7 +4,7 @@
   z-index: 10000;
   flex-direction: column;
   display: flex;
-  width: 150px;
+  min-width: 100px;
 }
 
 .item {
