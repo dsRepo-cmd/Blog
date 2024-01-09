@@ -22,7 +22,7 @@ export interface ProfileCardProps {
   error?: string;
   onChangeLastname?: (value?: string) => void;
   onChangeFirstname?: (value?: string) => void;
-  onChangeCity?: (value?: string) => void;
+  onChangeEmail?: (value?: string) => void;
   onChangeAge?: (value?: string) => void;
   onChangeUsername?: (value?: string) => void;
   onChangeAvatar?: (value?: string) => void;
@@ -42,7 +42,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     onChangeFirstname,
     onChangeLastname,
     onChangeAge,
-    onChangeCity,
+    onChangeEmail,
     onChangeAvatar,
     onChangeUsername,
     onChangeCountry,
@@ -72,28 +72,67 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
   if (isLoading) {
     return (
-      <Card padding="24" max>
-        <VStack gap="32">
-          <HStack max justify="center">
-            <Skeleton border="100%" width={128} height={128} />
-          </HStack>
-          <HStack gap="32" max>
-            <VStack gap="16" max>
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-            </VStack>
+      <VStack max>
+        <BrowserView style={{ width: "100%" }}>
+          <Card padding="24" max>
+            <VStack gap="32">
+              <HStack max justify="center">
+                <Skeleton border="100%" width={128} height={128} />
+              </HStack>
 
-            <VStack gap="16" max>
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
-              <Skeleton width="100%" height={38} />
+              <HStack gap="32" max>
+                <VStack gap="16" max>
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                </VStack>
+
+                <VStack gap="16" max>
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                </VStack>
+              </HStack>
             </VStack>
-          </HStack>
-        </VStack>
-      </Card>
+          </Card>
+        </BrowserView>
+
+        <MobileView style={{ width: "100%" }}>
+          <Card padding="24" max>
+            <VStack gap="32" max>
+              <HStack max justify="center">
+                <Skeleton border="100%" width={128} height={128} />
+              </HStack>
+
+              <HStack gap="32" max>
+                <VStack gap="16" max>
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                </VStack>
+
+                <VStack gap="16" max>
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                  <Skeleton width="100%" height={38} />
+                </VStack>
+              </HStack>
+            </VStack>
+          </Card>
+        </MobileView>
+      </VStack>
     );
   }
 
@@ -114,9 +153,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     <Card padding="24" max className={className}>
       <BrowserView>
         <VStack gap="32">
-          {data?.avatar && (
+          {data?.user?.avatar && (
             <HStack justify="center" max>
-              <Avatar size={128} src={data?.avatar} />
+              <Avatar size={128} src={data?.user?.avatar} />
             </HStack>
           )}
           <HStack gap="24" max>
@@ -154,9 +193,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 }
               />
               <Input
-                value={data?.email}
+                value={data?.user?.email}
                 label={t("Email")}
-                onChange={onChangeCity}
+                onChange={onChangeEmail}
                 readonly={readonly}
                 error={
                   validateErrors?.email &&
@@ -166,7 +205,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             </VStack>
             <VStack gap="16" max>
               <Input
-                value={data?.username}
+                value={data?.user?.username}
                 label={t("User name")}
                 onChange={onChangeUsername}
                 readonly={readonly}
@@ -176,7 +215,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 }
               />
               <Input
-                value={data?.avatar}
+                value={data?.user?.avatar}
                 label={t("Avatar link")}
                 onChange={onChangeAvatar}
                 readonly={readonly}
@@ -202,9 +241,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
       <MobileView>
         <VStack gap="32">
-          {data?.avatar && (
+          {data?.user?.avatar && (
             <HStack justify="center" max>
-              <Avatar size={128} src={data?.avatar} />
+              <Avatar size={128} src={data?.user?.avatar} />
             </HStack>
           )}
           <VStack gap="24" max>
@@ -241,9 +280,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
               }
             />
             <Input
-              value={data?.email}
+              value={data?.user?.email}
               label={t("Country")}
-              onChange={onChangeCity}
+              onChange={onChangeEmail}
               readonly={readonly}
               error={
                 validateErrors?.email &&
@@ -252,7 +291,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             />
 
             <Input
-              value={data?.username}
+              value={data?.user?.username}
               label={t("User name")}
               onChange={onChangeUsername}
               readonly={readonly}
@@ -262,7 +301,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
               }
             />
             <Input
-              value={data?.avatar}
+              value={data?.user?.avatar}
               label={t("Avatar link")}
               onChange={onChangeAvatar}
               readonly={readonly}

@@ -1,5 +1,4 @@
 import { classNames } from "@/shared/lib/classNames";
-import { useTranslation } from "react-i18next";
 import cls from "./EditableProfileCard.module.scss";
 import React, { memo, useCallback, useEffect } from "react";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -62,7 +61,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
 
   const onChangeCity = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ email: value || "" }));
+      dispatch(profileActions.updateProfile({ user: { email: value || "" } }));
     },
     [dispatch]
   );
@@ -76,14 +75,16 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
 
   const onChangeUsername = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ username: value || "" }));
+      dispatch(
+        profileActions.updateProfile({ user: { username: value || "" } })
+      );
     },
     [dispatch]
   );
 
   const onChangeAvatar = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ avatar: value || "" }));
+      dispatch(profileActions.updateProfile({ user: { avatar: value || "" } }));
     },
     [dispatch]
   );
@@ -118,7 +119,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
           onChangeFirstname={onChangeFirstname}
           onChangeLastname={onChangeLastname}
           onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
+          onChangeEmail={onChangeCity}
           onChangeUsername={onChangeUsername}
           onChangeAvatar={onChangeAvatar}
           onChangeCurrency={onChangeCurrency}

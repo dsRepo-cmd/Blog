@@ -1,20 +1,21 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
-import { User, userActions } from "@/entities/User";
+import { User } from "@/entities/User";
 import { validateAuthData } from "../validateAuthData/validateAuthData";
-import { ValidateAuthErrors } from "../../types/loginSchema";
+import { LoginSchema, ValidateAuthErrors } from "../../types/loginSchema";
 import { ValidateAuthError } from "../../const/const";
+import { USER_LOCAL_STORAGE_KEY } from "@/shared/const/localStorage";
 
-interface loginByUsernameProps {
+interface signUpByEmailProps {
   email: string;
   password: string;
 }
 
-export const loginByEmail = createAsyncThunk<
-  User,
-  loginByUsernameProps,
+export const signUpByEmail = createAsyncThunk<
+  LoginSchema,
+  signUpByEmailProps,
   ThunkConfig<ValidateAuthErrors>
->("login/loginByUsername", async (authData, thunkApi) => {
+>("signUp/signUpByEmail", async (authData, thunkApi) => {
   const { extra, dispatch, rejectWithValue } = thunkApi;
 
   const errors = validateAuthData(authData);
@@ -24,15 +25,21 @@ export const loginByEmail = createAsyncThunk<
   }
 
   try {
-    const response = await extra.api.post<User>("/login", authData);
+    const response = await extra.api.post<LoginSchema>("/signup", authData);
 
+    console.log(response);
     if (!response.data) {
       throw new Error();
     }
 
-    // localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
+    console.log(response.data);
+    localStorage.setItem(
+      USER_LOCAL_STORAGE_KEY,
+      JSON.stringify(response.data.id)
+    );
 
-    dispatch(userActions.setAuthData(response.data));
+    // dispatch(userActions.setAuthData(response.data));
+    // dispatch(userActions.setAuthData(response.data));
 
     return response.data;
   } catch (error) {

@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./LoginForm.module.scss";
+import cls from "./SignInForm.module.scss";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { loginActions, loginReducer } from "../../model/slice/loginSlise";
@@ -12,14 +12,14 @@ import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import Button from "@/shared/ui/redesigned/Button/Button";
-import { loginByEmail } from "../../model/services/loginByEmail/loginByEmail";
+import { signInByEmail } from "../../model/services/signInByEmail/signInByEmail";
 import { ValidateAuthError } from "../../model/const/const";
 
-export interface LoginFormProps {
+export interface SignInFormProps {
   className?: string;
   onSuccess: () => void;
 }
@@ -28,8 +28,8 @@ const initialReducers: ReducerList = {
   loginForm: loginReducer,
 };
 
-const LoginForm: React.FC<LoginFormProps> = memo(
-  ({ className, onSuccess }: LoginFormProps) => {
+const SignInForm: React.FC<SignInFormProps> = memo(
+  ({ className, onSuccess }: SignInFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const email = useSelector(getLoginEmail);
@@ -67,7 +67,7 @@ const LoginForm: React.FC<LoginFormProps> = memo(
     );
 
     const onLoginClick = useCallback(async () => {
-      const result = await dispatch(loginByEmail({ email, password }));
+      const result = await dispatch(signInByEmail({ email, password }));
 
       if (result.meta.requestStatus === "fulfilled") {
         onSuccess();
@@ -83,57 +83,66 @@ const LoginForm: React.FC<LoginFormProps> = memo(
       [onLoginClick]
     );
 
+    const loginForm = (
+      <VStack gap="16" className={classNames(cls.SignInForm, {}, [className])}>
+        <Text title={t("Sign in form")} />
+
+        <Input
+          name={"email"}
+          autofocus
+          type="text"
+          className={cls.input}
+          placeholder={t("Email")}
+          onChange={onChangeEmail}
+          onKeyDown={handleKeyPress}
+          value={email}
+          error={
+            validateErrors?.email &&
+            validateErrorTranslates[validateErrors?.email]
+          }
+        />
+        <Input
+          type="text"
+          name={"password"}
+          className={cls.input}
+          placeholder={t("Password")}
+          onChange={onChangePassword}
+          onKeyDown={handleKeyPress}
+          value={password}
+          password
+          error={
+            validateErrors?.password &&
+            validateErrorTranslates[validateErrors?.password]
+          }
+        />
+        <Button
+          className={cls.loginBtn}
+          onClick={onLoginClick}
+          disabled={isLoading}
+        >
+          {t("Sign in")}
+        </Button>
+
+        {validateErrors?.data && (
+          <Text
+            variant={"error"}
+            text={validateErrorTranslates[validateErrors.data]}
+          />
+        )}
+
+        <HStack gap="8">
+          <Text text={t("Forgot your password?")} />
+          <Button variant={"clear"}>Restore</Button>
+        </HStack>
+      </VStack>
+    );
+
     return (
       <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
-        <VStack gap="16" className={classNames(cls.LoginForm, {}, [className])}>
-          <Text title={t("Authorization form")} />
-
-          <Input
-            name={"email"}
-            autofocus
-            type="text"
-            className={cls.input}
-            placeholder={t("Email")}
-            onChange={onChangeEmail}
-            onKeyDown={handleKeyPress}
-            value={email}
-            error={
-              validateErrors?.email &&
-              validateErrorTranslates[validateErrors?.email]
-            }
-          />
-          <Input
-            type="text"
-            name={"password"}
-            className={cls.input}
-            placeholder={t("Password")}
-            onChange={onChangePassword}
-            onKeyDown={handleKeyPress}
-            value={password}
-            password
-            error={
-              validateErrors?.password &&
-              validateErrorTranslates[validateErrors?.password]
-            }
-          />
-          <Button
-            className={cls.loginBtn}
-            onClick={onLoginClick}
-            disabled={isLoading}
-          >
-            {t("Enter")}
-          </Button>
-
-          {validateErrors?.data && (
-            <Text
-              variant={"error"}
-              text={validateErrorTranslates[validateErrors.data]}
-            />
-          )}
-        </VStack>
+        {loginForm}
       </DynamicModuleLoader>
     );
   }
 );
 
-export default LoginForm;
+export default SignInForm;

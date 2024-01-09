@@ -11,7 +11,6 @@ import { SortOrder } from "@/shared/types/sort";
 export interface ArticlesPageSchema extends EntityState<Article> {
   isLoading?: boolean;
   error?: string;
-
   //pagination
   limit?: number;
   page: number;

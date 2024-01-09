@@ -4,6 +4,7 @@
   z-index: 10000;
   flex-direction: column;
   display: flex;
+  min-width: 100px;
 }
 
 .item {
@@ -14,4 +15,5 @@
   outline: none;
   color: var(--text);
   cursor: pointer;
+  text-wrap: nowrap;
 }

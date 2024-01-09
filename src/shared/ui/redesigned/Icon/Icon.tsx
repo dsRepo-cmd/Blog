@@ -7,6 +7,7 @@ type SvgProps = Omit<React.SVGProps<SVGSVGElement>, "onClick">;
 
 interface IconBaseProps extends SvgProps {
   className?: string;
+  positioned?: boolean;
   Svg: FC<React.SVGProps<SVGSVGElement>>;
 }
 
@@ -28,13 +29,13 @@ export const Icon: FC<IconProps> = memo((props) => {
     width = 32,
     height = 32,
     clickable,
-
+    positioned,
     ...otherProps
   } = props;
 
   const icon = (
     <Svg
-      className={classNames(cls.Icon, {}, [className])}
+      className={classNames(cls.Icon, {}, [positioned ? "" : className])}
       width={width}
       height={height}
       {...otherProps}

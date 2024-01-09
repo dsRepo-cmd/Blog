@@ -3,19 +3,26 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./NotificationsList.module.scss";
 import { useNotifications } from "../../api/notificationApi";
 import { VStack } from "@/shared/ui/redesigned/Stack";
-import SkeletonRedesigned from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import NotificationItem from "../NotificationItem/NotificationItem";
+import { USER_LOCAL_STORAGE_KEY } from "@/shared/const/localStorage";
 
 interface NotificationsListProps {
   className?: string;
 }
 
 const NotificationsList: React.FC<NotificationsListProps> = ({ className }) => {
-  const { data, isLoading } = useNotifications(null, {
-    pollingInterval: 10000,
-  });
+  const userId = localStorage.getItem(USER_LOCAL_STORAGE_KEY) || "";
+  console.log("userId", userId);
 
-  const Skeleton = SkeletonRedesigned;
+  const { data, isLoading } = useNotifications(
+    { userId },
+    {
+      pollingInterval: 10000,
+    }
+  );
+
+  if (data) console.log(data);
 
   if (isLoading) {
     return (

@@ -1,5 +1,6 @@
 import { Country } from "@/entities/Coutnry";
 import { Currency } from "@/entities/Currency";
+import { User } from "@/entities/User";
 
 export interface Profile {
   id?: string;
@@ -8,7 +9,5 @@ export interface Profile {
   age?: number;
   currency?: Currency;
   country?: Country;
-  email?: string;
-  username?: string;
-  avatar?: string;
+  user?: Partial<User>;
 }

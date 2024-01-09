@@ -9,7 +9,7 @@ import LangSwitcher from "../../../../features/LangSwitcher/LangSwitcher";
 import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
 import { BrowserView, MobileView } from "react-device-detect";
 import AppLogo from "@/shared/ui/redesigned/AppLogo/AppLogo";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 
@@ -56,16 +56,17 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
             {itemsList}
           </VStack>
           <Icon
+            positioned
             data-testid="sidebar-toggle"
             onClick={onToggle}
             className={cls.collapseBtn}
             Svg={ArrowIcon}
             clickable
           />
-          <div className={cls.switchers}>
+          <HStack align={"center"} className={cls.switchers}>
             <ThemeSwitcher />
             <LangSwitcher short={collapsed} className={cls.lang} />
-          </div>
+          </HStack>
         </aside>
       </BrowserView>
 

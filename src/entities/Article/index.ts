@@ -25,7 +25,6 @@ export {
   ArticleList,
   ArticleBlockType,
 };
-
 export type {
   ArticleTextBlock,
   ArticleImageBlock,

@@ -14,7 +14,7 @@ export const deleteArticle = createAsyncThunk<
 
   try {
     const response = await extra.api.delete<ArticleEdit>(
-      "/articles/" + articleId
+      "/article/" + articleId
     );
 
     return response.data;

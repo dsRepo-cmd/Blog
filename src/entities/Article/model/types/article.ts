@@ -32,12 +32,13 @@ export type ArticleBlock =
 export interface Article {
   id: string;
   title: string;
-  user: User;
   subtitle: string;
+  user: User;
   img: string;
   views: number;
   createdAt: string;
   type: ArticleType;
+  isPublished: boolean;
   blocks: ArticleBlock[];
 }
 
@@ -51,5 +52,6 @@ export interface ArticleEdit {
   createdAt?: string;
   type?: ArticleType;
   userId?: string;
+  isPublished?: boolean;
   blocks?: ArticleBlock[];
 }

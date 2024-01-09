@@ -12,7 +12,7 @@ server.use(jsonServer.bodyParser);
 // delay server imitation
 // server.use(async (req, res, next) => {
 //   await new Promise((res) => {
-//     setTimeout(res, 100);
+//     setTimeout(res, 2000);
 //   });
 //   next();
 // });

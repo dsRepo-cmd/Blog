@@ -1,12 +1,21 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { LoginSchema } from "../types/loginSchema";
-import { loginByEmail } from "../services/loginByEmail/loginByEmail";
+import { signInByEmail } from "../services/signInByEmail/signInByEmail";
+import { signUpByEmail } from "../services/signUpByEmail/signUpByEmail";
+
+import { confirmCode } from "../services/confirmCode/confirmCode";
+import { TOKEN_LOCAL_STORAGE_KEY } from "@/shared/const/localStorage";
 
 const initialState: LoginSchema = {
+  id: "",
+  confirmCode: "",
   username: "",
   email: "",
   password: "",
+  code: "",
   isLoading: false,
+  isConfirm: false,
+  token: "",
 };
 
 export const loginSlise = createSlice({
@@ -22,18 +31,38 @@ export const loginSlise = createSlice({
     setEmail: (state, action: PayloadAction<string>) => {
       state.email = action.payload;
     },
+    setCode: (state, action: PayloadAction<string>) => {
+      state.code = action.payload;
+    },
   },
 
   extraReducers: (builder) => {
     builder
-      .addCase(loginByEmail.pending, (state) => {
+      .addCase(signInByEmail.pending, (state) => {
         state.validateErrors = undefined;
         state.isLoading = true;
       })
-      .addCase(loginByEmail.fulfilled, (state, action) => {
+      .addCase(signInByEmail.fulfilled, (state, action) => {
         state.isLoading = false;
       })
-      .addCase(loginByEmail.rejected, (state, action) => {
+      .addCase(signInByEmail.rejected, (state, action) => {
+        state.isLoading = false;
+        state.validateErrors = action.payload;
+      })
+
+      .addCase(signUpByEmail.pending, (state) => {
+        state.validateErrors = undefined;
+        state.isLoading = true;
+      })
+      .addCase(signUpByEmail.fulfilled, (state, action) => {
+        state.isLoading = false;
+        if (action.payload.code) state.confirmCode = action.payload.code;
+        if (action.payload.token) {
+          state.token = action.payload.token;
+          localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, action.payload.token);
+        }
+      })
+      .addCase(signUpByEmail.rejected, (state, action) => {
         state.isLoading = false;
         state.validateErrors = action.payload;
       });

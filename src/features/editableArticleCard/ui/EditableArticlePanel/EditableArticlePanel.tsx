@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "../EditableArticleCard/EditableArticleCard.module.scss";
 import { useTranslation } from "react-i18next";
@@ -13,27 +13,34 @@ import TextIcon from "@/shared/assets/icons/edit.svg";
 import ImageIcon from "@/shared/assets/icons/picture.svg";
 import CodeIcon from "@/shared/assets/icons/square-code.svg";
 import DeleteIcon from "@/shared/assets/icons/delete.svg";
+import PuclishIcon from "@/shared/assets/icons/add-document.svg";
+import DividerIcon from "@/shared/assets/icons/minus.svg";
 import { deleteArticle } from "../../model/services/deleteArticle";
 
-import { useNavigate } from "react-router-dom";
-import { getRouteArticles } from "@/shared/const/router";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  getRouteArticleDetails,
+  getRouteArticles,
+} from "@/shared/const/router";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
 import Button from "@/shared/ui/redesigned/Button/Button";
 import Text from "@/shared/ui/redesigned/Text/Text";
+import { useSelector } from "react-redux";
+import { getArticleEditData } from "../../model/selectors/getArticleEdit";
 
 interface EditableArticlePanelProps {
   className?: string;
-  id: string;
 }
 
 const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   className,
-  id,
 }) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const data = useSelector(getArticleEditData);
 
   const onAddTextBlock = useCallback(() => {
     dispatch(
@@ -73,17 +80,29 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
     dispatch(updateArticleEditData());
   }, [dispatch]);
 
-  const ondeleteArticle = useCallback(() => {
+  const onDeleteArticle = useCallback(() => {
     setIsModalOpen(true);
   }, [dispatch]);
 
   const onAcceptDelete = useCallback(() => {
-    console.log(id);
     if (id) {
       dispatch(deleteArticle(id));
       setIsModalOpen(false);
       navigate(getRouteArticles());
     }
+    if (data?.id) {
+      dispatch(deleteArticle(data?.id));
+      setIsModalOpen(false);
+      navigate(getRouteArticles());
+    }
+  }, [dispatch]);
+
+  const onPublishArticle = useCallback(() => {
+    dispatch(articleEditActions.updateArticleEdit({ isPublished: true }));
+
+    dispatch(updateArticleEditData());
+    if (id) navigate(getRouteArticleDetails(id));
+    if (data?.id) navigate(getRouteArticleDetails(data.id));
   }, [dispatch]);
 
   const scrollToBottom = () => {
@@ -126,8 +145,18 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
         clickable
         className={cls.panelIcon}
       />
+
+      <Icon Svg={DividerIcon} className={cls.panelIconDivider} />
+
       <Icon
-        onClick={ondeleteArticle}
+        onClick={onPublishArticle}
+        Svg={PuclishIcon}
+        clickable
+        className={cls.panelIcon}
+      />
+
+      <Icon
+        onClick={onDeleteArticle}
         Svg={DeleteIcon}
         clickable
         className={cls.panelIcon}

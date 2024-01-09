@@ -2,13 +2,14 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./Navbar.module.scss";
 import { useState, useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { LoginModal } from "@/features/AuthByUsername";
+
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import Button from "@/shared/ui/redesigned/Button/Button";
+import { SignInModal, SignupModal } from "@/features/AuthByUsername";
 
 interface NavbarProps {
   className?: string;
@@ -17,15 +18,24 @@ interface NavbarProps {
 export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
 
-  const [isAuthModal, setAuthModal] = useState(false);
+  const [isSignin, setSignin] = useState(false);
+  const [isSignup, setSignup] = useState(false);
   const authData = useSelector(getUserAuthData);
 
-  const onCloseModal = useCallback(() => {
-    setAuthModal(false);
+  const onCloseSigninModal = useCallback(() => {
+    setSignin(false);
   }, []);
 
-  const onShowModal = useCallback(() => {
-    setAuthModal(true);
+  const onShowSigninModal = useCallback(() => {
+    setSignin(true);
+  }, []);
+
+  const onCloseSignupModal = useCallback(() => {
+    setSignup(false);
+  }, []);
+
+  const onShowSignupModal = useCallback(() => {
+    setSignup(true);
   }, []);
 
   const mainClass = cls.NavbarRedesigned;
@@ -43,12 +53,28 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
 
   return (
     <header className={classNames(mainClass, {}, [className])}>
-      <Button variant="clear" className={cls.links} onClick={onShowModal}>
-        {t("Enter")}
-      </Button>
+      <HStack gap="12">
+        <Button
+          variant={"filled"}
+          className={cls.links}
+          onClick={onShowSignupModal}
+        >
+          {t("Sign up")}
+        </Button>
+        <Button
+          variant={"outline"}
+          className={cls.links}
+          onClick={onShowSigninModal}
+        >
+          {t("Sign in")}
+        </Button>
+      </HStack>
 
-      {isAuthModal && (
-        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      {isSignin && (
+        <SignInModal isOpen={isSignin} onClose={onCloseSigninModal} />
+      )}
+      {isSignup && (
+        <SignupModal isOpen={isSignup} onClose={onCloseSignupModal} />
       )}
     </header>
   );

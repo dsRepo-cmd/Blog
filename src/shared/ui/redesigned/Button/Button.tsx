@@ -3,7 +3,6 @@ import React, {
   ForwardedRef,
   ReactNode,
   forwardRef,
-  memo,
 } from "react";
 import { Mods, classNames } from "@/shared/lib/classNames";
 import cls from "./Button.module.scss";

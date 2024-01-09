@@ -12,7 +12,7 @@ export const fetchArticleEditData = createAsyncThunk<
 
   try {
     const response = await extra.api.get<ArticleEdit>(
-      `/articles/${articleId}`,
+      `/article/${articleId}`,
       {
         params: {
           _expand: "user",

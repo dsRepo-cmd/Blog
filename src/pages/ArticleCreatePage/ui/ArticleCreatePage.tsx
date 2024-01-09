@@ -17,15 +17,13 @@ const ArticleCreatePage: React.FC<ArticleCreatePageProps> = ({ className }) => {
   const { t } = useTranslation("article");
   const dispatch = useAppDispatch();
 
-  const newId = Date.now().toString();
-
   useEffect(() => {
-    dispatch(createArticle(newId));
+    dispatch(createArticle());
   }, [dispatch]);
 
   return (
     <Page className={classNames(cls.ArticleCreatePage, {}, [className])}>
-      <EditableArticleCard id={newId} create />
+      <EditableArticleCard create />
     </Page>
   );
 };

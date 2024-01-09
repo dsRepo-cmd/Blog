@@ -13,6 +13,7 @@ import {
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import {
+  getArticleEditData,
   getArticleEditError,
   getArticleEditForm,
   getArticleEditIsLoading,
@@ -27,10 +28,11 @@ import { renderArticleBlock } from "./renderBlock";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import EditableArticlePanel from "../EditableArticlePanel/EditableArticlePanel";
+import { useParams } from "react-router-dom";
 
 interface EditableArticleCardProps {
   className?: string;
-  id: string;
+
   create?: boolean;
 }
 const reducers: ReducerList = {
@@ -39,7 +41,6 @@ const reducers: ReducerList = {
 
 const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
   className,
-  id,
   create,
 }) => {
   const { t } = useTranslation("article");
@@ -47,7 +48,17 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
   const dispatch = useAppDispatch();
   const formData = useSelector(getArticleEditForm);
   const isLoading = useSelector(getArticleEditIsLoading);
+
   const error = useSelector(getArticleEditError);
+  const { id } = useParams<{ id: string }>();
+
+  if (!create) {
+    useEffect(() => {
+      if (id) {
+        dispatch(fetchArticleEditData(id));
+      }
+    }, [dispatch]);
+  }
 
   // Validate errors
   const validateErrors = useSelector(getArticleEditValidateErrors);
@@ -66,14 +77,6 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
   ////
 
   const type = formData?.type ? formData?.type : ArticleType.ALL;
-
-  if (!create) {
-    useEffect(() => {
-      if (id) {
-        dispatch(fetchArticleEditData(id));
-      }
-    }, [dispatch]);
-  }
 
   const onChangeTitle = useCallback(
     (value?: string) => {
@@ -143,7 +146,6 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
       >
         <EditableArticlePanel
           className={classNames(cls.panel, {}, [className])}
-          id={id}
         />
 
         <Input

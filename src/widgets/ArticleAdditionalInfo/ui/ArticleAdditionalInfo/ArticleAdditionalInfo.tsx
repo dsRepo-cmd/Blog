@@ -33,15 +33,16 @@ const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
   if (isLoading) {
     return (
       <VStack
+        max
         gap="32"
         className={classNames(cls.ArticleAdditionalInfo, {}, [className])}
       >
         <HStack gap="8">
           <Skeleton width={32} height={32} border={"50%"} />
-          <Skeleton width={100} height={32} />
+          <Skeleton width={120} height={32} />
         </HStack>
-        <Skeleton width={"100%"} height={32} />
-        <Skeleton width={"100%"} height={32} />
+        <Skeleton width={"80%"} height={40} />
+        <Skeleton width={"80%"} height={16} />
       </VStack>
     );
   }
@@ -54,10 +55,10 @@ const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
       <HStack gap="8">
         <Avatar src={author.avatar} size={32} />
         <Text text={author.username} bold />
-        <Text text={createdAt} />
       </HStack>
+      <Text size="s" text={createdAt} />
       <Button onClick={onEdit}>{t("Edit")}</Button>
-      <Text text={t("views")} />
+      <Text text={t("{{count}} views", { count: views })} />
     </VStack>
   );
 };
