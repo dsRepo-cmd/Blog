@@ -1,5 +1,4 @@
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./EditableProfileCard.module.scss";
 import React, { memo, useCallback, useEffect } from "react";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
@@ -105,11 +104,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack
-        gap="16"
-        max
-        className={classNames(cls.EditableProfileCard, {}, [className])}
-      >
+      <VStack gap="16" max className={classNames("", {}, [className])}>
         <EditableProfileCardHeader />
         <ProfileCard
           data={formData}

@@ -1,8 +1,6 @@
 import React, { Suspense, memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./SignInModal.module.scss";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
-
 import Loader from "@/shared/ui/redesigned/Loader/Loader";
 import { SignInFormAsync } from "../SignInForm/SignInForm.async";
 
@@ -16,7 +14,7 @@ const SignInModal: React.FC<SignInModalProps> = memo(
   ({ className, isOpen, onClose }: SignInModalProps) => {
     return (
       <Modal
-        className={classNames(cls.SignInModal, {}, [className])}
+        className={classNames("", {}, [className])}
         isOpen={isOpen}
         onClose={onClose}
         lazy

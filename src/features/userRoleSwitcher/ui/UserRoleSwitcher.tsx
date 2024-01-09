@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./UserRoleSwitcher.module.scss";
+
 import { useTranslation } from "react-i18next";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
@@ -43,7 +43,7 @@ const UserRoleSwitcher: React.FC<UserRoleSwitcherProps> = ({ className }) => {
   };
 
   return (
-    <HStack className={classNames(cls.UserRoleSwitcher, {}, [className])}>
+    <HStack className={classNames("", {}, [className])}>
       <ListBox
         label="Roles option"
         value={authData?.roles && authData?.roles[0]}
