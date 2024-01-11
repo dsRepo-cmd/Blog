@@ -21,7 +21,7 @@ export const fetchArticleRecommendations = createAsyncThunk<
     }
 
     return response.data;
-  } catch (e) {
-    return rejectWithValue("error");
+  } catch (e: unknown) {
+    return rejectWithValue(e as string);
   }
 });

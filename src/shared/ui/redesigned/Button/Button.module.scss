@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   text-wrap: nowrap;
+  transition: all 0.3s;
 
   &:hover {
     color: var(--accent);
@@ -42,6 +43,22 @@
   border: none;
   outline: none;
   border-radius: var(--border-radius-l);
+  &:hover {
+    border: 1px solid var(--accent);
+    opacity: 0.8;
+  }
+
+  &.normal {
+    border: 1px solid var(--icon);
+  }
+
+  &.error {
+    border: 1px solid var(--cancel);
+  }
+
+  &.success {
+    border: 1px solid var(--save);
+  }
 }
 
 .outline {
@@ -50,6 +67,7 @@
 
   &:hover {
     border: 1px solid var(--accent);
+    opacity: 0.8;
   }
 
   &.normal {

@@ -31,6 +31,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
           </div>
         </div>
       </BrowserView>
+
       <MobileOnlyView>
         <div className={cls.navbar}>
           <div className={cls.sidebar}>{sidebar}</div>
@@ -38,8 +39,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         </div>
         <div className={classNames(cls.MainLayoutMobile, {}, [className])}>
           <div className={cls.content}>{content}</div>
-          {/* <div className={cls.toolbar}>{toolbar}</div> */}
-          {/* <div className={cls.rightbar}></div> */}
+          <div className={cls.toolbar}>{toolbar}</div>
         </div>
       </MobileOnlyView>
     </>

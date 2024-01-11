@@ -21,8 +21,7 @@ export const fetchArticleById = createAsyncThunk<
     }
 
     return response.data;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue("error");
+  } catch (e: unknown) {
+    return rejectWithValue(e as string);
   }
 });

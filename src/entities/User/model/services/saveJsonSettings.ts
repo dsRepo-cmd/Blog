@@ -15,7 +15,7 @@ export const saveJsonSettings = createAsyncThunk<
   const currentSettings = getJsonSettings(getState());
 
   if (!userData) {
-    return rejectWithValue("");
+    return rejectWithValue("Error userData unown");
   }
 
   try {
@@ -34,8 +34,7 @@ export const saveJsonSettings = createAsyncThunk<
     }
 
     return response.jsonSettings;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue("");
+  } catch (e: unknown) {
+    return rejectWithValue(e as string);
   }
 });

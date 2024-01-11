@@ -26,8 +26,7 @@ export const updateUserRoles = createAsyncThunk<
 
     window.location.reload();
     return undefined;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue("");
+  } catch (e: unknown) {
+    return rejectWithValue(e as string);
   }
 });

@@ -33,7 +33,7 @@ export const addCommentForArticle = createAsyncThunk<
     dispatch(fetchCommentsByArticleId(article.id));
 
     return response.data;
-  } catch (e) {
-    return rejectWithValue("error");
+  } catch (e: unknown) {
+    return rejectWithValue(e as string);
   }
 });

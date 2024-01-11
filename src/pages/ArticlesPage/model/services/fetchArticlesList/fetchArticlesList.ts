@@ -46,13 +46,13 @@ export const fetchArticlesList = createAsyncThunk<
         q: search,
       },
     });
-    console.log(response);
+
     if (!response.data) {
       throw new Error();
     }
 
     return response.data;
-  } catch (e) {
-    return rejectWithValue("error");
+  } catch (e: unknown) {
+    return rejectWithValue(e as string);
   }
 });

@@ -15,7 +15,7 @@ export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
     const userId = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
 
     if (!userId) {
-      return rejectWithValue("");
+      return rejectWithValue("Error userId undefined");
     }
 
     try {
@@ -27,9 +27,8 @@ export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
       );
 
       return response;
-    } catch (e) {
-      console.log(e);
-      return rejectWithValue("");
+    } catch (e: unknown) {
+      return rejectWithValue(e as string);
     }
   }
 );
