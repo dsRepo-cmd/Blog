@@ -16,7 +16,7 @@ export type ButtonSize = "m" | "l" | "xl";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: ButtonVariant;
-  square?: boolean;
+
   size?: ButtonSize;
   disabled?: boolean;
   children?: ReactNode;
@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = forwardRef(
       className,
       children,
       variant = "outline",
-      square,
+
       disabled,
       fullWidth,
       size = "m",
@@ -43,7 +43,6 @@ const Button: React.FC<ButtonProps> = forwardRef(
     } = props;
 
     const mods: Mods = {
-      [cls.square]: square,
       [cls.disabled]: disabled,
       [cls.fullWidth]: fullWidth,
       [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),

@@ -23,20 +23,15 @@
   z-index: var(--modal-z-index);
   position: fixed;
   left: 2vw;
-  height: calc(100svh + 100px);
+  height: calc(100svh);
   width: 96vw;
   border-radius: 12px 12px 0;
   touch-action: none;
   padding: 15px;
 }
 
-.drawerNew {
+.drawer {
   .sheet {
     background: var(--light-bg);
-  }
-}
-.drawerOld {
-  .sheet {
-    background: var(--bg-color);
   }
 }

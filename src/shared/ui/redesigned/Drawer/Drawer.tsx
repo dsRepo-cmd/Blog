@@ -85,7 +85,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
           className,
           theme,
           "app_drawer",
-          cls.drawerNew,
+          cls.drawer,
         ])}
       >
         <Overlay onClick={close} />

@@ -18,16 +18,16 @@ interface NavbarProps {
 export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
 
-  const [isSignin, setSignin] = useState(false);
+  const [isSignIn, setSignIn] = useState(false);
   const [isSignup, setSignup] = useState(false);
   const authData = useSelector(getUserAuthData);
 
-  const onCloseSigninModal = useCallback(() => {
-    setSignin(false);
+  const onCloseSignInModal = useCallback(() => {
+    setSignIn(false);
   }, []);
 
-  const onShowSigninModal = useCallback(() => {
-    setSignin(true);
+  const onShowSignInModal = useCallback(() => {
+    setSignIn(true);
   }, []);
 
   const onCloseSignupModal = useCallback(() => {
@@ -64,14 +64,14 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
         <Button
           variant={"outline"}
           className={cls.links}
-          onClick={onShowSigninModal}
+          onClick={onShowSignInModal}
         >
           {t("Sign in")}
         </Button>
       </HStack>
 
-      {isSignin && (
-        <SignInModal isOpen={isSignin} onClose={onCloseSigninModal} />
+      {isSignIn && (
+        <SignInModal isOpen={isSignIn} onClose={onCloseSignInModal} />
       )}
       {isSignup && (
         <SignupModal isOpen={isSignup} onClose={onCloseSignupModal} />

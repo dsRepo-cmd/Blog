@@ -82,8 +82,8 @@ const articlesPageSlice = createSlice({
 
       .addCase(fetchArticlesList.fulfilled, (state, action) => {
         state.isLoading = false;
-        articlesAdapter.addMany(state, action.payload);
         state.hasmore = action.payload.length > 0;
+        articlesAdapter.addMany(state, action.payload);
 
         if (action.meta.arg.replace) {
           articlesAdapter.setAll(state, action.payload);

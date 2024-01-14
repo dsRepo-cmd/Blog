@@ -88,10 +88,12 @@
 }
 
 .switchers {
+  display: flex;
   justify-content: space-around;
 }
 .drawer {
+  height: 100%;
   display: flex;
-  gap: 24px;
+  gap: 150px;
   flex-direction: column;
 }
