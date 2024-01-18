@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from "react";
+import { FC, memo, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import cls from "./ArticleAdditionalInfo.module.scss";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
@@ -18,6 +18,7 @@ import Card from "@/shared/ui/redesigned/Card/Card";
 import { BrowserView, MobileView } from "react-device-detect";
 import EditIcon from "@/shared/assets/icons/edit.svg";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import { UserRole, getUserAuthData } from "@/entities/User";
 
 interface ArticleAdditionalInfoProps {
   className?: string;
@@ -26,12 +27,24 @@ interface ArticleAdditionalInfoProps {
 const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
   className,
 }) => {
+  const [isAllowEdit, setAllowEdit] = useState(false);
   const { t } = useTranslation();
   const isLoading = useSelector(getArticleDetailsIsLoading);
+  const navigate = useNavigate();
 
   const article = useSelector(getArticleDetailsData);
+  const userData = useSelector(getUserAuthData);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    if (
+      userData?.id === article?.user.id ||
+      userData?.roles?.includes(UserRole.ADMIN)
+    ) {
+      setAllowEdit(true);
+    } else {
+      setAllowEdit(false);
+    }
+  }, [userData, article]);
 
   const onEditArticle = useCallback(() => {
     if (article) {
@@ -71,9 +84,11 @@ const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
               <Text text={article?.user.username} bold />
             </HStack>
             <Text size="s" text={article?.createdAt} />
-            <Button variant={"filled"} onClick={onEditArticle}>
-              {t("Edit")}
-            </Button>
+            {isAllowEdit && (
+              <Button variant={"filled"} onClick={onEditArticle}>
+                {t("Edit")}
+              </Button>
+            )}
             <Text text={t("{{count}} views", { count: article?.views })} />
           </VStack>
         </Card>
@@ -84,13 +99,15 @@ const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
           <HStack gap="12">
             <Avatar src={article?.user.avatar} size={32} />
             <Text text={t("{{count}} views", { count: article?.views })} />
-            <Icon
-              Svg={EditIcon}
-              width={"24"}
-              height={"24"}
-              clickable
-              onClick={onEditArticle}
-            />
+            {isAllowEdit && (
+              <Icon
+                Svg={EditIcon}
+                width={"24"}
+                height={"24"}
+                clickable
+                onClick={onEditArticle}
+              />
+            )}
           </HStack>
         </Card>
       </MobileView>

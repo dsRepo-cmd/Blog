@@ -29,6 +29,7 @@ import Text from "@/shared/ui/redesigned/Text/Text";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import EditableArticlePanel from "../EditableArticlePanel/EditableArticlePanel";
 import { useParams } from "react-router-dom";
+import { UserRole, getUserAuthData } from "@/entities/User";
 
 interface EditableArticleCardProps {
   className?: string;
@@ -44,10 +45,12 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
   create,
 }) => {
   const { t } = useTranslation("article");
+  const [isAllowEdit, setAllowEdit] = useState(false);
 
   const dispatch = useAppDispatch();
   const formData = useSelector(getArticleEditForm);
   const isLoading = useSelector(getArticleEditIsLoading);
+  const userData = useSelector(getUserAuthData);
 
   const error = useSelector(getArticleEditError);
   const { id } = useParams<{ id: string }>();
@@ -59,6 +62,17 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
       }
     }, [dispatch]);
   }
+
+  useEffect(() => {
+    if (
+      (formData?.user?.id && userData?.id === formData?.user.id) ||
+      userData?.roles?.includes(UserRole.ADMIN)
+    ) {
+      setAllowEdit(true);
+    } else {
+      setAllowEdit(false);
+    }
+  }, [userData, formData]);
 
   // Validate errors
   const validateErrors = useSelector(getArticleEditValidateErrors);
@@ -119,6 +133,16 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
       <>
         <Text title={error} variant={"error"} />
       </>
+    );
+  }
+
+  if (!isAllowEdit) {
+    return (
+      <DynamicModuleLoader reducers={reducers}>
+        <VStack gap={"8"}>
+          <Text title={t("Access denided")} />
+        </VStack>
+      </DynamicModuleLoader>
     );
   }
 
