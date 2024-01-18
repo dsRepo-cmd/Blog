@@ -6,11 +6,11 @@
   cursor: pointer;
   fill: var(--icon);
 
-  opacity: 0.8;
+  opacity: 0.7;
   transition: all 0.3s;
 }
 
-.button:hover .Icon {
+.button:hover {
   color: var(--accent);
   opacity: 1;
 }

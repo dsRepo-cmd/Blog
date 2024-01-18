@@ -1,0 +1,19 @@
+.UsersListEdit {
+}
+
+.data {
+  display: grid;
+  grid-template-columns: 50px 200px 200px 120px 50px;
+  padding: 12px;
+
+  border-bottom: 1px solid var(--accent);
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.delete {
+  fill: var(--cancel);
+}
