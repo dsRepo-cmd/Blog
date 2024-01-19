@@ -2,6 +2,7 @@ import React, { FC, memo } from "react";
 
 import cls from "./Icon.module.scss";
 import { classNames } from "@/shared/lib/classNames";
+import { title } from "process";
 
 type SvgProps = Omit<React.SVGProps<SVGSVGElement>, "onClick">;
 
@@ -9,6 +10,7 @@ interface IconBaseProps extends SvgProps {
   className?: string;
   positioned?: boolean;
   Svg: FC<React.SVGProps<SVGSVGElement>>;
+  title?: string;
 }
 
 interface NonClickableIconProps extends IconBaseProps {
@@ -30,6 +32,7 @@ export const Icon: FC<IconProps> = memo((props) => {
     height = 32,
     clickable,
     positioned,
+    title,
     ...otherProps
   } = props;
 
@@ -46,6 +49,7 @@ export const Icon: FC<IconProps> = memo((props) => {
   if (clickable) {
     return (
       <button
+        title={title}
         type="button"
         className={classNames(cls.button, {}, [className])}
         onClick={props.onClick}

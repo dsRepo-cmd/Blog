@@ -89,7 +89,6 @@ const ConfirmForm: React.FC<ConfirmFormProps> = memo(
 
         <Input
           name={"email"}
-          autofocus
           type="text"
           className={cls.input}
           placeholder={t("Enter your email")}

@@ -35,7 +35,7 @@ interface EditableArticlePanelProps {
 const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   className,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -122,24 +122,28 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       className={classNames(cls.ButtonsWrapper, {}, [className])}
     >
       <Icon
+        title={t("Save")}
         onClick={onUpdate}
         Svg={SaveIcon}
         clickable
         className={cls.panelIcon}
       />
       <Icon
+        title={t("Add Text Block")}
         onClick={onAddTextBlock}
         Svg={TextIcon}
         clickable
         className={cls.panelIcon}
       />
       <Icon
+        title={t("Add Code Block")}
         onClick={onAddCodeBlock}
         Svg={CodeIcon}
         clickable
         className={cls.panelIcon}
       />
       <Icon
+        title={t("Add Image Block")}
         onClick={onAddImageBlock}
         Svg={ImageIcon}
         clickable
@@ -149,6 +153,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       <Icon Svg={DividerIcon} className={cls.panelIconDivider} />
 
       <Icon
+        title={t("Save and Publish The Article")}
         onClick={onPublishArticle}
         Svg={PuclishIcon}
         clickable
@@ -156,6 +161,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       />
 
       <Icon
+        title={t("Delete Article")}
         onClick={onDeleteArticle}
         Svg={DeleteIcon}
         clickable

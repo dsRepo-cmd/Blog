@@ -32,5 +32,12 @@
   "creation date": "дата створення",
   "descending": "за спаданням",
   "name": "ім'я",
-  "views": "перегляди"
+  "views": "перегляди",
+  "Save": "Зберегти",
+  "Access denided": "Доступ заборонено",
+  "Add Code Block": "Додати блок коду",
+  "Add Image Block": "Додати блок зображення",
+  "Add Text Block": "Додати текстовий блок",
+  "Delete Article": "Видалити статтю",
+  "Save and Publish The Article": "Зберегти та опублікувати статтю"
 }

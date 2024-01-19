@@ -89,7 +89,6 @@ const SignInForm: React.FC<SignInFormProps> = memo(
 
         <Input
           name={"email"}
-          autofocus
           type="text"
           className={cls.input}
           placeholder={t("Email")}

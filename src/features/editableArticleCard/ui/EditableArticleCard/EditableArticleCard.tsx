@@ -13,7 +13,6 @@ import {
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import {
-  getArticleEditData,
   getArticleEditError,
   getArticleEditForm,
   getArticleEditIsLoading,
@@ -148,7 +147,7 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
 
   if (isLoading) {
     return (
-      <>
+      <DynamicModuleLoader reducers={reducers}>
         <VStack gap={"8"}>
           <Skeleton height={40} />
           <Skeleton height={40} />
@@ -158,7 +157,7 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
           <Skeleton height={200} />
           <Skeleton height={200} />
         </VStack>
-      </>
+      </DynamicModuleLoader>
     );
   }
 

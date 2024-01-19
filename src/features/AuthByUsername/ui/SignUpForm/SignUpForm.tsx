@@ -99,7 +99,6 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
 
         <Input
           name={"email"}
-          autofocus
           type="text"
           className={cls.input}
           placeholder={t("Enter your email")}
