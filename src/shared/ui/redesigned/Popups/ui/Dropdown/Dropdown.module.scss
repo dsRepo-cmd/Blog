@@ -1,7 +1,7 @@
 .menu {
   background: var(--dark-bg);
   position: absolute;
-  z-index: 10000;
+  z-index: var(--modal-z-index);
   flex-direction: column;
   display: flex;
   min-width: 100px;

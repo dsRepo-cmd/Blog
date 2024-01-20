@@ -90,7 +90,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
       >
         <Overlay onClick={close} />
         <Spring.a.div
-          className={cls.sheet}
+          className={classNames(cls.sheet, {}, [className])}
           style={{
             display,
             bottom: `calc(-100svh + ${height - 100}px)`,

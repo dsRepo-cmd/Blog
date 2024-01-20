@@ -9,7 +9,7 @@
 .options {
   background: var(--dark-bg);
   position: absolute;
-  z-index: 10000;
+  z-index: var(--modal-z-index);
   border-radius: 12px;
   box-shadow: 4px 4px 8px var(--dark-bg);
   cursor: pointer;

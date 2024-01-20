@@ -4,7 +4,6 @@
   "ALL": "ВСІ",
   "ALL-news": "ВСІ-новини",
   "About": "Про нас",
-  "About Page": "Про сторінку",
   "Admin": "Адмін",
   "Admin panel": "Панель адміністратора",
   "Administrations": "Адміністрації",
@@ -93,7 +92,6 @@
   "name": "ім'я",
   "read-more": "читати далі",
   "views": "перегляди",
-
   "'Enter the correct value of the e-mail address'": "'Введіть правильну адресу електронної пошти'",
   "Email": "Електронна пошта",
   "Enter the correct value of the e-mail address": "Введіть правильну адресу електронної пошти",
@@ -145,5 +143,6 @@
   "the code must have a 4-digit number": "код повинен містити чотиризначне число",
   "{{count}} views": "{{count}} перегляди",
   "{{count}} views_plural": "",
-  "Lang": "Мова"
+  "Lang": "Мова",
+  "About Page": "Про Нас"
 }

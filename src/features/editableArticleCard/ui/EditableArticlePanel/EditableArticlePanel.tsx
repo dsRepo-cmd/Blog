@@ -1,4 +1,10 @@
-import React, { memo, useCallback, useState } from "react";
+import React, {
+  memo,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "../EditableArticleCard/EditableArticleCard.module.scss";
 import { useTranslation } from "react-i18next";
@@ -42,6 +48,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   const { id } = useParams<{ id: string }>();
   const data = useSelector(getArticleEditData);
 
+  //Add Blocks
   const onAddTextBlock = useCallback(() => {
     dispatch(
       articleEditActions.addBlock({
@@ -51,7 +58,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
         title: "",
       })
     );
-    scrollToBottom();
+    setTimeout(() => scrollToBottom(), 300);
   }, [dispatch]);
 
   const onAddCodeBlock = useCallback(() => {
@@ -62,7 +69,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
         code: "",
       })
     );
-    scrollToBottom();
+    setTimeout(() => scrollToBottom(), 300);
   }, [dispatch]);
 
   const onAddImageBlock = useCallback(() => {
@@ -73,9 +80,9 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
         src: "https://",
       })
     );
-    scrollToBottom();
+    setTimeout(() => scrollToBottom(), 300);
   }, [dispatch]);
-
+  //===========
   const onUpdate = useCallback(() => {
     dispatch(updateArticleEditData());
   }, [dispatch]);

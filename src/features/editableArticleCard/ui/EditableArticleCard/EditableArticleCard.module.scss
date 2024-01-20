@@ -70,7 +70,7 @@
   position: fixed;
 
   align-self: self-end;
-  z-index: 10000;
+  z-index: var(--overlay-z-index);
   background-color: var(--dark-bg);
   border-radius: var(--border-radius-xl);
 }

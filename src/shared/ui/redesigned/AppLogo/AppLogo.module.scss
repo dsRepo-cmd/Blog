@@ -3,7 +3,7 @@
 }
 .appLogo {
   position: relative;
-  z-index: 10;
+  z-index: var(--logo-z-index);
   fill: var(--icon);
 }
 
