@@ -7,7 +7,6 @@ import { getUserAuthData } from "@/entities/User";
 import { SidebarItemType } from "../../../model/types/sidebar";
 import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
-import { BrowserView, MobileView } from "react-device-detect";
 
 interface SideBarItemProps {
   item: SidebarItemType;

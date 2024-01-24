@@ -19,6 +19,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import EditIcon from "@/shared/assets/icons/edit.svg";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import { UserRole, getUserAuthData } from "@/entities/User";
+import { getStandartformatDate } from "@/shared/lib/features/lib/getCurrentDate";
 
 interface ArticleAdditionalInfoProps {
   className?: string;
@@ -83,7 +84,12 @@ const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
               <Avatar src={article?.user.avatar} size={32} />
               <Text text={article?.user.username} bold />
             </HStack>
-            <Text size="s" text={article?.createdAt} />
+            <Text
+              size="s"
+              text={
+                article?.createdAt && getStandartformatDate(article?.createdAt)
+              }
+            />
             {isAllowEdit && (
               <Button variant={"filled"} onClick={onEditArticle}>
                 {t("Edit")}

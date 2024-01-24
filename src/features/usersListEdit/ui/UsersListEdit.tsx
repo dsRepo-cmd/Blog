@@ -153,9 +153,9 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
             className={cls.data}
           >
             <Icon Svg={AvatarIcon} width={40} height={40} />
-            {/* <Text bold text={t("Username")} /> */}
+
             <Text bold text={t("Email")} />
-            {/* <Text bold text={t("Roles")} />  */}
+
             <Text bold text={t("Delete")} />
           </HStack>
           <VStack gap="12">
@@ -175,9 +175,9 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
                   >
                     <Avatar size={40} src={user.avatar} />
                   </AppLink>
-                  {/* <Text text={user.username} /> */}
+
                   <Text className={cls.email} text={user.email} />
-                  {/* <Text text={user.roles?.join(", ")} />  */}
+
                   <Icon
                     clickable
                     onClick={() => onOpenDeleteModal(user.id, user.email)}

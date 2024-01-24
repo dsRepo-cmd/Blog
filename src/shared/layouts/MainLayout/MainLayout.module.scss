@@ -67,9 +67,10 @@
   }
 
   .toolbar {
-    height: 100%;
-    width: 100%;
+    position: sticky;
+    bottom: 10px;
   }
+
   .header {
     width: 100%;
   }

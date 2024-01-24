@@ -10,19 +10,11 @@ export const validateArticleEditData = (articleEdit?: ArticleEdit) => {
   }
 
   if (articleEdit) {
-    const { title = "", subtitle = "", img = "", blocks = [] } = articleEdit;
+    const { title = "", blocks = [] } = articleEdit;
 
     if (title?.length < 2) {
       errors.title = ValidateArticleEditError.INCORRECT_TITLE;
     }
-
-    if (subtitle?.length < 2) {
-      errors.subtitle = ValidateArticleEditError.INCORRECT_SUBTITLE;
-    }
-
-    // if (!REG_EXP_IMAGE_URL.test(img)) {
-    //   errors.imageUrl = ValidateArticleEditError.INCORRECT_IMAGE_URL;
-    // }
 
     if (blocks.length === 0) {
       errors.blocks = ValidateArticleEditError.INCORRECT_BLOCKS_DATA;

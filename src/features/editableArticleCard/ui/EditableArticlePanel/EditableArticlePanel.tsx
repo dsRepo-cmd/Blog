@@ -1,10 +1,4 @@
-import React, {
-  memo,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useState,
-} from "react";
+import React, { memo, useCallback, useState } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "../EditableArticleCard/EditableArticleCard.module.scss";
 import { useTranslation } from "react-i18next";
@@ -33,6 +27,8 @@ import Button from "@/shared/ui/redesigned/Button/Button";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import { useSelector } from "react-redux";
 import { getArticleEditData } from "../../model/selectors/getArticleEdit";
+import { BrowserView, MobileView } from "react-device-detect";
+import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 
 interface EditableArticlePanelProps {
   className?: string;
@@ -42,7 +38,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   className,
 }) => {
   const { t } = useTranslation("article");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
@@ -88,18 +84,18 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   }, [dispatch]);
 
   const onDeleteArticle = useCallback(() => {
-    setIsModalOpen(true);
+    setModalOpen(true);
   }, [dispatch]);
 
   const onAcceptDelete = useCallback(() => {
     if (id) {
       dispatch(deleteArticle(id));
-      setIsModalOpen(false);
+      setModalOpen(false);
       navigate(getRouteArticles());
     }
     if (data?.id) {
       dispatch(deleteArticle(data?.id));
-      setIsModalOpen(false);
+      setModalOpen(false);
       navigate(getRouteArticles());
     }
   }, [dispatch]);
@@ -120,8 +116,8 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   };
 
   const cancelHandle = useCallback(() => {
-    setIsModalOpen(false);
-  }, [setIsModalOpen]);
+    setModalOpen(false);
+  }, [setModalOpen]);
 
   return (
     <HStack
@@ -174,20 +170,37 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
         clickable
         className={cls.panelIcon}
       />
-      <Modal isOpen={isModalOpen} lazy>
-        <VStack align="center" gap="24">
-          <Text title={t("Are you sure you want to delete the article?")} />
 
-          <HStack gap="12">
-            <Button data-testid="RatingCard.Send" onClick={onAcceptDelete}>
-              {t("Delete")}
-            </Button>
-            <Button data-testid="RatingCard.Close" onClick={cancelHandle}>
-              {t("Cancel")}
-            </Button>
-          </HStack>
-        </VStack>
-      </Modal>
+      <BrowserView>
+        <Modal isOpen={isModalOpen} lazy>
+          <VStack align="center" gap="24">
+            <Text title={t("Are you sure you want to delete the article?")} />
+
+            <HStack gap="12">
+              <Button data-testid="RatingCard.Send" onClick={onAcceptDelete}>
+                {t("Delete")}
+              </Button>
+              <Button data-testid="RatingCard.Close" onClick={cancelHandle}>
+                {t("Cancel")}
+              </Button>
+            </HStack>
+          </VStack>
+        </Modal>
+      </BrowserView>
+
+      <MobileView>
+        <Drawer isOpen={isModalOpen} onClose={cancelHandle} lazy>
+          <VStack align="center" gap="24">
+            <Text title={t("Are you sure you want to delete the article?")} />
+
+            <HStack gap="12">
+              <Button data-testid="RatingCard.Send" onClick={onAcceptDelete}>
+                {t("Delete")}
+              </Button>
+            </HStack>
+          </VStack>
+        </Drawer>
+      </MobileView>
     </HStack>
   );
 };

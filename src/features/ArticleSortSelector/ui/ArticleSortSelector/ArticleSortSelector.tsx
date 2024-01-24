@@ -1,10 +1,9 @@
 import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import cls from "./ArticleSortSelector.module.scss";
 import { classNames } from "@/shared/lib/classNames";
 import { SortOrder } from "@/shared/types/sort";
 import { ArticleSortField } from "../../../../entities/Article/model/consts/consts";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
 
@@ -62,9 +61,7 @@ const ArticleSortSelector: React.FC<ArticleSortSelectorProps> = ({
   );
 
   return (
-    <div
-      className={classNames(cls.ArticleSortSelectorRedesigned, {}, [className])}
-    >
+    <HStack align={"center"} className={classNames("", {}, [className])}>
       <VStack gap="8">
         <Text text={t("Sort by")} />
         <ListBox
@@ -74,7 +71,7 @@ const ArticleSortSelector: React.FC<ArticleSortSelectorProps> = ({
         />
         <ListBox items={orderOptions} value={order} onChange={onChangeOrder} />
       </VStack>
-    </div>
+    </HStack>
   );
 };
 
