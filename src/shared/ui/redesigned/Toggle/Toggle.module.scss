@@ -1,0 +1,66 @@
+$toggle-height: 16px;
+$toggle-width: 32px;
+$toggle-switch-height: 12px;
+$toggle-switch-width: 12px;
+$toggle-background-off: var(--hint);
+$toggle-background-on: var(--icon);
+
+.Toggle {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  height: $toggle-height;
+  width: $toggle-width;
+
+  & .checkbox {
+    display: none;
+  }
+
+  & .label {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: calc($toggle-height / 2);
+    background-color: $toggle-background-off;
+    transition: background-color 0.3s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: $toggle-switch-width;
+      height: $toggle-switch-height;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+  }
+
+  & .switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 6px;
+    font-size: 14px;
+    color: #fff;
+    pointer-events: none;
+  }
+
+  .checkbox:checked + .label {
+    background-color: $toggle-background-on;
+
+    &:before {
+      transform: translateX($toggle-width - $toggle-switch-width - 4px);
+    }
+  }
+
+  .checkbox:checked + .label + .switch {
+    background-color: $toggle-background-on;
+    transform: translateX($toggle-width - $toggle-switch-width - 4px);
+  }
+}

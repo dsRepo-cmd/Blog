@@ -10,7 +10,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<
   const { extra, rejectWithValue } = thunkApi;
 
   if (!articleId) {
-    return rejectWithValue("error");
+    return rejectWithValue("error articleId unknown");
   }
 
   try {
@@ -25,7 +25,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<
     }
 
     return response.data;
-  } catch (e) {
-    return rejectWithValue("error");
+  } catch (e: unknown) {
+    return rejectWithValue(e as string);
   }
 });

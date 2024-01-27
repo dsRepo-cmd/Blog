@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./SignUpForm.module.scss";
 import { useTranslation } from "react-i18next";
@@ -16,14 +16,9 @@ import { VStack } from "@/shared/ui/redesigned/Stack";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import Button from "@/shared/ui/redesigned/Button/Button";
-
 import { ValidateAuthError } from "../../model/const/const";
-
-import { getSignUpCode } from "../../model/selectors/getSignUpCode/getSignUpCode";
-import { confirmCode } from "../../model/services/confirmCode/confirmCode";
 import { signUpByEmail } from "../../model/services/signUpByEmail/signUpByEmail";
-import { getConfirmCode } from "../../model/selectors/getConfirmCode/getConfirmCode";
-import { getLoginToken } from "../../model/selectors/getLoginToken/getLoginToken";
+import ConfirmForm from "../ConfirmForm/ConfirmForm";
 
 export interface SignUpFormProps {
   className?: string;
@@ -40,10 +35,9 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
     const dispatch = useAppDispatch();
     const email = useSelector(getLoginEmail);
     const password = useSelector(getLoginPassword);
-    const code = useSelector(getSignUpCode);
-    const codeConfirm = useSelector(getConfirmCode);
+    const [isConfirm, setConfirm] = useState(false);
+
     const isLoading = useSelector(getLoginIsLoading);
-    const token = useSelector(getLoginToken);
 
     // Validate errors
     const validateErrors = useSelector(getLoginErrors);
@@ -82,7 +76,7 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
       const signUpResult = await dispatch(signUpByEmail({ email, password }));
 
       if (signUpResult.meta.requestStatus === "fulfilled") {
-        // onSuccess();
+        setConfirm(true);
       }
     }, [onSuccess, dispatch, password, email]);
 
@@ -96,55 +90,15 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
     );
 
     // ============================================================================
-    const onChangeCode = useCallback(
-      (value: string) => {
-        dispatch(loginActions.setCode(value));
-      },
-      [dispatch]
-    );
 
-    const onConfirmClick = useCallback(async () => {
-      const codeResult = await dispatch(confirmCode({ code, email, token }));
-
-      if (codeResult.meta.requestStatus === "fulfilled") {
-        onSuccess();
-      }
-    }, [onSuccess, dispatch, email, code]);
     // ============================================================================
 
-    const confirmfield = (
-      <>
-        <Input
-          type="text"
-          name={"number"}
-          className={cls.input}
-          placeholder={t("Enter your code")}
-          onChange={onChangeCode}
-          onKeyDown={handleKeyPress}
-          value={code}
-          error={
-            validateErrors?.code &&
-            validateErrorTranslates[validateErrors?.code]
-          }
-        />
-        <Text text={codeConfirm} />
-        <Button
-          className={cls.loginBtn}
-          onClick={onConfirmClick}
-          disabled={isLoading}
-        >
-          {t("Confirm")}
-        </Button>
-      </>
-    );
-
-    const loginForm = (
+    const signUpForm = (
       <VStack gap="16" className={classNames(cls.SignUpForm, {}, [className])}>
         <Text title={t("Sign up form")} />
 
         <Input
           name={"email"}
-          autofocus
           type="text"
           className={cls.input}
           placeholder={t("Enter your email")}
@@ -185,13 +139,13 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
             text={validateErrorTranslates[validateErrors.data]}
           />
         )}
-        {confirmfield}
       </VStack>
     );
 
     return (
       <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
-        {loginForm}
+        {!isConfirm && signUpForm}
+        {isConfirm && <ConfirmForm onSuccess={() => console.log("Success")} />}
       </DynamicModuleLoader>
     );
   }

@@ -52,8 +52,11 @@
 
   .left,
   .right {
-    position: sticky;
-    top: 32px;
+    position: absolute;
+    top: 12px;
+    left: 50px;
+
     height: fit-content;
+    z-index: var(--default-z-index);
   }
 }

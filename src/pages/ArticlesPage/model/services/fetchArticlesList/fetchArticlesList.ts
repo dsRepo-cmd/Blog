@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
 import { Article, ArticleType } from "@/entities/Article";
 import {
+  getArticlesPageIsPublished,
   getArticlesPageLimit,
   getArticlesPageNum,
   getArticlesPageOrder,
@@ -12,6 +13,7 @@ import {
 import { addQueryParams } from "@/shared/lib/url/addQueryParams/addQueryParams";
 
 interface FetchArticlesListProps {
+  userId?: string;
   replace?: boolean;
 }
 
@@ -19,7 +21,7 @@ export const fetchArticlesList = createAsyncThunk<
   Article[],
   FetchArticlesListProps,
   ThunkConfig<string>
->("articlesPage/fetchArticlesList", async (props, thunkApi) => {
+>("articlesPage/fetchArticlesList", async ({ userId = "" }, thunkApi) => {
   const { extra, rejectWithValue, getState } = thunkApi;
   const limit = getArticlesPageLimit(getState());
   const sort = getArticlesPageSort(getState());
@@ -27,6 +29,7 @@ export const fetchArticlesList = createAsyncThunk<
   const search = getArticlesPageSearch(getState());
   const page = getArticlesPageNum(getState());
   const type = getArticlesPageType(getState());
+  const isPublished = getArticlesPageIsPublished(getState());
 
   try {
     addQueryParams({
@@ -44,15 +47,17 @@ export const fetchArticlesList = createAsyncThunk<
         _order: order,
         type: type === ArticleType.ALL ? undefined : type,
         q: search,
+        userId: userId,
+        isPublished,
       },
     });
-    console.log(response);
+
     if (!response.data) {
       throw new Error();
     }
 
     return response.data;
-  } catch (e) {
-    return rejectWithValue("error");
+  } catch (e: unknown) {
+    return rejectWithValue(e as string);
   }
 });

@@ -14,7 +14,7 @@ import { ArticleRating } from "@/features/articleRating";
 import StickyContentLayout from "@/shared/layouts/StickyContentLayout/StickyContentLayout";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
-import AdditionalInfoContainer from "../AdditionalInfoContainer/AdditionalInfoContainer";
+import { ArticleAdditionalInfo } from "../ArticleAdditionalInfo";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -49,7 +49,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
             </VStack>
           </Page>
         }
-        right={<AdditionalInfoContainer />}
+        right={<ArticleAdditionalInfo />}
       />
     </DynamicModuleLoader>
   );

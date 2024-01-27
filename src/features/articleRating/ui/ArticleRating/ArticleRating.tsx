@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { RatingCard } from "@/entities/Rating";
+import { Rating, RatingCard } from "@/entities/Rating";
 import {
   useGetArticleRating,
   useRateArticle,
@@ -58,7 +58,17 @@ const ArticleRating: React.FC<ArticleRatingProps> = ({
     [handleRateArticle]
   );
 
-  const rating = data?.[0];
+  const rating = function calculateAverageRate(data: Rating[]): number {
+    const isUserRate = data.filter((rating) => rating.userId === userData?.id);
+
+    if (data.length === 0 || isUserRate.length === 0) {
+      return 0;
+    }
+
+    const totalRate = data.reduce((sum, feedback) => sum + feedback.rate, 0);
+    const averageRate = totalRate / data.length;
+    return Math.round(averageRate);
+  };
 
   if (isLoading) {
     return <Skeleton width={"100%"} height={140} />;
@@ -67,7 +77,7 @@ const ArticleRating: React.FC<ArticleRatingProps> = ({
     <RatingCard
       onCancel={onCancel}
       onAccept={onAccept}
-      rate={rating?.rate}
+      rate={data && rating(data)}
       title={t("Rate the article")}
       feedbackTitle={t("Leave a review about the article")}
       hasFeedback

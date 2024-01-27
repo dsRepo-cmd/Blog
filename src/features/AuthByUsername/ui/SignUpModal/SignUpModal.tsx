@@ -3,6 +3,8 @@ import { classNames } from "@/shared/lib/classNames";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
 import Loader from "@/shared/ui/redesigned/Loader/Loader";
 import { SignUpFormAsync } from "../SignUpForm/SignUpForm.async";
+import { BrowserView, MobileView } from "react-device-detect";
+import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 
 interface SignupModalProps {
   className?: string;
@@ -13,16 +15,27 @@ interface SignupModalProps {
 const SignupModal: React.FC<SignupModalProps> = memo(
   ({ className, isOpen, onClose }) => {
     return (
-      <Modal
-        className={classNames("", {}, [className])}
-        isOpen={isOpen}
-        onClose={onClose}
-        lazy
-      >
-        <Suspense fallback={<Loader />}>
-          <SignUpFormAsync onSuccess={onClose} />
-        </Suspense>
-      </Modal>
+      <>
+        <BrowserView>
+          <Modal
+            className={classNames("", {}, [className])}
+            isOpen={isOpen}
+            onClose={onClose}
+            lazy
+          >
+            <Suspense fallback={<Loader />}>
+              <SignUpFormAsync onSuccess={onClose} />
+            </Suspense>
+          </Modal>
+        </BrowserView>
+        <MobileView>
+          <Drawer isOpen={isOpen} onClose={onClose}>
+            <Suspense fallback={<Loader />}>
+              <SignUpFormAsync onSuccess={onClose} />
+            </Suspense>
+          </Drawer>
+        </MobileView>
+      </>
     );
   }
 );

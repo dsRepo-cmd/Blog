@@ -29,9 +29,8 @@ const StickyContentLayout: FC<StickyContentLayoutProps> = ({
         <div
           className={classNames(cls.StickyContentLayoutMobile, {}, [className])}
         >
-          {/* {left && <div className={cls.left}>{left}</div>} */}
-          <div className={cls.content}>{content}</div>
           {right && <div className={cls.right}>{right}</div>}
+          <div className={cls.content}>{content}</div>
         </div>
       </MobileOnlyView>
     </>

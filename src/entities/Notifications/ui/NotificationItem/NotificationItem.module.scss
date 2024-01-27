@@ -1,3 +1,11 @@
 .NotificationItem {
   width: 100%;
 }
+
+.link {
+  width: 100%;
+  transition: all 0.3s;
+}
+.link:hover {
+  opacity: 0.7;
+}

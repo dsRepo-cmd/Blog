@@ -67,7 +67,9 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
           <Text title={article.title} bold />
           <Text title={article.subtitle} size="s" />
           <AppImage
-            fallback={<Skeleton width="100%" height={250} />}
+            fallback={
+              <Skeleton className={cls.img} width="100%" height={250} />
+            }
             src={article.img}
             className={cls.img}
             alt={article.title}
@@ -98,7 +100,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
     >
       <Card className={cls.card} border={"partial"} padding={"0"}>
         <AppImage
-          fallback={<Skeleton width={200} height={200} />}
+          fallback={<Skeleton width={"100%"} height={200} />}
           alt={article.title}
           src={article.img}
           className={cls.img}

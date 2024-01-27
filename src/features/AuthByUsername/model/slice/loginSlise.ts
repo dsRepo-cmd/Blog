@@ -65,6 +65,16 @@ export const loginSlise = createSlice({
       .addCase(signUpByEmail.rejected, (state, action) => {
         state.isLoading = false;
         state.validateErrors = action.payload;
+      })
+
+      .addCase(confirmCode.pending, (state) => {
+        state.validateErrors = undefined;
+        state.isLoading = true;
+      })
+
+      .addCase(confirmCode.rejected, (state, action) => {
+        state.isLoading = false;
+        state.validateErrors = action.payload;
       });
   },
 });

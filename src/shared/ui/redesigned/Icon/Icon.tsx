@@ -5,10 +5,13 @@ import { classNames } from "@/shared/lib/classNames";
 
 type SvgProps = Omit<React.SVGProps<SVGSVGElement>, "onClick">;
 
+type VariantType = "error" | "normal";
 interface IconBaseProps extends SvgProps {
   className?: string;
   positioned?: boolean;
   Svg: FC<React.SVGProps<SVGSVGElement>>;
+  title?: string;
+  variant?: VariantType;
 }
 
 interface NonClickableIconProps extends IconBaseProps {
@@ -30,12 +33,17 @@ export const Icon: FC<IconProps> = memo((props) => {
     height = 32,
     clickable,
     positioned,
+    title,
+    variant = "normal",
     ...otherProps
   } = props;
 
   const icon = (
     <Svg
-      className={classNames(cls.Icon, {}, [positioned ? "" : className])}
+      className={classNames(cls.Icon, {}, [
+        positioned ? "" : className,
+        cls[variant],
+      ])}
       width={width}
       height={height}
       {...otherProps}
@@ -46,8 +54,9 @@ export const Icon: FC<IconProps> = memo((props) => {
   if (clickable) {
     return (
       <button
+        title={title}
         type="button"
-        className={classNames(cls.button, {}, [className])}
+        className={classNames(cls.button, {}, [className, cls[variant]])}
         onClick={props.onClick}
         style={{ height, width }}
       >

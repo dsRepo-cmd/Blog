@@ -18,6 +18,7 @@ import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 
 import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 import { rtkApi } from "@/shared/api/rtkApi";
+import { UserEditSchema } from "@/features/usersListEdit";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -29,6 +30,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleEdit?: ArticleEditSchema;
+  usersEdit?: UserEditSchema;
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   addCommentForm?: AddCommentFormSchema;

@@ -21,12 +21,12 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
           <HStack max justify={"between"}>
             <HStack gap="8">
               <Skeleton border="50%" height={30} width={30} />
-              <Skeleton width={150} height={16} />
+              <Skeleton width={120} height={16} />
             </HStack>
-            <Skeleton width={150} height={16} />
+            <Skeleton width={120} height={16} />
           </HStack>
 
-          <Skeleton width={350} height={24} />
+          <Skeleton width={300} height={24} />
           <Skeleton height={250} className={cls.img} />
 
           <Skeleton height={50} />
@@ -42,7 +42,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
 
     const cardContent = (
       <VStack justify={"between"} max className={cls.cardContent}>
-        <VStack max gap="12">
+        <VStack max gap="16">
           <Skeleton
             width="100%"
             height={150}
@@ -51,7 +51,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
           />
           <Skeleton height={80} />
         </VStack>
-        <Skeleton width={150} height={16} className={cls.title} />
+        <Skeleton width={100} height={16} className={cls.title} />
         <HStack gap="12">
           <Skeleton
             width={32}

@@ -26,6 +26,7 @@ interface EditableProfileCardProps {
 
 const reducers: ReducerList = {
   profile: profileReducer,
+ 
 };
 
 export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({

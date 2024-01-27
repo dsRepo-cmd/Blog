@@ -15,5 +15,12 @@
   "Server error": "Server error",
   "There was an error loading your profile": "There was an error loading your profile",
   "Try refreshing the page": "Try refreshing the page",
-  "User name": "User name"
+  "User name": "User name",
+  "Access denided": "Access denided",
+  "Add Code Block": "Add Code Block",
+  "Add Image Block": "Add Image Block",
+  "Add Text Block": "Add Text Block",
+  "Delete Article": "Delete Article",
+  "Save and Publish The Article": "Save and Publish The Article",
+  "Search": "Search"
 }

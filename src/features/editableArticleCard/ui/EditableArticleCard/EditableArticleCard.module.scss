@@ -1,4 +1,6 @@
 .EditableArticleCard {
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .ArticleEditTextBlockComponent {
@@ -67,10 +69,8 @@
 }
 
 .panel {
-  position: fixed;
-
   align-self: self-end;
-  z-index: 10000;
+  z-index: var(--overlay-z-index);
   background-color: var(--dark-bg);
   border-radius: var(--border-radius-xl);
 }
@@ -85,6 +85,7 @@
     max-width: 100%;
   }
   .panel {
+    position: fixed;
     right: 80px;
 
     bottom: 10px;
@@ -93,8 +94,8 @@
 
 @media screen and (min-width: 480px) {
   .panel {
-    right: 200px;
-
-    top: 10px;
+    position: fixed;
+    bottom: 4px;
+    right: 50px;
   }
 }

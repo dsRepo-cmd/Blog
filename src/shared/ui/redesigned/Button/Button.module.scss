@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   text-wrap: nowrap;
+  transition: all 0.3s;
 
   &:hover {
     color: var(--accent);
@@ -42,14 +43,9 @@
   border: none;
   outline: none;
   border-radius: var(--border-radius-l);
-}
-
-.outline {
-  background: none;
-  border-radius: var(--border-radius-l);
-
   &:hover {
     border: 1px solid var(--accent);
+    opacity: 0.8;
   }
 
   &.normal {
@@ -65,23 +61,26 @@
   }
 }
 
-.square {
-  padding: 0;
-}
+.outline {
+  background: none;
+  border-radius: var(--border-radius-l);
 
-.square.m {
-  width: var(--font-line-m);
-  height: var(--font-line-m);
-}
+  &:hover {
+    border: 1px solid var(--accent);
+    opacity: 0.8;
+  }
 
-.square.l {
-  width: var(--font-line-l);
-  height: var(--font-line-l);
-}
+  &.normal {
+    border: 1px solid var(--icon);
+  }
 
-.square.xl {
-  width: var(--font-line-xl);
-  height: var(--font-line-xl);
+  &.error {
+    border: 1px solid var(--cancel);
+  }
+
+  &.success {
+    border: 1px solid var(--save);
+  }
 }
 
 .m {

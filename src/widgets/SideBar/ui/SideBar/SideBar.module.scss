@@ -21,7 +21,7 @@
       position: absolute;
       right: 0;
       top: 50%;
-      z-index: 10;
+      z-index: var(--logo-z-index);
       transform: rotate(90deg);
     }
 
@@ -48,7 +48,7 @@
       align-items: center;
     }
 
-    .lang {
+    .switcher {
       margin-left: 0;
     }
 
@@ -60,12 +60,19 @@
       flex-direction: column;
     }
   }
+
+  .drawer {
+    position: relative;
+    height: 100%;
+    display: flex;
+    gap: 150px;
+    flex-direction: column;
+  }
 }
 
 .SidebarBoxMobile {
   height: 100%;
 }
-
 .SidebarMobile {
   height: 100%;
   position: relative;
@@ -75,23 +82,32 @@
   flex-direction: column;
   gap: 12px;
   align-items: center;
+}
+
+.mobileDrawer {
+  position: relative;
+  height: 100%;
+  display: flex;
+  gap: 150px;
+  flex-direction: column;
 
   .items {
     flex-direction: column;
     align-items: center;
   }
 
-  .lang {
+  .switchers {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    gap: 20px;
+    bottom: 50px;
+    left: calc(100% / 2 - 50px);
+  }
+
+  .switcher {
     display: flex;
     align-items: center;
+    width: 100px;
   }
-}
-
-.switchers {
-  justify-content: space-around;
-}
-.drawer {
-  display: flex;
-  gap: 24px;
-  flex-direction: column;
 }

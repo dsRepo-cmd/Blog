@@ -7,7 +7,7 @@ import DynamicModuleLoader, {
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
-import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
+import { fetchArticleById } from "../../model/services/fetchArticleById";
 import { useSelector } from "react-redux";
 import {
   getArticleDetailsData,
@@ -28,23 +28,6 @@ const redusers: ReducerList = {
   articleDetails: articleDetailsReducer,
 };
 
-const Redesigned = () => {
-  const article = useSelector(getArticleDetailsData);
-
-  return (
-    <>
-      <Text title={article?.title} size="l" bold />
-      <Text title={article?.subtitle} />
-      <AppImage
-        fallback={<Skeleton width="100%" height={420} border="16px" />}
-        src={article?.img}
-        className={cls.img}
-      />
-      {article?.blocks.map(renderArticleBlock)}
-    </>
-  );
-};
-
 export const ArticleDetailsSkeleton = () => {
   return (
     <VStack gap="16" max>
@@ -62,7 +45,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className }) => {
 
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
-
+  const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
   let content;
@@ -77,7 +60,18 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ className }) => {
       />
     );
   } else {
-    content = <Redesigned />;
+    content = (
+      <>
+        <Text title={article?.title} size="l" bold />
+        <Text title={article?.subtitle} />
+        <AppImage
+          fallback={<Skeleton width="100%" height={420} border="16px" />}
+          src={article?.img}
+          className={cls.img}
+        />
+        {article?.blocks.map(renderArticleBlock)}
+      </>
+    );
   }
 
   if (id)

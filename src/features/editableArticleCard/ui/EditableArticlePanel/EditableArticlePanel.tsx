@@ -12,7 +12,7 @@ import SaveIcon from "@/shared/assets/icons/disk.svg";
 import TextIcon from "@/shared/assets/icons/edit.svg";
 import ImageIcon from "@/shared/assets/icons/picture.svg";
 import CodeIcon from "@/shared/assets/icons/square-code.svg";
-import DeleteIcon from "@/shared/assets/icons/delete.svg";
+import DeleteIcon from "@/shared/assets/icons/trash.svg";
 import PuclishIcon from "@/shared/assets/icons/add-document.svg";
 import DividerIcon from "@/shared/assets/icons/minus.svg";
 import { deleteArticle } from "../../model/services/deleteArticle";
@@ -27,6 +27,8 @@ import Button from "@/shared/ui/redesigned/Button/Button";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import { useSelector } from "react-redux";
 import { getArticleEditData } from "../../model/selectors/getArticleEdit";
+import { BrowserView, MobileView } from "react-device-detect";
+import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 
 interface EditableArticlePanelProps {
   className?: string;
@@ -35,13 +37,14 @@ interface EditableArticlePanelProps {
 const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   className,
 }) => {
-  const { t } = useTranslation();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useTranslation("article");
+  const [isModalOpen, setModalOpen] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const data = useSelector(getArticleEditData);
 
+  //Add Blocks
   const onAddTextBlock = useCallback(() => {
     dispatch(
       articleEditActions.addBlock({
@@ -51,7 +54,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
         title: "",
       })
     );
-    scrollToBottom();
+    setTimeout(() => scrollToBottom(), 300);
   }, [dispatch]);
 
   const onAddCodeBlock = useCallback(() => {
@@ -62,7 +65,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
         code: "",
       })
     );
-    scrollToBottom();
+    setTimeout(() => scrollToBottom(), 300);
   }, [dispatch]);
 
   const onAddImageBlock = useCallback(() => {
@@ -73,26 +76,26 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
         src: "https://",
       })
     );
-    scrollToBottom();
+    setTimeout(() => scrollToBottom(), 300);
   }, [dispatch]);
-
+  //===========
   const onUpdate = useCallback(() => {
     dispatch(updateArticleEditData());
   }, [dispatch]);
 
-  const onDeleteArticle = useCallback(() => {
-    setIsModalOpen(true);
+  const onModalDelete = useCallback(() => {
+    setModalOpen(true);
   }, [dispatch]);
 
   const onAcceptDelete = useCallback(() => {
     if (id) {
       dispatch(deleteArticle(id));
-      setIsModalOpen(false);
+      setModalOpen(false);
       navigate(getRouteArticles());
-    }
-    if (data?.id) {
+    } else if (data?.id) {
       dispatch(deleteArticle(data?.id));
-      setIsModalOpen(false);
+      setModalOpen(false);
+
       navigate(getRouteArticles());
     }
   }, [dispatch]);
@@ -113,8 +116,8 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
   };
 
   const cancelHandle = useCallback(() => {
-    setIsModalOpen(false);
-  }, [setIsModalOpen]);
+    setModalOpen(false);
+  }, [setModalOpen]);
 
   return (
     <HStack
@@ -122,24 +125,28 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       className={classNames(cls.ButtonsWrapper, {}, [className])}
     >
       <Icon
+        title={t("Save")}
         onClick={onUpdate}
         Svg={SaveIcon}
         clickable
         className={cls.panelIcon}
       />
       <Icon
+        title={t("Add Text Block")}
         onClick={onAddTextBlock}
         Svg={TextIcon}
         clickable
         className={cls.panelIcon}
       />
       <Icon
+        title={t("Add Code Block")}
         onClick={onAddCodeBlock}
         Svg={CodeIcon}
         clickable
         className={cls.panelIcon}
       />
       <Icon
+        title={t("Add Image Block")}
         onClick={onAddImageBlock}
         Svg={ImageIcon}
         clickable
@@ -149,6 +156,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       <Icon Svg={DividerIcon} className={cls.panelIconDivider} />
 
       <Icon
+        title={t("Save and Publish The Article")}
         onClick={onPublishArticle}
         Svg={PuclishIcon}
         clickable
@@ -156,25 +164,44 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       />
 
       <Icon
-        onClick={onDeleteArticle}
+        variant={"error"}
+        title={t("Delete Article")}
+        onClick={onModalDelete}
         Svg={DeleteIcon}
         clickable
         className={cls.panelIcon}
       />
-      <Modal isOpen={isModalOpen} lazy>
-        <VStack align="center" gap="24">
-          <Text title={t("Are you sure you want to delete the article?")} />
 
-          <HStack gap="12">
-            <Button data-testid="RatingCard.Send" onClick={onAcceptDelete}>
-              {t("Delete")}
-            </Button>
-            <Button data-testid="RatingCard.Close" onClick={cancelHandle}>
-              {t("Cancel")}
-            </Button>
-          </HStack>
-        </VStack>
-      </Modal>
+      <BrowserView>
+        <Modal isOpen={isModalOpen} lazy>
+          <VStack align="center" gap="24">
+            <Text title={t("Are you sure you want to delete the article?")} />
+
+            <HStack gap="12">
+              <Button data-testid="RatingCard.Send" onClick={onAcceptDelete}>
+                {t("Delete")}
+              </Button>
+              <Button data-testid="RatingCard.Close" onClick={cancelHandle}>
+                {t("Cancel")}
+              </Button>
+            </HStack>
+          </VStack>
+        </Modal>
+      </BrowserView>
+
+      <MobileView>
+        <Drawer isOpen={isModalOpen} onClose={cancelHandle} lazy>
+          <VStack align="center" gap="24">
+            <Text title={t("Are you sure you want to delete the article?")} />
+
+            <HStack gap="12">
+              <Button data-testid="RatingCard.Send" onClick={onAcceptDelete}>
+                {t("Delete")}
+              </Button>
+            </HStack>
+          </VStack>
+        </Drawer>
+      </MobileView>
     </HStack>
   );
 };

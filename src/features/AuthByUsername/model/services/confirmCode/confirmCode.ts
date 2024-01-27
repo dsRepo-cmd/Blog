@@ -20,7 +20,6 @@ export const confirmCode = createAsyncThunk<
 >("signUp/confirmCode", async (authData, thunkApi) => {
   const { extra, dispatch, rejectWithValue } = thunkApi;
 
-  console.log("confirmCode", authData);
   const errors = validateCodeConfirmData(authData);
 
   if (Object.keys(errors).length > 0) {

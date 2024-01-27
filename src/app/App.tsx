@@ -11,6 +11,7 @@ import { MainLayout } from "@/shared/layouts/MainLayout";
 import { AppLoaderLayout } from "@/shared/layouts/AppLoaderLayout";
 import { useAppToolbar } from "./lib/useAppToolbar";
 import { withTheme } from "./providers/ThemeProvider";
+import Loader from "@/shared/ui/redesigned/Loader/Loader";
 
 const App = memo(() => {
   const { theme } = useTheme();
@@ -32,7 +33,7 @@ const App = memo(() => {
 
   return (
     <div id="app" className={classNames("app_redesigned", {}, [theme])}>
-      <Suspense fallback="">
+      <Suspense fallback={<Loader />}>
         <MainLayout
           header={<Navbar />}
           content={<AppRouter />}

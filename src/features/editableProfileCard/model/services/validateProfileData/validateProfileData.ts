@@ -10,15 +10,7 @@ export const validateProfileData = (profile?: Profile) => {
   }
 
   if (profile) {
-    const { first = "", lastname = "", age = 0, user } = profile;
-
-    if (first?.length < 1) {
-      errors.firstname = ValidateProfileError.INCORRECT_FIRSTNAME;
-    }
-
-    if (lastname?.length < 1) {
-      errors.lastname = ValidateProfileError.INCORRECT_LASTNAME;
-    }
+    const { age = 0, user } = profile;
 
     if (age < 0 && age > 150) {
       errors.age = ValidateProfileError.INCORRECT_AGE;

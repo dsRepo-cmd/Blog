@@ -1,5 +1,5 @@
 .MainLayout {
-  min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   grid-template-areas: "sidebar content rightbar";
   grid-template-columns: min-content 1fr 100px;
@@ -29,7 +29,7 @@
   .sidebar {
     position: sticky;
     top: 0;
-    height: 100vh;
+    height: 100svh;
   }
 
   .toolbar {
@@ -37,8 +37,9 @@
     width: 100%;
   }
 }
+
 .MainLayoutMobile {
-  min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   grid-template-columns: 1fr;
   margin: 8px;
@@ -62,13 +63,14 @@
   .sidebar {
     position: sticky;
     top: 0;
-    height: 100vh;
+    height: 100svh;
   }
 
   .toolbar {
-    height: 100%;
-    width: 100%;
+    position: sticky;
+    bottom: 10px;
   }
+
   .header {
     width: 100%;
   }

@@ -70,7 +70,7 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
         </aside>
       </BrowserView>
 
-      <MobileView className={cls.SidebarBoxMobile}>
+      <MobileView className={classNames(cls.SidebarMobile, {}, [className])}>
         <nav
           data-testid="sidebar"
           className={classNames(cls.SidebarMobile, {}, [className])}
@@ -79,13 +79,13 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
             <AppLogo size={30} />
           </div>
           <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-            <div className={cls.drawer}>
+            <div className={cls.mobileDrawer}>
               <VStack role="navigation" gap="8" className={cls.items}>
                 {itemsList}
               </VStack>
               <div className={cls.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={cls.lang} />
+                <ThemeSwitcher className={cls.switcher} />
+                <LangSwitcher className={cls.switcher} short={collapsed} />
               </div>
             </div>
           </Drawer>
