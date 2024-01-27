@@ -129,7 +129,6 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
                   `Are you sure you want to delete the user with email ${userEditData.userEmail}?`
                 )}
               />
-
               <HStack gap="12">
                 <Button data-testid="RatingCard.Send" onClick={onAcceptDelete}>
                   {t("Delete")}
@@ -142,6 +141,7 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
           </Modal>
         </Card>
       </BrowserView>
+      {/* MobileView===================================================== */}
       <MobileView
         className={classNames(cls.UsersMobileListEdit, {}, [className])}
       >
@@ -153,9 +153,7 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
             className={cls.data}
           >
             <Icon Svg={AvatarIcon} width={40} height={40} />
-
             <Text bold text={t("Email")} />
-
             <Text bold text={t("Delete")} />
           </HStack>
           <VStack gap="12">

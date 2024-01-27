@@ -38,12 +38,14 @@ const articlesPageSlice = createSlice({
     search: "",
     order: "asc",
     type: ArticleType.ALL,
+    limit: 4,
+    isPublished: true,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
       localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
-      state.limit = state.view === ArticleView.LIST ? 3 : 9;
+      state.limit = state.view === ArticleView.LIST ? 4 : 12;
     },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
@@ -60,13 +62,16 @@ const articlesPageSlice = createSlice({
     setType: (state, action: PayloadAction<ArticleType>) => {
       state.type = action.payload;
     },
+    setPublished: (state, action: PayloadAction<boolean>) => {
+      state.isPublished = action.payload;
+    },
     initState: (state) => {
       const view = localStorage.getItem(
         ARTICLES_VIEW_LOCALSTORAGE_KEY
       ) as ArticleView;
 
       state.view = view;
-      state.limit = view === ArticleView.LIST ? 4 : 9;
+      state.limit = view === ArticleView.LIST ? 4 : 12;
     },
   },
   extraReducers: (builder) => {

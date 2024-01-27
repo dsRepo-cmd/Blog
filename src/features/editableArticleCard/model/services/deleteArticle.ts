@@ -9,7 +9,7 @@ export const deleteArticle = createAsyncThunk<
   ArticleEdit,
   string,
   ThunkConfig<ValidateArticleEditErrors>
->("article/updateArticleEditData", async (articleId, thunkApi) => {
+>("article/deleteArticle", async (articleId, thunkApi) => {
   const { extra, rejectWithValue, getState } = thunkApi;
 
   try {

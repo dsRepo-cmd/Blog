@@ -42,9 +42,9 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
         <Page
           data-testid="ArticlesPage"
           onScrollEnd={onLoadNextPart}
-          className={classNames(cls.ArticlesPageRedesigned, {}, [className])}
+          className={classNames(cls.ArticlesPage, {}, [className])}
         >
-          <ArticleInfinitList className={cls.list} />
+          <ArticleInfinitList />
           <ArticlePageGreeting />
         </Page>
       }

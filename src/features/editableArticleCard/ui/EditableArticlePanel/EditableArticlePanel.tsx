@@ -12,7 +12,7 @@ import SaveIcon from "@/shared/assets/icons/disk.svg";
 import TextIcon from "@/shared/assets/icons/edit.svg";
 import ImageIcon from "@/shared/assets/icons/picture.svg";
 import CodeIcon from "@/shared/assets/icons/square-code.svg";
-import DeleteIcon from "@/shared/assets/icons/delete.svg";
+import DeleteIcon from "@/shared/assets/icons/trash.svg";
 import PuclishIcon from "@/shared/assets/icons/add-document.svg";
 import DividerIcon from "@/shared/assets/icons/minus.svg";
 import { deleteArticle } from "../../model/services/deleteArticle";
@@ -83,7 +83,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
     dispatch(updateArticleEditData());
   }, [dispatch]);
 
-  const onDeleteArticle = useCallback(() => {
+  const onModalDelete = useCallback(() => {
     setModalOpen(true);
   }, [dispatch]);
 
@@ -92,10 +92,10 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       dispatch(deleteArticle(id));
       setModalOpen(false);
       navigate(getRouteArticles());
-    }
-    if (data?.id) {
+    } else if (data?.id) {
       dispatch(deleteArticle(data?.id));
       setModalOpen(false);
+
       navigate(getRouteArticles());
     }
   }, [dispatch]);
@@ -164,8 +164,9 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       />
 
       <Icon
+        variant={"error"}
         title={t("Delete Article")}
-        onClick={onDeleteArticle}
+        onClick={onModalDelete}
         Svg={DeleteIcon}
         clickable
         className={cls.panelIcon}

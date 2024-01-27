@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./AboutPage.module.scss";
 import { useTranslation } from "react-i18next";
@@ -14,9 +14,29 @@ interface AboutPageProps {
 
 const AboutPage: React.FC<AboutPageProps> = ({ className }) => {
   const { t } = useTranslation();
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  useEffect(() => {
+    const updateContainerWidth = () => {
+      const container = document.getElementById("about-page-container");
+      if (container) {
+        setContainerWidth(container.offsetWidth);
+      }
+    };
+
+    window.addEventListener("resize", updateContainerWidth);
+    updateContainerWidth(); // Initial width calculation
+
+    return () => {
+      window.removeEventListener("resize", updateContainerWidth);
+    };
+  }, []);
+
+  const aspectRatioHeight = Math.floor((containerWidth / 16) * 9);
 
   return (
     <Page
+      id="about-page-container"
       data-testid={"AboutPage"}
       className={classNames(cls.AboutPage, {}, [className])}
     >
@@ -27,8 +47,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ className }) => {
         <Text text="Donec volutpat, massa pulvinar aliquam interdum, elit diam luctus mi, ac dictum ipsum tellus malesuada augue. Proin a pretium justo. Pellentesque bibendum enim sit amet aliquet tempus. Aliquam ac velit erat. Nulla tincidunt justo quis mi dapibus ullamcorper eu non ex. Morbi egestas mi quis purus lobortis, ac faucibus ante commodo. Integer pulvinar condimentum molestie. Donec suscipit, enim eget suscipit finibus, leo justo tempor nibh, ac blandit arcu nibh et turpis. Sed sit amet libero et ex malesuada consectetur eu et massa. Pellentesque rhoncus, metus at sodales aliquam, ex nisl venenatis dui, a convallis erat massa nec purus. Mauris laoreet lectus libero, ac vehicula ligula hendrerit sit amet. Curabitur interdum dui sed lorem consequat convallis. Sed suscipit, leo id imperdiet posuere, velit eros eleifend elit, eget faucibus quam lacus et massa." />
         <AppImage
           className={classNames(cls.image, {}, [className])}
-          fallback={<Skeleton width={"100%"} height={350} />}
-          src="https://picsum.photos/650/400?random=1"
+          fallback={<Skeleton width={"100%"} height={aspectRatioHeight} />}
+          src="https://picsum.photos/1920/1080?random=1"
         />
       </VStack>
     </Page>

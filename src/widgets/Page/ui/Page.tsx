@@ -21,6 +21,7 @@ interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
+  id?: string;
 }
 
 const Page: React.FC<PageProps> = (props) => {
@@ -54,6 +55,7 @@ const Page: React.FC<PageProps> = (props) => {
 
   return (
     <main
+      id={props.id}
       onScroll={onScroll}
       ref={wrapperRef}
       className={classNames(cls.PageRedesigned, {}, [className])}

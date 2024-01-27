@@ -12,16 +12,20 @@ export const FiltersContainer: FC<FiltersContainerProps> = memo(
     const {
       onChangeSort,
       onChangeType,
+      onChangeSearch,
+      onChangeOrder,
+      onChangePublished,
       sort,
       type,
-      onChangeSearch,
       search,
-      onChangeOrder,
       order,
+      isPublished = true,
     } = useArticleFilters();
 
     return (
       <ArticlesFilters
+        isPublished={isPublished}
+        onChangePublished={onChangePublished}
         type={type}
         onChangeSearch={onChangeSearch}
         order={order}

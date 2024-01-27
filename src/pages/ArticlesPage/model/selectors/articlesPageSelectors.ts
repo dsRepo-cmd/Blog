@@ -33,3 +33,6 @@ export const getArticlesPageSearch = (state: StateSchema) =>
 
 export const getArticlesPageType = (state: StateSchema) =>
   state.articlesPage?.type ?? ArticleType.ALL;
+
+export const getArticlesPageIsPublished = (state: StateSchema) =>
+  state.articlesPage?.isPublished;

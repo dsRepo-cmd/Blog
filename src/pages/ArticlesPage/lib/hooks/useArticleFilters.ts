@@ -1,88 +1,105 @@
-import { useSelector } from 'react-redux';
-import { useCallback } from 'react';
+import { useSelector } from "react-redux";
+import { useCallback } from "react";
 import {
-    getArticlesPageOrder,
-    getArticlesPageSearch,
-    getArticlesPageSort,
-    getArticlesPageType,
-    getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors';
-import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+  getArticlesPageIsPublished,
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType,
+  getArticlesPageView,
+} from "../../model/selectors/articlesPageSelectors";
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
 
-import { SortOrder } from '@/shared/types/sort';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { articlesPageActions } from '../../model/slices/articlePageSlice';
+import { SortOrder } from "@/shared/types/sort";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
+import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
+import { articlesPageActions } from "../../model/slices/articlePageSlice";
 
 export function useArticleFilters() {
-    const view = useSelector(getArticlesPageView);
-    const sort = useSelector(getArticlesPageSort);
-    const order = useSelector(getArticlesPageOrder);
-    const search = useSelector(getArticlesPageSearch);
-    const type = useSelector(getArticlesPageType);
+  const view = useSelector(getArticlesPageView);
+  const sort = useSelector(getArticlesPageSort);
+  const order = useSelector(getArticlesPageOrder);
+  const search = useSelector(getArticlesPageSearch);
+  const type = useSelector(getArticlesPageType);
 
-    const dispatch = useAppDispatch();
+  const isPublished = useSelector(getArticlesPageIsPublished);
 
-    const fetchData = useCallback(() => {
-        dispatch(fetchArticlesList({ replace: true }));
-    }, [dispatch]);
+  const dispatch = useAppDispatch();
 
-    const debouncedFetchData = useDebounce(fetchData, 500);
+  const fetchData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true }));
+  }, [dispatch]);
 
-    const onChangeView = useCallback(
-        (view: ArticleView) => {
-            dispatch(articlesPageActions.setView(view));
-        },
-        [dispatch],
-    );
+  const debouncedFetchData = useDebounce(fetchData, 500);
 
-    const onChangeSort = useCallback(
-        (newSort: ArticleSortField) => {
-            dispatch(articlesPageActions.setSort(newSort));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [dispatch, fetchData],
-    );
+  const onChangeView = useCallback(
+    (view: ArticleView) => {
+      dispatch(articlesPageActions.setPage(1));
 
-    const onChangeOrder = useCallback(
-        (newOrder: SortOrder) => {
-            dispatch(articlesPageActions.setOrder(newOrder));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [dispatch, fetchData],
-    );
+      dispatch(articlesPageActions.setView(view));
+    },
+    [dispatch]
+  );
 
-    const onChangeSearch = useCallback(
-        (search: string) => {
-            dispatch(articlesPageActions.setSearch(search));
-            dispatch(articlesPageActions.setPage(1));
-            debouncedFetchData();
-        },
-        [dispatch, debouncedFetchData],
-    );
+  const onChangeSort = useCallback(
+    (newSort: ArticleSortField) => {
+      dispatch(articlesPageActions.setSort(newSort));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData]
+  );
 
-    const onChangeType = useCallback(
-        (value: ArticleType) => {
-            dispatch(articlesPageActions.setType(value));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [dispatch, fetchData],
-    );
+  const onChangeOrder = useCallback(
+    (newOrder: SortOrder) => {
+      dispatch(articlesPageActions.setOrder(newOrder));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData]
+  );
 
-    return {
-        view,
-        sort,
-        order,
-        search,
-        type,
-        onChangeView,
-        onChangeSort,
-        onChangeOrder,
-        onChangeSearch,
-        onChangeType,
-    };
+  const onChangeSearch = useCallback(
+    (search: string) => {
+      dispatch(articlesPageActions.setSearch(search));
+      dispatch(articlesPageActions.setPage(1));
+      debouncedFetchData();
+    },
+    [dispatch, debouncedFetchData]
+  );
+
+  const onChangeType = useCallback(
+    (value: ArticleType) => {
+      dispatch(articlesPageActions.setType(value));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData]
+  );
+
+  const onChangePublished = useCallback(
+    (checked: boolean) => {
+      dispatch(articlesPageActions.setPublished(checked));
+      dispatch(articlesPageActions.setPage(1));
+
+      fetchData();
+    },
+    [dispatch, fetchData]
+  );
+
+  return {
+    view,
+    sort,
+    order,
+    search,
+    type,
+    isPublished,
+    onChangePublished,
+    onChangeView,
+    onChangeSort,
+    onChangeOrder,
+    onChangeSearch,
+    onChangeType,
+  };
 }

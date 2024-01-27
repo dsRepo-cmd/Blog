@@ -14,6 +14,7 @@ import SearchIcon from "@/shared/assets/icons/search.svg";
 import { BrowserView, MobileView } from "react-device-detect";
 import DownArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
 import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
+import Toggle from "@/shared/ui/redesigned/Toggle/Toggle";
 
 interface ArticlesFiltersProps {
   className?: string;
@@ -21,25 +22,29 @@ interface ArticlesFiltersProps {
   order: SortOrder;
   type: ArticleType;
   search: string;
+  isPublished: boolean;
   onChangeSearch: (value: string) => void;
   onChangeOrder: (newOrder: SortOrder) => void;
   onChangeSort: (newSort: ArticleSortField) => void;
   onChangeType: (type: ArticleType) => void;
+
+  onChangePublished: (value: boolean) => void;
 }
 
 const ArticlesFilters: FC<ArticlesFiltersProps> = ({
   className,
   onChangeType,
   onChangeSearch,
-  search,
   onChangeSort,
-  sort,
   onChangeOrder,
+  onChangePublished,
+  isPublished,
+  search,
+  sort,
   order,
   type,
 }) => {
   const { t } = useTranslation();
-
   const [isOpen, setIsOpen] = useState(false);
 
   const onOpenDrawer = useCallback(() => {
@@ -60,7 +65,7 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
             <Input
               onChange={onChangeSearch}
               value={search}
-              placeholder={t("Поиск")}
+              placeholder={t("Search")}
               addonLeft={<Icon Svg={SearchIcon} />}
             />
             <ArticleTypeTabs
@@ -74,6 +79,11 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
               onChangeOrder={onChangeOrder}
               onChangeSort={onChangeSort}
             />
+            <Toggle
+              defaultChecked={isPublished}
+              label="Published"
+              onChange={onChangePublished}
+            />
           </VStack>
         </Card>
       </BrowserView>
@@ -86,7 +96,7 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
             <Input
               onChange={onChangeSearch}
               value={search}
-              placeholder={t("Поиск")}
+              placeholder={t("Search")}
               addonLeft={<Icon Svg={SearchIcon} />}
             />
             <Icon Svg={DownArrowIcon} clickable onClick={onOpenDrawer} />
@@ -103,6 +113,11 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
                 sort={sort}
                 onChangeOrder={onChangeOrder}
                 onChangeSort={onChangeSort}
+              />
+              <Toggle
+                defaultChecked={isPublished}
+                label="Published"
+                onChange={onChangePublished}
               />
             </VStack>
           </Drawer>

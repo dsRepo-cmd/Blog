@@ -2,6 +2,13 @@
   color: var(--icon);
 }
 
+.normal {
+  color: var(--icon);
+}
+.error {
+  fill: var(--cancel);
+}
+
 .button {
   cursor: pointer;
   fill: var(--icon);
