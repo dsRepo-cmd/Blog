@@ -6,13 +6,13 @@ import { SignUpFormAsync } from "../SignUpForm/SignUpForm.async";
 import { BrowserView, MobileView } from "react-device-detect";
 import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 
-interface SignupModalProps {
+interface SignUpModalProps {
   className?: string;
   isOpen: boolean;
   onClose: () => void;
 }
 
-const SignupModal: React.FC<SignupModalProps> = memo(
+const SignUpModal: React.FC<SignUpModalProps> = memo(
   ({ className, isOpen, onClose }) => {
     return (
       <>
@@ -40,4 +40,4 @@ const SignupModal: React.FC<SignupModalProps> = memo(
   }
 );
 
-export default SignupModal;
+export default SignUpModal;
