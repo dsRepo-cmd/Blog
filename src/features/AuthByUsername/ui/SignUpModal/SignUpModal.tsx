@@ -28,6 +28,7 @@ const SignUpModal: React.FC<SignUpModalProps> = memo(
             </Suspense>
           </Modal>
         </BrowserView>
+
         <MobileView>
           <Drawer isOpen={isOpen} onClose={onClose}>
             <Suspense fallback={<Loader />}>
