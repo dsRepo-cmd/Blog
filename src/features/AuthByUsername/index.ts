@@ -1,7 +1,7 @@
 import { LoginSchema } from "./model/types/loginSchema";
+import LogInModal from "./ui/LogInModal/LogInModal";
 import SignUpModal from "./ui/SignUpModal/SignUpModal";
-import SignInModal from "./ui/SignInModal/SignInModal";
 
-export { SignUpModal, SignInModal };
+export { SignUpModal, LogInModal };
 
 export type { LoginSchema };

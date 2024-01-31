@@ -9,7 +9,7 @@ import { HStack } from "@/shared/ui/redesigned/Stack";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import Button from "@/shared/ui/redesigned/Button/Button";
-import { SignInModal, SignUpModal } from "@/features/AuthByUsername";
+import { LogInModal, SignUpModal } from "@/features/AuthByUsername";
 
 interface NavbarProps {
   className?: string;
@@ -71,7 +71,7 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
       </HStack>
 
       {isSignIn && (
-        <SignInModal isOpen={isSignIn} onClose={onCloseSignInModal} />
+        <LogInModal isOpen={isSignIn} onClose={onCloseSignInModal} />
       )}
       {isSignup && (
         <SignUpModal isOpen={isSignup} onClose={onCloseSignUpModal} />

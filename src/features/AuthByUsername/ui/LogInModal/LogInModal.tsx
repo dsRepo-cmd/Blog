@@ -12,7 +12,7 @@ interface SignInModalProps {
   onClose: () => void;
 }
 
-const SignInModal: React.FC<SignInModalProps> = memo(
+const LogInModal: React.FC<SignInModalProps> = memo(
   ({ className, isOpen, onClose }: SignInModalProps) => {
     return (
       <>
@@ -40,4 +40,4 @@ const SignInModal: React.FC<SignInModalProps> = memo(
     );
   }
 );
-export default SignInModal;
+export default LogInModal;
