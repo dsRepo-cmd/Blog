@@ -9,7 +9,7 @@ import { HStack } from "@/shared/ui/redesigned/Stack";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import Button from "@/shared/ui/redesigned/Button/Button";
-import { SignInModal, SignupModal } from "@/features/AuthByUsername";
+import { SignInModal, SignUpModal } from "@/features/AuthByUsername";
 
 interface NavbarProps {
   className?: string;
@@ -30,11 +30,11 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
     setSignIn(true);
   }, []);
 
-  const onCloseSignupModal = useCallback(() => {
+  const onCloseSignUpModal = useCallback(() => {
     setSignup(false);
   }, []);
 
-  const onShowSignupModal = useCallback(() => {
+  const onShowSignUpModal = useCallback(() => {
     setSignup(true);
   }, []);
 
@@ -57,7 +57,7 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
         <Button
           variant={"filled"}
           className={cls.links}
-          onClick={onShowSignupModal}
+          onClick={onShowSignUpModal}
         >
           {t("Sign up")}
         </Button>
@@ -74,7 +74,7 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
         <SignInModal isOpen={isSignIn} onClose={onCloseSignInModal} />
       )}
       {isSignup && (
-        <SignupModal isOpen={isSignup} onClose={onCloseSignupModal} />
+        <SignUpModal isOpen={isSignup} onClose={onCloseSignUpModal} />
       )}
     </header>
   );
