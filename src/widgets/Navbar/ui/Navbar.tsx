@@ -9,7 +9,7 @@ import { HStack } from "@/shared/ui/redesigned/Stack";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import Button from "@/shared/ui/redesigned/Button/Button";
-import { SignInModal, SignUpModal } from "@/features/AuthByUsername";
+import { SignInModal, SignUpModal } from "@/features/AuthByUsername/index";
 
 interface NavbarProps {
   className?: string;
