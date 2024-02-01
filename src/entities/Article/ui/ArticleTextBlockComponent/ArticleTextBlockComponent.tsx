@@ -20,7 +20,7 @@ const ArticleTextBlockComponent: React.FC<ArticleTextBlockComponentProps> = ({
     <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
       {block.title && <Text title={block.title} className={cls.title} />}
       {block.paragraph && (
-        <Text title={block.paragraph} className={cls.paragraph} />
+        <Text text={block.paragraph} className={cls.paragraph} />
       )}
     </div>
   );

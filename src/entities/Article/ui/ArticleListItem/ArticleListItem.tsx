@@ -75,10 +75,7 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
             alt={article.title}
           />
           {textBlock?.paragraph && (
-            <Text
-              className={cls.textBlock}
-              text={textBlock.paragraph.slice(0, 2)}
-            />
+            <Text className={cls.textBlock} text={textBlock.paragraph} />
           )}
           <HStack max justify="between">
             <AppLink target={target} to={getRouteArticleDetails(article.id)}>
