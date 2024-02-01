@@ -74,10 +74,10 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
             className={cls.img}
             alt={article.title}
           />
-          {textBlock?.paragraphs && (
+          {textBlock?.paragraph && (
             <Text
               className={cls.textBlock}
-              text={textBlock.paragraphs.slice(0, 2).join(" ")}
+              text={textBlock.paragraph.slice(0, 2)}
             />
           )}
           <HStack max justify="between">

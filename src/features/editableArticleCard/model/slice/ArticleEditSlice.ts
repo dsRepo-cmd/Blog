@@ -1,9 +1,7 @@
 import {
   ArticleBlock,
-  ArticleBlockType,
   ArticleEdit,
   ArticleEditSchema,
-  ArticleTextBlock,
 } from "@/entities/Article";
 import { Draft, PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { fetchArticleEditData } from "../services/fetchArticleEditData";
@@ -14,6 +12,7 @@ const initialState: ArticleEditSchema = {
   isLoading: false,
   error: undefined,
   data: undefined,
+  formdata: undefined,
 };
 
 export const articleEditSlice = createSlice({
@@ -49,85 +48,27 @@ export const articleEditSlice = createSlice({
         );
     },
 
-    addParagraph: (
-      state,
-      action: PayloadAction<{ id: string; paragraph: string }>
-    ) => {
-      const { id, paragraph } = action.payload;
-
-      if (state.formdata?.blocks) {
-        const blockIndex = state.formdata?.blocks.findIndex(
-          (block) => block.id === id
-        );
-
-        if (blockIndex !== undefined && blockIndex !== -1) {
-          const existingBlock = state.formdata?.blocks[blockIndex];
-
-          if (existingBlock?.type === ArticleBlockType.TEXT) {
-            const updatedParagraphs = [
-              ...(existingBlock.paragraphs || []),
-              paragraph,
-            ];
-
-            state.formdata.blocks[blockIndex] = {
-              ...(existingBlock as Draft<ArticleTextBlock>),
-              paragraphs: updatedParagraphs,
-            } as Draft<ArticleTextBlock>;
-          }
-        }
-      }
-    },
-
-    removeParagraph: (
-      state,
-      action: PayloadAction<{ id: string; paragraphIndex: number }>
-    ) => {
-      const { id, paragraphIndex } = action.payload;
-
-      if (state.formdata?.blocks) {
-        const blockIndex = state.formdata?.blocks.findIndex(
-          (block) => block.id === id
-        );
-
-        if (blockIndex !== undefined && blockIndex !== -1) {
-          const existingBlock = state.formdata?.blocks[blockIndex];
-
-          if (existingBlock?.type === ArticleBlockType.TEXT) {
-            const updatedParagraphs = [...(existingBlock.paragraphs || [])];
-            updatedParagraphs.splice(paragraphIndex, 1);
-
-            state.formdata.blocks[blockIndex] = {
-              ...(existingBlock as Draft<ArticleTextBlock>),
-              paragraphs: updatedParagraphs,
-            } as Draft<ArticleTextBlock>;
-          }
-        }
-      }
-    },
-
     updateArticleEditBlock: (
       state,
       action: PayloadAction<{
         id: string;
         updatedBlock: Partial<ArticleBlock>;
-        paragraphIndex?: number;
       }>
     ) => {
       const { id, updatedBlock } = action.payload;
 
       if (state.formdata?.blocks) {
-        const blockIndex = state.formdata.blocks.findIndex(
-          (block) => block.id === id
-        );
+        const updatedBlocks = state.formdata.blocks.map((block) => {
+          if (block.id === id) {
+            return {
+              ...(block as Draft<ArticleBlock>),
+              ...updatedBlock,
+            } as Draft<ArticleBlock>;
+          }
+          return block;
+        });
 
-        if (blockIndex !== undefined && blockIndex !== -1) {
-          const existingBlock = state.formdata.blocks[blockIndex];
-
-          state.formdata.blocks[blockIndex] = {
-            ...(existingBlock as Draft<ArticleBlock>),
-            ...updatedBlock,
-          } as Draft<ArticleBlock>;
-        }
+        state.formdata.blocks = updatedBlocks;
       }
     },
   },
