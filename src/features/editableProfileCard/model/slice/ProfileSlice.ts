@@ -29,6 +29,10 @@ export const profileSlice = createSlice({
       state.form = {
         ...state.form,
         ...action.payload,
+        user: {
+          ...state.form?.user,
+          ...action.payload.user,
+        },
       };
     },
   },

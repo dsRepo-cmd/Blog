@@ -26,7 +26,6 @@ interface EditableProfileCardProps {
 
 const reducers: ReducerList = {
   profile: profileReducer,
- 
 };
 
 export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
@@ -59,13 +58,6 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
     [dispatch]
   );
 
-  const onChangeCity = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ user: { email: value || "" } }));
-    },
-    [dispatch]
-  );
-
   const onChangeAge = useCallback(
     (value?: string) => {
       dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
@@ -73,10 +65,23 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
     [dispatch]
   );
 
+  const onChangeEmail = useCallback(
+    (value?: string) => {
+      dispatch(
+        profileActions.updateProfile({
+          user: { email: value || "" },
+        })
+      );
+    },
+    [dispatch]
+  );
+
   const onChangeUsername = useCallback(
     (value?: string) => {
       dispatch(
-        profileActions.updateProfile({ user: { username: value || "" } })
+        profileActions.updateProfile({
+          user: { username: value || "" },
+        })
       );
     },
     [dispatch]
@@ -84,7 +89,11 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
 
   const onChangeAvatar = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ user: { avatar: value || "" } }));
+      dispatch(
+        profileActions.updateProfile({
+          user: { avatar: value || "" },
+        })
+      );
     },
     [dispatch]
   );
@@ -115,7 +124,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ({
           onChangeFirstname={onChangeFirstname}
           onChangeLastname={onChangeLastname}
           onChangeAge={onChangeAge}
-          onChangeEmail={onChangeCity}
+          onChangeEmail={onChangeEmail}
           onChangeUsername={onChangeUsername}
           onChangeAvatar={onChangeAvatar}
           onChangeCurrency={onChangeCurrency}
