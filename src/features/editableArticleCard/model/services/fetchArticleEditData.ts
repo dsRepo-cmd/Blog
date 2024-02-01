@@ -11,19 +11,17 @@ export const fetchArticleEditData = createAsyncThunk<
   const { extra, rejectWithValue } = thunkApi;
 
   try {
-    const response = await extra.api.get<ArticleEdit>(
-      `/article/${articleId}`,
-      {
-        params: {
-          _expand: "user",
-        },
-      }
-    );
+    const response = await extra.api.get<ArticleEdit>(`/article/${articleId}`, {
+      params: {
+        _expand: "user",
+      },
+    });
 
     if (!response.data) {
       throw new Error();
     }
 
+    console.log("fetchArticleEditData====", response.data);
     return response.data;
   } catch (e) {
     console.log(e);

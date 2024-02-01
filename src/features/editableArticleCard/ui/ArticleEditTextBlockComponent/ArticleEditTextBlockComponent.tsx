@@ -11,7 +11,6 @@ import Input from "@/shared/ui/redesigned/Input/Input";
 
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import DeleteIcon from "@/shared/assets/icons/delete.svg";
-import AddParagraphIcon from "@/shared/assets/icons/add-document.svg";
 
 interface ArticleEditTextBlockComponentProps {
   className?: string;
@@ -37,41 +36,11 @@ const ArticleEditTextBlockComponent: React.FC<
   );
 
   const onChangeParagraph = useCallback(
-    (paragraph: string, index: number) => {
-      const updatedParagraphs = [...(block?.paragraphs || [])];
-      updatedParagraphs[index] = paragraph;
-
+    (value: string) => {
       dispatch(
         articleEditActions.updateArticleEditBlock({
           id: block?.id!,
-          updatedBlock: {
-            paragraphs: updatedParagraphs,
-            paragraphIndex: index,
-          },
-        })
-      );
-    },
-    [dispatch, block]
-  );
-
-  const onRemoveParagraph = useCallback(
-    (index: number) => {
-      dispatch(
-        articleEditActions.removeParagraph({
-          id: block?.id!,
-          paragraphIndex: index,
-        })
-      );
-    },
-    [dispatch, block]
-  );
-
-  const onAddParagraph = useCallback(
-    (paragraph: string) => {
-      dispatch(
-        articleEditActions.addParagraph({
-          id: block?.id!,
-          paragraph,
+          updatedBlock: { paragraph: value },
         })
       );
     },
@@ -106,18 +75,14 @@ const ArticleEditTextBlockComponent: React.FC<
         value={block?.title}
       />
 
-      {block?.paragraphs.map((paragraph, index) => (
-        <VStack max gap="12" key={index}>
-          <TextArea
-            placeholder={t("Text of the paragraph")}
-            onChange={(paragraph) => onChangeParagraph(paragraph, index)}
-            cols={150}
-            rows={5}
-            value={paragraph}
-            onDelete={() => onRemoveParagraph(index)}
-          />
-        </VStack>
-      ))}
+      <TextArea
+        placeholder={t("Text of the paragraph")}
+        onChange={onChangeParagraph}
+        cols={150}
+        rows={5}
+        value={block?.paragraph}
+      />
+
       <HStack gap="12">
         <Icon
           className={cls.iconRemoveBlock}
@@ -126,14 +91,6 @@ const ArticleEditTextBlockComponent: React.FC<
           height={20}
           clickable
           onClick={onRemoveBlock}
-        />
-        <Icon
-          className={cls.paragraphIcon}
-          Svg={AddParagraphIcon}
-          onClick={() => onAddParagraph("")}
-          width={20}
-          height={20}
-          clickable
         />
       </HStack>
     </VStack>

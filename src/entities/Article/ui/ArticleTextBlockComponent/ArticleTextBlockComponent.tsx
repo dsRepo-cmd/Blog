@@ -19,9 +19,9 @@ const ArticleTextBlockComponent: React.FC<ArticleTextBlockComponentProps> = ({
   return (
     <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
       {block.title && <Text title={block.title} className={cls.title} />}
-      {block.paragraphs.map((paragraph, index) => (
-        <Text key={paragraph} text={paragraph} className={cls.paragraph} />
-      ))}
+      {block.paragraph && (
+        <Text text={block.paragraph} className={cls.paragraph} />
+      )}
     </div>
   );
 };

@@ -50,7 +50,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       articleEditActions.addBlock({
         id: Date.now().toString(),
         type: ArticleBlockType.TEXT,
-        paragraphs: [""],
+        paragraph: "",
         title: "",
       })
     );
@@ -78,7 +78,9 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
     );
     setTimeout(() => scrollToBottom(), 300);
   }, [dispatch]);
+
   //===========
+
   const onUpdate = useCallback(() => {
     dispatch(updateArticleEditData());
   }, [dispatch]);

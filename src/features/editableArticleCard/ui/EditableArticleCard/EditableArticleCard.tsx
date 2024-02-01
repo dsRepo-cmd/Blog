@@ -161,6 +161,8 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
     );
   }
 
+  console.log("formData==", formData);
+
   return (
     <DynamicModuleLoader reducers={reducers}>
       <VStack
@@ -221,7 +223,7 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
           />
         )}
 
-        {formData?.blocks && formData?.blocks.map(renderArticleBlock)}
+        {formData && formData.blocks && formData.blocks.map(renderArticleBlock)}
       </VStack>
     </DynamicModuleLoader>
   );
