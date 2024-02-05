@@ -6,7 +6,6 @@
   "scripts": {
     "start": "webpack serve --env port=3000",
     "vite": "vite",
-    "server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production apiUrl=https://json-server-product-one.vercel.app",
     "build:dev": "webpack --env mode=development",
     "unit": "jest --config ./config/jest/jest.config.ts",
@@ -20,7 +19,7 @@
     "remove-feature": "ts-node ./scripts/remove-feature.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "DS",
   "license": "ISC",
   "dependencies": {
     "@headlessui/react": "^1.7.17",
@@ -83,7 +82,6 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-html-reporters": "^3.1.5",
-    "json-server": "^0.17.4",
     "mini-css-extract-plugin": "^2.7.6",
     "react-refresh": "^0.14.0",
     "sass": "^1.69.5",

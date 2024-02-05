@@ -4,7 +4,12 @@ import { signInByEmail } from "./signInByEmail";
 
 describe("signInByEmail.test", () => {
   test("success login", async () => {
-    const userValue = { email: "123", id: "1", avatar: "", username: "admin" };
+    const userValue = {
+      email: "admin@mail.com",
+      id: "1",
+      avatar: "",
+      username: "admin",
+    };
 
     const thunk = new TestAsyncThunk(signInByEmail);
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
