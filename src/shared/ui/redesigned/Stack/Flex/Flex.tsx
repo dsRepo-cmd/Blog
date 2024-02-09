@@ -50,6 +50,7 @@ export interface FlexProps extends DivProps {
   gap?: FlexGap;
   max?: boolean;
   wrap?: FlexWrap;
+  maxHeight?: boolean;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -62,6 +63,7 @@ export const Flex = (props: FlexProps) => {
     wrap = "nowrap",
     gap,
     max,
+    maxHeight,
   } = props;
 
   const classes = [
@@ -75,6 +77,7 @@ export const Flex = (props: FlexProps) => {
 
   const mods: Mods = {
     [cls.max]: max,
+    [cls.maxHeight]: maxHeight,
   };
 
   return <div className={classNames(cls.Flex, mods, classes)}>{children}</div>;

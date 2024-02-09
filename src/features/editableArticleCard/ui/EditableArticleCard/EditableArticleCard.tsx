@@ -169,10 +169,6 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
         gap={"8"}
         className={classNames(cls.EditableArticleCard, {}, [className])}
       >
-        <EditableArticlePanel
-          className={classNames(cls.panel, {}, [className])}
-        />
-
         <Input
           value={formData?.title}
           label={t("Header")}
@@ -224,6 +220,9 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
         )}
 
         {formData && formData.blocks && formData.blocks.map(renderArticleBlock)}
+        <EditableArticlePanel
+          className={classNames(cls.panel, {}, [className])}
+        />
       </VStack>
     </DynamicModuleLoader>
   );

@@ -124,6 +124,7 @@ const ConfirmForm: React.FC<ConfirmFormProps> = memo(
           />
         )}
         <Button
+          variant={"filled"}
           className={cls.confirmBtn}
           onClick={onConfirmClick}
           disabled={isLoading}

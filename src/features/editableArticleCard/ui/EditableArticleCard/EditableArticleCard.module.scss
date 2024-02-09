@@ -1,24 +1,21 @@
 .EditableArticleCard {
+  margin-bottom: 40px;
   position: relative;
-  margin-bottom: 30px;
 }
 
 .ArticleEditTextBlockComponent {
-  position: relative;
   background-color: var(--dark-bg);
   padding: 12px;
   border-radius: var(--border-radius-xl);
   border: 1px solid var(--icon);
 }
 .ArticleEditImageBlockComponent {
-  position: relative;
   background-color: var(--dark-bg);
   padding: 12px;
   border-radius: var(--border-radius-xl);
   border: 1px solid var(--icon);
 }
 .ArticleEditCodeBlockComponent {
-  position: relative;
   background-color: var(--dark-bg);
   padding: 12px;
   border-radius: var(--border-radius-xl);
@@ -57,6 +54,19 @@
   max-width: 500px;
 }
 
+.panel {
+  position: fixed;
+
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(50%);
+
+  z-index: var(--overlay-z-index);
+  background-color: var(--dark-bg);
+  border-radius: var(--border-radius-xl);
+  border: 1px solid var(--icon);
+}
+
 .panelIcon {
   align-self: center;
   justify-self: center;
@@ -68,34 +78,21 @@
   opacity: 0.5;
 }
 
-.panel {
-  align-self: self-end;
-  z-index: var(--overlay-z-index);
-  background-color: var(--dark-bg);
-  border-radius: var(--border-radius-xl);
-}
 .panelIcon:hover {
   align-self: center;
   justify-self: center;
   opacity: 1;
 }
 
-@media screen and (min-width: 320px) and (max-device-width: 480px) {
+@media screen and (min-width: 320px) and (max-device-width: 600px) {
   .img {
     max-width: 100%;
   }
   .panel {
-    position: fixed;
-    right: 80px;
-
-    bottom: 10px;
   }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 600px) {
   .panel {
-    position: fixed;
-    bottom: 4px;
-    right: 50px;
   }
 }
