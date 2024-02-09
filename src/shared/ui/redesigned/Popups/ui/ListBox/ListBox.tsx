@@ -55,11 +55,7 @@ function ListBox<T extends string>({
         onChange={onChange}
       >
         <HListBox.Button as="div" className={cls.trigger}>
-          <Button
-            variant="filled"
-            disabled={readonly}
-            addonRight={<Icon Svg={ArrowIcon} />}
-          >
+          <Button disabled={readonly} addonRight={<Icon Svg={ArrowIcon} />}>
             {selectedItem?.content ?? defaultValue}
           </Button>
         </HListBox.Button>

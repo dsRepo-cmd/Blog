@@ -84,8 +84,8 @@ const SignInForm: React.FC<SignInFormProps> = memo(
     );
 
     const loginForm = (
-      <VStack gap="16" className={classNames(cls.SignInForm, {}, [className])}>
-        <Text title={t("Sign in form")} />
+      <VStack gap="24" className={classNames(cls.SignInForm, {}, [className])}>
+        <Text title={t("SIGN IN")} />
 
         <Input
           name={"email"}
@@ -115,6 +115,7 @@ const SignInForm: React.FC<SignInFormProps> = memo(
           }
         />
         <Button
+          variant={"filled"}
           className={cls.loginBtn}
           onClick={onLoginClick}
           disabled={isLoading}
