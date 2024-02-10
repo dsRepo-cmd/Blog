@@ -18,7 +18,7 @@ interface SideBarProps {
 }
 
 const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   const sideBarItemList = useSelector(getSidebarItems);
 

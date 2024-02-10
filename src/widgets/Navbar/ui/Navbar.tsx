@@ -38,11 +38,9 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
     setSignup(true);
   }, []);
 
-  const mainClass = cls.NavbarRedesigned;
-
   if (authData) {
     return (
-      <header className={classNames(mainClass, {}, [className])}>
+      <header className={classNames(cls.Navbar, {}, [className])}>
         <HStack gap="16" className={cls.actions}>
           <NotificationButton />
           <AvatarDropdown />
@@ -52,7 +50,7 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
   }
 
   return (
-    <header className={classNames(mainClass, {}, [className])}>
+    <header className={classNames(cls.Navbar, {}, [className])}>
       <HStack gap="12">
         <Button
           variant={"filled"}

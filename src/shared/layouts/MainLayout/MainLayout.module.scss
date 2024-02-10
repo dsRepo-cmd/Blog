@@ -39,18 +39,14 @@
 }
 
 .MainLayoutMobile {
-  min-height: 100svh;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.99;
 
-  .sidebar {
-    padding: 12px;
-  }
-
-  .content {
-    justify-self: center;
-    width: 100%;
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .rightbar {
@@ -59,11 +55,8 @@
     align-items: flex-end;
   }
 
-  .rightbar,
-  .sidebar {
-    position: sticky;
-    top: 0;
-    height: 100svh;
+  .contentWrapper {
+    padding: 12px;
   }
 
   .toolbar {
@@ -72,11 +65,6 @@
   }
 
   .header {
-    width: 100%;
+    z-index: 1;
   }
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }

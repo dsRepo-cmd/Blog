@@ -7,33 +7,14 @@ import Text from "@/shared/ui/redesigned/Text/Text";
 import AppImage from "@/shared/ui/redesigned/AppImage/AppImage";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import Card from "@/shared/ui/redesigned/Card/Card";
 
 interface MainPageProps {
   className?: string;
 }
 
 const MainPage: React.FC<MainPageProps> = ({ className }) => {
-  const { t } = useTranslation();
-
-  const [containerWidth, setContainerWidth] = useState(0);
-
-  useEffect(() => {
-    const updateContainerWidth = () => {
-      const container = document.getElementById("main-page-container");
-      if (container) {
-        setContainerWidth(container.offsetWidth);
-      }
-    };
-
-    window.addEventListener("resize", updateContainerWidth);
-    updateContainerWidth(); // Initial width calculation
-
-    return () => {
-      window.removeEventListener("resize", updateContainerWidth);
-    };
-  }, []);
-
-  const aspectRatioHeight = Math.floor((containerWidth / 16) * 9);
+  const { t } = useTranslation("main");
 
   return (
     <Page
@@ -41,18 +22,24 @@ const MainPage: React.FC<MainPageProps> = ({ className }) => {
       data-testid="MainPage"
       className={classNames(cls.MainPage, {}, [className])}
     >
-      <VStack gap={"24"} align={"center"}>
-        <Text title={t("Main Page")} />
+      <Card className={classNames(cls.card, {}, [className])}>
+        <VStack gap="24" padding="24" align="center" justify="center">
+          <Text size="l" bold title={t("Welcome To Blog!")} />
+          <Text
+            size="m"
+            bold
+            text={t(
+              "Here you'll find captivating articles, interesting ideas, and helpful tips. Dive into the world of knowledge with us!"
+            )}
+          />
+        </VStack>
+      </Card>
 
-        <AppImage
-          fallback={<Skeleton width={"100%"} height={aspectRatioHeight} />}
-          className={classNames(cls.image, {}, [className])}
-          src="https://picsum.photos/1920/1080?random=1"
-        />
-        <Text text="Pellentesque elementum tempus justo, vel fermentum risus eleifend vel. Suspendisse bibendum eros eget erat venenatis pulvinar id ac eros. Etiam viverra euismod varius. Praesent velit ex, mollis et ullamcorper in, dapibus eget leo. Aliquam imperdiet semper orci, sit amet aliquam ex efficitur a. Duis sed maximus libero. Integer neque odio, facilisis non pharetra et, egestas id enim. Nunc tincidunt scelerisque tortor, eu rutrum dolor. Integer id molestie dolor. Integer a fermentum risus, vitae ornare ex. Etiam ac justo vitae dolor vestibulum efficitur ut sed elit. Proin at rhoncus lacus, id porta elit. Aenean a consectetur tellus, id suscipit tellus." />
-        <Text text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ea, tempore fugiat vero quaerat soluta dolorum error? Asperiores pariatur molestias iste, doloribus voluptas odio saepe delectus, consectetur, atque explicabo nobis" />
-        <Text text="Donec volutpat, massa pulvinar aliquam interdum, elit diam luctus mi, ac dictum ipsum tellus malesuada augue. Proin a pretium justo. Pellentesque bibendum enim sit amet aliquet tempus. Aliquam ac velit erat. Nulla tincidunt justo quis mi dapibus ullamcorper eu non ex. Morbi egestas mi quis purus lobortis, ac faucibus ante commodo. Integer pulvinar condimentum molestie. Donec suscipit, enim eget suscipit finibus, leo justo tempor nibh, ac blandit arcu nibh et turpis. Sed sit amet libero et ex malesuada consectetur eu et massa. Pellentesque rhoncus, metus at sodales aliquam, ex nisl venenatis dui, a convallis erat massa nec purus. Mauris laoreet lectus libero, ac vehicula ligula hendrerit sit amet. Curabitur interdum dui sed lorem consequat convallis. Sed suscipit, leo id imperdiet posuere, velit eros eleifend elit, eget faucibus quam lacus et massa." />
-      </VStack>
+      <AppImage
+        fallback={<Skeleton width={"100%"} height={"100%"} />}
+        className={classNames(cls.image, {}, [className])}
+        src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      />
     </Page>
   );
 };
