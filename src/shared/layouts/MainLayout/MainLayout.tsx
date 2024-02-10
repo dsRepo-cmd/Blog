@@ -33,13 +33,15 @@ const MainLayout: React.FC<MainLayoutProps> = ({
       </BrowserView>
 
       <MobileOnlyView>
-        <div className={cls.navbar}>
-          <div className={cls.sidebar}>{sidebar}</div>
-          <div className={cls.header}>{header}</div>
-        </div>
         <div className={classNames(cls.MainLayoutMobile, {}, [className])}>
-          <div className={cls.content}>{content}</div>
-          <div className={cls.toolbar}>{toolbar}</div>
+          <div className={cls.navbar}>
+            <div className={cls.sidebar}>{sidebar}</div>
+            <div className={cls.header}>{header}</div>
+          </div>
+          <div className={cls.contentWrapper}>
+            <div className={cls.content}>{content}</div>
+            <div className={cls.toolbar}>{toolbar}</div>
+          </div>
         </div>
       </MobileOnlyView>
     </>

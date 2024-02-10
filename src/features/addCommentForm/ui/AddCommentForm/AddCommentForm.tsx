@@ -16,10 +16,10 @@ import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { HStack } from "@/shared/ui/redesigned/Stack";
-import Button from "@/shared/ui/redesigned/Button/Button";
-
+import SendIcon from "@/shared/assets/icons/paper-plane.svg";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import Card from "@/shared/ui/redesigned/Card/Card";
+import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 
 interface AddCommentFormProps {
   className?: string;
@@ -63,14 +63,18 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
         >
           <Input
             className={cls.input}
-            placeholder={t("Enter comment text")}
+            placeholder={t("Write comment...")}
             value={text}
             data-testid="AddCommentForm.Input"
             onChange={onCommentTextChange}
           />
-          <Button data-testid="AddCommentForm.Button" onClick={onSendHandler}>
-            {t("Send")}
-          </Button>
+
+          <Icon
+            data-testid="AddCommentForm.Button"
+            clickable
+            onClick={onSendHandler}
+            Svg={SendIcon}
+          />
         </HStack>
       </Card>
     </DynamicModuleLoader>

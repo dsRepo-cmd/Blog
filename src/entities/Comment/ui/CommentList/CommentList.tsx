@@ -45,7 +45,7 @@ const CommentList: React.FC<CommentListProps> = ({
           />
         ))
       ) : (
-        <Text text={t("No commentsт")} />
+        <Text text={t("No comments")} />
       )}
     </VStack>
   );
