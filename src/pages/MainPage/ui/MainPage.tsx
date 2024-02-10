@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./MainPage.module.scss";
 import { useTranslation } from "react-i18next";
@@ -24,19 +24,22 @@ const MainPage: React.FC<MainPageProps> = ({ className }) => {
     >
       <Card className={classNames(cls.card, {}, [className])}>
         <VStack gap="24" padding="24" align="center" justify="center">
-          <Text size="l" bold title={t("Welcome To Blog!")} />
+          <Text align="center" size="l" bold title={t("Welcome To Blog")} />
           <Text
+            align="center"
             size="m"
             bold
             text={t(
-              "Here you'll find captivating articles, interesting ideas, and helpful tips. Dive into the world of knowledge with us!"
+              "Here you'll find captivating articles, interesting ideas, and helpful tips. Dive into the world of knowledge with us."
             )}
           />
         </VStack>
       </Card>
 
       <AppImage
-        fallback={<Skeleton width={"100%"} height={"100%"} />}
+        fallback={
+          <Skeleton className={classNames(cls.image, {}, [className])} />
+        }
         className={classNames(cls.image, {}, [className])}
         src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       />
