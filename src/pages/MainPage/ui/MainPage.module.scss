@@ -2,7 +2,7 @@
   color: var(--primary-color);
 }
 .image {
-  border-radius: 12px;
+  border-radius: var(--border-radius-xl);
   object-fit: cover;
   width: 100%;
 }

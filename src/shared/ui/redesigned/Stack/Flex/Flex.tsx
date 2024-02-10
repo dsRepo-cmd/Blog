@@ -7,6 +7,15 @@ export type FlexAlign = "start" | "center" | "end" | "stretch";
 export type FlexDirection = "row" | "column";
 export type FlexGap = "4" | "8" | "12" | "16" | "24" | "32";
 export type FlexWrap = "nowrap" | "wrap";
+export type FlexPadding = "0" | "8" | "12" | "16" | "24";
+
+const mapPaddingToClass: Record<FlexPadding, string> = {
+  "0": "padding_0",
+  "8": "padding_8",
+  "12": "padding_12",
+  "16": "padding_16",
+  "24": "padding_24",
+};
 
 const justifyClasses: Record<FlexJustify, string> = {
   start: cls.justifyStart,
@@ -51,6 +60,7 @@ export interface FlexProps extends DivProps {
   max?: boolean;
   wrap?: FlexWrap;
   maxHeight?: boolean;
+  padding?: FlexPadding;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -61,10 +71,13 @@ export const Flex = (props: FlexProps) => {
     align = "center",
     direction = "row",
     wrap = "nowrap",
+    padding = "0",
     gap,
     max,
     maxHeight,
   } = props;
+
+  const paddingClass = mapPaddingToClass[padding];
 
   const classes = [
     className,
@@ -73,6 +86,7 @@ export const Flex = (props: FlexProps) => {
     directionClasses[direction],
     gap && gapClasses[gap],
     cls[wrap],
+    cls[paddingClass],
   ];
 
   const mods: Mods = {

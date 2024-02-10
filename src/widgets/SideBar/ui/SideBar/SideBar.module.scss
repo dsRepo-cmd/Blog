@@ -5,7 +5,7 @@
     background: var(--light-bg);
     width: 220px;
     height: 100%;
-    border-radius: 32px;
+    border-radius: var(--border-radius-xl);
     position: relative;
     transition: all 0.3s;
 

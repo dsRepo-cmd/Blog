@@ -20,7 +20,7 @@
 .focused {
   background-color: var(--dark-bg);
   border: 1px solid var(--accent);
-  border-radius: 12px;
+  border-radius: var(--border-radius-xl);
   .addonLeft svg,
   .addonRight svg {
     color: var(--accent);
