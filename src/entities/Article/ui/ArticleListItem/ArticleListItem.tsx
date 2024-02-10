@@ -4,7 +4,6 @@ import { ArticleBlockType, ArticleView } from "../../model/consts/consts";
 import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-
 import Text from "@/shared/ui/redesigned/Text/Text";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import EyeIcon from "@/shared/assets/icons/eye-r.svg";
@@ -13,7 +12,6 @@ import AppImage from "@/shared/ui/redesigned/AppImage/AppImage";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import { getRouteArticleDetails } from "@/shared/const/router";
 import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
-import Button from "@/shared/ui/redesigned/Button/Button";
 import Card from "@/shared/ui/redesigned/Card/Card";
 import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
 import { getParticalformatDate } from "@/shared/lib/features/lib/getCurrentDate";
@@ -41,11 +39,13 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
   );
 
   const views = (
-    <HStack gap="8">
-      <Icon Svg={EyeIcon} />
+    <HStack align={"center"} gap="8">
+      <Icon width={24} Svg={EyeIcon} />
       <Text text={String(article.views)} className={cls.views} />
     </HStack>
   );
+
+  //For list
 
   if (view === ArticleView.LIST) {
     const textBlock = article.blocks.find(
@@ -54,18 +54,16 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
 
     return (
       <Card
-        padding="24"
+        padding="0"
         max
         data-testid="ArticleListItem"
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
       >
-        <VStack max gap="16">
-          <HStack justify={"between"} gap="8" max>
-            {userInfo}
-            <Text text={getParticalformatDate(article.createdAt)} />
-          </HStack>
-          <Text title={article.title} bold />
-          <Text title={article.subtitle} size="s" />
+        <AppLink
+          className={cls.img}
+          target={target}
+          to={getRouteArticleDetails(article.id)}
+        >
           <AppImage
             fallback={
               <Skeleton className={cls.img} width="100%" height={250} />
@@ -74,13 +72,21 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
             className={cls.img}
             alt={article.title}
           />
+        </AppLink>
+
+        <VStack padding="16" max gap="16">
+          <HStack justify={"between"} gap="8" max>
+            {userInfo}
+            <Text text={getParticalformatDate(article.createdAt)} />
+          </HStack>
+
+          <Text title={article.title} bold />
+          <Text title={article.subtitle} size="s" />
+
           {textBlock?.paragraph && (
             <Text className={cls.textBlock} text={textBlock.paragraph} />
           )}
-          <HStack max justify="between">
-            <AppLink target={target} to={getRouteArticleDetails(article.id)}>
-              <Button variant="outline">{t("Read more...")}</Button>
-            </AppLink>
+          <HStack max align={"end"} justify={"end"}>
             {views}
           </HStack>
         </VStack>
@@ -88,35 +94,43 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
     );
   }
 
+  //For details
+
   return (
-    <AppLink
-      data-testid="ArticleListItem"
-      target={target}
-      to={getRouteArticleDetails(article.id)}
+    <Card
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+      border={"partial"}
+      padding={"0"}
     >
-      <Card className={cls.card} border={"partial"} padding={"0"}>
+      <AppLink
+        data-testid="ArticleListItem"
+        target={target}
+        to={getRouteArticleDetails(article.id)}
+      >
         <AppImage
           fallback={<Skeleton width={"100%"} height={200} />}
           alt={article.title}
           src={article.img}
           className={cls.img}
         />
-        <VStack className={cls.info} gap="4">
-          <Text title={article.title} className={cls.title} />
-          <VStack gap="4" className={cls.footer} max>
-            <HStack justify="between" max>
-              <Text
-                text={getParticalformatDate(article.createdAt)}
-                className={cls.date}
-              />
-              {views}
-            </HStack>
-            <HStack gap="4">{userInfo}</HStack>
-          </VStack>
+      </AppLink>
+
+      <VStack maxHeight padding="12" className={cls.info} gap="4">
+        <Text title={article.title} className={cls.title} />
+
+        <HStack justify="between" max>
+          <HStack gap="4">{userInfo}</HStack>
+          <Text
+            text={getParticalformatDate(article.createdAt)}
+            className={cls.date}
+          />
+        </HStack>
+
+        <VStack gap="4" className={cls.footer} max>
+          {views}
         </VStack>
-      </Card>
-    </AppLink>
+      </VStack>
+    </Card>
   );
 };
 

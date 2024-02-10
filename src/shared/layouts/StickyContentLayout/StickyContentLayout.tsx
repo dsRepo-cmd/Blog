@@ -21,7 +21,9 @@ const StickyContentLayout: FC<StickyContentLayoutProps> = ({
       <BrowserView>
         <div className={classNames(cls.StickyContentLayout, {}, [className])}>
           {left && <div className={cls.left}>{left}</div>}
-          <div className={cls.content}>{content}</div>
+          <div className={classNames(cls.content, {}, [className])}>
+            {content}
+          </div>
           {right && <div className={cls.right}>{right}</div>}
         </div>
       </BrowserView>
@@ -30,7 +32,9 @@ const StickyContentLayout: FC<StickyContentLayoutProps> = ({
           className={classNames(cls.StickyContentLayoutMobile, {}, [className])}
         >
           {right && <div className={cls.right}>{right}</div>}
-          <div className={cls.content}>{content}</div>
+          <div className={classNames(cls.content, {}, [className])}>
+            {content}
+          </div>
         </div>
       </MobileOnlyView>
     </>

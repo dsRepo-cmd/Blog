@@ -2,7 +2,7 @@
   background: var(--dark-bg);
   position: absolute;
   z-index: var(--modal-z-index);
-  border-radius: 8px;
+  border-radius: var(--border-radius-xl);
   padding: 15px;
   border: 1px solid var(--accent);
 }

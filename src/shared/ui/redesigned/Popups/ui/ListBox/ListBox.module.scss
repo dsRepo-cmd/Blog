@@ -10,7 +10,7 @@
   background: var(--dark-bg);
   position: absolute;
   z-index: var(--modal-z-index);
-  border-radius: 12px;
+  border-radius: var(--border-radius-xl);
   box-shadow: 4px 4px 8px var(--dark-bg);
   cursor: pointer;
 }
