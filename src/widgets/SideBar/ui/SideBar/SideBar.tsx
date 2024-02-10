@@ -5,7 +5,7 @@ import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import SideBarItem from "./SideBarItem/SideBarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selector/getSideBarItems";
-import LangSwitcher from "../../../../features/langSwitcher/LangSwitcher";
+import LangSwitcher from "../../../../features/LangSwitcher/LangSwitcher";
 import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
 import { BrowserView, MobileView } from "react-device-detect";
 import AppLogo from "@/shared/ui/redesigned/AppLogo/AppLogo";
