@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
-import { HStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
 import Button from "@/shared/ui/redesigned/Button/Button";
@@ -41,7 +41,7 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <HStack gap="16" className={cls.actions}>
+        <HStack padding="16" gap="16" className={cls.wrapper}>
           <NotificationButton />
           <AvatarDropdown />
         </HStack>
@@ -51,16 +51,16 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
 
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
-      <HStack gap="12">
+      <HStack padding="16" gap="16" className={cls.wrapper}>
         <Button
-          variant={"filled"}
+          variant={"clear"}
           className={cls.links}
           onClick={onShowSignUpModal}
         >
           {t("Sign up")}
         </Button>
         <Button
-          variant={"outline"}
+          variant={"clear"}
           className={cls.links}
           onClick={onShowSignInModal}
         >
