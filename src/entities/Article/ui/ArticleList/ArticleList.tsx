@@ -27,11 +27,13 @@ const getSkeletons = (view: ArticleView) =>
 const ArticleList: React.FC<ArticleListProps> = ({
   className,
   articles,
-  isLoading,
+  // isLoading,
   view = ArticleView.DETAILS,
   target,
 }) => {
   const { t } = useTranslation("article");
+
+  const isLoading = true;
 
   if (!isLoading && !articles.length) {
     return (
