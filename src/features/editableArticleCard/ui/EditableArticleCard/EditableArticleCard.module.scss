@@ -58,8 +58,6 @@
   position: fixed;
 
   bottom: 10px;
-  left: 50%;
-  transform: translateX(50%);
 
   z-index: var(--overlay-z-index);
   background-color: var(--dark-bg);
@@ -89,10 +87,12 @@
     max-width: 100%;
   }
   .panel {
+    left: 12px;
   }
 }
 
 @media screen and (min-width: 600px) {
   .panel {
+    transform: translateX(50%);
   }
 }

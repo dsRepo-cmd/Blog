@@ -1,7 +1,7 @@
 import React, { FC, memo } from "react";
 
 import cls from "./Icon.module.scss";
-import { classNames } from "@/shared/lib/classNames";
+import { Mods, classNames } from "@/shared/lib/classNames";
 
 type SvgProps = Omit<React.SVGProps<SVGSVGElement>, "onClick">;
 
@@ -12,6 +12,7 @@ interface IconBaseProps extends SvgProps {
   Svg: FC<React.SVGProps<SVGSVGElement>>;
   title?: string;
   variant?: VariantType;
+  filled?: boolean;
 }
 
 interface NonClickableIconProps extends IconBaseProps {
@@ -34,13 +35,17 @@ export const Icon: FC<IconProps> = memo((props) => {
     clickable,
     positioned,
     title,
+    filled = false,
     variant = "normal",
     ...otherProps
   } = props;
 
+  const mods: Mods = {
+    [cls.filled]: filled,
+  };
   const icon = (
     <Svg
-      className={classNames(cls.Icon, {}, [
+      className={classNames(cls.Icon, mods, [
         positioned ? "" : className,
         cls[variant],
       ])}

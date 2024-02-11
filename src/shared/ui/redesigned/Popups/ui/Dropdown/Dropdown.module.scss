@@ -17,3 +17,35 @@
   cursor: pointer;
   text-wrap: nowrap;
 }
+
+.enter {
+  transition-property: all;
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+}
+
+.enterFrom {
+  transform: scale(0.7);
+  opacity: 0;
+}
+
+.enterTo {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.leave {
+  transition-property: all;
+  transition-timing-function: ease-out;
+  transition-duration: 150ms;
+}
+
+.leaveFrom {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.leaveTo {
+  transform: scale(0.7);
+  opacity: 0;
+}
