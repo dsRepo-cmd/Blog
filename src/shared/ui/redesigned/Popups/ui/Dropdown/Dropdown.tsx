@@ -1,5 +1,5 @@
-import { Menu } from "@headlessui/react";
-import { Fragment, ReactNode, memo, forwardRef} from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { Fragment, ReactNode, memo, forwardRef } from "react";
 
 import { DropdownDirection } from "@/shared/types/ui";
 
@@ -42,41 +42,50 @@ const Dropdown: React.FC<DropdownProps> = ({
       className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
     >
       <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
-      <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
-        {items.map((item) => {
-          const content = ({ active }: { active: boolean }) => (
-            <button
-              type="button"
-              disabled={item.disabled}
-              onClick={item.onClick}
-              className={classNames(cls.item, {
-                [popupCls.active]: active,
-              })}
-            >
-              {item.content}
-            </button>
-          );
-
-          if (item.href) {
-            return (
-              <Menu.Item
-                as={AppLinkWithRef}
-                to={item.href}
+      <Transition
+        enter={cls.enter}
+        enterFrom={cls.enterFrom}
+        enterTo={cls.enterTo}
+        leave={cls.leave}
+        leaveFrom={cls.leaveFrom}
+        leaveTo={cls.leaveTo}
+      >
+        <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
+          {items.map((item) => {
+            const content = ({ active }: { active: boolean }) => (
+              <button
+                type="button"
                 disabled={item.disabled}
-                key={item.id}
+                onClick={item.onClick}
+                className={classNames(cls.item, {
+                  [popupCls.active]: active,
+                })}
               >
+                {item.content}
+              </button>
+            );
+
+            if (item.href) {
+              return (
+                <Menu.Item
+                  as={AppLinkWithRef}
+                  to={item.href}
+                  disabled={item.disabled}
+                  key={item.id}
+                >
+                  {content}
+                </Menu.Item>
+              );
+            }
+
+            return (
+              <Menu.Item key={item.id} as={Fragment} disabled={item.disabled}>
                 {content}
               </Menu.Item>
             );
-          }
-
-          return (
-            <Menu.Item key={item.id} as={Fragment} disabled={item.disabled}>
-              {content}
-            </Menu.Item>
-          );
-        })}
-      </Menu.Items>
+          })}
+        </Menu.Items>
+      </Transition>
     </Menu>
   );
 };

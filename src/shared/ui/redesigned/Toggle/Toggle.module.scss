@@ -26,6 +26,7 @@ $toggle-background-on: var(--icon);
     border-radius: calc($toggle-height / 2);
     background-color: $toggle-background-off;
     transition: background-color 0.3s;
+    z-index: 0;
 
     &:before {
       content: "";

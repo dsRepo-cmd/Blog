@@ -41,7 +41,7 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <HStack padding="16" gap="16" className={cls.wrapper}>
+        <HStack padding="8" gap="12" className={cls.wrapper}>
           <NotificationButton />
           <AvatarDropdown />
         </HStack>

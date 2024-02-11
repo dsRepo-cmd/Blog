@@ -9,14 +9,14 @@ import cls from "./Button.module.scss";
 
 export type ButtonVariant = "clear" | "outline" | "filled";
 
-export type ButtonColor = "normal" | "success" | "error";
+export type ButtonColor = "normal" | "icon" | "error";
 
-export type ButtonSize = "m" | "l" | "xl";
+export type ButtonSize = "s" | "m" | "l" | "xl";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: ButtonVariant;
-
+  round?: boolean;
   size?: ButtonSize;
   disabled?: boolean;
   children?: ReactNode;
@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = forwardRef(
       className,
       children,
       variant = "outline",
-
+      round = false,
       disabled,
       fullWidth,
       size = "m",
@@ -46,6 +46,7 @@ const Button: React.FC<ButtonProps> = forwardRef(
       [cls.disabled]: disabled,
       [cls.fullWidth]: fullWidth,
       [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
+      [cls.round]: round,
     };
 
     return (

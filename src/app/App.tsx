@@ -12,12 +12,14 @@ import { AppLoaderLayout } from "@/shared/layouts/AppLoaderLayout";
 import { useAppToolbar } from "./lib/useAppToolbar";
 import { withTheme } from "./providers/ThemeProvider";
 import Loader from "@/shared/ui/redesigned/Loader/Loader";
+import { useAppBackgroungImage } from "./lib/useAppBackgroungImage";
 
 const App = memo(() => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
   const toolbar = useAppToolbar();
+  const backgroungImage = useAppBackgroungImage();
 
   useEffect(() => {
     dispatch(initAuthData());
@@ -32,7 +34,11 @@ const App = memo(() => {
   }
 
   return (
-    <div id="app" className={classNames("app_redesigned", {}, [theme])}>
+    <div
+      id="app"
+      style={{ backgroundImage: backgroungImage }}
+      className={classNames("app_redesigned", {}, [theme])}
+    >
       <Suspense fallback={<Loader />}>
         <MainLayout
           header={<Navbar />}

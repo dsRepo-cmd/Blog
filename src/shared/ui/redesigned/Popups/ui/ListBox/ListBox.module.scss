@@ -9,10 +9,12 @@
 .options {
   background: var(--dark-bg);
   position: absolute;
-  z-index: var(--modal-z-index);
+
   border-radius: var(--border-radius-xl);
   box-shadow: 4px 4px 8px var(--dark-bg);
   cursor: pointer;
+
+  z-index: var(--modal-z-index);
 }
 
 .item {
@@ -21,4 +23,36 @@
 
 .selected {
   background: var(--light-bg);
+}
+
+.enter {
+  transition-property: all;
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+}
+
+.enterFrom {
+  transform: scale(0.7);
+  opacity: 0;
+}
+
+.enterTo {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.leave {
+  transition-property: all;
+  transition-timing-function: ease-out;
+  transition-duration: 150ms;
+}
+
+.leaveFrom {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.leaveTo {
+  transform: scale(0.7);
+  opacity: 0;
 }

@@ -1,12 +1,13 @@
 .Button {
   cursor: pointer;
   color: var(--text);
-  padding: 4px 32px;
+
   display: flex;
   align-items: center;
   text-wrap: nowrap;
   transition: 0.3s;
   touch-action: manipulation;
+  justify-content: space-between;
 
   &:hover {
     color: var(--accent);
@@ -72,7 +73,7 @@
     border: 1px solid var(--cancel);
   }
 
-  &.success {
+  &.icon {
     border: 1px solid var(--save);
   }
 }
@@ -92,23 +93,30 @@
 
   &.error {
     border: 1px solid var(--cancel);
+    color: var(--cancel);
   }
 
-  &.success {
+  &.icon {
     border: 1px solid var(--save);
+    color: var(--icon);
   }
+}
+
+.s {
+  padding: 2px 12px;
 }
 
 .m {
-  font: var(--font-m);
+  padding: 4px 32px;
 }
 
 .l {
-  font: var(--font-l);
+  padding: 8px 20px;
+  min-width: 150px;
 }
 
 .xl {
-  font: var(--font-xl);
+  padding: 8px 32px;
 }
 
 .disabled {
@@ -117,4 +125,8 @@
 
 .fullWidth {
   width: 100%;
+}
+
+.round {
+  border-radius: 24px;
 }

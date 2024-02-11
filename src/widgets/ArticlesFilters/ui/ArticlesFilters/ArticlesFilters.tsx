@@ -90,6 +90,7 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
 
       <MobileView>
         <Card
+          padding="12"
           className={classNames(cls.ArticlesMobileFilters, {}, [className])}
         >
           <HStack gap="8">
