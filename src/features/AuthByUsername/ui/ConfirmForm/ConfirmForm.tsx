@@ -19,7 +19,7 @@ import { getConfirmCode } from "../../model/selectors/getConfirmCode/getConfirmC
 import { confirmCode } from "../../model/services/confirmCode/confirmCode";
 import { getSignUpCode } from "../../model/selectors/getSignUpCode/getSignUpCode";
 import { getLoginToken } from "../../model/selectors/getLoginToken/getLoginToken";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 
 export interface ConfirmFormProps {
   className?: string;
@@ -84,53 +84,60 @@ const ConfirmForm: React.FC<ConfirmFormProps> = memo(
     );
     ////
     return (
-      <VStack gap="16" className={classNames(cls.ConfirmForm, {}, [className])}>
-        <Text title={t("Confirm form")} />
-
-        <Input
-          name={"email"}
-          type="text"
-          className={cls.input}
-          placeholder={t("Enter your email")}
-          onChange={onChangeEmail}
-          onKeyDown={handleKeyPress}
-          value={email}
-          error={
-            validateErrors?.email &&
-            validateErrorTranslates[validateErrors?.email]
-          }
-          disabled={isLoading}
-        />
-
-        <Input
-          type="text"
-          name={"number"}
-          className={cls.input}
-          placeholder={t("Enter your code")}
-          onChange={onChangeCode}
-          onKeyDown={handleKeyPress}
-          value={code}
-          error={
-            validateErrors?.code &&
-            validateErrorTranslates[validateErrors?.code]
-          }
-          disabled={isLoading}
-        />
-        <Text text={codeConfirm} />
-        {validateErrors?.data && (
-          <Text
-            variant={"error"}
-            text={validateErrorTranslates[validateErrors.data]}
-          />
-        )}
-        <Button
-          variant={"filled"}
-          className={cls.confirmBtn}
-          onClick={onConfirmClick}
-          disabled={isLoading}
+      <VStack gap="12" className={classNames(cls.ConfirmForm, {}, [className])}>
+        <HStack
+          max
+          className={classNames(cls.header, {}, [className])}
+          align="center"
         >
-          {t("Confirm")}
-        </Button>
+          <Text className={cls.title} title={t("Confirm form")} />
+        </HStack>
+
+        <VStack padding="24" gap="24">
+          <Input
+            name={"email"}
+            type="text"
+            placeholder={t("Enter your email")}
+            onChange={onChangeEmail}
+            onKeyDown={handleKeyPress}
+            value={email}
+            error={
+              validateErrors?.email &&
+              validateErrorTranslates[validateErrors?.email]
+            }
+            disabled={isLoading}
+          />
+          <Input
+            type="text"
+            name={"number"}
+            placeholder={t("Enter your code")}
+            onChange={onChangeCode}
+            onKeyDown={handleKeyPress}
+            value={code}
+            error={
+              validateErrors?.code &&
+              validateErrorTranslates[validateErrors?.code]
+            }
+            disabled={isLoading}
+          />
+          <Text className={cls.code} text={codeConfirm} />
+          {validateErrors?.data && (
+            <Text
+              align="center"
+              variant={"error"}
+              text={validateErrorTranslates[validateErrors.data]}
+            />
+          )}
+          <Button
+            size="l"
+            variant={"filled"}
+            className={cls.confirmBtn}
+            onClick={onConfirmClick}
+            disabled={isLoading}
+          >
+            {t("Confirm")}
+          </Button>
+        </VStack>
       </VStack>
     );
   }

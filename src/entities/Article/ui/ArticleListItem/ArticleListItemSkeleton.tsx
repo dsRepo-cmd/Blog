@@ -13,63 +13,68 @@ interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
   ({ className, view }) => {
-    const mainClass = cls.ArticleListItemRedesigned;
-
     if (view === ArticleView.LIST) {
-      const cardContent = (
-        <VStack max gap="12">
-          <HStack max justify={"between"}>
-            <HStack gap="8">
-              <Skeleton border="50%" height={30} width={30} />
-              <Skeleton width={120} height={16} />
-            </HStack>
-            <Skeleton width={120} height={16} />
-          </HStack>
-
-          <Skeleton width={300} height={24} />
-          <Skeleton height={250} className={cls.img} />
-
-          <Skeleton height={50} />
-          <Skeleton height={36} width={200} />
-        </VStack>
-      );
       return (
-        <Card padding="24" max border="round" className={cls.card}>
-          {cardContent}
+        <Card
+          padding="0"
+          max
+          data-testid="ArticleListItem"
+          className={classNames(cls.ArticleListItem, {}, [
+            className,
+            cls[view],
+          ])}
+        >
+          <Skeleton border="0" width="100%" height={200} className={cls.img} />
+          <VStack padding="16" max gap="16">
+            <HStack justify={"between"} gap="8" max>
+              <Skeleton
+                width={32}
+                height={32}
+                border="50%"
+                className={cls.avatar}
+              />
+              <Skeleton width={150} height={32} />
+            </HStack>
+            <Skeleton width={"80%"} height={32} />
+            <Skeleton width={"100%"} height={100} />
+            <HStack max align={"end"} justify={"end"}>
+              <Skeleton width={50} height={32} />
+            </HStack>
+          </VStack>
         </Card>
       );
     }
 
-    const cardContent = (
-      <VStack justify={"between"} max className={cls.cardContent}>
-        <VStack max gap="16">
-          <Skeleton
-            width="100%"
-            height={150}
-            border="32px"
-            className={cls.img}
-          />
-          <Skeleton height={80} />
-        </VStack>
-        <Skeleton width={100} height={16} className={cls.title} />
-        <HStack gap="12">
-          <Skeleton
-            width={32}
-            height={32}
-            border="50%"
-            className={cls.avatar}
-          />
-          <Skeleton width={50} height={16} className={cls.title} />
-        </HStack>
-      </VStack>
-    );
-
     return (
-      <VStack className={classNames(mainClass, {}, [className, cls[view]])}>
-        <Card fullHeight max border="round" className={cls.card}>
-          {cardContent}
-        </Card>
-      </VStack>
+      <Card
+        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+        border={"partial"}
+        padding={"0"}
+      >
+        <Skeleton border="0" width="100%" height={250} />
+
+        <VStack
+          maxHeight
+          justify="between"
+          padding="12"
+          className={cls.info}
+          gap="12"
+        >
+          <Skeleton width="100%" height={70} className={cls.img} />
+          <HStack justify="between" max>
+            <Skeleton
+              width={32}
+              height={32}
+              border="50%"
+              className={cls.avatar}
+            />
+            <Skeleton width={150} height={32} />
+          </HStack>
+          <VStack gap="4" className={cls.footer} max>
+            <Skeleton width={50} height={32} />
+          </VStack>
+        </VStack>
+      </Card>
     );
   }
 );

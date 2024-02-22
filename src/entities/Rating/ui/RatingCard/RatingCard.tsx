@@ -81,7 +81,7 @@ const RatingCard: React.FC<RatingCardProps> = ({
 
       <BrowserView>
         <Modal isOpen={isModalOpen} lazy>
-          <VStack max gap="32">
+          <VStack padding="24" max gap="32">
             {modalContent}
             <HStack max gap="16" justify="end">
               <Button data-testid="RatingCard.Close" onClick={cancelHandle}>

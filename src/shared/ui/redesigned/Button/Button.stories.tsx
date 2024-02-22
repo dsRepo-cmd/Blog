@@ -42,13 +42,3 @@ export const Deafault: Story = {
     children: "Button",
   },
 };
-
-export const Filled: Story = {
-  argTypes: {
-    variant: {
-      options: ["clear", "outline", "filled"],
-      control: { type: "radio" },
-    },
-  },
-  render: () => <Button>Button</Button>,
-};

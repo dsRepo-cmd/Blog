@@ -14,7 +14,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <div style={{ height: "100%" }} className="app_redesigned">
+      <div style={{ height: "100%" }} className="app">
         <Story />
       </div>
     ),
