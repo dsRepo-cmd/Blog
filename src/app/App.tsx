@@ -27,7 +27,7 @@ const App = memo(() => {
 
   if (!inited) {
     return (
-      <div id="app" className={classNames("app_redesigned", {}, [theme])}>
+      <div id="app" className={classNames("app", {}, [theme])}>
         <AppLoaderLayout />
       </div>
     );
@@ -37,7 +37,7 @@ const App = memo(() => {
     <div
       id="app"
       style={{ backgroundImage: backgroungImage }}
-      className={classNames("app_redesigned", {}, [theme])}
+      className={classNames("app", {}, [theme])}
     >
       <Suspense fallback={<Loader />}>
         <MainLayout

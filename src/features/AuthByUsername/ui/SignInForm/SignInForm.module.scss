@@ -1,7 +1,17 @@
 .SignInForm {
-  margin-top: 24px;
 }
 
 .loginBtn {
-  margin-left: auto;
+  margin-top: 12px;
+  align-self: stretch;
+}
+
+.header {
+  padding: 24px;
+
+  background-color: var(--icon);
+}
+
+.title {
+  margin: 0 auto;
 }

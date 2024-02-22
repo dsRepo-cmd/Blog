@@ -176,7 +176,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
 
       <BrowserView>
         <Modal isOpen={isModalOpen} lazy>
-          <VStack align="center" gap="24">
+          <VStack padding="24" align="center" gap="24">
             <Text title={t("Are you sure you want to delete the article?")} />
 
             <HStack gap="12">

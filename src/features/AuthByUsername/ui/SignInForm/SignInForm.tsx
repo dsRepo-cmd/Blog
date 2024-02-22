@@ -18,6 +18,7 @@ import Input from "@/shared/ui/redesigned/Input/Input";
 import Button from "@/shared/ui/redesigned/Button/Button";
 import { signInByEmail } from "../../model/services/signInByEmail/signInByEmail";
 import { ValidateAuthError } from "../../model/const/const";
+import Card from "@/shared/ui/redesigned/Card/Card";
 
 export interface SignInFormProps {
   className?: string;
@@ -84,56 +85,60 @@ const SignInForm: React.FC<SignInFormProps> = memo(
     );
 
     const loginForm = (
-      <VStack gap="24" className={classNames(cls.SignInForm, {}, [className])}>
-        <Text title={t("SIGN IN")} />
-
-        <Input
-          name={"email"}
-          type="text"
-          className={cls.input}
-          placeholder={t("Email")}
-          onChange={onChangeEmail}
-          onKeyDown={handleKeyPress}
-          value={email}
-          error={
-            validateErrors?.email &&
-            validateErrorTranslates[validateErrors?.email]
-          }
-        />
-        <Input
-          type="text"
-          name={"password"}
-          className={cls.input}
-          placeholder={t("Password")}
-          onChange={onChangePassword}
-          onKeyDown={handleKeyPress}
-          value={password}
-          password
-          error={
-            validateErrors?.password &&
-            validateErrorTranslates[validateErrors?.password]
-          }
-        />
-        <Button
-          variant={"filled"}
-          className={cls.loginBtn}
-          onClick={onLoginClick}
-          disabled={isLoading}
+      <VStack gap="12" className={classNames(cls.SignInForm, {}, [className])}>
+        <HStack
+          max
+          className={classNames(cls.header, {}, [className])}
+          align="center"
         >
-          {t("Sign in")}
-        </Button>
-
-        {validateErrors?.data && (
-          <Text
-            variant={"error"}
-            text={validateErrorTranslates[validateErrors.data]}
-          />
-        )}
-
-        <HStack gap="8">
-          <Text text={t("Forgot your password?")} />
-          <Button variant={"clear"}>Restore</Button>
+          <Text className={cls.title} align="center" title={t("SIGN IN")} />
         </HStack>
+
+        <VStack padding="24" gap="24">
+          <Input
+            name={"email"}
+            type="text"
+            className={cls.input}
+            placeholder={t("Email")}
+            onChange={onChangeEmail}
+            onKeyDown={handleKeyPress}
+            value={email}
+            error={
+              validateErrors?.email &&
+              validateErrorTranslates[validateErrors?.email]
+            }
+          />
+          <Input
+            type="text"
+            name={"password"}
+            className={cls.input}
+            placeholder={t("Password")}
+            onChange={onChangePassword}
+            onKeyDown={handleKeyPress}
+            value={password}
+            password
+            error={
+              validateErrors?.password &&
+              validateErrorTranslates[validateErrors?.password]
+            }
+          />
+          <Button
+            size="l"
+            variant={"filled"}
+            className={cls.loginBtn}
+            onClick={onLoginClick}
+            disabled={isLoading}
+          >
+            {t("Sign in")}
+          </Button>
+
+          {validateErrors?.data && (
+            <Text
+              variant={"error"}
+              text={validateErrorTranslates[validateErrors.data]}
+            />
+          )}
+        </VStack>
       </VStack>
     );
 

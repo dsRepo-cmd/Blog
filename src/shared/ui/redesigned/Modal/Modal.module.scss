@@ -4,39 +4,30 @@
   bottom: 0;
   right: 0;
   left: 0;
-  opacity: 0;
   pointer-events: none;
   z-index: var(--overlay-z-index);
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: 0.3s;
 }
 
 .content {
-  padding: 20px;
   border-radius: 12px;
-  transition: 0.3s transform;
-  transform: scale(0.5);
+  overflow: hidden;
+
+  transition: 0.3s;
+
   max-width: 60%;
   z-index: var(--modal-z-index);
   border: 1px solid var(--icon);
-}
-
-.modalNew {
-  .content {
-    background: var(--light-bg);
-  }
-}
-.modalOld {
-  .content {
-    background: var(--bg-color);
-  }
+  background: var(--light-bg);
 }
 
 .opened {
   pointer-events: auto;
   opacity: 1;
-  z-index: var(--modal-z-index);
 
   .content {
     transform: scale(1);
