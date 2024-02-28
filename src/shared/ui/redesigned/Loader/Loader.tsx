@@ -8,7 +8,7 @@ interface LoaderProps {
 
 const Loader: React.FC<LoaderProps> = ({ className }: LoaderProps) => {
   return (
-    <div className={classNames(cls.lds_default, {}, [])}>
+    <div className={classNames(cls.lds_default, {}, [className])}>
       <div></div>
       <div></div>
       <div></div>

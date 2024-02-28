@@ -1,7 +1,5 @@
 import { UserRole } from "@/entities/User";
 import { ValidateUserEditError } from "../consts/consts";
-import { FeatureFlags } from "@/shared/types/featureFlags";
-import { JsonSettings } from "@/entities/User/model/types/jsonSettings";
 
 export interface UserEditSchema {
   data?: UsersEdit[];
@@ -28,8 +26,4 @@ export interface UsersEdit {
   username?: string;
   avatar?: string;
   roles?: UserRole[];
-
-  isConfirm?: boolean;
-  features?: FeatureFlags;
-  jsonSettings?: JsonSettings;
 }

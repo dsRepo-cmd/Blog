@@ -18,7 +18,7 @@ import Input from "@/shared/ui/redesigned/Input/Input";
 import Button from "@/shared/ui/redesigned/Button/Button";
 import { signInByEmail } from "../../model/services/signInByEmail/signInByEmail";
 import { ValidateAuthError } from "../../model/const/const";
-import Card from "@/shared/ui/redesigned/Card/Card";
+import Loader from "@/shared/ui/redesigned/Loader/Loader";
 
 export interface SignInFormProps {
   className?: string;
@@ -67,7 +67,7 @@ const SignInForm: React.FC<SignInFormProps> = memo(
       [dispatch]
     );
 
-    const onLoginClick = useCallback(async () => {
+    const onSignInClick = useCallback(async () => {
       const result = await dispatch(signInByEmail({ email, password }));
 
       if (result.meta.requestStatus === "fulfilled") {
@@ -78,11 +78,15 @@ const SignInForm: React.FC<SignInFormProps> = memo(
     const handleKeyPress = useCallback(
       (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
-          onLoginClick();
+          onSignInClick();
         }
       },
-      [onLoginClick]
+      [onSignInClick]
     );
+
+    if (isLoading) {
+      return <Loader />;
+    }
 
     const loginForm = (
       <VStack gap="12" className={classNames(cls.SignInForm, {}, [className])}>
@@ -126,7 +130,7 @@ const SignInForm: React.FC<SignInFormProps> = memo(
             size="l"
             variant={"filled"}
             className={cls.loginBtn}
-            onClick={onLoginClick}
+            onClick={onSignInClick}
             disabled={isLoading}
           >
             {t("Sign in")}

@@ -47,7 +47,7 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
 
   useEffect(() => {
     dispatch(fetchUsersEditData());
-  }, [dispatch]);
+  }, []);
 
   const onOpenDeleteModal = useCallback(
     (userId: string, userEmail: string): void => {
@@ -56,19 +56,16 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
         setUserEditData({ userId, userEmail });
       }
     },
-    [dispatch]
+    []
   );
 
   const onAcceptDelete = useCallback(() => {
-    console.log("userEditData", userEditData);
     if (userEditData.userId) {
       dispatch(deleteUser(userEditData.userId));
-
       setUserEditData({ userId: "", userEmail: "" });
       setIsModalOpen(false);
     }
-    dispatch(fetchUsersEditData());
-  }, [dispatch, isModalOpen, setIsModalOpen]);
+  }, [dispatch, userEditData]);
 
   const cancelHandle = useCallback(() => {
     setIsModalOpen(false);
@@ -76,8 +73,11 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <BrowserView className={classNames(cls.UsersListEdit, {}, [className])}>
-        <Card padding="12">
+      <BrowserView>
+        <Card
+          className={classNames(cls.UsersListEdit, {}, [className])}
+          padding="12"
+        >
           <HStack
             gap="12"
             align={"center"}
@@ -93,14 +93,13 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
           </HStack>
           <VStack gap="12">
             {form &&
-              form?.map((user) => (
+              form.map((user) => (
                 <HStack
                   key={user.id}
                   className={cls.data}
                   align={"center"}
                   justify={"start"}
                   gap="12"
-                  max
                 >
                   <AppLink
                     className={cls.link}
@@ -122,6 +121,7 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
                 </HStack>
               ))}
           </VStack>
+
           <Modal isOpen={isModalOpen} lazy>
             <VStack padding="24" align="center" gap="24">
               <Text

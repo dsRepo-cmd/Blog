@@ -56,11 +56,11 @@ export const loginSlise = createSlice({
       })
       .addCase(signUpByEmail.fulfilled, (state, action) => {
         state.isLoading = false;
-        if (action.payload.code) state.confirmCode = action.payload.code;
-        if (action.payload.token) {
-          state.token = action.payload.token;
-          localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, action.payload.token);
-        }
+        state.email = action.payload.email;
+        state.confirmCode = action.payload.code;
+        state.token = action.payload.token;
+
+        localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, action.payload.token);
       })
       .addCase(signUpByEmail.rejected, (state, action) => {
         state.isLoading = false;
