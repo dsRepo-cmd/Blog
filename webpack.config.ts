@@ -21,8 +21,6 @@ export default (env: BuildEnv) => {
 
   // const apiUrl = env.apiUrl || "http://localhost:8000";
 
-  // const apiUrl = env.apiUrl || "http://192.168.1.151:8000";
-
   const apiUrl = env.apiUrl || "https://json-server-product-one.vercel.app";
 
   const config: webpack.Configuration = buildWebpackConfig({

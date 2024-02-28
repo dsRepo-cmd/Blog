@@ -19,6 +19,7 @@ import Button from "@/shared/ui/redesigned/Button/Button";
 import { ValidateAuthError } from "../../model/const/const";
 import { signUpByEmail } from "../../model/services/signUpByEmail/signUpByEmail";
 import ConfirmForm from "../ConfirmForm/ConfirmForm";
+import Loader from "@/shared/ui/redesigned/Loader/Loader";
 
 export interface SignUpFormProps {
   className?: string;
@@ -72,7 +73,7 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
       [dispatch]
     );
 
-    const onLoginClick = useCallback(async () => {
+    const onSignIClick = useCallback(async () => {
       const signUpResult = await dispatch(signUpByEmail({ email, password }));
 
       if (signUpResult.meta.requestStatus === "fulfilled") {
@@ -83,14 +84,16 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
     const handleKeyPress = useCallback(
       (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
-          onLoginClick();
+          onSignIClick();
         }
       },
-      [onLoginClick]
+      [onSignIClick]
     );
 
     // ============================================================================
-
+    if (isLoading) {
+      return <Loader />;
+    }
     // ============================================================================
 
     const signUpForm = (
@@ -136,7 +139,7 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
             size="l"
             variant={"filled"}
             className={cls.loginBtn}
-            onClick={onLoginClick}
+            onClick={onSignIClick}
             disabled={isLoading}
           >
             {t("Sign in")}
@@ -155,7 +158,7 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
     return (
       <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
         {!isConfirm && signUpForm}
-        {isConfirm && <ConfirmForm onSuccess={() => console.log("Success")} />}
+        {isConfirm && <ConfirmForm />}
       </DynamicModuleLoader>
     );
   }

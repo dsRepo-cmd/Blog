@@ -1,9 +1,14 @@
 .UsersListEdit {
+  overflow: hidden;
+  width: 670px;
+  border: 1px solid var(--icon);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 .data {
   display: grid;
-  grid-template-columns: 50px 200px 200px 120px 50px;
+  grid-template-columns: 50px 150px 200px 120px 50px;
   padding: 12px;
 
   border-bottom: 1px solid var(--accent);

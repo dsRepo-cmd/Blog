@@ -6,6 +6,7 @@ import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
 import { isMobile } from "react-device-detect";
 import Text from "@/shared/ui/redesigned/Text/Text";
+import { HStack } from "@/shared/ui/redesigned/Stack";
 
 const ArticlePageGreeting: React.FC = ({}) => {
   const { t } = useTranslation("article");
@@ -39,7 +40,7 @@ const ArticlePageGreeting: React.FC = ({}) => {
 
   return (
     <Modal lazy isOpen={isOpen} onClose={onClose}>
-      {text}
+      <HStack padding="16">{text}</HStack>
     </Modal>
   );
 };
