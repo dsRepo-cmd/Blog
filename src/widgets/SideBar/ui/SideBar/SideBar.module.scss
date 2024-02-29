@@ -85,9 +85,9 @@
   padding-top: 6px;
 
   .appLogo {
+    display: flex;
     background-color: var(--transp-bg);
-    padding: 16px;
-    border-radius: 0 24px 24px 0;
+    border-radius: 0 8px 8px 0;
     z-index: 1;
   }
 }

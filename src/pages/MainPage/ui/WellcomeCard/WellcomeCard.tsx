@@ -66,11 +66,21 @@ const WellcomeCard: React.FC<WellcomeCardProps> = ({ className }) => {
             </AppLink>
           </HStack>
         ) : (
-          <Text
-            align="center"
-            bold
-            text={t("Please log in to access and create articles.")}
-          />
+          <>
+            <Text
+              align="center"
+              bold
+              text={t("Please log in to create articles.")}
+            />
+            <AppLink to={getRouteArticles()}>
+              <Button size="l" round>
+                <HStack gap="8">
+                  <Icon className={cls.buttonIcon} width={20} Svg={ViewIcon} />
+                  <Text text={t("View Articles")} />
+                </HStack>
+              </Button>
+            </AppLink>
+          </>
         )}
       </VStack>
     </Card>

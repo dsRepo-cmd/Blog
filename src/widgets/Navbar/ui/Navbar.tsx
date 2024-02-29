@@ -1,42 +1,19 @@
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./Navbar.module.scss";
-import { useState, useCallback, memo } from "react";
-import { useTranslation } from "react-i18next";
+import { memo } from "react";
 
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
-import Button from "@/shared/ui/redesigned/Button/Button";
-import { LogInModal, SignUpModal } from "@/features/AuthByUsername";
 
 interface NavbarProps {
   className?: string;
 }
 
 export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
-  const { t } = useTranslation();
-
-  const [isSignIn, setSignIn] = useState(false);
-  const [isSignup, setSignup] = useState(false);
   const authData = useSelector(getUserAuthData);
-
-  const onCloseSignInModal = useCallback(() => {
-    setSignIn(false);
-  }, []);
-
-  const onShowSignInModal = useCallback(() => {
-    setSignIn(true);
-  }, []);
-
-  const onCloseSignUpModal = useCallback(() => {
-    setSignup(false);
-  }, []);
-
-  const onShowSignUpModal = useCallback(() => {
-    setSignup(true);
-  }, []);
 
   if (authData) {
     return (
@@ -51,29 +28,9 @@ export const Navbar: React.FC = memo(({ className }: NavbarProps) => {
 
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
-      <HStack padding="16" gap="16" className={cls.wrapper}>
-        <Button
-          variant={"clear"}
-          className={cls.links}
-          onClick={onShowSignUpModal}
-        >
-          {t("Sign up")}
-        </Button>
-        <Button
-          variant={"clear"}
-          className={cls.links}
-          onClick={onShowSignInModal}
-        >
-          {t("Sign in")}
-        </Button>
-      </HStack>
-
-      {isSignIn && (
-        <LogInModal isOpen={isSignIn} onClose={onCloseSignInModal} />
-      )}
-      {isSignup && (
-        <SignUpModal isOpen={isSignup} onClose={onCloseSignUpModal} />
-      )}
+      <VStack padding="8" className={cls.wrapper}>
+        <AvatarDropdown />
+      </VStack>
     </header>
   );
 });

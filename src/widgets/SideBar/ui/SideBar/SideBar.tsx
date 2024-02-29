@@ -12,6 +12,7 @@ import AppLogo from "@/shared/ui/redesigned/AppLogo/AppLogo";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
+import BurgerIcon from "@/shared/assets/icons/burger.svg";
 
 interface SideBarProps {
   className?: string;
@@ -75,9 +76,16 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
           data-testid="sidebar"
           className={classNames(cls.SidebarMobile, {}, [className])}
         >
-          <div onClick={onOpenDrawer} className={cls.appLogo}>
-            <AppLogo size={30} />
-          </div>
+          <VStack padding="16" className={cls.appLogo}>
+            <Icon
+              clickable
+              onClick={onOpenDrawer}
+              width={30}
+              height={30}
+              Svg={BurgerIcon}
+            />
+          </VStack>
+
           <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
             <div className={cls.mobileDrawer}>
               <VStack role="navigation" gap="8" className={cls.items}>

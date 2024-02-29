@@ -9,6 +9,8 @@ import Text from "@/shared/ui/redesigned/Text/Text";
 import Input from "@/shared/ui/redesigned/Input/Input";
 import Button from "@/shared/ui/redesigned/Button/Button";
 import Card from "@/shared/ui/redesigned/Card/Card";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "@/entities/User";
 
 interface RatingCardProps {
   className?: string;
@@ -31,8 +33,10 @@ const RatingCard: React.FC<RatingCardProps> = ({
 }) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState("");
+  const userData = useSelector(getUserAuthData);
 
   const onSelectStars = useCallback(
     (selectedStarsCount: number) => {

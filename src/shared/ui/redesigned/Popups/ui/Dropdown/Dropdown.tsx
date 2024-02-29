@@ -1,5 +1,5 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, ReactNode, memo, forwardRef } from "react";
+import { Fragment, ReactNode, memo, forwardRef, FC } from "react";
 
 import { DropdownDirection } from "@/shared/types/ui";
 
@@ -8,6 +8,8 @@ import { mapDirectionClass } from "../../styles/consts";
 import popupCls from "../../styles/popup.module.scss";
 import { classNames } from "@/shared/lib/classNames";
 import AppLink, { AppLinkProps } from "../../../AppLink/AppLink";
+import { Icon } from "../../../Icon/Icon";
+import { HStack } from "../../../Stack";
 
 export interface DropdownItem {
   disabled?: boolean;
@@ -15,6 +17,7 @@ export interface DropdownItem {
   onClick?: () => void;
   href?: string;
   id: string;
+  svg?: FC<React.SVGProps<SVGSVGElement>>;
 }
 
 interface DropdownProps {
@@ -61,7 +64,10 @@ const Dropdown: React.FC<DropdownProps> = ({
                   [popupCls.active]: active,
                 })}
               >
-                {item.content}
+                <HStack gap="12" align="center">
+                  {item.svg && <Icon Svg={item.svg} width={20} />}
+                  {item.content}
+                </HStack>
               </button>
             );
 
