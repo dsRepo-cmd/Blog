@@ -20,29 +20,29 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
       Icon: MainIcon,
       text: "Main",
     },
+    ...(userData
+      ? [
+          {
+            path: getRouteProfile(userData.id),
+            Icon: ProfileIcon,
+            text: "Profile",
+            authOnly: true,
+          },
+        ]
+      : []),
+
+    {
+      path: getRouteArticles(),
+      Icon: ArticleIcon,
+      text: "Articles",
+    },
+
     {
       path: getRouteAbout(),
       Icon: AboutIcon,
       text: "About",
     },
   ];
-
-  if (userData) {
-    sidebarItemsList.push(
-      {
-        path: getRouteProfile(userData.id),
-        Icon: ProfileIcon,
-        text: "Profile",
-        authOnly: true,
-      },
-      {
-        path: getRouteArticles(),
-        Icon: ArticleIcon,
-        text: "Articles",
-        authOnly: true,
-      }
-    );
-  }
 
   return sidebarItemsList;
 });

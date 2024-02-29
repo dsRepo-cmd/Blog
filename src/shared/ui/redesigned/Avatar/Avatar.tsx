@@ -1,6 +1,6 @@
 import { CSSProperties, FC, useMemo } from "react";
 import cls from "./Avatar.module.scss";
-import UserIcon from "../../../assets/icons/user-filled.svg";
+import UserIcon from "../../../assets/icons/user-circle.svg";
 import Skeleton from "../Skeleton/Skeleton";
 import { Icon } from "../Icon/Icon";
 import AppImage from "../AppImage/AppImage";

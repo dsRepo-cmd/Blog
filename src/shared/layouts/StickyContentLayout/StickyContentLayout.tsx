@@ -27,6 +27,7 @@ const StickyContentLayout: FC<StickyContentLayoutProps> = ({
           {right && <div className={cls.right}>{right}</div>}
         </div>
       </BrowserView>
+
       <MobileOnlyView>
         <div
           className={classNames(cls.StickyContentLayoutMobile, {}, [className])}

@@ -1,21 +1,27 @@
 import React, { memo, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { saveJsonSettings, useJsonSettings } from "@/entities/User";
+import {
+  getUserAuthData,
+  saveJsonSettings,
+  useJsonSettings,
+} from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
 import { isMobile } from "react-device-detect";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import { HStack } from "@/shared/ui/redesigned/Stack";
+import { useSelector } from "react-redux";
 
 const ArticlePageGreeting: React.FC = ({}) => {
   const { t } = useTranslation("article");
   const [isOpen, setIsOpen] = useState(false);
+  const userData = useSelector(getUserAuthData);
   const { isArticlesPageWasOpened } = useJsonSettings();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (!isArticlesPageWasOpened) {
+    if (!isArticlesPageWasOpened && userData) {
       setIsOpen(true);
       dispatch(saveJsonSettings({ isArticlesPageWasOpened: true }));
     }

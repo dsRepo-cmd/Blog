@@ -1,4 +1,4 @@
-import React, { Suspense, memo, useCallback, useEffect } from "react";
+import React, { Suspense, memo, useCallback, useEffect, useState } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
 import { CommentList } from "@/entities/Comment";
@@ -12,6 +12,8 @@ import Loader from "@/shared/ui/redesigned/Loader/Loader";
 import { AddCommentForm } from "@/features/addCommentForm";
 import Text from "@/shared/ui/redesigned/Text/Text";
 import { VStack } from "@/shared/ui/redesigned/Stack";
+import { getUserAuthData } from "@/entities/User";
+import Modal from "@/shared/ui/redesigned/Modal/Modal";
 
 interface ArticleDetailsCommentsProps {
   className?: string;
@@ -22,14 +24,20 @@ const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = ({
   className,
   id,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { t } = useTranslation();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
+  const userData = useSelector(getUserAuthData);
 
   const onSendComment = useCallback(
     (text: string) => {
-      dispatch(addCommentForArticle(text));
+      if (userData) {
+        dispatch(addCommentForArticle(text));
+      } else {
+        setIsModalOpen(true);
+      }
     },
     [dispatch]
   );
@@ -44,6 +52,12 @@ const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = ({
         <AddCommentForm onSendComment={onSendComment} />
       </Suspense>
       <CommentList isLoading={commentsIsLoading} comments={comments} />
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <VStack padding="12">
+          <Text text={t("Please register to write comments")} />
+        </VStack>
+      </Modal>
     </VStack>
   );
 };
