@@ -19,6 +19,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
       path: getRouteMain(),
       Icon: MainIcon,
       text: "Main",
+      id: 1,
     },
     ...(userData
       ? [
@@ -27,6 +28,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
             Icon: ProfileIcon,
             text: "Profile",
             authOnly: true,
+            id: 2,
           },
         ]
       : []),
@@ -35,12 +37,14 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
       path: getRouteArticles(),
       Icon: ArticleIcon,
       text: "Articles",
+      id: 3,
     },
 
     {
       path: getRouteAbout(),
       Icon: AboutIcon,
       text: "About",
+      id: 4,
     },
   ];
 

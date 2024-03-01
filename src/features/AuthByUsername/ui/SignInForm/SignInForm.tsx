@@ -37,6 +37,8 @@ const SignInForm: React.FC<SignInFormProps> = memo(
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
 
+    console.log("isLoading", isLoading);
+
     // Validate errors
     const validateErrors = useSelector(getLoginErrors);
 
@@ -147,7 +149,7 @@ const SignInForm: React.FC<SignInFormProps> = memo(
     );
 
     return (
-      <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
+      <DynamicModuleLoader reducers={initialReducers}>
         {loginForm}
       </DynamicModuleLoader>
     );

@@ -19,7 +19,7 @@ interface SideBarProps {
 }
 
 const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   const sideBarItemList = useSelector(getSidebarItems);
 
@@ -39,7 +39,14 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
 
   const itemsList = useMemo(() => {
     return sideBarItemList.map((item) => (
-      <SideBarItem collapsed={collapsed} item={item} key={item.path} />
+      <React.Fragment key={item.id}>
+        <BrowserView>
+          <SideBarItem collapsed={collapsed} item={item} />
+        </BrowserView>
+        <MobileView>
+          <SideBarItem collapsed={false} item={item} />
+        </MobileView>
+      </React.Fragment>
     ));
   }, [collapsed, sideBarItemList]);
 
@@ -88,12 +95,12 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
 
           <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
             <div className={cls.mobileDrawer}>
-              <VStack role="navigation" gap="8" className={cls.items}>
+              <VStack max role="navigation" gap="8" className={cls.items}>
                 {itemsList}
               </VStack>
               <div className={cls.switchers}>
                 <ThemeSwitcher className={cls.switcher} />
-                <LangSwitcher className={cls.switcher} short={collapsed} />
+                <LangSwitcher className={cls.switcher} short={false} />
               </div>
             </div>
           </Drawer>
