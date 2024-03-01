@@ -44,7 +44,9 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
     const validateErrors = useSelector(getLoginErrors);
 
     const validateErrorTranslates: { [key: string]: string } = {
-      [ValidateAuthError.SERVER_ERROR]: t("Wrong email or password"),
+      [ValidateAuthError.SERVER_ERROR]: t(
+        "A user with the same email already exists"
+      ),
       [ValidateAuthError.INCORRECT_EMAIL]: t(
         "Enter the correct value of the e-mail address"
       ),
@@ -156,7 +158,7 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
     );
 
     return (
-      <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
+      <DynamicModuleLoader reducers={initialReducers}>
         {!isConfirm && signUpForm}
         {isConfirm && <ConfirmForm />}
       </DynamicModuleLoader>

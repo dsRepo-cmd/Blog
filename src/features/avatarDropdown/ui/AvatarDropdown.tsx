@@ -19,8 +19,8 @@ import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { LogInModal, SignUpModal } from "@/features/AuthByUsername";
-import SignInIcon from "@/shared/assets/icons/user-plus.svg";
-import SignUpIcon from "@/shared/assets/icons/login.svg";
+import SignUpIcon from "@/shared/assets/icons/user-plus.svg";
+import SignInIcon from "@/shared/assets/icons/login.svg";
 import LogoutIcon from "@/shared/assets/icons/logout.svg";
 import SettingsIcon from "@/shared/assets/icons/settings.svg";
 import AdminIcon from "@/shared/assets/icons/user-edit.svg";

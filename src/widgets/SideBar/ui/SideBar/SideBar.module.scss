@@ -98,10 +98,12 @@
   display: flex;
   gap: 150px;
   flex-direction: column;
+  align-items: start;
+  width: 100%;
 
   .items {
     flex-direction: column;
-    align-items: center;
+    align-items: start;
   }
 
   .switchers {
