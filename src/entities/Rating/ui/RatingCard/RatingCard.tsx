@@ -100,7 +100,7 @@ const RatingCard: React.FC<RatingCardProps> = ({
       </BrowserView>
 
       <MobileView>
-        <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
+        <Drawer padding isOpen={isModalOpen} lazy onClose={cancelHandle}>
           <VStack gap="32">
             {modalContent}
             <Button fullWidth onClick={acceptHandle} size="l">

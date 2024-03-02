@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./CommentList.module.scss";
 import CommentCard from "../CommentCard/CommentCard";
 import { useTranslation } from "react-i18next";
 import { Comment } from "../../model/types/comment";
@@ -22,11 +21,7 @@ const CommentList: React.FC<CommentListProps> = ({
 
   if (isLoading) {
     return (
-      <VStack
-        gap="16"
-        max
-        className={classNames(cls.CommentList, {}, [className])}
-      >
+      <VStack gap="16" max className={classNames("", {}, [className])}>
         <CommentCard isLoading />
         <CommentCard isLoading />
         <CommentCard isLoading />

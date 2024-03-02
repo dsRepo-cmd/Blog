@@ -10,11 +10,14 @@ import EyeIcon from "@/shared/assets/icons/eye-r.svg";
 import cls from "./ArticleListItem.module.scss";
 import AppImage from "@/shared/ui/redesigned/AppImage/AppImage";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
-import { getRouteArticleDetails } from "@/shared/const/router";
+import { getRouteArticleDetails, getRouteProfile } from "@/shared/const/router";
 import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
 import Card from "@/shared/ui/redesigned/Card/Card";
 import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
 import { getParticalformatDate } from "@/shared/lib/features/lib/getCurrentDate";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "@/entities/User";
+import { isMobile } from "react-device-detect";
 
 export interface ArticleListItemProps {
   className?: string;
@@ -30,12 +33,28 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
   target,
 }) => {
   const { t } = useTranslation("article");
+  const userData = useSelector(getUserAuthData);
 
   const userInfo = (
-    <HStack gap="8">
-      <Avatar size={32} src={article.user.avatar} className={cls.avatar} />
-      <Text bold text={article.user.username} />
-    </HStack>
+    <>
+      {userData ? (
+        <AppLink to={getRouteProfile(article.user.id)}>
+          <HStack gap="8">
+            <Avatar
+              size={32}
+              src={article.user.avatar}
+              className={cls.avatar}
+            />
+            <Text bold text={article.user.username} />
+          </HStack>
+        </AppLink>
+      ) : (
+        <HStack gap="8">
+          <Avatar size={32} src={article.user.avatar} className={cls.avatar} />
+          <Text bold text={article.user.username} />
+        </HStack>
+      )}
+    </>
   );
 
   const views = (
@@ -44,6 +63,53 @@ const ArticleListItem: React.FC<ArticleListItemProps> = ({
       <Text text={String(article.views)} className={cls.views} />
     </HStack>
   );
+
+  //For Mobile
+  if (isMobile) {
+    const textBlock = article.blocks.find(
+      (block) => block.type === ArticleBlockType.TEXT
+    ) as ArticleTextBlock;
+    return (
+      <Card
+        padding="0"
+        max
+        data-testid="ArticleListItem"
+        className={classNames(cls.ArticleListItem, {}, [className, cls.mobile])}
+      >
+        <AppLink
+          className={cls.img}
+          target={target}
+          to={getRouteArticleDetails(article.id)}
+        >
+          <AppImage
+            fallback={
+              <Skeleton className={cls.img} width="100%" height={250} />
+            }
+            src={article.img}
+            className={cls.img}
+            alt={article.title}
+          />
+        </AppLink>
+
+        <VStack padding="16" max gap="16">
+          <HStack justify={"between"} gap="8" max>
+            {userInfo}
+            <Text text={getParticalformatDate(article.createdAt)} />
+          </HStack>
+
+          <Text title={article.title} bold />
+          <Text title={article.subtitle} size="s" />
+
+          {textBlock?.paragraph && (
+            <Text className={cls.textBlock} text={textBlock.paragraph} />
+          )}
+          <HStack max align={"end"} justify={"end"}>
+            {views}
+          </HStack>
+        </VStack>
+      </Card>
+    );
+  }
 
   //For list
 

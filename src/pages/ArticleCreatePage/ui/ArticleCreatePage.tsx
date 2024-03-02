@@ -1,6 +1,5 @@
 import React, { memo, useEffect } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./ArticleCreatePage.module.scss";
 import { useTranslation } from "react-i18next";
 import { Page } from "@/widgets/Page";
 import {
@@ -22,7 +21,7 @@ const ArticleCreatePage: React.FC<ArticleCreatePageProps> = ({ className }) => {
   }, [dispatch]);
 
   return (
-    <Page className={classNames(cls.ArticleCreatePage, {}, [className])}>
+    <Page className={classNames("", {}, [className])}>
       <EditableArticleCard create />
     </Page>
   );

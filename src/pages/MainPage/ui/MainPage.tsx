@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./MainPage.module.scss";
 import { Page } from "@/widgets/Page";
 import WellcomeCard from "./WellcomeCard/WellcomeCard";
 
@@ -13,7 +12,7 @@ const MainPage: React.FC<MainPageProps> = ({ className }) => {
     <Page
       id="main-page-container"
       data-testid="MainPage"
-      className={classNames(cls.MainPage, {}, [className])}
+      className={classNames("", {}, [className])}
     >
       <WellcomeCard />
     </Page>

@@ -14,6 +14,7 @@ import Text from "@/shared/ui/redesigned/Text/Text";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { getUserAuthData } from "@/entities/User";
 import Modal from "@/shared/ui/redesigned/Modal/Modal";
+import Card from "@/shared/ui/redesigned/Card/Card";
 
 interface ArticleDetailsCommentsProps {
   className?: string;
@@ -54,9 +55,9 @@ const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = ({
       <CommentList isLoading={commentsIsLoading} comments={comments} />
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <VStack padding="12">
-          <Text text={t("Please register to write comments")} />
-        </VStack>
+        <Card padding="12">
+          <Text title={t("Please register to write comments")} />
+        </Card>
       </Modal>
     </VStack>
   );

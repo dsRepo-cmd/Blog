@@ -19,6 +19,7 @@ import Button from "@/shared/ui/redesigned/Button/Button";
 import { signInByEmail } from "../../model/services/signInByEmail/signInByEmail";
 import { ValidateAuthError } from "../../model/const/const";
 import Loader from "@/shared/ui/redesigned/Loader/Loader";
+import { BrowserView, MobileView } from "react-device-detect";
 
 export interface SignInFormProps {
   className?: string;
@@ -36,6 +37,7 @@ const SignInForm: React.FC<SignInFormProps> = memo(
     const email = useSelector(getLoginEmail);
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
+    // const isLoading = true;
 
     console.log("isLoading", isLoading);
 
@@ -87,11 +89,24 @@ const SignInForm: React.FC<SignInFormProps> = memo(
     );
 
     if (isLoading) {
-      return <Loader />;
+      return (
+        <>
+          <BrowserView>
+            <Loader />;
+          </BrowserView>
+          <MobileView>
+            <Loader center />
+          </MobileView>
+        </>
+      );
     }
 
     const loginForm = (
-      <VStack gap="12" className={classNames(cls.SignInForm, {}, [className])}>
+      <VStack
+        align="center"
+        gap="12"
+        className={classNames(cls.SignInForm, {}, [className])}
+      >
         <HStack
           max
           className={classNames(cls.header, {}, [className])}

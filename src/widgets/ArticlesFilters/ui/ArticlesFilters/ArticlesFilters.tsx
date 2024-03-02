@@ -44,7 +44,7 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
   order,
   type,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const [isOpen, setIsOpen] = useState(false);
 
   const onOpenDrawer = useCallback(() => {
@@ -81,7 +81,7 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
             />
             <Toggle
               defaultChecked={isPublished}
-              label="Published"
+              label={t("Published")}
               onChange={onChangePublished}
             />
           </VStack>

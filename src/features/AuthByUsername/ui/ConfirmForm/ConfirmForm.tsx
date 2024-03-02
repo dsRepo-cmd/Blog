@@ -18,6 +18,7 @@ import { getSignUpCode } from "../../model/selectors/getSignUpCode/getSignUpCode
 import { getLoginToken } from "../../model/selectors/getLoginToken/getLoginToken";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import Loader from "@/shared/ui/redesigned/Loader/Loader";
+import { BrowserView, MobileView } from "react-device-detect";
 
 export interface ConfirmFormProps {
   className?: string;
@@ -75,12 +76,26 @@ const ConfirmForm: React.FC<ConfirmFormProps> = memo(({ className }) => {
     [onConfirmClick]
   );
   ////
+
   if (isLoading) {
-    return <Loader />;
+    return (
+      <>
+        <BrowserView>
+          <Loader />;
+        </BrowserView>
+        <MobileView>
+          <Loader center />
+        </MobileView>
+      </>
+    );
   }
 
   return (
-    <VStack gap="12" className={classNames(cls.ConfirmForm, {}, [className])}>
+    <VStack
+      align="center"
+      gap="12"
+      className={classNames(cls.ConfirmForm, {}, [className])}
+    >
       <HStack
         max
         className={classNames(cls.header, {}, [className])}

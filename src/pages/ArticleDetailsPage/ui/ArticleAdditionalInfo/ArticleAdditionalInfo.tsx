@@ -13,13 +13,14 @@ import {
 } from "@/entities/Article/model/selectors/articleDetails";
 import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
 import { useNavigate } from "react-router-dom";
-import { getRouteArticleEdit } from "@/shared/const/router";
+import { getRouteArticleEdit, getRouteProfile } from "@/shared/const/router";
 import Card from "@/shared/ui/redesigned/Card/Card";
 import { BrowserView, MobileView } from "react-device-detect";
 import EditIcon from "@/shared/assets/icons/edit.svg";
 import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
 import { UserRole, getUserAuthData } from "@/entities/User";
 import { getStandartformatDate } from "@/shared/lib/features/lib/getCurrentDate";
+import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
 
 interface ArticleAdditionalInfoProps {
   className?: string;
@@ -96,10 +97,32 @@ const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
             gap="32"
             className={classNames(cls.ArticleAdditionalInfo, {}, [className])}
           >
-            <HStack gap="8">
-              <Avatar src={article?.user.avatar} size={32} />
-              <Text text={article?.user.username} bold />
-            </HStack>
+            {article?.user && (
+              <>
+                {userData ? (
+                  <AppLink to={getRouteProfile(article.user.id)}>
+                    <HStack gap="8">
+                      <Avatar
+                        size={32}
+                        src={article.user.avatar}
+                        className={cls.avatar}
+                      />
+                      <Text bold text={article.user.username} />
+                    </HStack>
+                  </AppLink>
+                ) : (
+                  <HStack gap="8">
+                    <Avatar
+                      size={32}
+                      src={article.user.avatar}
+                      className={cls.avatar}
+                    />
+                    <Text bold text={article.user.username} />
+                  </HStack>
+                )}
+              </>
+            )}
+
             <Text
               size="s"
               text={
@@ -119,7 +142,29 @@ const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({
       <MobileView>
         <Card padding="12">
           <HStack gap="12">
-            <Avatar src={article?.user.avatar} size={32} />
+            {article?.user && (
+              <>
+                {userData ? (
+                  <AppLink to={getRouteProfile(article.user.id)}>
+                    <HStack gap="8">
+                      <Avatar
+                        size={32}
+                        src={article.user.avatar}
+                        className={cls.avatar}
+                      />
+                    </HStack>
+                  </AppLink>
+                ) : (
+                  <HStack gap="8">
+                    <Avatar
+                      size={32}
+                      src={article.user.avatar}
+                      className={cls.avatar}
+                    />
+                  </HStack>
+                )}
+              </>
+            )}
             <Text text={t("{{count}} views", { count: article?.views })} />
             {isAllowEdit && (
               <Icon

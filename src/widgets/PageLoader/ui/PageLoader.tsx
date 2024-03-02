@@ -12,7 +12,7 @@ const PageLoader: React.FC<PageLoaderProps> = ({
 }: PageLoaderProps) => {
   return (
     <div className={classNames(cls.PageLoader, {}, [className])}>
-      <Loader />
+      <Loader center />
     </div>
   );
 };

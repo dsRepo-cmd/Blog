@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useEffect } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import cls from "./ArticlesPage.module.scss";
 import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -42,7 +41,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
         <Page
           data-testid="ArticlesPage"
           onScrollEnd={onLoadNextPart}
-          className={classNames(cls.ArticlesPage, {}, [className])}
+          className={classNames("", {}, [className])}
         >
           <ArticleInfinitList />
           <ArticlePageGreeting />
