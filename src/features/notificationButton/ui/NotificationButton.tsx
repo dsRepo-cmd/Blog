@@ -42,7 +42,7 @@ const NotificationButton: React.FC<NotificationButtonProps> = ({
       </BrowserView>
       <MobileView>
         {trigger}
-        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+        <Drawer padding isOpen={isOpen} onClose={onCloseDrawer}>
           <NotificationsList />
         </Drawer>
       </MobileView>

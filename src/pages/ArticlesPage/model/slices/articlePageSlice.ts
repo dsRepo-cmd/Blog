@@ -30,7 +30,7 @@ const articlesPageSlice = createSlice({
     error: undefined,
     ids: [],
     entities: {},
-    view: ArticleView.LIST,
+    view: ArticleView.DETAILS,
     page: 1,
     hasmore: true,
     _inited: false,

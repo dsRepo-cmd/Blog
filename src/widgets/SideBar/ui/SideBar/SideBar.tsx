@@ -93,7 +93,7 @@ const SideBar: React.FC<SideBarProps> = ({ className }: SideBarProps) => {
             />
           </VStack>
 
-          <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+          <Drawer padding isOpen={isOpen} onClose={onCloseDrawer}>
             <div className={cls.mobileDrawer}>
               <VStack max role="navigation" gap="8" className={cls.items}>
                 {itemsList}

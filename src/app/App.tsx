@@ -11,8 +11,8 @@ import { MainLayout } from "@/shared/layouts/MainLayout";
 import { AppLoaderLayout } from "@/shared/layouts/AppLoaderLayout";
 import { useAppToolbar } from "./lib/useAppToolbar";
 import { withTheme } from "./providers/ThemeProvider";
-import Loader from "@/shared/ui/redesigned/Loader/Loader";
 import { useAppBackgroungImage } from "./lib/useAppBackgroungImage";
+import { PageLoader } from "@/widgets/PageLoader";
 
 const App = memo(() => {
   const { theme } = useTheme();
@@ -39,7 +39,7 @@ const App = memo(() => {
       style={{ backgroundImage: backgroungImage }}
       className={classNames("app", {}, [theme])}
     >
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<PageLoader />}>
         <MainLayout
           header={<Navbar />}
           content={<AppRouter />}

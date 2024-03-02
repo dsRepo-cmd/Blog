@@ -3,9 +3,10 @@
 }
 
 .menu {
-  border-radius: 18px;
+  border-radius: var(--border-radius-xl);
   border: 1px solid var(--icon);
   overflow: hidden;
+  padding: 8px;
 }
 
 .trigger {
@@ -19,6 +20,7 @@
 
 .active {
   background: var(--hint);
+  border-radius: var(--border-radius-xl);
 }
 
 .optionsBottomLeft {

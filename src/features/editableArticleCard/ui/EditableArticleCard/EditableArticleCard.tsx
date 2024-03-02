@@ -120,11 +120,11 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
   );
 
   const types = [
-    { value: ArticleType.ALL, content: ArticleType.ALL },
-    { value: ArticleType.POLITICS, content: ArticleType.POLITICS },
-    { value: ArticleType.ECONOMICS, content: ArticleType.ECONOMICS },
-    { value: ArticleType.SCIENCE, content: ArticleType.SCIENCE },
-    { value: ArticleType.IT, content: ArticleType.IT },
+    { value: ArticleType.ALL, content: t(ArticleType.ALL) },
+    { value: ArticleType.POLITICS, content: t(ArticleType.POLITICS) },
+    { value: ArticleType.ECONOMICS, content: t(ArticleType.ECONOMICS) },
+    { value: ArticleType.SCIENCE, content: t(ArticleType.SCIENCE) },
+    { value: ArticleType.IT, content: t(ArticleType.IT) },
   ];
 
   if (error) {

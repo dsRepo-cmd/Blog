@@ -39,5 +39,11 @@
   "Add Image Block": "Додати блок зображення",
   "Add Text Block": "Додати текстовий блок",
   "Delete Article": "Видалити статтю",
-  "Save and Publish The Article": "Зберегти та опублікувати статтю"
+  "Save and Publish The Article": "Зберегти та опублікувати статтю",
+  "Published": "Опубліковано",
+  "ALL": "ВСІ",
+  "POLITICS": "ПОЛІТИКА",
+  "ECONOMICS": "ЕКОНОМІКА",
+  "SCIENCE": "НАУКА",
+  "ІТ": "IT"
 }

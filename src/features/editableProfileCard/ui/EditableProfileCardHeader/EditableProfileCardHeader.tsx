@@ -61,7 +61,6 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
               <div>
                 {readonly ? (
                   <Button
-                    round
                     onClick={onEdit}
                     data-testid="EditableProfileCardHeader.EditButton"
                   >
@@ -73,7 +72,6 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                 ) : (
                   <HStack gap="8">
                     <Button
-                      round
                       onClick={onCancelEdit}
                       data-testid="EditableProfileCardHeader.EditButton"
                     >
@@ -84,12 +82,16 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                     </Button>
 
                     <Button
-                      round
                       onClick={onSave}
                       data-testid="EditableProfileCardHeader.EditButton"
                     >
                       <HStack gap="12">
-                        <Icon filled width={20} Svg={SaveIcon} />{" "}
+                        <Icon
+                          variant="error"
+                          filled
+                          width={20}
+                          Svg={SaveIcon}
+                        />{" "}
                         <Text text={t("Save")} />
                       </HStack>
                     </Button>

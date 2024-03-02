@@ -19,7 +19,6 @@ const NotificationItem: React.FC<NotificationItemProps> = ({
   const content = (
     <Card className={classNames(cls.NotificationItem, {}, [className])}>
       <Text size="s" title={item.message} text={item.type} />
-
       <Text size="s" text={getTimeAgoString(item.date)} />
     </Card>
   );

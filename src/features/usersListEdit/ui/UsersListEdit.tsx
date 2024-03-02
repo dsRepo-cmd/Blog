@@ -186,7 +186,7 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
                 </HStack>
               ))}
           </VStack>
-          <Drawer isOpen={isModalOpen} onClose={cancelHandle} lazy>
+          <Drawer padding isOpen={isModalOpen} onClose={cancelHandle} lazy>
             <VStack align="center" gap="24">
               <Text
                 title={t(

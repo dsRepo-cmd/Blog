@@ -20,6 +20,7 @@ import { ValidateAuthError } from "../../model/const/const";
 import { signUpByEmail } from "../../model/services/signUpByEmail/signUpByEmail";
 import ConfirmForm from "../ConfirmForm/ConfirmForm";
 import Loader from "@/shared/ui/redesigned/Loader/Loader";
+import { BrowserView, MobileView } from "react-device-detect";
 
 export interface SignUpFormProps {
   className?: string;
@@ -93,13 +94,27 @@ const SignUpForm: React.FC<SignUpFormProps> = memo(
     );
 
     // ============================================================================
+
     if (isLoading) {
-      return <Loader />;
+      return (
+        <>
+          <BrowserView>
+            <Loader />;
+          </BrowserView>
+          <MobileView>
+            <Loader center />
+          </MobileView>
+        </>
+      );
     }
     // ============================================================================
 
     const signUpForm = (
-      <VStack gap="12" className={classNames(cls.SignUpForm, {}, [className])}>
+      <VStack
+        align="center"
+        gap="12"
+        className={classNames(cls.SignUpForm, {}, [className])}
+      >
         <HStack
           max
           className={classNames(cls.header, {}, [className])}

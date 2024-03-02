@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
-
 import { useTranslation } from "react-i18next";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import { ListBox } from "@/shared/ui/redesigned/Popups";

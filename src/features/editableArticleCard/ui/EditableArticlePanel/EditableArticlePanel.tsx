@@ -192,7 +192,7 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
       </BrowserView>
 
       <MobileView>
-        <Drawer isOpen={isModalOpen} onClose={cancelHandle} lazy>
+        <Drawer padding isOpen={isModalOpen} onClose={cancelHandle} lazy>
           <VStack align="center" gap="24">
             <Text title={t("Are you sure you want to delete the article?")} />
 

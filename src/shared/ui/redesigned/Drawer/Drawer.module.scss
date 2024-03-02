@@ -27,11 +27,15 @@
   width: 96vw;
   border-radius: 12px 12px 0;
   touch-action: none;
-  padding: 15px;
+  overflow: hidden;
 }
 
 .drawer {
   .sheet {
     background: var(--light-bg);
   }
+}
+
+.padding {
+  padding: 15px;
 }
