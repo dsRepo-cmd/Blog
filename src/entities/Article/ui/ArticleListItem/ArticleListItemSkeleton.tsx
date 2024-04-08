@@ -49,6 +49,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
       <Card
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         border={"partial"}
+        max
         padding={"0"}
       >
         <Skeleton border="0" width="100%" height={250} />
