@@ -5,6 +5,7 @@ import { VStack } from "../Stack";
 
 const meta = {
   component: Button,
+  tags: ["autodocs"],
 
   argTypes: {
     variant: {
@@ -19,7 +20,7 @@ const meta = {
 
   decorators: [
     (Story) => (
-      <VStack max className={Theme.LIGHT}>
+      <VStack className={Theme.LIGHT}>
         <Story />
       </VStack>
     ),
@@ -40,5 +41,13 @@ export const Deafault: Story = {
   args: {
     variant: "filled",
     children: "Button",
+  },
+};
+
+export const FullWidth: Story = {
+  args: {
+    variant: "filled",
+    children: "Button",
+    fullWidth: true,
   },
 };
