@@ -13,13 +13,7 @@ const preview: Preview = {
       ],
     },
   },
-  decorators: [
-    (Story) => (
-      <div>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 };
 
 export default preview;

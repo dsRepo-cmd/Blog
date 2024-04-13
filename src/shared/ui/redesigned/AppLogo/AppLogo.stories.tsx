@@ -2,11 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import AppLogo from "./AppLogo";
 import { Theme } from "@/shared/const/theme";
 import { VStack } from "../Stack";
-import { classNames } from "@/shared/lib/classNames";
 
 const meta = {
   component: AppLogo,
-
+  tags: ["autodocs"],
   argTypes: {
     className: {
       options: [Theme.LIGHT, Theme.DARK, Theme.ORANGE],
@@ -16,7 +15,7 @@ const meta = {
 
   decorators: [
     (Story) => (
-      <VStack max maxHeight className={Theme.LIGHT}>
+      <VStack className={Theme.LIGHT}>
         <Story />
       </VStack>
     ),
