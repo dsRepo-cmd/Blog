@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import AppLogo from "./AppLogo";
+import Input from "./Input";
 import { Theme } from "@/shared/const/theme";
 import { VStack } from "../Stack";
 
 const meta = {
-  component: AppLogo,
+  component: Input,
   tags: ["autodocs"],
+
   argTypes: {
     className: {
       options: [Theme.LIGHT, Theme.DARK, Theme.ORANGE],
@@ -20,20 +21,25 @@ const meta = {
       </VStack>
     ),
   ],
-} satisfies Meta<typeof AppLogo>;
+} satisfies Meta<typeof Input>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/api/csf
- * to learn how to use render functions.
- */
-
 export const Deafault: Story = {
   args: {
-    size: 50,
+    label: "Label",
+    name: "text",
+    placeholder: "Deafault",
+  },
+};
+
+export const Password: Story = {
+  args: {
+    label: "Label",
+    name: "password",
+    placeholder: "Password",
+    password: true,
   },
 };
