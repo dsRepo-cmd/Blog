@@ -7,8 +7,8 @@ const preview: Preview = {
   parameters: {
     backgrounds: {
       values: [
-        { name: "app_light_theme", value: "#eff5f6" },
-        { name: "app_dark_theme", value: "#10191d" },
+        { name: "light_theme", value: "#eff5f6" },
+        { name: "dark_theme", value: "#10191d" },
         { name: "app_orange_theme", value: "#f0c048" },
       ],
     },
