@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Code from "./Code";
 import { Theme } from "@/shared/const/theme";
-import { VStack } from "../Stack";
+
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 
 const meta = {
   component: Code,
@@ -14,13 +15,7 @@ const meta = {
     },
   },
 
-  decorators: [
-    (Story) => (
-      <VStack max className={Theme.LIGHT}>
-        <Story />
-      </VStack>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 } satisfies Meta<typeof Code>;
 
 export default meta;
@@ -38,3 +33,21 @@ export const Deafault: Story = {
     text: `console.log("Hello, World!");`,
   },
 };
+
+Deafault.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const Dark: Story = {
+  args: {
+    text: `console.log("Hello, World!");`,
+  },
+};
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Orange: Story = {
+  args: {
+    text: `console.log("Hello, World!");`,
+  },
+};
+
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
