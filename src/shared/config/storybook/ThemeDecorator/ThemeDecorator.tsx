@@ -7,10 +7,7 @@ import "@/app/styles/index.scss";
 export const ThemeDecorator = (theme: Theme) => (StoryComponent: StoryFn) =>
   (
     <ThemeProvider initialTheme={theme}>
-      <div
-        style={{ width: "100%", padding: "24px", height: "100%" }}
-        className={`app ${theme}`}
-      >
+      <div className={`app_storybook ${theme}`}>
         <StoryComponent />
       </div>
     </ThemeProvider>

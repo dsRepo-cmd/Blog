@@ -20,6 +20,19 @@ html {
   color: var(--text);
 }
 
+.app_storybook {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--bg);
+  font: var(--font-m);
+  color: var(--text);
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+}
+
 .content-page {
   display: flex;
 }
