@@ -13,13 +13,13 @@ import DynamicModuleLoader, {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import Text from "@/shared/ui/redesigned/Text/Text";
-import Input from "@/shared/ui/redesigned/Input/Input";
-import Button from "@/shared/ui/redesigned/Button/Button";
+import Text from "@/shared/ui/Text/Text";
+import Input from "@/shared/ui/Input/Input";
+import Button from "@/shared/ui/Button/Button";
 import { ValidateAuthError } from "../../model/const/const";
 import { signUpByEmail } from "../../model/services/signUpByEmail/signUpByEmail";
 import ConfirmForm from "../ConfirmForm/ConfirmForm";
-import Loader from "@/shared/ui/redesigned/Loader/Loader";
+import Loader from "@/shared/ui/Loader/Loader";
 import { BrowserView, MobileView } from "react-device-detect";
 
 export interface SignUpFormProps {

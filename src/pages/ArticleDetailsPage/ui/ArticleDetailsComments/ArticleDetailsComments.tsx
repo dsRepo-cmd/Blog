@@ -8,13 +8,13 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
 import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import Loader from "@/shared/ui/redesigned/Loader/Loader";
+import Loader from "@/shared/ui/Loader/Loader";
 import { AddCommentForm } from "@/features/addCommentForm";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Text from "@/shared/ui/Text/Text";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { getUserAuthData } from "@/entities/User";
-import Modal from "@/shared/ui/redesigned/Modal/Modal";
-import Card from "@/shared/ui/redesigned/Card/Card";
+import Modal from "@/shared/ui/Modal/Modal";
+import Card from "@/shared/ui/Card/Card";
 
 interface ArticleDetailsCommentsProps {
   className?: string;

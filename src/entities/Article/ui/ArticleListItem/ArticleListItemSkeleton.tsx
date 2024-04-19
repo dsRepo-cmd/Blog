@@ -1,9 +1,9 @@
 import { FC, memo } from "react";
 import cls from "./ArticleListItem.module.scss";
 import { classNames } from "@/shared/lib/classNames";
-import Card from "@/shared/ui/redesigned/Card/Card";
+import Card from "@/shared/ui/Card/Card";
 import { ArticleView } from "../../model/consts/consts";
-import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 
 interface ArticleListItemSkeletonProps {

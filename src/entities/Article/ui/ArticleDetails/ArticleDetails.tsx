@@ -16,9 +16,9 @@ import {
 } from "../../model/selectors/articleDetails";
 import cls from "./ArticleDetails.module.scss";
 import { renderArticleBlock } from "./renderBlock";
-import Text from "@/shared/ui/redesigned/Text/Text";
-import AppImage from "@/shared/ui/redesigned/AppImage/AppImage";
-import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import Text from "@/shared/ui/Text/Text";
+import AppImage from "@/shared/ui/AppImage/AppImage";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 import { useParams } from "react-router-dom";
 
 interface ArticleDetailsProps {

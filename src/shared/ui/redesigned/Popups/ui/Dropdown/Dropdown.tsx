@@ -7,8 +7,8 @@ import cls from "./Dropdown.module.scss";
 import { mapDirectionClass } from "../../styles/consts";
 import popupCls from "../../styles/popup.module.scss";
 import { classNames } from "@/shared/lib/classNames";
-import AppLink, { AppLinkProps } from "../../../AppLink/AppLink";
-import { Icon } from "../../../Icon/Icon";
+import AppLink, { AppLinkProps } from "../../../../AppLink/AppLink";
+import { Icon } from "../../../../Icon/Icon";
 import { HStack } from "../../../Stack";
 
 export interface DropdownItem {

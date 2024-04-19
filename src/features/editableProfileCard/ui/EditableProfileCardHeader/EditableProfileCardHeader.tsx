@@ -10,11 +10,11 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { profileActions } from "../../model/slice/ProfileSlice";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import Button from "@/shared/ui/redesigned/Button/Button";
-import Card from "@/shared/ui/redesigned/Card/Card";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Button from "@/shared/ui/Button/Button";
+import Card from "@/shared/ui/Card/Card";
+import Text from "@/shared/ui/Text/Text";
 import { BrowserView, MobileView } from "react-device-detect";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import { Icon } from "@/shared/ui/Icon/Icon";
 import EditIcon from "@/shared/assets/icons/edit.svg";
 import CancelIcon from "@/shared/assets/icons/delete.svg";
 import SaveIcon from "@/shared/assets/icons/disk.svg";

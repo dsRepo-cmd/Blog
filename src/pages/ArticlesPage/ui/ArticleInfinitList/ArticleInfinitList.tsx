@@ -9,7 +9,7 @@ import {
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
 import { ArticleList } from "@/entities/Article";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Text from "@/shared/ui/Text/Text";
 
 interface ArticleInfinitListProps {
   className?: string;

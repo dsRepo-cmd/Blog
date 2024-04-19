@@ -20,12 +20,12 @@ import {
 } from "../../model/selectors/getArticleEdit";
 import { ValidateArticleEditError } from "../../model/consts/consts";
 import { fetchArticleEditData } from "../../model/services/fetchArticleEditData";
-import Input from "@/shared/ui/redesigned/Input/Input";
+import Input from "@/shared/ui/Input/Input";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
 import { ArticleType } from "@/entities/Article";
 import { renderArticleBlock } from "./renderBlock";
-import Text from "@/shared/ui/redesigned/Text/Text";
-import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import Text from "@/shared/ui/Text/Text";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 import EditableArticlePanel from "../EditableArticlePanel/EditableArticlePanel";
 import { useParams } from "react-router-dom";
 import { UserRole, getUserAuthData } from "@/entities/User";
@@ -160,8 +160,6 @@ const EditableArticleCard: React.FC<EditableArticleCardProps> = ({
       </DynamicModuleLoader>
     );
   }
-
-  console.log("formData==", formData);
 
   return (
     <DynamicModuleLoader reducers={reducers}>

@@ -6,10 +6,10 @@ import {
   useJsonSettings,
 } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
-import Modal from "@/shared/ui/redesigned/Modal/Modal";
+import { Drawer } from "@/shared/ui/Drawer/Drawer";
+import Modal from "@/shared/ui/Modal/Modal";
 import { isMobile } from "react-device-detect";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Text from "@/shared/ui/Text/Text";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import { useSelector } from "react-redux";
 

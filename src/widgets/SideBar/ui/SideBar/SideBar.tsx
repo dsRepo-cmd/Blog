@@ -8,10 +8,10 @@ import { getSidebarItems } from "../../model/selector/getSideBarItems";
 import LangSwitcher from "../../../../features/LangSwitcher/LangSwitcher";
 import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
 import { BrowserView, MobileView } from "react-device-detect";
-import AppLogo from "@/shared/ui/redesigned/AppLogo/AppLogo";
+import AppLogo from "@/shared/ui/AppLogo/AppLogo";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
-import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
+import { Icon } from "@/shared/ui/Icon/Icon";
+import { Drawer } from "@/shared/ui/Drawer/Drawer";
 import BurgerIcon from "@/shared/assets/icons/burger.svg";
 
 interface SideBarProps {
