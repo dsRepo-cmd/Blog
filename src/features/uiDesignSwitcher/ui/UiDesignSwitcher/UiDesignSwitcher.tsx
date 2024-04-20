@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { getUserAuthData } from "@/entities/User";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import { getFeatureFlag } from "@/shared/lib/features/lib/setGetFeatures";
-import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 import { updateFeatureFlag } from "@/shared/lib/features";
 
 interface UiDesignSwitcherProps {

@@ -4,7 +4,7 @@ import React, { memo } from "react";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 import { ArticleList } from "@/entities/Article";
 import { useArticleRecomendationsList } from "../../api/aritcleRecommendationsApi";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Text from "@/shared/ui/Text/Text";
 
 interface ArticleRecommendationsListProps {
   className?: string;

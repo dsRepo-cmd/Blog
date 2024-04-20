@@ -2,17 +2,17 @@ import { FC } from "react";
 
 import { Currency, CurrencySelect } from "@/entities/Currency";
 import { Country, CountrySelect } from "@/entities/Coutnry";
-import Card from "@/shared/ui/redesigned/Card/Card";
+import Card from "@/shared/ui/Card/Card";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 import { useTranslation } from "react-i18next";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Text from "@/shared/ui/Text/Text";
 import { useSelector } from "react-redux";
 import { getProfileValidateErrors } from "@/features/editableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { ValidateProfileError } from "../../model/consts/consts";
 import { BrowserView, MobileView } from "react-device-detect";
-import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
-import Input from "@/shared/ui/redesigned/Input/Input";
+import Avatar from "@/shared/ui/Avatar/Avatar";
+import Input from "@/shared/ui/Input/Input";
 import { Profile } from "@/entities/Profile";
 
 export interface ProfileCardProps {

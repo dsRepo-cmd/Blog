@@ -2,25 +2,25 @@ import { FC, memo, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import cls from "./ArticleAdditionalInfo.module.scss";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
-import Text from "@/shared/ui/redesigned/Text/Text";
-import Button from "@/shared/ui/redesigned/Button/Button";
+import Avatar from "@/shared/ui/Avatar/Avatar";
+import Text from "@/shared/ui/Text/Text";
+import Button from "@/shared/ui/Button/Button";
 import { classNames } from "@/shared/lib/classNames";
 import { useSelector } from "react-redux";
 import {
   getArticleDetailsData,
   getArticleDetailsIsLoading,
 } from "@/entities/Article/model/selectors/articleDetails";
-import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 import { useNavigate } from "react-router-dom";
 import { getRouteArticleEdit, getRouteProfile } from "@/shared/const/router";
-import Card from "@/shared/ui/redesigned/Card/Card";
+import Card from "@/shared/ui/Card/Card";
 import { BrowserView, MobileView } from "react-device-detect";
 import EditIcon from "@/shared/assets/icons/edit.svg";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import { Icon } from "@/shared/ui/Icon/Icon";
 import { UserRole, getUserAuthData } from "@/entities/User";
 import { getStandartformatDate } from "@/shared/lib/features/lib/getCurrentDate";
-import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
+import AppLink from "@/shared/ui/AppLink/AppLink";
 
 interface ArticleAdditionalInfoProps {
   className?: string;

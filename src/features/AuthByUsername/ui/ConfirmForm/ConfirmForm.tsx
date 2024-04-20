@@ -8,16 +8,16 @@ import { getLoginEmail } from "../../model/selectors/getLoginEmail/getLoginEmail
 import { getLoginErrors } from "../../model/selectors/getLoginErrors/getLoginErrors";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import Text from "@/shared/ui/redesigned/Text/Text";
-import Input from "@/shared/ui/redesigned/Input/Input";
-import Button from "@/shared/ui/redesigned/Button/Button";
+import Text from "@/shared/ui/Text/Text";
+import Input from "@/shared/ui/Input/Input";
+import Button from "@/shared/ui/Button/Button";
 import { ValidateAuthError } from "../../model/const/const";
 import { getConfirmCode } from "../../model/selectors/getConfirmCode/getConfirmCode";
 import { confirmCode } from "../../model/services/confirmCode/confirmCode";
 import { getSignUpCode } from "../../model/selectors/getSignUpCode/getSignUpCode";
 import { getLoginToken } from "../../model/selectors/getLoginToken/getLoginToken";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import Loader from "@/shared/ui/redesigned/Loader/Loader";
+import Loader from "@/shared/ui/Loader/Loader";
 import { BrowserView, MobileView } from "react-device-detect";
 
 export interface ConfirmFormProps {

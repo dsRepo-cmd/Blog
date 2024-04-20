@@ -10,12 +10,12 @@ import React, {
 
 import cls from "./Input.module.scss";
 import { Mods, classNames } from "@/shared/lib/classNames";
-import { HStack, VStack } from "../Stack";
+import { HStack, VStack } from "../redesigned/Stack";
 import Text from "../Text/Text";
-import DeleteIcon from "../../../assets/icons/delete.svg";
+import DeleteIcon from "../../assets/icons/delete.svg";
 import { Icon } from "../Icon/Icon";
-import EyeShowIcon from "../../../assets/icons/eye.svg";
-import EyeHideIcon from "../../../assets/icons/eye-hide.svg";
+import EyeShowIcon from "../../assets/icons/eye.svg";
+import EyeHideIcon from "../../assets/icons/eye-hide.svg";
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,

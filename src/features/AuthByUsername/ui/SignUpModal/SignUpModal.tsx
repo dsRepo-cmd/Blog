@@ -1,10 +1,10 @@
 import React, { Suspense, memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import Modal from "@/shared/ui/redesigned/Modal/Modal";
-import Loader from "@/shared/ui/redesigned/Loader/Loader";
+import Modal from "@/shared/ui/Modal/Modal";
+import Loader from "@/shared/ui/Loader/Loader";
 import { SignUpFormAsync } from "../SignUpForm/SignUpForm.async";
 import { BrowserView, MobileView } from "react-device-detect";
-import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
+import { Drawer } from "@/shared/ui/Drawer/Drawer";
 
 interface SignUpModalProps {
   className?: string;

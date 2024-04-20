@@ -4,8 +4,8 @@ import cls from "./NotificationButton.module.scss";
 import { NotificationsList } from "@/entities/Notifications";
 import { BrowserView, MobileView } from "react-device-detect";
 import NotificationIcon from "@/shared/assets/icons/notification.svg";
-import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import { Drawer } from "@/shared/ui/Drawer/Drawer";
+import { Icon } from "@/shared/ui/Icon/Icon";
 import { Popover } from "@/shared/ui/redesigned/Popups";
 
 interface NotificationButtonProps {

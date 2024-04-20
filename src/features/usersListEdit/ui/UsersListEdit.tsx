@@ -11,20 +11,20 @@ import { useSelector } from "react-redux";
 import { getUsersEditForm } from "../model/selectors/getUsersListEdit";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchUsersEditData } from "../model/services/fetchUsersEditData";
-import Text from "@/shared/ui/redesigned/Text/Text";
-import Card from "@/shared/ui/redesigned/Card/Card";
-import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
+import Text from "@/shared/ui/Text/Text";
+import Card from "@/shared/ui/Card/Card";
+import AppLink from "@/shared/ui/AppLink/AppLink";
 import { getRouteProfile } from "@/shared/const/router";
-import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import Avatar from "@/shared/ui/Avatar/Avatar";
+import { Icon } from "@/shared/ui/Icon/Icon";
 import DeleteIcon from "@/shared/assets/icons/delete.svg";
 import AvatarIcon from "@/shared/assets/icons/avatar.svg";
 
 import { deleteUser } from "../model/services/deleteUser";
-import Modal from "@/shared/ui/redesigned/Modal/Modal";
-import Button from "@/shared/ui/redesigned/Button/Button";
+import Modal from "@/shared/ui/Modal/Modal";
+import Button from "@/shared/ui/Button/Button";
 import { BrowserView, MobileView } from "react-device-detect";
-import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
+import { Drawer } from "@/shared/ui/Drawer/Drawer";
 
 interface UsersListEditProps {
   className?: string;

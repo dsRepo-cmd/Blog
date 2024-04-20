@@ -21,7 +21,6 @@ export const fetchArticleEditData = createAsyncThunk<
       throw new Error();
     }
 
-    console.log("fetchArticleEditData====", response.data);
     return response.data;
   } catch (e) {
     console.log(e);

@@ -15,8 +15,6 @@ export const updateArticleEditData = createAsyncThunk<
 
   const formData = getArticleEditForm(getState());
 
-  console.log("updateArticleEditData==== formData", formData);
-
   const errors = validateArticleEditData(formData);
 
   if (Object.keys(errors).length > 0) {
@@ -28,7 +26,6 @@ export const updateArticleEditData = createAsyncThunk<
       "/article/" + formData?.id,
       formData
     );
-    console.log("updateArticleEditData====", response.data);
 
     return response.data;
   } catch (e) {

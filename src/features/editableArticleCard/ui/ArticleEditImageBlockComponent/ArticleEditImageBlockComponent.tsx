@@ -3,13 +3,13 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "../EditableArticleCard/EditableArticleCard.module.scss";
 import { useTranslation } from "react-i18next";
 import { ArticleImageBlock } from "@/entities/Article";
-import Input from "@/shared/ui/redesigned/Input/Input";
+import Input from "@/shared/ui/Input/Input";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { articleEditActions } from "../../model/slice/ArticleEditSlice";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 
 import DeleteIcon from "@/shared/assets/icons/delete.svg";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import { Icon } from "@/shared/ui/Icon/Icon";
 
 interface ArticleEditImageBlockComponentProps {
   className?: string;

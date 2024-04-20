@@ -7,7 +7,7 @@ import { ArticleView } from "../../model/consts/consts";
 import { Article } from "../../model/types/article";
 import { classNames } from "@/shared/lib/classNames";
 import { HStack } from "@/shared/ui/redesigned/Stack";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Text from "@/shared/ui/Text/Text";
 
 interface ArticleListProps {
   className?: string;

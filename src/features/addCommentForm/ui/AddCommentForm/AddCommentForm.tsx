@@ -17,9 +17,9 @@ import DynamicModuleLoader, {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { HStack } from "@/shared/ui/redesigned/Stack";
 import SendIcon from "@/shared/assets/icons/paper-plane.svg";
-import Input from "@/shared/ui/redesigned/Input/Input";
-import Card from "@/shared/ui/redesigned/Card/Card";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import Input from "@/shared/ui/Input/Input";
+import Card from "@/shared/ui/Card/Card";
+import { Icon } from "@/shared/ui/Icon/Icon";
 
 interface AddCommentFormProps {
   className?: string;

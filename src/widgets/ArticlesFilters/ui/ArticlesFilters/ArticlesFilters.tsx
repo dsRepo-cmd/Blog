@@ -7,14 +7,14 @@ import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
 import { ArticleSortField, ArticleType } from "@/entities/Article";
 import { SortOrder } from "@/shared/types/sort";
 import { classNames } from "@/shared/lib/classNames";
-import Card from "@/shared/ui/redesigned/Card/Card";
-import Input from "@/shared/ui/redesigned/Input/Input";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import Card from "@/shared/ui/Card/Card";
+import Input from "@/shared/ui/Input/Input";
+import { Icon } from "@/shared/ui/Icon/Icon";
 import SearchIcon from "@/shared/assets/icons/search.svg";
 import { BrowserView, MobileView } from "react-device-detect";
 import DownArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
-import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
-import Toggle from "@/shared/ui/redesigned/Toggle/Toggle";
+import { Drawer } from "@/shared/ui/Drawer/Drawer";
+import Toggle from "@/shared/ui/Toggle/Toggle";
 
 interface ArticlesFiltersProps {
   className?: string;

@@ -5,8 +5,8 @@ import { classNames } from "@/shared/lib/classNames";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { SidebarItemType } from "../../../model/types/sidebar";
-import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import AppLink from "@/shared/ui/AppLink/AppLink";
+import { Icon } from "@/shared/ui/Icon/Icon";
 
 interface SideBarItemProps {
   item: SidebarItemType;

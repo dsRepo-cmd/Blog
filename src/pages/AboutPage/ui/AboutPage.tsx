@@ -3,10 +3,10 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./AboutPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { Page } from "@/widgets/Page";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Text from "@/shared/ui/Text/Text";
 import { VStack } from "@/shared/ui/redesigned/Stack";
-import AppImage from "@/shared/ui/redesigned/AppImage/AppImage";
-import Skeleton from "@/shared/ui/redesigned/Skeleton/Skeleton";
+import AppImage from "@/shared/ui/AppImage/AppImage";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 
 interface AboutPageProps {
   className?: string;

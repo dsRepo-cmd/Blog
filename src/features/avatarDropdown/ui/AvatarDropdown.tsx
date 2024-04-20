@@ -15,7 +15,7 @@ import {
   getRouteSettings,
 } from "@/shared/const/router";
 import { Dropdown } from "@/shared/ui/redesigned/Popups";
-import Avatar from "@/shared/ui/redesigned/Avatar/Avatar";
+import Avatar from "@/shared/ui/Avatar/Avatar";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { LogInModal, SignUpModal } from "@/features/AuthByUsername";

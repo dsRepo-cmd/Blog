@@ -4,7 +4,7 @@ import { classNames } from "@/shared/lib/classNames";
 import { SortOrder } from "@/shared/types/sort";
 import { ArticleSortField } from "../../../../entities/Article/model/consts/consts";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Text from "@/shared/ui/Text/Text";
 import { ListBox } from "@/shared/ui/redesigned/Popups";
 
 export interface SelectOption<T extends string> {

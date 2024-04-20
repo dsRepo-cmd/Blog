@@ -3,7 +3,7 @@ import ThemeIcon from "@/shared/assets/icons/theme.svg";
 import useTheme from "@/shared/lib/hooks/useTheme/useTheme";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { saveJsonSettings } from "@/entities/User";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import { Icon } from "@/shared/ui/Icon/Icon";
 
 interface ThemeSwitcherProps {
   className?: string;

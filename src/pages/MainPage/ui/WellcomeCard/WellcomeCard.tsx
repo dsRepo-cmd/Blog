@@ -2,17 +2,17 @@ import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./WellcomeCard.module.scss";
 import { useTranslation } from "react-i18next";
-import Card from "@/shared/ui/redesigned/Card/Card";
+import Card from "@/shared/ui/Card/Card";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
-import Button from "@/shared/ui/redesigned/Button/Button";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import Button from "@/shared/ui/Button/Button";
+import { Icon } from "@/shared/ui/Icon/Icon";
 import CreateIcon from "@/shared/assets/icons/font-add.svg";
 import ViewIcon from "@/shared/assets/icons/font-book.svg";
-import AppLink from "@/shared/ui/redesigned/AppLink/AppLink";
+import AppLink from "@/shared/ui/AppLink/AppLink";
 import { getRouteArticleCreate, getRouteArticles } from "@/shared/const/router";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Text from "@/shared/ui/Text/Text";
 
 interface WellcomeCardProps {
   className?: string;

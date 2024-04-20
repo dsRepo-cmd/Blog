@@ -7,7 +7,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { updateArticleEditData } from "../../model/services/updateArticleEditData";
 import { articleEditActions } from "../../model/slice/ArticleEditSlice";
 import { ArticleBlockType } from "@/entities/Article";
-import { Icon } from "@/shared/ui/redesigned/Icon/Icon";
+import { Icon } from "@/shared/ui/Icon/Icon";
 import SaveIcon from "@/shared/assets/icons/disk.svg";
 import TextIcon from "@/shared/assets/icons/edit.svg";
 import ImageIcon from "@/shared/assets/icons/picture.svg";
@@ -22,13 +22,13 @@ import {
   getRouteArticleDetails,
   getRouteArticles,
 } from "@/shared/const/router";
-import Modal from "@/shared/ui/redesigned/Modal/Modal";
-import Button from "@/shared/ui/redesigned/Button/Button";
-import Text from "@/shared/ui/redesigned/Text/Text";
+import Modal from "@/shared/ui/Modal/Modal";
+import Button from "@/shared/ui/Button/Button";
+import Text from "@/shared/ui/Text/Text";
 import { useSelector } from "react-redux";
 import { getArticleEditData } from "../../model/selectors/getArticleEdit";
 import { BrowserView, MobileView } from "react-device-detect";
-import { Drawer } from "@/shared/ui/redesigned/Drawer/Drawer";
+import { Drawer } from "@/shared/ui/Drawer/Drawer";
 
 interface EditableArticlePanelProps {
   className?: string;

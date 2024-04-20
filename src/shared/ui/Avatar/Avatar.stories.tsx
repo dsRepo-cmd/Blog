@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Avatar from "./Avatar";
 import { Theme } from "@/shared/const/theme";
-import { VStack } from "../Stack";
+import { VStack } from "../redesigned/Stack";
 
 const meta = {
   component: Avatar,
