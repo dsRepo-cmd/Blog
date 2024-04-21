@@ -36,7 +36,27 @@ export const Deafault: Story = {
   },
 };
 
-Deafault.decorators = [ThemeDecorator(Theme.DARK)];
+Deafault.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const Dark: Story = {
+  args: {
+    label: "label",
+    name: "text",
+    placeholder: "Deafault",
+  },
+};
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Orange: Story = {
+  args: {
+    label: "label",
+    name: "text",
+    placeholder: "Deafault",
+  },
+};
+
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
 export const Password: Story = {
   args: {
@@ -46,3 +66,4 @@ export const Password: Story = {
     password: true,
   },
 };
+Deafault.decorators = [ThemeDecorator(Theme.LIGHT)];

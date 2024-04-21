@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Button from "./Button";
 import { Theme } from "@/shared/const/theme";
 import { VStack } from "../redesigned/Stack";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 
 const meta = {
   component: Button,
@@ -43,11 +44,20 @@ export const Deafault: Story = {
     children: "Button",
   },
 };
+Deafault.decorators = [ThemeDecorator(Theme.LIGHT)];
 
-export const FullWidth: Story = {
+export const Dark: Story = {
   args: {
     variant: "filled",
     children: "Button",
-    fullWidth: true,
   },
 };
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Orange: Story = {
+  args: {
+    variant: "filled",
+    children: "Button",
+  },
+};
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
