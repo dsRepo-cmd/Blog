@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Deafault: Story = {
   args: {
-    label: "label",
+    label: "LABEL",
     name: "text",
     placeholder: "Deafault",
   },
@@ -40,9 +40,9 @@ Deafault.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark: Story = {
   args: {
-    label: "label",
+    label: "LABEL",
     name: "text",
-    placeholder: "Deafault",
+    placeholder: "Dark",
   },
 };
 
@@ -50,9 +50,9 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange: Story = {
   args: {
-    label: "label",
+    label: "LABEL",
     name: "text",
-    placeholder: "Deafault",
+    placeholder: "Orange",
   },
 };
 
@@ -60,7 +60,7 @@ Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
 export const Password: Story = {
   args: {
-    label: "label",
+    label: "LABEL",
     name: "password",
     placeholder: "Password",
     password: true,
