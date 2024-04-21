@@ -20,7 +20,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
 /*
  *👇 Render functions are a framework specific feature to allow you control on how the component renders.
  * See https://storybook.js.org/docs/api/csf
@@ -30,7 +29,7 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
   args: {
     title: "Title",
-    text: "Text",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate dolores, mollitia maxime eveniet deleniti soluta facere, aperiam laborum praesentium nisi excepturi distinctio quia accusamus minus totam veritatis temporibus ratione aliquam.",
   },
 };
 Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
@@ -38,7 +37,7 @@ Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const NormalDark: Story = {
   args: {
     title: "Title",
-    text: "Text",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate dolores, mollitia maxime eveniet deleniti soluta facere, aperiam laborum praesentium nisi excepturi distinctio quia accusamus minus totam veritatis temporibus ratione aliquam.",
   },
 };
 NormalDark.decorators = [ThemeDecorator(Theme.DARK)];
@@ -46,7 +45,7 @@ NormalDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const NormalOrange: Story = {
   args: {
     title: "Title",
-    text: "Text",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate dolores, mollitia maxime eveniet deleniti soluta facere, aperiam laborum praesentium nisi excepturi distinctio quia accusamus minus totam veritatis temporibus ratione aliquam.",
   },
 };
 NormalOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
