@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Text from "./Text";
+import StarRating from "./StarRating";
 import { Theme } from "@/shared/const/theme";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 
 const meta = {
-  component: Text,
+  component: StarRating,
   tags: ["autodocs"],
 
   argTypes: {
@@ -15,11 +15,12 @@ const meta = {
   },
 
   decorators: [(Story) => <Story />],
-} satisfies Meta<typeof Text>;
+} satisfies Meta<typeof StarRating>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
 /*
  *👇 Render functions are a framework specific feature to allow you control on how the component renders.
  * See https://storybook.js.org/docs/api/csf
@@ -28,24 +29,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
   args: {
-    title: "Title",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate dolores, mollitia maxime eveniet deleniti soluta facere, aperiam laborum praesentium nisi excepturi distinctio quia accusamus minus totam veritatis temporibus ratione aliquam.",
+    size: 50,
   },
 };
 Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const NormalDark: Story = {
   args: {
-    title: "Title",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate dolores, mollitia maxime eveniet deleniti soluta facere, aperiam laborum praesentium nisi excepturi distinctio quia accusamus minus totam veritatis temporibus ratione aliquam.",
+    size: 50,
   },
 };
 NormalDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const NormalOrange: Story = {
   args: {
-    title: "Title",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate dolores, mollitia maxime eveniet deleniti soluta facere, aperiam laborum praesentium nisi excepturi distinctio quia accusamus minus totam veritatis temporibus ratione aliquam.",
+    size: 50,
   },
 };
 NormalOrange.decorators = [ThemeDecorator(Theme.ORANGE)];

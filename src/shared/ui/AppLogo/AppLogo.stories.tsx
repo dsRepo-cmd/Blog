@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import AppLogo from "./AppLogo";
 import { Theme } from "@/shared/const/theme";
-import { VStack } from "../redesigned/Stack";
+
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 
 const meta = {
   component: AppLogo,
@@ -13,13 +14,7 @@ const meta = {
     },
   },
 
-  decorators: [
-    (Story) => (
-      <VStack className={Theme.LIGHT}>
-        <Story />
-      </VStack>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 } satisfies Meta<typeof AppLogo>;
 
 export default meta;
@@ -37,3 +32,18 @@ export const Deafault: Story = {
     size: 50,
   },
 };
+Deafault.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const Dark: Story = {
+  args: {
+    size: 50,
+  },
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Orange: Story = {
+  args: {
+    size: 50,
+  },
+};
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
