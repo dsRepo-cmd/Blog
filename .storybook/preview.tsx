@@ -1,4 +1,10 @@
 import React from "react";
+import { RouterDecorator } from "../src/shared/config/storybook/RouterDecorator/RouterDecorator";
+import { SuspenseDecorator } from "../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator";
+import { ThemeDecorator } from "../src/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { FeaturesFlagsDecorator } from "../src/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator";
+
+import { Theme } from "../src/shared/const/theme";
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
@@ -11,7 +17,13 @@ const preview: Preview = {
       ],
     },
   },
-  decorators: [(Story) => <Story />],
+  decorators: [
+    (Story) => <Story />,
+    RouterDecorator,
+    SuspenseDecorator,
+    ThemeDecorator(Theme.LIGHT),
+    FeaturesFlagsDecorator({}),
+  ],
 };
 
 export default preview;

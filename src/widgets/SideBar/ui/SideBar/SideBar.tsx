@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./SideBar.module.scss";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
-import SideBarItem from "./SideBarItem/SideBarItem";
+import SideBarItem from "../SideBarItem/SideBarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selector/getSideBarItems";
 import LangSwitcher from "../../../../features/LangSwitcher/LangSwitcher";
