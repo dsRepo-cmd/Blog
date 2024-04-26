@@ -1,30 +1,34 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Code from "./Code";
+import AppLink from "./AppLink";
 
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { VStack } from "../redesigned/Stack";
+import Text from "../Text/Text";
+import Avatar from "../Avatar/Avatar";
 
 const meta = {
-  component: Code,
+  component: AppLink,
 
   decorators: [
     (Story) => (
-      <VStack padding="12" align="center">
+      <VStack align="center">
         <Story />
       </VStack>
     ),
     ThemeDecorator(),
     StoreDecorator({}),
   ],
-} satisfies Meta<typeof Code>;
+} satisfies Meta<typeof AppLink>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Deafault: Story = {
+export const Primary: Story = {
   args: {
-    text: `console.log("Hello, World!");`,
+    variant: "primary",
+    to: "#",
+    children: "Primary",
   },
 };

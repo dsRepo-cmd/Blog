@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Code from "./Code";
+import { Icon } from "./Icon";
 
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { VStack } from "../redesigned/Stack";
+import EyeIcon from "@/shared/assets/icons/eye-r.svg";
 
 const meta = {
-  component: Code,
+  component: Icon,
 
   decorators: [
     (Story) => (
@@ -17,7 +18,7 @@ const meta = {
     ThemeDecorator(),
     StoreDecorator({}),
   ],
-} satisfies Meta<typeof Code>;
+} satisfies Meta<typeof Icon>;
 
 export default meta;
 
@@ -25,6 +26,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Deafault: Story = {
   args: {
-    text: `console.log("Hello, World!");`,
+    Svg: EyeIcon,
+    width: 50,
+  },
+};
+
+export const Clickable: Story = {
+  args: {
+    Svg: EyeIcon,
+    width: 50,
+    clickable: true,
+    onClick: () => {
+      console.log("clicked");
+    },
   },
 };

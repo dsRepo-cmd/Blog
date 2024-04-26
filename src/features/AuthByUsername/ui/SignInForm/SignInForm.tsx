@@ -39,8 +39,6 @@ const SignInForm: React.FC<SignInFormProps> = memo(
     const isLoading = useSelector(getLoginIsLoading);
     // const isLoading = true;
 
-    console.log("isLoading", isLoading);
-
     // Validate errors
     const validateErrors = useSelector(getLoginErrors);
 
