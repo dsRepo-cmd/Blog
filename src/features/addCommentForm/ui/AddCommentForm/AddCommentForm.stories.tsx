@@ -1,15 +1,16 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import SignUpForm from "./SignUpForm";
+import AddCommentForm from "./AddCommentForm";
+import { Theme } from "@/shared/const/theme";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 
 const meta = {
-  component: SignUpForm,
+  component: AddCommentForm,
 
   decorators: [
     (Story) => (
-      <VStack align="center">
+      <VStack padding="12" align="center">
         <Story />
       </VStack>
     ),
@@ -18,11 +19,13 @@ const meta = {
       user: { authData: { id: "1" } },
     }),
   ],
-} satisfies Meta<typeof SignUpForm>;
+} satisfies Meta<typeof AddCommentForm>;
 
 export default meta;
 
-const Template: StoryFn<typeof SignUpForm> = (args) => <SignUpForm {...args} />;
+const Template: StoryFn<typeof AddCommentForm> = (args) => (
+  <AddCommentForm {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};

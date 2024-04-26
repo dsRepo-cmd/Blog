@@ -1,15 +1,16 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import SignUpForm from "./SignUpForm";
+import { Navbar } from "./Navbar";
+
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 
 const meta = {
-  component: SignUpForm,
+  component: Navbar,
 
   decorators: [
     (Story) => (
-      <VStack align="center">
+      <VStack align="end">
         <Story />
       </VStack>
     ),
@@ -18,11 +19,11 @@ const meta = {
       user: { authData: { id: "1" } },
     }),
   ],
-} satisfies Meta<typeof SignUpForm>;
+} satisfies Meta<typeof Navbar>;
 
 export default meta;
 
-const Template: StoryFn<typeof SignUpForm> = (args) => <SignUpForm {...args} />;
+const Template: StoryFn<typeof Navbar> = () => <Navbar />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

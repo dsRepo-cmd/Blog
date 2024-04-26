@@ -1,30 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Button from "./Button";
-import { Theme } from "@/shared/const/theme";
+
 import { VStack } from "../redesigned/Stack";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
   component: Button,
-  tags: ["autodocs"],
-
-  argTypes: {
-    variant: {
-      options: ["clear", "outline", "filled"],
-      control: { type: "select" }, // Automatically inferred when 'options' is defined
-    },
-    className: {
-      options: [Theme.LIGHT, Theme.DARK, Theme.ORANGE],
-      control: { type: "select" },
-    },
-  },
 
   decorators: [
     (Story) => (
-      <VStack className={Theme.LIGHT}>
+      <VStack align="center">
         <Story />
       </VStack>
     ),
+    ThemeDecorator(),
+    StoreDecorator({}),
   ],
 } satisfies Meta<typeof Button>;
 
@@ -32,32 +23,23 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/api/csf
- * to learn how to use render functions.
- */
-
 export const Deafault: Story = {
   args: {
     variant: "filled",
     children: "Button",
   },
 };
-Deafault.decorators = [ThemeDecorator(Theme.LIGHT)];
 
-export const Dark: Story = {
+export const Clear: Story = {
   args: {
-    variant: "filled",
+    variant: "clear",
     children: "Button",
   },
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Orange: Story = {
+export const Outline: Story = {
   args: {
-    variant: "filled",
+    variant: "outline",
     children: "Button",
   },
 };
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

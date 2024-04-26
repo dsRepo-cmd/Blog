@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import { Page } from "@/widgets/Page";
-import WellcomeCard from "./WellcomeCard/WellcomeCard";
+import WellcomeCard from "@/features/WellcomeCard/ui/WellcomeCard";
 
 interface MainPageProps {
   className?: string;

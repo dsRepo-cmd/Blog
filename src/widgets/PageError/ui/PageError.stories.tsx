@@ -1,28 +1,27 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import SignUpForm from "./SignUpForm";
+import PageError from "./PageError";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { VStack } from "@/shared/ui/redesigned/Stack";
 
 const meta = {
-  component: SignUpForm,
+  component: PageError,
 
   decorators: [
     (Story) => (
-      <VStack align="center">
+      <div style={{ height: "100svh" }}>
         <Story />
-      </VStack>
+      </div>
     ),
     ThemeDecorator(),
     StoreDecorator({
-      user: { authData: { id: "1" } },
+      user: { authData: {} },
     }),
   ],
-} satisfies Meta<typeof SignUpForm>;
+} satisfies Meta<typeof PageError>;
 
 export default meta;
 
-const Template: StoryFn<typeof SignUpForm> = (args) => <SignUpForm {...args} />;
+const Template: StoryFn<typeof PageError> = () => <PageError />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

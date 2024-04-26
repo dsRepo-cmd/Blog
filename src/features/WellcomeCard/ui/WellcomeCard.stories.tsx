@@ -1,28 +1,36 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import SignUpForm from "./SignUpForm";
+import WellcomeCard from "./WellcomeCard";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 
 const meta = {
-  component: SignUpForm,
+  component: WellcomeCard,
 
   decorators: [
     (Story) => (
-      <VStack align="center">
+      <VStack padding="12" align="center">
         <Story />
       </VStack>
     ),
     ThemeDecorator(),
-    StoreDecorator({
-      user: { authData: { id: "1" } },
-    }),
+    StoreDecorator({}),
   ],
-} satisfies Meta<typeof SignUpForm>;
+} satisfies Meta<typeof WellcomeCard>;
 
 export default meta;
 
-const Template: StoryFn<typeof SignUpForm> = (args) => <SignUpForm {...args} />;
+const Template: StoryFn<typeof WellcomeCard> = (args) => (
+  <WellcomeCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
+
+export const IsLogin = Template.bind({});
+IsLogin.args = {};
+IsLogin.decorators = [
+  StoreDecorator({
+    user: { authData: { id: "1" } },
+  }),
+];

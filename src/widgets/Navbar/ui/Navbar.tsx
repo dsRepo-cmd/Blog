@@ -1,7 +1,6 @@
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./Navbar.module.scss";
 import { memo } from "react";
-
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { HStack, VStack } from "@/shared/ui/redesigned/Stack";

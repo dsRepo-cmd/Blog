@@ -1,11 +1,12 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import SignUpForm from "./SignUpForm";
+import ArticlesFilters from "./ArticlesFilters";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { ArticleSortField, ArticleType } from "@/entities/Article";
 import { VStack } from "@/shared/ui/redesigned/Stack";
 
 const meta = {
-  component: SignUpForm,
+  component: ArticlesFilters,
 
   decorators: [
     (Story) => (
@@ -15,14 +16,20 @@ const meta = {
     ),
     ThemeDecorator(),
     StoreDecorator({
-      user: { authData: { id: "1" } },
+      user: { authData: {} },
     }),
   ],
-} satisfies Meta<typeof SignUpForm>;
+} satisfies Meta<typeof ArticlesFilters>;
 
 export default meta;
 
-const Template: StoryFn<typeof SignUpForm> = (args) => <SignUpForm {...args} />;
+const Template: StoryFn<typeof ArticlesFilters> = (args) => (
+  <ArticlesFilters {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  sort: ArticleSortField.CREATED,
+  type: ArticleType.ALL,
+  order: "asc",
+};
