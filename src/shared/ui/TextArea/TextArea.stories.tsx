@@ -1,49 +1,29 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import TextArea from "./TextArea";
-import { Theme } from "@/shared/const/theme";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { VStack } from "../redesigned/Stack";
 
 const meta = {
   component: TextArea,
-  tags: ["autodocs"],
 
-  argTypes: {
-    className: {
-      options: [Theme.LIGHT, Theme.DARK, Theme.ORANGE],
-      control: { type: "select" },
-    },
-  },
-
-  decorators: [(Story) => <Story />],
+  decorators: [
+    (Story) => (
+      <VStack padding="12" align="center">
+        <Story />
+      </VStack>
+    ),
+    ThemeDecorator(),
+    StoreDecorator({}),
+  ],
 } satisfies Meta<typeof TextArea>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/api/csf
- * to learn how to use render functions.
- */
-
 export const Normal: Story = {
   args: {
-    label: "label",
+    label: "Label",
   },
 };
-Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
-
-export const NormalDark: Story = {
-  args: {
-    label: "label",
-  },
-};
-NormalDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const NormalOrange: Story = {
-  args: {
-    label: "label",
-  },
-};
-NormalOrange.decorators = [ThemeDecorator(Theme.ORANGE)];

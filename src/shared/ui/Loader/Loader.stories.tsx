@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import AppLogo from "./AppLogo";
-
+import Loader from "./Loader";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { VStack } from "../redesigned/Stack";
 
 const meta = {
-  component: AppLogo,
+  component: Loader,
 
   decorators: [
     (Story) => (
@@ -17,14 +16,12 @@ const meta = {
     ThemeDecorator(),
     StoreDecorator({}),
   ],
-} satisfies Meta<typeof AppLogo>;
+} satisfies Meta<typeof Loader>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Deafault: Story = {
-  args: {
-    size: 50,
-  },
+  args: {},
 };

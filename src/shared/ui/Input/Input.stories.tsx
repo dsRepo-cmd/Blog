@@ -3,24 +3,19 @@ import Input from "./Input";
 import { Theme } from "@/shared/const/theme";
 import { VStack } from "../redesigned/Stack";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
   component: Input,
-  tags: ["autodocs"],
-
-  argTypes: {
-    className: {
-      options: [Theme.LIGHT, Theme.DARK, Theme.ORANGE],
-      control: { type: "select" },
-    },
-  },
 
   decorators: [
     (Story) => (
-      <VStack className={Theme.LIGHT}>
+      <VStack padding="12" align="center">
         <Story />
       </VStack>
     ),
+    ThemeDecorator(),
+    StoreDecorator({}),
   ],
 } satisfies Meta<typeof Input>;
 
@@ -35,35 +30,3 @@ export const Deafault: Story = {
     placeholder: "Deafault",
   },
 };
-
-Deafault.decorators = [ThemeDecorator(Theme.LIGHT)];
-
-export const Dark: Story = {
-  args: {
-    label: "LABEL",
-    name: "text",
-    placeholder: "Dark",
-  },
-};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Orange: Story = {
-  args: {
-    label: "LABEL",
-    name: "text",
-    placeholder: "Orange",
-  },
-};
-
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
-
-export const Password: Story = {
-  args: {
-    label: "LABEL",
-    name: "password",
-    placeholder: "Password",
-    password: true,
-  },
-};
-Deafault.decorators = [ThemeDecorator(Theme.LIGHT)];
