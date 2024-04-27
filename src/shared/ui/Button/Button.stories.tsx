@@ -10,7 +10,7 @@ const meta = {
 
   decorators: [
     (Story) => (
-      <VStack align="center">
+      <VStack padding="24" align="center">
         <Story />
       </VStack>
     ),
@@ -41,5 +41,13 @@ export const Outline: Story = {
   args: {
     variant: "outline",
     children: "Button",
+  },
+};
+
+export const FullWidth: Story = {
+  args: {
+    variant: "filled",
+    children: "Button",
+    fullWidth: true,
   },
 };
