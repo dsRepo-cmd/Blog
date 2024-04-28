@@ -20,6 +20,7 @@ import { signInByEmail } from "../../model/services/signInByEmail/signInByEmail"
 import { ValidateAuthError } from "../../model/const/const";
 import Loader from "@/shared/ui/Loader/Loader";
 import { BrowserView, MobileView } from "react-device-detect";
+import Card from "@/shared/ui/Card/Card";
 
 export interface SignInFormProps {
   className?: string;
