@@ -33,6 +33,7 @@ const RatingCard: React.FC<RatingCardProps> = ({
 }) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAlertModalOpen, setAlertModalOpen] = useState(false);
 
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState("");
@@ -40,11 +41,15 @@ const RatingCard: React.FC<RatingCardProps> = ({
 
   const onSelectStars = useCallback(
     (selectedStarsCount: number) => {
-      setStarsCount(selectedStarsCount);
-      if (hasFeedback) {
-        setIsModalOpen(true);
+      if (userData) {
+        setStarsCount(selectedStarsCount);
+        if (hasFeedback) {
+          setIsModalOpen(true);
+        } else {
+          onAccept?.(selectedStarsCount);
+        }
       } else {
-        onAccept?.(selectedStarsCount);
+        setAlertModalOpen(true);
       }
     },
     [hasFeedback, onAccept]
@@ -113,9 +118,17 @@ const RatingCard: React.FC<RatingCardProps> = ({
   );
 
   return (
-    <Card max border={"partial"} padding="8">
-      {content}
-    </Card>
+    <>
+      <Card max border={"partial"} padding="8">
+        {content}
+      </Card>
+
+      <Modal isOpen={isAlertModalOpen} onClose={() => setAlertModalOpen(false)}>
+        <Card variant="outlined" padding="24">
+          <Text title={t("Please register to rate article")} />
+        </Card>
+      </Modal>
+    </>
   );
 };
 

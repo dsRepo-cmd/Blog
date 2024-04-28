@@ -55,7 +55,7 @@ const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = ({
       <CommentList isLoading={commentsIsLoading} comments={comments} />
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <Card padding="12">
+        <Card variant="outlined" padding="24">
           <Text title={t("Please register to write comments")} />
         </Card>
       </Modal>
