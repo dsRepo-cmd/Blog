@@ -103,7 +103,7 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
             <Icon Svg={DownArrowIcon} clickable onClick={onOpenDrawer} />
           </HStack>
           <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-            <VStack gap={"12"}>
+            <VStack padding="16" gap={"12"}>
               <ArticleTypeTabs
                 value={type}
                 onChangeType={onChangeType}
