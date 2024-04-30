@@ -49,8 +49,8 @@ function ListBox<T extends string>({
   }, [items, value]);
 
   return (
-    <HStack gap="24">
-      {label && <span>{label}</span>}
+    <HStack gap="8">
+      {label && <span className={cls.label}>{label}</span>}
       <HListBox
         disabled={readonly}
         as="div"
