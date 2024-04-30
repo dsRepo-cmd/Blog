@@ -64,7 +64,6 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     [ValidateProfileError.INCORRECT_LASTNAME]: t("Incorrect lastname"),
     [ValidateProfileError.INCORRECT_USERNAME]: t("Incorrect username"),
     [ValidateProfileError.INCORRECT_USER_DATA]: t("Incorrect user data"),
-
     [ValidateProfileError.NO_DATA]: t("No data"),
   };
 

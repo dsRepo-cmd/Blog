@@ -113,11 +113,11 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
           >
             <Text title={t("Profile")} />
             {canEdit && (
-              <HStack>
+              <HStack max>
                 {readonly ? (
                   <Button
-                    round
                     onClick={onEdit}
+                    fullWidth
                     data-testid="EditableProfileCardHeader.EditButton"
                   >
                     <HStack gap="12">
@@ -133,8 +133,8 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                     gap="8"
                   >
                     <Button
-                      round
                       onClick={onCancelEdit}
+                      fullWidth
                       data-testid="EditableProfileCardHeader.EditButton"
                     >
                       <HStack gap="12">
@@ -143,7 +143,7 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                       </HStack>
                     </Button>
                     <Button
-                      round
+                      fullWidth
                       onClick={onSave}
                       data-testid="EditableProfileCardHeader.EditButton"
                     >
