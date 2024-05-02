@@ -11,7 +11,7 @@ import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByAr
 import Loader from "@/shared/ui/Loader/Loader";
 import { AddCommentForm } from "@/features/addCommentForm";
 import Text from "@/shared/ui/Text/Text";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/Stack";
 import { getUserAuthData } from "@/entities/User";
 import Modal from "@/shared/ui/Modal/Modal";
 import Card from "@/shared/ui/Card/Card";

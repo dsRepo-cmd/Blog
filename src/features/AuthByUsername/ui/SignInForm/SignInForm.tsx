@@ -12,7 +12,7 @@ import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import Text from "@/shared/ui/Text/Text";
 import Input from "@/shared/ui/Input/Input";
 import Button from "@/shared/ui/Button/Button";

@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
-import { HStack } from "@/shared/ui/redesigned/Stack";
-import { ListBox } from "@/shared/ui/redesigned/Popups";
+import { HStack } from "@/shared/ui/Stack";
+import { ListBox } from "@/shared/ui/Popups";
 import { UserRole, getUserAuthData } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";

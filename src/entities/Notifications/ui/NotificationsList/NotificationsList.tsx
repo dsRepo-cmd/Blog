@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { classNames } from "@/shared/lib/classNames";
 
 import { useNotifications } from "../../api/notificationApi";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/Stack";
 import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 import NotificationItem from "../NotificationItem/NotificationItem";
 import { USER_LOCAL_STORAGE_KEY } from "@/shared/const/localStorage";

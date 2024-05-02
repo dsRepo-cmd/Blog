@@ -10,7 +10,7 @@ import React, {
 
 import cls from "./Input.module.scss";
 import { Mods, classNames } from "@/shared/lib/classNames";
-import { HStack, VStack } from "../redesigned/Stack";
+import { HStack, VStack } from "../Stack";
 import Text from "../Text/Text";
 import DeleteIcon from "../../assets/icons/delete.svg";
 import { Icon } from "../Icon/Icon";

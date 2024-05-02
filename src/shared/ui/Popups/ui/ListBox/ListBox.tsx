@@ -2,14 +2,14 @@ import { Fragment, ReactNode, useMemo } from "react";
 import { Listbox as HListBox, Transition } from "@headlessui/react";
 
 import { DropdownDirection } from "@/shared/types/ui";
-import { HStack } from "../../../../redesigned/Stack";
+import { HStack } from "../../../Stack";
 import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg";
 import cls from "./ListBox.module.scss";
 import { mapDirectionClass } from "../../styles/consts";
 import popupCls from "../../styles/popup.module.scss";
 import { classNames } from "@/shared/lib/classNames";
-import Button from "../../../../Button/Button";
-import { Icon } from "../../../../Icon/Icon";
+import Button from "../../../Button/Button";
+import { Icon } from "../../../Icon/Icon";
 
 export interface ListBoxItem<T extends string> {
   value: string;

@@ -3,7 +3,7 @@ import AppLogo from "./AppLogo";
 
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import { VStack } from "../redesigned/Stack";
+import { VStack } from "../Stack";
 
 const meta = {
   component: AppLogo,

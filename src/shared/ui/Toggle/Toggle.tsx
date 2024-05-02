@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cls from "./Toggle.module.scss";
 
 import { classNames } from "@/shared/lib/classNames";
-import { HStack } from "../redesigned/Stack";
+import { HStack } from "../Stack";
 import Text from "../Text/Text";
 
 interface ToggleProps {

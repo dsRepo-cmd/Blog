@@ -6,7 +6,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import NotificationIcon from "@/shared/assets/icons/notification.svg";
 import { Drawer } from "@/shared/ui/Drawer/Drawer";
 import { Icon } from "@/shared/ui/Icon/Icon";
-import { Popover } from "@/shared/ui/redesigned/Popups";
+import { Popover } from "@/shared/ui/Popups";
 
 interface NotificationButtonProps {
   className?: string;

@@ -12,7 +12,7 @@ import { profileActions, profileReducer } from "../../model/slice/ProfileSlice";
 import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/Stack";
 
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Coutnry";

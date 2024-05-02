@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect, useState } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "./EditableArticleCard.module.scss";
 import { useTranslation } from "react-i18next";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/Stack";
 import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -21,7 +21,7 @@ import {
 import { ValidateArticleEditError } from "../../model/consts/consts";
 import { fetchArticleEditData } from "../../model/services/fetchArticleEditData";
 import Input from "@/shared/ui/Input/Input";
-import { ListBox } from "@/shared/ui/redesigned/Popups";
+import { ListBox } from "@/shared/ui/Popups";
 import { ArticleType } from "@/entities/Article";
 import { renderArticleBlock } from "./renderBlock";
 import Text from "@/shared/ui/Text/Text";

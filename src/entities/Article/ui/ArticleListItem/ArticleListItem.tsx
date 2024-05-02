@@ -3,7 +3,7 @@ import { Article, ArticleTextBlock } from "../../model/types/article";
 import { ArticleBlockType, ArticleView } from "../../model/consts/consts";
 import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import Text from "@/shared/ui/Text/Text";
 import { Icon } from "@/shared/ui/Icon/Icon";
 import EyeIcon from "@/shared/assets/icons/eye-r.svg";
