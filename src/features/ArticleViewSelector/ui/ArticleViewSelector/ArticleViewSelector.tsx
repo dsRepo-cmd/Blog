@@ -3,7 +3,7 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./ArticleViewSelector.module.scss";
 import { ArticleView } from "../../../../entities/Article/model/consts/consts";
 import Card from "@/shared/ui/Card/Card";
-import { HStack } from "@/shared/ui/redesigned/Stack";
+import { HStack } from "@/shared/ui/Stack";
 import { Icon } from "@/shared/ui/Icon/Icon";
 import ListIcon from "@/shared/assets/icons/burger.svg";
 import TiledIcon from "@/shared/assets/icons/tile.svg";

@@ -4,7 +4,7 @@ import cls from "../EditableArticleCard/EditableArticleCard.module.scss";
 import { useTranslation } from "react-i18next";
 import { ArticleTextBlock } from "@/entities/Article";
 import TextArea from "@/shared/ui/TextArea/TextArea";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { articleEditActions } from "../../model/slice/ArticleEditSlice";
 import Input from "@/shared/ui/Input/Input";

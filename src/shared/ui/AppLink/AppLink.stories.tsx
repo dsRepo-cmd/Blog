@@ -3,7 +3,7 @@ import AppLink from "./AppLink";
 
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import { VStack } from "../redesigned/Stack";
+import { VStack } from "../Stack";
 import Text from "../Text/Text";
 import Avatar from "../Avatar/Avatar";
 

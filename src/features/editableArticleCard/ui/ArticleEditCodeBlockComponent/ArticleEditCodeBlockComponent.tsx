@@ -6,7 +6,7 @@ import { ArticleCodeBlock } from "@/entities/Article";
 import TextArea from "@/shared/ui/TextArea/TextArea";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { articleEditActions } from "../../model/slice/ArticleEditSlice";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/Stack";
 
 import { Icon } from "@/shared/ui/Icon/Icon";
 import DeleteIcon from "@/shared/assets/icons/delete.svg";

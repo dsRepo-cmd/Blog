@@ -3,7 +3,7 @@ import ArticlesFilters from "./ArticlesFilters";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { ArticleSortField, ArticleType } from "@/entities/Article";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/Stack";
 
 const meta = {
   component: ArticlesFilters,

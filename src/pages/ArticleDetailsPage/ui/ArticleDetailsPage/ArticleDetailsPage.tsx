@@ -12,7 +12,7 @@ import { ArticleRecommendationsList } from "@/features/articleRecommendationsLis
 import ArticleDetailsComments from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleRating } from "@/features/articleRating";
 import StickyContentLayout from "@/shared/layouts/StickyContentLayout/StickyContentLayout";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/Stack";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
 import { ArticleAdditionalInfo } from "../ArticleAdditionalInfo";
 

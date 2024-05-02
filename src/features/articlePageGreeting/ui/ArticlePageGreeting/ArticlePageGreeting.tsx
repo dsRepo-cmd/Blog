@@ -10,7 +10,7 @@ import { Drawer } from "@/shared/ui/Drawer/Drawer";
 import Modal from "@/shared/ui/Modal/Modal";
 import { isMobile } from "react-device-detect";
 import Text from "@/shared/ui/Text/Text";
-import { HStack } from "@/shared/ui/redesigned/Stack";
+import { HStack } from "@/shared/ui/Stack";
 import { useSelector } from "react-redux";
 
 const ArticlePageGreeting: React.FC = ({}) => {

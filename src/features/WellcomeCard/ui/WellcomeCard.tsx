@@ -3,7 +3,7 @@ import { classNames } from "@/shared/lib/classNames";
 import cls from "./WellcomeCard.module.scss";
 import { useTranslation } from "react-i18next";
 import Card from "@/shared/ui/Card/Card";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import Button from "@/shared/ui/Button/Button";
 import { Icon } from "@/shared/ui/Icon/Icon";
 import CreateIcon from "@/shared/assets/icons/font-add.svg";

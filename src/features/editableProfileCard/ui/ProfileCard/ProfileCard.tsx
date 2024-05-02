@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Currency, CurrencySelect } from "@/entities/Currency";
 import { Country, CountrySelect } from "@/entities/Coutnry";
 import Card from "@/shared/ui/Card/Card";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 import { useTranslation } from "react-i18next";
 import Text from "@/shared/ui/Text/Text";

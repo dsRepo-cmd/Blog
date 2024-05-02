@@ -2,7 +2,7 @@ import React, { memo, useCallback, useState } from "react";
 import { classNames } from "@/shared/lib/classNames";
 import cls from "../EditableArticleCard/EditableArticleCard.module.scss";
 import { useTranslation } from "react-i18next";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { updateArticleEditData } from "../../model/services/updateArticleEditData";
 import { articleEditActions } from "../../model/slice/ArticleEditSlice";

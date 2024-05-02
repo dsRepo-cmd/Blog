@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames";
 import { SortOrder } from "@/shared/types/sort";
 import { ArticleSortField } from "../../../../entities/Article/model/consts/consts";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import Text from "@/shared/ui/Text/Text";
-import { ListBox } from "@/shared/ui/redesigned/Popups";
+import { ListBox } from "@/shared/ui/Popups";
 
 export interface SelectOption<T extends string> {
   value: T;

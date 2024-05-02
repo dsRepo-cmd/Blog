@@ -15,7 +15,7 @@ import {
 import DynamicModuleLoader, {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { HStack } from "@/shared/ui/redesigned/Stack";
+import { HStack } from "@/shared/ui/Stack";
 import SendIcon from "@/shared/assets/icons/paper-plane.svg";
 import Input from "@/shared/ui/Input/Input";
 import Card from "@/shared/ui/Card/Card";

@@ -16,7 +16,7 @@ import { getConfirmCode } from "../../model/selectors/getConfirmCode/getConfirmC
 import { confirmCode } from "../../model/services/confirmCode/confirmCode";
 import { getSignUpCode } from "../../model/selectors/getSignUpCode/getSignUpCode";
 import { getLoginToken } from "../../model/selectors/getLoginToken/getLoginToken";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import Loader from "@/shared/ui/Loader/Loader";
 import { BrowserView, MobileView } from "react-device-detect";
 

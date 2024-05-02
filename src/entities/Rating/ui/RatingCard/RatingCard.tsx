@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import { BrowserView, MobileView } from "react-device-detect";
 import Modal from "@/shared/ui/Modal/Modal";
 import { Drawer } from "@/shared/ui/Drawer/Drawer";

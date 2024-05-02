@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import cls from "./ArticlesFilters.module.scss";
 import { ArticleSortSelector } from "@/features/ArticleSortSelector";
 import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import { ArticleSortField, ArticleType } from "@/entities/Article";
 import { SortOrder } from "@/shared/types/sort";
 import { classNames } from "@/shared/lib/classNames";

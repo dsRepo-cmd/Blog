@@ -9,7 +9,7 @@ import { getUserAuthData } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { profileActions } from "../../model/slice/ProfileSlice";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import Button from "@/shared/ui/Button/Button";
 import Card from "@/shared/ui/Card/Card";
 import Text from "@/shared/ui/Text/Text";

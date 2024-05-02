@@ -10,7 +10,7 @@ import React, {
 
 import cls from "./TextArea.module.scss";
 import { Mods, classNames } from "@/shared/lib/classNames";
-import { HStack } from "../redesigned/Stack";
+import { HStack } from "../Stack";
 import Text from "../Text/Text";
 import { Icon } from "../Icon/Icon";
 import DeleteIcon from "../../assets/icons/delete.svg";

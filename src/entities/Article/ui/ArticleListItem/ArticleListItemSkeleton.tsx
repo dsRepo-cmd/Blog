@@ -4,7 +4,7 @@ import { classNames } from "@/shared/lib/classNames";
 import Card from "@/shared/ui/Card/Card";
 import { ArticleView } from "../../model/consts/consts";
 import Skeleton from "@/shared/ui/Skeleton/Skeleton";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 
 interface ArticleListItemSkeletonProps {
   className?: string;

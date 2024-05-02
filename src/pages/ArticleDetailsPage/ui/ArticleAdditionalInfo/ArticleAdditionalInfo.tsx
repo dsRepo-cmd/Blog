@@ -1,7 +1,7 @@
 import { FC, memo, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import cls from "./ArticleAdditionalInfo.module.scss";
-import { HStack, VStack } from "@/shared/ui/redesigned/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import Avatar from "@/shared/ui/Avatar/Avatar";
 import Text from "@/shared/ui/Text/Text";
 import Button from "@/shared/ui/Button/Button";

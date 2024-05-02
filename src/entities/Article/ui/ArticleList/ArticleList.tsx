@@ -6,7 +6,7 @@ import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkele
 import { ArticleView } from "../../model/consts/consts";
 import { Article } from "../../model/types/article";
 import { classNames } from "@/shared/lib/classNames";
-import { HStack } from "@/shared/ui/redesigned/Stack";
+import { HStack } from "@/shared/ui/Stack";
 import Text from "@/shared/ui/Text/Text";
 
 interface ArticleListProps {

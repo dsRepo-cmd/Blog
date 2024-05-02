@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import { Theme } from "@/shared/const/theme";
 import "@/app/styles/index.scss";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
-import { VStack } from "@/shared/ui/redesigned/Stack";
+import { VStack } from "@/shared/ui/Stack";
 
 export const ThemeDecorator = () => (StoryComponent: StoryFn) =>
   (
