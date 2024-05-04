@@ -8,7 +8,10 @@ import DynamicModuleLoader, {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { usersEditReducer } from "../model/slice/usersEdit";
 import { useSelector } from "react-redux";
-import { getUsersEditForm } from "../model/selectors/getUsersListEdit";
+import {
+  getUsersEditForm,
+  getUsersEditIsLoading,
+} from "../model/selectors/getUsersListEdit";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchUsersEditData } from "../model/services/fetchUsersEditData";
 import Text from "@/shared/ui/Text/Text";
@@ -25,6 +28,7 @@ import Modal from "@/shared/ui/Modal/Modal";
 import Button from "@/shared/ui/Button/Button";
 import { BrowserView, MobileView } from "react-device-detect";
 import { Drawer } from "@/shared/ui/Drawer/Drawer";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 
 interface UsersListEditProps {
   className?: string;
@@ -41,6 +45,7 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
     userId: "",
     userEmail: "",
   });
+  const isLoading = useSelector(getUsersEditIsLoading);
 
   const dispatch = useAppDispatch();
   const form = useSelector(getUsersEditForm);
@@ -70,6 +75,23 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
   const cancelHandle = useCallback(() => {
     setIsModalOpen(false);
   }, [setIsModalOpen]);
+
+  if (isLoading) {
+    return (
+      <VStack
+        max
+        maxHeight
+        gap="12"
+        className={classNames(cls.UsersListEdit, {}, [className])}
+      >
+        <Skeleton width={"100%"} height={"80px"} />
+        <Skeleton width={"100%"} height={"80px"} />
+        <Skeleton width={"100%"} height={"80px"} />
+        <Skeleton width={"100%"} height={"80px"} />
+        <Skeleton width={"100%"} height={"80px"} />
+      </VStack>
+    );
+  }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
