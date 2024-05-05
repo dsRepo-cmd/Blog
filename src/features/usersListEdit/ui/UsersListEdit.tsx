@@ -75,21 +75,40 @@ const UsersListEdit: React.FC<UsersListEditProps> = ({ className }) => {
   const cancelHandle = useCallback(() => {
     setIsModalOpen(false);
   }, [setIsModalOpen]);
+  const skeleton = (
+    <>
+      <Skeleton width={"100%"} height={"80px"} />
+      <Skeleton width={"100%"} height={"80px"} />
+      <Skeleton width={"100%"} height={"80px"} />
+      <Skeleton width={"100%"} height={"80px"} />
+      <Skeleton width={"100%"} height={"80px"} />
+    </>
+  );
 
   if (isLoading) {
     return (
-      <VStack
-        max
-        maxHeight
-        gap="12"
-        className={classNames(cls.UsersListEdit, {}, [className])}
-      >
-        <Skeleton width={"100%"} height={"80px"} />
-        <Skeleton width={"100%"} height={"80px"} />
-        <Skeleton width={"100%"} height={"80px"} />
-        <Skeleton width={"100%"} height={"80px"} />
-        <Skeleton width={"100%"} height={"80px"} />
-      </VStack>
+      <>
+        <BrowserView>
+          <VStack
+            max
+            maxHeight
+            gap="12"
+            className={classNames(cls.UsersListEdit, {}, [className])}
+          >
+            {skeleton}
+          </VStack>
+        </BrowserView>
+        <MobileView>
+          <VStack
+            max
+            maxHeight
+            gap="12"
+            className={classNames(cls.UsersMobileListEdit, {}, [className])}
+          >
+            {skeleton}
+          </VStack>
+        </MobileView>
+      </>
     );
   }
 
