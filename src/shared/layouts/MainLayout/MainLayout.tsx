@@ -10,6 +10,7 @@ interface MainLayoutProps {
   content: ReactElement;
   sidebar: ReactElement;
   toolbar?: ReactElement;
+  footer?: ReactElement;
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({
@@ -18,6 +19,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   content,
   sidebar,
   toolbar,
+  footer,
 }) => {
   return (
     <>
@@ -29,6 +31,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
             <div className={cls.header}>{header}</div>
             <div className={cls.toolbar}>{toolbar}</div>
           </div>
+          <footer>{footer}</footer>
         </div>
       </BrowserView>
 
@@ -42,6 +45,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
             <div className={cls.content}>{content}</div>
             <div className={cls.toolbar}>{toolbar}</div>
           </div>
+          <footer className={cls.footer}>{footer}</footer>
         </div>
       </MobileOnlyView>
     </>
