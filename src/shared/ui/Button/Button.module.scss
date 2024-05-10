@@ -45,7 +45,7 @@
 }
 
 .filled {
-  background: var(--light-bg);
+  background: var(--dark-bg);
   border: none;
   outline: none;
   color: var(--light-bg);
@@ -57,6 +57,7 @@
     var(--icon) 51%,
     var(--icon) 100%
   );
+  fill: var(--light-bg);
 
   &:hover {
     background-position: right center;
