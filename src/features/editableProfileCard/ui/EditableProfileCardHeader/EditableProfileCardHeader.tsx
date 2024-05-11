@@ -51,11 +51,7 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
     <>
       <BrowserView style={{ width: "100%" }}>
         <Card padding="24" max border="partial">
-          <HStack
-            max
-            justify="between"
-            className={classNames("", {}, [className])}
-          >
+          <HStack max justify="between">
             <Text title={t("Profile")} />
             {canEdit && (
               <div>
@@ -66,7 +62,7 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                     data-testid="EditableProfileCardHeader.EditButton"
                   >
                     <HStack gap="12">
-                      <Icon width={20} Svg={EditIcon} /> {t("Edit")}
+                      <Icon width={18} Svg={EditIcon} /> {t("Edit")}
                     </HStack>
                   </Button>
                 ) : (
@@ -77,7 +73,7 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                       data-testid="EditableProfileCardHeader.EditButton"
                     >
                       <HStack gap="12">
-                        <Icon width={20} Svg={CancelIcon} />
+                        <Icon width={18} Svg={CancelIcon} />
                         {t("Cancel")}
                       </HStack>
                     </Button>
@@ -88,7 +84,7 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                       data-testid="EditableProfileCardHeader.EditButton"
                     >
                       <HStack gap="12">
-                        <Icon width={20} Svg={SaveIcon} />
+                        <Icon width={18} Svg={SaveIcon} />
                         {t("Save")}
                       </HStack>
                     </Button>
@@ -101,13 +97,7 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
       </BrowserView>
       <MobileView style={{ width: "100%" }}>
         <Card padding="24" max border="partial">
-          <VStack
-            className={classNames("", {}, [className])}
-            max
-            gap="12"
-            justify="between"
-            align={"center"}
-          >
+          <VStack max gap="12" justify="between" align={"center"}>
             <Text title={t("Profile")} />
             {canEdit && (
               <HStack max>
@@ -119,7 +109,7 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                     data-testid="EditableProfileCardHeader.EditButton"
                   >
                     <HStack gap="12">
-                      <Icon width={20} Svg={EditIcon} /> {t("Edit")}
+                      <Icon width={18} Svg={EditIcon} /> {t("Edit")}
                     </HStack>
                   </Button>
                 ) : (
@@ -136,7 +126,7 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                       data-testid="EditableProfileCardHeader.EditButton"
                     >
                       <HStack gap="12">
-                        <Icon width={20} Svg={CancelIcon} />
+                        <Icon width={18} Svg={CancelIcon} />
                         {t("Cancel")}
                       </HStack>
                     </Button>
@@ -147,7 +137,7 @@ const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
                       data-testid="EditableProfileCardHeader.EditButton"
                     >
                       <HStack gap="12">
-                        <Icon width={20} Svg={SaveIcon} /> {t("Save")}
+                        <Icon width={18} Svg={SaveIcon} /> {t("Save")}
                       </HStack>
                     </Button>
                   </HStack>
