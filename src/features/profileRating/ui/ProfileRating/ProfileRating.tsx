@@ -14,10 +14,7 @@ export interface ProfileRatingProps {
   profileId: string;
 }
 
-const ProfileRating: React.FC<ProfileRatingProps> = ({
-  className,
-  profileId,
-}) => {
+const ProfileRating: React.FC<ProfileRatingProps> = ({ profileId }) => {
   const { t } = useTranslation();
   const userData = useSelector(getUserAuthData);
   const { data, isLoading } = useGetProfileRating({
@@ -36,7 +33,6 @@ const ProfileRating: React.FC<ProfileRatingProps> = ({
           feedback,
         });
       } catch (e) {
-        // handle error
         console.log(e);
       }
     },

@@ -14,10 +14,7 @@ export interface ArticleRatingProps {
   articleId: string;
 }
 
-const ArticleRating: React.FC<ArticleRatingProps> = ({
-  className,
-  articleId,
-}) => {
+const ArticleRating: React.FC<ArticleRatingProps> = ({ articleId }) => {
   const { t } = useTranslation("article");
   const userData = useSelector(getUserAuthData);
   const { data, isLoading } = useGetArticleRating({
@@ -37,7 +34,6 @@ const ArticleRating: React.FC<ArticleRatingProps> = ({
           feedback,
         });
       } catch (e) {
-        // handle error
         console.log(e);
       }
     },

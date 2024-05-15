@@ -61,7 +61,7 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
           className={classNames(cls.ArticlesFilters, {}, [className])}
           padding="24"
         >
-          <VStack gap="32">
+          <VStack gap="12">
             <Input
               onChange={onChangeSearch}
               value={search}
