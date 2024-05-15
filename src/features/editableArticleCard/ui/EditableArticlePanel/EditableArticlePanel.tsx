@@ -180,10 +180,18 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
             <Text title={t("Are you sure you want to delete the article?")} />
 
             <HStack gap="12">
-              <Button data-testid="RatingCard.Send" onClick={onAcceptDelete}>
+              <Button
+                variant="filled"
+                data-testid="RatingCard.Send"
+                onClick={onAcceptDelete}
+              >
                 {t("Delete")}
               </Button>
-              <Button data-testid="RatingCard.Close" onClick={cancelHandle}>
+              <Button
+                variant="filled"
+                data-testid="RatingCard.Close"
+                onClick={cancelHandle}
+              >
                 {t("Cancel")}
               </Button>
             </HStack>
@@ -199,7 +207,8 @@ const EditableArticlePanel: React.FC<EditableArticlePanelProps> = ({
             <HStack max align="center" gap="12">
               <Button
                 fullWidth
-                size="l"
+                variant="filled"
+                size="xl"
                 data-testid="RatingCard.Send"
                 onClick={onAcceptDelete}
               >
