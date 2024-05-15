@@ -19,7 +19,10 @@ const ArticleInfinitList: React.FC<ArticleInfinitListProps> = ({
   className,
 }) => {
   const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
+  // const isLoading = useSelector(getArticlesPageIsLoading);
+
+  const isLoading = true;
+
   const view = useSelector(getArticlesPageView);
   const error = useSelector(getArticlesPageError);
   const { t } = useTranslation();

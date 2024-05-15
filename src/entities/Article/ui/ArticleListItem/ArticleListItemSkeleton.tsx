@@ -24,7 +24,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
             cls[view],
           ])}
         >
-          <Skeleton border="0" width="100%" height={200} className={cls.img} />
+          <Skeleton border="0" width="100%" className={cls.img} />
           <VStack padding="16" max gap="16">
             <HStack justify={"between"} gap="8" max>
               <Skeleton
@@ -49,10 +49,9 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
       <Card
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         border={"partial"}
-        max
         padding={"0"}
       >
-        <Skeleton border="0" width="100%" height={250} />
+        <Skeleton border="0" width="100%" height={280} />
 
         <VStack
           maxHeight
@@ -61,7 +60,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
           className={cls.info}
           gap="12"
         >
-          <Skeleton width="100%" height={70} className={cls.img} />
+          <Skeleton width="100%" height={90} className={cls.img} />
           <HStack justify="between" max>
             <Skeleton
               width={32}
