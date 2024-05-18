@@ -1,133 +1,64 @@
 /* Document
    ========================================================================== */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-
 html {
-  line-height: 1.15; /* 1 */ /* 2 */
-  font-size: 100%;
+  line-height: 1.15;
   text-size-adjust: 100%;
 }
 
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers.
- */
-
 body {
   margin: 0;
-  line-height: 1;
 }
-
-/**
- * Render the `main` element consistently in IE.
- */
 
 main {
   display: block;
-  -ms-overflow-style: none; /* IE и Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
 
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 
-/* Grouping content
-   ========================================================================== */
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
 }
 
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-pre {
-  font-family: monospace; /* 1 */
-  font-size: 1em; /* 2 */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace;
+  font-size: 1em;
 }
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * Remove the gray background on active links in IE 10.
- */
 
 a {
   background-color: transparent;
   text-decoration: none;
 }
 
-/**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none;
+  text-decoration: underline dotted;
 }
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
 
 b,
 strong {
   font-weight: bolder;
 }
 
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-code,
-kbd,
-samp {
-  font-family: monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/**
- * Add the correct font size in all browsers.
- */
-
 small {
   font-size: 80%;
 }
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
 
 sub,
 sup {
@@ -145,58 +76,23 @@ sup {
   top: -0.5em;
 }
 
-/* Embedded content
-   ========================================================================== */
-
-/**
- * Remove the border on images inside links in IE 10.
- */
-
 img {
   border: 0;
   vertical-align: middle;
 }
 
-/* Forms
-   ========================================================================== */
-input {
+input,
+button,
+textarea,
+select,
+optgroup {
+  font: inherit;
+  line-height: 1.15;
+  margin: 0;
   background-color: inherit;
   background-image: inherit;
   color: inherit;
 }
-
-/**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */ /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-
-  /* Браузери мають різні стандартні шрифти форми */
-  font-size: 13px;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-button,
-select {
-  /* 1 */
-  text-transform: none;
-}
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
 
 button,
 [type="button"],
@@ -204,10 +100,6 @@ button,
 [type="submit"] {
   appearance: button;
 }
-
-/**
- * Remove the inner border and padding in Firefox.
- */
 
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -217,129 +109,66 @@ button::-moz-focus-inner,
   padding: 0;
 }
 
-/**
- * Correct the padding in Firefox.
- */
-
 fieldset {
   padding: 0;
   border: 0;
   margin: 0;
 }
 
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-
 legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-  border: 0;
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
 }
-
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
 
 progress {
   vertical-align: baseline;
 }
 
-/**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+  box-sizing: border-box;
+  padding: 0;
+  width: 13px;
+  height: 13px;
 }
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-
 [type="search"] {
-  appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+  appearance: textfield;
+  outline-offset: -2px;
 }
-
-/**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
 
 [type="search"]::-webkit-search-decoration {
   appearance: none;
 }
 
-/* Interactive
-   ========================================================================== */
-
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-
 details {
   display: block;
 }
-
-/*
- * Add the correct display in all browsers.
- */
 
 summary {
   display: list-item;
 }
 
-/* Misc
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 10+.
- */
-
-template {
-  display: none;
-}
-
-/**
- * Add the correct display in IE 10.
- */
-
+template,
 [hidden] {
   display: none;
 }
 
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
-/* IE8 and FF freak out if this rule is within another selector */
 ::-webkit-file-upload-button {
   padding: 0;
   border: 0;
   background: none;
-  appearance: button; /* 1 */
-  font: inherit; /* 2 */
+  appearance: button;
+  font: inherit;
 }
 
 input,
@@ -353,15 +182,7 @@ textarea {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
-  background: none;
-  line-height: 1;
-
-  /* Browsers have different default form fonts */
-  font-size: 13px;
 }
-
-/* Text Inputs
------------------------------------------------ */
 
 input[type="date"],
 input[type="datetime"],
@@ -380,54 +201,102 @@ input[type="week"] {
   line-height: normal;
 }
 
-/* Button Controls
------------------------------------------------ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  appearance: none;
+}
 
-input[type="checkbox"],
-input[type="radio"] {
-  width: 13px;
-  height: 13px;
-  box-sizing: border-box;
+audio,
+canvas,
+video {
+  display: inline-block;
+  max-width: 100%;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+figure,
+form {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+}
+
+button,
+input {
+  line-height: normal;
+  padding: 0;
+  border: 0;
+  background: 0;
+  box-shadow: 0 0 0 transparent;
+  overflow: visible;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
   padding: 0;
 }
 
-/* Search Input
------------------------------------------------ */
-
-/* Make webkit render the search input like a normal text field */
-
-/* Turn off the recent search for webkit. It adds about 15px padding on the left */
-::-webkit-search-decoration {
-  display: none;
-}
-
-/* Buttons
------------------------------------------------ */
-
-button,
-input[type="reset"],
-input[type="button"],
-input[type="submit"] {
-  /* Fix IE7 display bug */
-  overflow: visible;
-  width: auto;
-}
-
-/* Textarea
------------------------------------------------ */
-
+input,
 textarea {
-  overflow: auto;
-  vertical-align: top;
-  resize: none;
+  outline: 0;
 }
 
-/* Selects
------------------------------------------------ */
+input:focus {
+  outline: 0;
+}
 
-select[multiple] {
-  /* Move the label to the top */
-  vertical-align: top;
+input[placeholder] {
+  text-overflow: ellipsis;
+}
+
+input::placeholder {
+  text-overflow: ellipsis;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+input:-webkit-autofill {
+  box-shadow: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
 }
 
 a,
@@ -552,183 +421,9 @@ blockquote::before,
 q::after,
 q::before {
   content: "";
-  content: none;
 }
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  appearance: none;
-}
-
-input[type="search"] {
-  appearance: textfield;
-  box-sizing: content-box;
-}
-
-audio,
-canvas,
-video {
-  display: inline-block;
-  max-width: 100%;
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-a:active,
-a:hover {
-  outline: 0;
-}
-
-figure {
-  margin: 0;
-}
-
-form {
-  margin: 0;
-}
-
-button,
-input,
-select,
-textarea {
-  font-size: 100%;
-  margin: 0;
-  vertical-align: baseline;
-  outline: 0;
-}
-
-button,
-input {
-  line-height: normal;
-  padding: 0;
-  border: 0;
-  background: 0;
-  box-shadow: 0 0 0 transparent;
-  overflow: visible;
-}
-
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  appearance: button;
-  cursor: pointer;
-}
-
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  appearance: none;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-.chromeframe {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-a:active,
-a:focus {
-  outline: 0;
-}
-
-input,
-textarea {
-  outline: 0;
-}
-
-input:active,
-textarea:active {
-  outline: 0;
-}
-
-button:active,
-button:focus {
-  outline: 0;
-}
-
-button::-moz-focus-inner {
-  border: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-a.active.focus,
-a.active:focus,
-a.focus,
-a:focus,
-a:active.focus,
-a:active:focus,
-button.active.focus,
-button.active:focus,
-button.focus,
-button:focus,
-button:active.focus,
-button:active:focus {
-  outline: 0;
-  outline: transparent none 0;
-  box-shadow: 0 0 0 0 rgb(0 123 255 / 0%);
-}
-
-input[placeholder] {
-  text-overflow: ellipsis;
-}
-
-input::placeholder {
-  text-overflow: ellipsis;
-}
-
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
-  appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  appearance: textfield;
-  appearance: unset;
-}
-
-input:-webkit-autofill {
-  box-shadow: none;
-}
-
-/* Remove the stupid outer glow in Webkit */
-input:focus {
-  outline: 0;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  transition: background-color 600000s 0s, color 600000s 0s;
 }
