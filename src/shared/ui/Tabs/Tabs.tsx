@@ -35,7 +35,7 @@ const Tabs: FC<TabsProps> = ({
   return (
     <Flex
       direction={direction}
-      gap="8"
+      gap="4"
       align="start"
       className={classNames(cls.Tabs, {}, [className])}
     >
@@ -43,6 +43,7 @@ const Tabs: FC<TabsProps> = ({
         const isSelected = tab.value === value;
         return (
           <Card
+            padding="8"
             variant={isSelected ? "light" : "normal"}
             className={classNames(cls.tab, {
               [cls.selected]: isSelected,
