@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --env port=3000",
     "vite": "vite",
-    "build:prod": "webpack --env mode=production apiUrl=https://json-server-product-one.vercel.app",
+    "build:prod": "webpack --env mode=production apiUrl=https://blog-delta-brown.vercel.app",
     "build:dev": "webpack --env mode=development",
     "unit": "jest --config ./config/jest/jest.config.ts",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
