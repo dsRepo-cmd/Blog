@@ -21,7 +21,7 @@ export default (env: BuildEnv) => {
 
   // const apiUrl = env.apiUrl || "http://localhost:8000";
 
-  const apiUrl = env.apiUrl || "https://json-server-product-one.vercel.app";
+  const apiUrl = env.apiUrl || "https://blog-delta-brown.vercel.app/";
 
   const config: webpack.Configuration = buildWebpackConfig({
     mode,
